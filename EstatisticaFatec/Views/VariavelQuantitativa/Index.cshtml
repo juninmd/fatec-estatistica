@@ -1,0 +1,173 @@
+﻿@model dynamic
+
+@{
+    ViewBag.Title = "Varíavel Quantitativa";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Varíavel Quantitativa</h2>
+<button type="button" class="btn btn-default" data-toggle="collapse" data-target="#collapse">
+    Ocultar introdução
+</button>
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalParametros">
+    Preencher Paramêtros
+</button>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalResultados">
+    Tabela
+</button>
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalGraficos">
+    Gráficos
+</button>
+
+<h6>
+    São as características que podem ser medidas em uma escala quantitativa, ou seja, apresentam valores numéricos que fazem sentido. Podem ser contínuas ou discretas.
+</h6>
+<div class="panel-group" id="collapse">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#collapse" href="#collapse-one">
+                    Variáveis discretas
+                </a>
+            </h4>
+        </div>
+        <div id="collapse-one" class="panel-collapse collapse in">
+            <div class="panel-body">
+                Características mensuráveis que podem assumir apenas um número finito ou infinito contável de valores e, assim, somente fazem sentido valores inteiros. Geralmente são o resultado de contagens. Exemplos: número de filhos, número de bactérias por litro de leite, número de cigarros fumados por dia.
+
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+                <a data-toggle="collapse" data-parent="#collapse" href="#collapse-two">
+                    Variáveis contínuas
+                </a>
+            </h4>
+        </div>
+        <div id="collapse-two" class="panel-collapse collapse">
+            <div class="panel-body">
+                Características mensuráveis que assumem valores em uma escala contínua (na reta real), para as quais valores fracionais fazem sentido. Usualmente devem ser medidas através de algum instrumento. Exemplos: peso (balança), altura (régua), tempo (relógio), pressão arterial, idade.
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="alert alert-warning alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <strong>Você ainda não preencheu os paramêtros!</strong> Por favor, <a href="#modalParametros" data-toggle="modal" class="alert-link">preencha os paramêtros</a>.
+</div>
+
+
+<div class="modal fade" id="modalParametros" tabindex="-1" role="dialog" aria-labelledby="myModal-label" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModal-label">Paramêtros</h4>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-warning alert-dismissable">
+                    <span class="badge">1ª Etapa</span>
+                    <span class="info">Efetuamos a coleta de todos os dados.</span> 
+                </div>
+               
+                <div class="row">
+                    <div class="col-md-12"><span>Insira os paramêtros, separados por ponto e vírgula ","</span></div>
+                </div>
+                <textarea class="form-control" rows="6" style="min-width: 100%" id="txtParametros"></textarea>
+                <div class="row" style="margin-top: 10px">
+                    <div class="col-md-12">
+                        <div class="alert alert-warning alert-dismissable">
+                            <span class="badge">2ª Etapa</span>
+                            <span class="info">Toda informação é ordenada.</span>
+                        </div>
+                        </div>
+                        <div class="col-md-12">
+                            <span>1,2,3,4,5,6,7</span>
+                        </div>
+                    </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Salvar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+ 
+
+<div class="modal fade" id="modalResultados" tabindex="-1" role="dialog" aria-labelledby="myModal-label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content ">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Tabela</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+
+                    <div class="col-md-5">
+                        <div class="alert alert-warning alert-dismissable">
+                            <span class="badge">3ª Etapa</span>
+                            <span class="info">Organizamos a coleta de dados</span>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="alert alert-warning alert-dismissable">
+                            <span class="badge">4ª Etapa</span>
+                            <span class="info">Distribuição de Frequência</span>
+                        </div>
+                    </div>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th title="Valor a ser calculado">[XI]</th>
+                            <th title="Frequência simples">[FI]</th>
+                            <th title="Frequência relativa percentual ">[FE%]</th>
+                            <th title="Frequência Acumulada">[F]</th>
+                            <th title="Frequência Acumulada porcentual">[F%]</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>John</td>
+                            <td>Mary</td>
+                            <td>Mary</td>
+                            <td>Mary</td>
+                            <td>Mary</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Sair</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalGraficos" tabindex="-1" role="dialog" aria-labelledby="modalGraficos-label" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="modalGraficos-label">Gráficos</h4>
+            </div>
+            <div class="modal-body">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
