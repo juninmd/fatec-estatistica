@@ -1,4 +1,4 @@
-﻿@model EstatisticaFatec.Models.EntidadeBase
+﻿@model EstatisticaFatec.Models.EntidadeContainer
 
 @{
     ViewBag.Title = "Varíavel Quantitativa";
@@ -87,7 +87,7 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <span>@string.Join(", ", @Model.ValorBrutoOrdenado)</span>
+                            <span>@string.Join(", ", @Model.Rol)</span>
                         </div>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach (var item in Model.ValorBrutoOrdenado)
+                    @foreach (var item in Model.Rol)
                     {
                         <tr>
                             <td>@item</td>

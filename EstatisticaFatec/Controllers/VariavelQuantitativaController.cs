@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
+using EstatisticaFatec.Core;
 using EstatisticaFatec.Models;
 
 namespace EstatisticaFatec.Controllers
@@ -9,7 +10,7 @@ namespace EstatisticaFatec.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View(new EntidadeBase());
+            return View(new EntidadeContainer());
         }
 
         [HttpPost]
@@ -18,11 +19,13 @@ namespace EstatisticaFatec.Controllers
 
             var lista = massaDados.Split(',').Select(int.Parse).ToList();
 
-            var entidade = new EntidadeBase
+            var entidade = new EntidadeContainer
             {
-                ValorBruto = lista,
-                ValorBrutoOrdenado = lista.OrderBy(x=> x).ToList()
+                InputValue = lista
+
             };
+
+            new VariavelQuantitativaApp().Build(lista);
 
             return View(entidade);
         }
