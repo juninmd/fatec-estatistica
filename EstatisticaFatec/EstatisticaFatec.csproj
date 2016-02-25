@@ -123,11 +123,15 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VariavelContinuaController.cs" />
     <Compile Include="Controllers\VariavelQuantitativaController.cs" />
+    <Compile Include="Core\VariavelContinuaApp.cs" />
     <Compile Include="Core\VariavelQuantitativaApp.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\EntidadeContainer.cs" />
+    <Compile Include="Models\VariavelContinua\VariavelContinuaContainerEntity.cs" />
+    <Compile Include="Models\VariavelContinua\VariavelContinuaIcEntity.cs" />
+    <Compile Include="Models\VariavelContinua\VariavelContinuaEntity.cs" />
+    <Compile Include="Models\VariavelQuantitativa\VariavelQuantitativaContainerEntity.cs" />
     <Compile Include="Models\VariavelQuantitativa\VariavelQuantitativaEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

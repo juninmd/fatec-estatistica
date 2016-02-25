@@ -1,4 +1,4 @@
-﻿@model EstatisticaFatec.Models.EntidadeContainer
+﻿@model EstatisticaFatec.Models.VariavelQuantitativa.VariavelQuantitativaContainerEntity
 
 @{
     ViewBag.Title = "Varíavel Quantitativa";
@@ -20,10 +20,11 @@
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalGraficos">
     Gráficos
 </button>
- 
+
 <h6>
     São as características que podem ser medidas em uma escala quantitativa, ou seja, apresentam valores numéricos que fazem sentido. Podem ser contínuas ou discretas.
 </h6>
+
 <div class="panel-group" id="collapse">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -37,20 +38,6 @@
             <div class="panel-body">
                 Características mensuráveis que podem assumir apenas um número finito ou infinito contável de valores e, assim, somente fazem sentido valores inteiros. Geralmente são o resultado de contagens. Exemplos: número de filhos, número de bactérias por litro de leite, número de cigarros fumados por dia.
 
-            </div>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-                <a data-toggle="collapse" data-parent="#collapse" href="#collapse-two">
-                    Variáveis contínuas
-                </a>
-            </h4>
-        </div>
-        <div id="collapse-two" class="panel-collapse collapse">
-            <div class="panel-body">
-                Características mensuráveis que assumem valores em uma escala contínua (na reta real), para as quais valores fracionais fazem sentido. Usualmente devem ser medidas através de algum instrumento. Exemplos: peso (balança), altura (régua), tempo (relógio), pressão arterial, idade.
             </div>
         </div>
     </div>

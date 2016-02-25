@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using EstatisticaFatec.Core;
-using EstatisticaFatec.Models;
+using EstatisticaFatec.Models.VariavelQuantitativa;
 
 namespace EstatisticaFatec.Controllers
 {
@@ -10,7 +10,7 @@ namespace EstatisticaFatec.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View(new EntidadeContainer());
+            return View(new VariavelQuantitativaContainerEntity());
         }
 
         [HttpPost]

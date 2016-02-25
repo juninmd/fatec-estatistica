@@ -7,7 +7,7 @@ namespace EstatisticaFatec.Core
 {
     public class VariavelQuantitativaApp
     {
-        public EntidadeContainer Build(List<int> inputData)
+        public VariavelQuantitativaContainerEntity Build(List<int> inputData)
         {
             var rol = inputData.OrderBy(x => x).ToList();
 
@@ -34,7 +34,7 @@ namespace EstatisticaFatec.Core
                 });
             }
 
-           return new EntidadeContainer
+           return new VariavelQuantitativaContainerEntity
             {
                 InputValue = inputData,
                 Rol = rol,

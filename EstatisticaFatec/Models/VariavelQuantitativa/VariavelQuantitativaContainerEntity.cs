@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
-using EstatisticaFatec.Models.VariavelQuantitativa;
 
-namespace EstatisticaFatec.Models
+namespace EstatisticaFatec.Models.VariavelQuantitativa
 {
-    public class EntidadeContainer
+    public class VariavelQuantitativaContainerEntity
     {
-        public EntidadeContainer()
+        public VariavelQuantitativaContainerEntity()
         {
             Rol = new List<int>();
             InputValue = new List<int>();
