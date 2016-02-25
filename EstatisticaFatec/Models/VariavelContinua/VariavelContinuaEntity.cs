@@ -7,27 +7,32 @@
     public class VariavelContinuaEntity
     {
         /// <summary>
-        /// [1] - Dado bruto do input
+        /// [1] - Indice da classe [1][2][3][4]
         /// </summary>
-        public int XI { get; set; }
+        public int Classe { get; set; }
 
         /// <summary>
-        /// [2] - Quantidade de elementos [XI]
+        /// [2] - Range de [x] para [y]
         /// </summary>
-        public int FI { get; set; }
+        public int Range { get; set; }
 
         /// <summary>
-        /// [3] - Porcentagem baseando na [quantidade total de FI] sobre o [FI]
+        /// [3] Contagens
+        /// </summary>
+        public int[] Count { get; set; }
+
+        /// <summary>
+        /// [4] - Porcentagem baseando na [quantidade total de FI] sobre o [FI]
         /// </summary>
         public decimal FEPorcent { get; set; }
 
         /// <summary>
-        /// [4] - Números acumulativos sobre [FI]
+        /// [5] - Números acumulativos sobre [FI]
         /// </summary>
         public int F { get; set; }
 
         /// <summary>
-        /// [5] - Porcentagem acumulativa sobre [FE%]
+        /// [6] - Porcentagem acumulativa sobre [FE%]
         /// </summary>
         public decimal FPorcent { get; set; }
     }

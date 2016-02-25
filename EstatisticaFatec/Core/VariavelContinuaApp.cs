@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using EstatisticaFatec.Models.VariavelContinua;
 using EstatisticaFatec.Models.VariavelQuantitativa;
@@ -17,7 +18,7 @@ namespace EstatisticaFatec.Core
                     return new VariavelContinuaIcEntity
                     {
                         IC = (al / K[0]),
-                        Classes = al
+                        Classes = (int)K[0]
                     };
                 }
                 /* K */
@@ -25,8 +26,8 @@ namespace EstatisticaFatec.Core
                 {
                     return new VariavelContinuaIcEntity
                     {
-                        IC = (al / K[0]),
-                        Classes = al
+                        IC = (al / K[1]),
+                        Classes = (int)K[1]
                     };
                 }
                 /* K + 1*/
@@ -34,8 +35,8 @@ namespace EstatisticaFatec.Core
                 {
                     return new VariavelContinuaIcEntity
                     {
-                        IC = (al / K[0]),
-                        Classes = al
+                        IC = (al / K[2]),
+                        Classes = (int)K[2]
                     };
                 }
                 al++;
@@ -50,33 +51,30 @@ namespace EstatisticaFatec.Core
 
             var al = xMAx - xMin + 1;
 
-            var K = new List<decimal> { inputData.Count(), inputData.Count() + 1, inputData.Count() - 1 };
+            var numeroPreK = (int)Math.Sqrt(inputData.Count());
+            var K = new List<decimal> { numeroPreK - 1, numeroPreK, numeroPreK + 1 };
 
             var Ic = GetIC(al, K);
 
             var listaTabelaQuantitativa = new List<VariavelContinuaEntity>();
 
+            var minimo = xMin;
+            var maximo = minimo + (int)Ic.IC;
 
-            var f = new List<int>();
-            var fePorcent = new List<decimal>();
-
-           /* for (int i = 0; i < Ic.Classes; i++)
+            for (int i = 1; i <= Ic.Classes; i++)
             {
-                f.Add(item.Count());
-                fePorcent.Add((item.Count() / (decimal)listaGrupos.Select(q => q.Count()).Sum()) * 100);
-
+             
                 listaTabelaQuantitativa.Add(new VariavelContinuaEntity
                 {
-                    XI = item.Key,
-                    FI = item.Count(),
-                    FEPorcent = (item.Count() / (decimal)listaGrupos.Select(q => q.Count()).Sum()) * 100,
-                    F = f.Sum(),
-                    FPorcent = fePorcent.Sum()
-
+                    Classe = i,
+                    Count = new int[2] { minimo, maximo },
+                    F = rol.Where(x => x >= minimo && x < maximo).GroupBy(q => q).Count()
                 });
-            }*/
 
- 
+                minimo = maximo;
+                maximo = maximo + (int) Ic.IC;
+
+            }
 
             return new VariavelContinuaContainerEntity
             {
