@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using EstatisticaFatec.Models;
 using EstatisticaFatec.Models.VariavelQuantitativa;
 
 namespace EstatisticaFatec.Core
 {
     public class VariavelQuantitativaApp
     {
-        public void Build(List<int> inputData)
+        public EntidadeContainer Build(List<int> inputData)
         {
             var rol = inputData.OrderBy(x => x).ToList();
 
@@ -32,6 +33,14 @@ namespace EstatisticaFatec.Core
 
                 });
             }
+
+           return new EntidadeContainer
+            {
+                InputValue = inputData,
+                Rol = rol,
+                VariavelQuantitativaEntity = listaTabelaQuantitativa
+
+            };
         }
     }
 }

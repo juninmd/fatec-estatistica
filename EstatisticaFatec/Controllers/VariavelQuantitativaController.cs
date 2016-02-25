@@ -19,15 +19,7 @@ namespace EstatisticaFatec.Controllers
 
             var lista = massaDados.Split(',').Select(int.Parse).ToList();
 
-            var entidade = new EntidadeContainer
-            {
-                InputValue = lista
-
-            };
-
-            new VariavelQuantitativaApp().Build(lista);
-
-            return View(entidade);
+            return View(new VariavelQuantitativaApp().Build(lista));
         }
     }
 }

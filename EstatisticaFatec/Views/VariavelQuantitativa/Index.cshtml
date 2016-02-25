@@ -76,7 +76,7 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12"><span>Insira os paramêtros, separados por ponto e vírgula ","</span></div>
+                        <div class="col-md-12"><span>Insira os paramêtros, separados por vírgula ","</span></div>
                     </div>
                     <textarea name="massaDados" class="form-control" rows="6" style="min-width: 100%" id="txtParametros"></textarea>
                     <div class="row" style="margin-top: 10px">
@@ -135,14 +135,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                    @foreach (var item in Model.Rol)
+                    @foreach (var item in Model.VariavelQuantitativaEntity)
                     {
                         <tr>
-                            <td>@item</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td>@item.XI</td>
+                            <td>@item.FI</td>
+                            <td>@item.FEPorcent%</td>
+                            <td>@item.F</td>
+                            <td>@item.FPorcent%</td>
                         </tr>
                     }
                     </tbody>
