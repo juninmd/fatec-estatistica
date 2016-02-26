@@ -120,11 +120,12 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model.VariavelQuantitativaEntity)
+                        @foreach (var item in Model.VariavelContinuaEntity)
                         {
                             <tr>
-                                <td>@item.XI</td>
-                                <td>@item.FI</td>
+                                <td>@item.Classe</td>
+                                <td>@item.Range[0]-------@item.Range[1]</td>
+                                <td>@item.Count</td>
                                 <td>@item.FEPorcent%</td>
                                 <td>@item.F</td>
                                 <td>@item.FPorcent%</td>

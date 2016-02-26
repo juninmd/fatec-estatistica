@@ -14,12 +14,12 @@
         /// <summary>
         /// [2] - Range de [x] para [y]
         /// </summary>
-        public int Range { get; set; }
+        public int[] Range { get; set; }
 
         /// <summary>
         /// [3] Contagens
         /// </summary>
-        public int[] Count { get; set; }
+        public int Count { get; set; }
 
         /// <summary>
         /// [4] - Porcentagem baseando na [quantidade total de FI] sobre o [FI]

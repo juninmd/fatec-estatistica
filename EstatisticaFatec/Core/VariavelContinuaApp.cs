@@ -61,18 +61,28 @@ namespace EstatisticaFatec.Core
             var minimo = xMin;
             var maximo = minimo + (int)Ic.IC;
 
+            var f = new List<int>();
+            var fePorcentList = new List<decimal>();
             for (int i = 1; i <= Ic.Classes; i++)
             {
-             
+                var fePorcent = (decimal)(rol.Count(x => x >= minimo && x < maximo) / (decimal)rol.Count()) * 100;
+                var count = rol.Count(x => x >= minimo && x < maximo);
+
+                f.Add(count);
+                fePorcentList.Add(fePorcent);
+
                 listaTabelaQuantitativa.Add(new VariavelContinuaEntity
                 {
                     Classe = i,
-                    Count = new int[2] { minimo, maximo },
-                    F = rol.Where(x => x >= minimo && x < maximo).GroupBy(q => q).Count()
+                    Range = new[] { minimo, maximo },
+                    Count = count,
+                    FEPorcent = fePorcent,
+                    F = f.Sum(),
+                    FPorcent = fePorcentList.Sum()
                 });
 
                 minimo = maximo;
-                maximo = maximo + (int) Ic.IC;
+                maximo = maximo + (int)Ic.IC;
 
             }
 

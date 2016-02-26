@@ -16,20 +16,22 @@ namespace EstatisticaFatec.Core
             var listaGrupos = rol.GroupBy(x => x);
 
             var f = new List<int>();
-            var fePorcent = new List<decimal>();
+            var fePorcentList = new List<decimal>();
 
             foreach (var item in listaGrupos)
             {
+                var fePorcent = (item.Count()/(decimal) listaGrupos.Select(q => q.Count()).Sum())*100;
+
                 f.Add(item.Count());
-                fePorcent.Add((item.Count() / (decimal)listaGrupos.Select(q => q.Count()).Sum()) * 100);
+                fePorcentList.Add(fePorcent);
 
                 listaTabelaQuantitativa.Add(new VariavelQuantitativaEntity
                 {
                     XI = item.Key,
                     FI = item.Count(),
-                    FEPorcent = (item.Count() / (decimal)listaGrupos.Select(q => q.Count()).Sum()) * 100,
+                    FEPorcent = fePorcent,
                     F = f.Sum(),
-                    FPorcent = fePorcent.Sum()
+                    FPorcent = fePorcentList.Sum()
 
                 });
             }
