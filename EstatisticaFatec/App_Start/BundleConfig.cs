@@ -25,6 +25,7 @@ namespace EstatisticaFatec
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/cssBase.css",
                       "~/Content/font-awesome.css",
                       "~/Content/site.css"));
         }
