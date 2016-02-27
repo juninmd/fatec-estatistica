@@ -124,6 +124,7 @@
     <Compile Include="Controllers\VariavelContinuaController.cs" />
     <Compile Include="Controllers\VariavelQuantitativaController.cs" />
     <Compile Include="Core\AleatoriaSimplesApp.cs" />
+    <Compile Include="Core\DistribuicaoNormalApp.cs" />
     <Compile Include="Core\SistematicaApp.cs" />
     <Compile Include="Core\EstratificadaUniformeApp.cs" />
     <Compile Include="Core\EstratificadaProporcionalApp.cs" />

@@ -54,6 +54,7 @@
     <Compile Include="AleatoriaSimplesTest.cs" />
     <Compile Include="EstratificadaUniformeTest.cs" />
     <Compile Include="EstratificadaProporcionalTest.cs" />
+    <Compile Include="DistribuicaoNormalTest.cs" />
     <Compile Include="VariavelContinuaTest.cs" />
     <Compile Include="VariavelQuantitativaTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
