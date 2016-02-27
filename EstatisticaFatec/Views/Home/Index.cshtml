@@ -1,46 +1,110 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
-https://design.google.com/icons/#ic_subject
+﻿<div class="container">
 
-<div class="container">
-    <div class="row">
-        <!-- Cards-->
-        <div class="card card--big col-sm-4">
-            <div class="card__image" style="text-align: center;background-color: rgba(0, 134, 110, 0.8);">
-                <i class="material-icons" style="font-size: 225px; color: whitesmoke">format_list_numbered</i>
+    <fieldset style="margin-bottom: 20px;">
+        <legend>Séries estátisticas</legend>
+        <div class="row">
+            <div class="card card--big col-sm-4">
+                <div class="card__image" style="text-align: center; background-color: rgba(0, 134, 110, 0.8);">
+                    <i class="material-icons" style="font-size: 225px; color: whitesmoke">format_list_numbered</i>
+                </div>
+                <h2 class="card__title">Variavel Quantitativa</h2>
+                <p class="card__text">Geralmente são o resultado de contagens. Exemplos: número de filhos...</p>
+                <div class="card__action-bar">
+                    <a href="@Url.Action("Index", "VariavelQuantitativa")" class="card__button btnMaterial">Iniciar</a>
+                    <a href="@Url.Action("Index", "VariavelQuantitativa")" class="card__button btnMaterial">Tutorial</a>
+                </div>
             </div>
-            <h2 class="card__title">Variavel Quantitativa</h2>
-            <p class="card__text">Geralmente são o resultado de contagens. Exemplos: número de filhos...</p>
-            <div class="card__action-bar">
-                <a href="@Url.Action("Index","VariavelQuantitativa")" class="card__button btnMaterial">Iniciar</a>
-                <a href="@Url.Action("Index","VariavelQuantitativa")" class="card__button btnMaterial">Tutorial</a>
-            </div>
-        </div>
-        <div class="card card--big col-sm-4">
-            <div class="card__image" style="text-align: center;background-color: rgba(255, 45, 0, 0.78);">
-                <i class="material-icons" style="font-size: 225px;color: whitesmoke">subject</i>
-            </div>
+            <div class="card card--big col-sm-4">
+                <div class="card__image" style="text-align: center; background-color: rgba(255, 45, 0, 0.78);">
+                    <i class="material-icons" style="font-size: 225px; color: whitesmoke">timeline</i>
+                </div>
 
-            
-            <h2 class="card__title">Variavel Continua</h2>
-            <p class="card__text">Características mensuráveis que assumem valores em uma escala contínua (na reta real)...</p>
-            <div class="card__action-bar">
-                <a href="@Url.Action("Index", "VariavelContinua")" class="card__button btnMaterial">Iniciar</a>
-                <a href="@Url.Action("Index", "VariavelQuantitativa")" class="card__button btnMaterial">Tutorial</a>
+
+                <h2 class="card__title">Variavel Continua</h2>
+                <p class="card__text">Características mensuráveis que assumem valores em uma escala contínua (na reta real)...</p>
+                <div class="card__action-bar">
+                    <a href="@Url.Action("Index", "VariavelContinua")" class="card__button btnMaterial">Iniciar</a>
+                    <a href="@Url.Action("Index", "VariavelQuantitativa")" class="card__button btnMaterial">Tutorial</a>
+                </div>
             </div>
         </div>
-        <div class="card card--big col-sm-4">
-            <div class="card__image" style="text-align: center;background-color: rgba(74, 0, 134, 0.76);">
-                <i class="material-icons" style="font-size: 225px;color: whitesmoke">people</i>
+    </fieldset>
+
+    <fieldset  style="margin-bottom: 20px;">
+        <legend>Técnicas de amostragem</legend>
+        <div class="row">
+            <div class="card card--big col-sm-4">
+                <div class="card__image" style="text-align: center; background-color: rgba(255, 225, 0, 0.8);">
+                    <i class="material-icons" style="font-size: 225px; color: whitesmoke">swap_vertical_circle</i>
+                </div>
+                <h2 class="card__title">Aleatória Simples</h2>
+                <p class="card__text">Geralmente são o resultado de contagens. Exemplos: número de filhos...</p>
+                <div class="card__action-bar">
+                    <a href="@Url.Action("Index", "VariavelQuantitativa")" class="card__button btnMaterial">Iniciar</a>
+                    <a href="@Url.Action("Index", "VariavelQuantitativa")" class="card__button btnMaterial">Tutorial</a>
+                </div>
             </div>
-            <h2 class="card__title">Sobre</h2> 
-            <p class="card__text">Conheça um pouco mais sobre a aplicação...</p>
-            <div class="card__action-bar">
-                <a href="@Url.Action("Index","VariavelQuantitativa")" class="card__button btnMaterial">Suporte</a>
-                <a href="@Url.Action("Index","VariavelQuantitativa")" class="card__button btnMaterial">Contato</a>
+            <div class="card card--big col-sm-4">
+                <div class="card__image" style="text-align: center; background-color: rgba(0, 0, 0, 0.8);">
+                    <i class="material-icons" style="font-size: 225px; color: whitesmoke">polymer</i>
+                </div>
+
+
+                <h2 class="card__title">Estratificada</h2>
+                <p class="card__text">Características mensuráveis que assumem valores em uma escala contínua (na reta real)...</p>
+                <div class="card__action-bar">
+                    <a href="@Url.Action("Index", "VariavelContinua")" class="card__button btnMaterial">Iniciar</a>
+                    <a href="@Url.Action("Index", "VariavelQuantitativa")" class="card__button btnMaterial">Tutorial</a>
+                </div>
+            </div>
+            <div class="card card--big col-sm-4">
+                <div class="card__image" style="text-align: center; background-color: rgba(8, 104, 23, 0.8);">
+                    <i class="material-icons" style="font-size: 225px; color: whitesmoke">dvr</i>
+                </div>
+                <h2 class="card__title">Sistemática</h2>
+                <p class="card__text">Conheça um pouco mais sobre a aplicação...</p>
+                <div class="card__action-bar">
+                    <a href="@Url.Action("Index", "VariavelQuantitativa")" class="card__button btnMaterial">Suporte</a>
+                    <a href="@Url.Action("Index", "VariavelQuantitativa")" class="card__button btnMaterial">Contato</a>
+                </div>
             </div>
         </div>
-    </div>
+    </fieldset>
+
+
+    <fieldset  style="margin-bottom: 20px;">
+        <legend>Conheça um pouco sobre os desenvolvedores</legend>
+        <div class="row">
+            <div class="card card--big col-sm-4">
+                <div class="card__image" style="text-align: center; background-color: rgba(74, 0, 134, 0.76);">
+                    <i class="material-icons" style="font-size: 225px; color: whitesmoke">people</i>
+                </div>
+                <h2 class="card__title">Antonio</h2>
+                <p class="card__text">Conheça um pouco mais sobre a aplicação...</p>
+                <div class="card__action-bar">
+                    <a href="@Url.Action("Index", "VariavelQuantitativa")" class="card__button btnMaterial">Suporte</a>
+                </div>
+            </div>
+            <div class="card card--big col-sm-4">
+                <div class="card__image" style="text-align: center; background-color: rgba(74, 0, 134, 0.76);">
+                    <i class="material-icons" style="font-size: 225px; color: whitesmoke">people</i>
+                </div>
+                <h2 class="card__title">Arthur</h2>
+                <p class="card__text">Conheça um pouco mais sobre a aplicação...</p>
+                <div class="card__action-bar">
+                    <a href="@Url.Action("Index", "VariavelQuantitativa")" class="card__button btnMaterial">Suporte</a>
+                </div>
+            </div>
+            <div class="card card--big col-sm-4">
+                <div class="card__image" style="text-align: center; background-color: rgba(74, 0, 134, 0.76);">
+                    <i class="material-icons" style="font-size: 225px; color: whitesmoke">people</i>
+                </div>
+                <h2 class="card__title">Bruno</h2>
+                <p class="card__text">Conheça um pouco mais sobre a aplicação...</p>
+                <div class="card__action-bar">
+                    <a href="@Url.Action("Index", "VariavelQuantitativa")" class="card__button btnMaterial">Suporte</a>
+                </div>
+            </div>
+        </div>
+    </fieldset>
 </div>
- 
