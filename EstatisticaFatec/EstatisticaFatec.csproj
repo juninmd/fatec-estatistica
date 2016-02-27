@@ -123,11 +123,16 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VariavelContinuaController.cs" />
     <Compile Include="Controllers\VariavelQuantitativaController.cs" />
+    <Compile Include="Core\AleatoriaSimplesApp.cs" />
+    <Compile Include="Core\SistematicaApp.cs" />
+    <Compile Include="Core\EstratificadaUniformeApp.cs" />
+    <Compile Include="Core\EstratificadaProporcionalApp.cs" />
     <Compile Include="Core\VariavelContinuaApp.cs" />
     <Compile Include="Core\VariavelQuantitativaApp.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EstratificadaProporcional\EstratificadaProporcionalEntity.cs" />
     <Compile Include="Models\VariavelContinua\VariavelContinuaContainerEntity.cs" />
     <Compile Include="Models\VariavelContinua\VariavelContinuaIcEntity.cs" />
     <Compile Include="Models\VariavelContinua\VariavelContinuaEntity.cs" />
