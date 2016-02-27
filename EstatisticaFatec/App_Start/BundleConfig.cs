@@ -20,12 +20,16 @@ namespace EstatisticaFatec
                         "~/Scripts/modernizr-*"));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                      "~/Scripts/material.js",
+                      "~/Scripts/ripples.js",
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/cssBase.css",
+                      "~/Content/ripples.css",
+                      "~/Content/bootstrap-material-design.css",
                       "~/Content/font-awesome.css",
                       "~/Content/site.css"));
         }

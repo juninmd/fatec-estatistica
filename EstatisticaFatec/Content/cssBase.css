@@ -5,7 +5,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
 }
- 
+
 
 .btnMaterial {
     border: none;
@@ -98,7 +98,7 @@ body {
     }
 
 .card__title {
-     text-shadow: -1px 0px black, 0px 1px black, 1px 0px black, 0px -1px black;
+    text-shadow: -1px 0px black, 0px 1px black, 1px 0px black, 0px -1px black;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -214,3 +214,4 @@ body {
     .card--big .card__action-bar {
         left: 0;
     }
+ 
