@@ -1,11 +1,13 @@
-﻿using System;
+﻿using EstatisticaFatec.Models.AleatoriaSimples;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace EstatisticaFatec.Core
 {
     public class AleatoriaSimplesApp
     {
-        public List<int> Build(int populacao, int amostra)
+        public AleatoriaSimplesEntity Build(int populacao, int amostra)
         {
             return GetRandomNmbers(populacao, amostra);
         }
@@ -15,7 +17,7 @@ namespace EstatisticaFatec.Core
         /// <param name="populacao">Quantidade total de onde a amostra será baseada [População] Y= 100 </param>
         /// <param name="amostra">Quantidade da amostra X / Y * (Porcentagem) </param>
         /// <returns></returns>
-        private List<int> GetRandomNmbers(int populacao, int amostra)
+        private AleatoriaSimplesEntity GetRandomNmbers(int populacao, int amostra)
         {
             var listaRandom = new List<int>();
             var i = 0;
@@ -33,7 +35,12 @@ namespace EstatisticaFatec.Core
                 listaRandom.Add(randomNumber);
                 i++;
             }
-            return listaRandom;
+            return new AleatoriaSimplesEntity
+            {
+                Amostra = amostra,
+                Populacao = populacao,
+                Resultados = listaRandom.OrderBy(x=> x).ToList()
+            };
         }
     }
 }
