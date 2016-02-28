@@ -121,6 +121,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AleatoriaSimplesController.cs" />
+    <Compile Include="Controllers\EstratificadaProporcionalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VariavelContinuaController.cs" />
     <Compile Include="Controllers\VariavelQuantitativaController.cs" />
@@ -135,7 +136,8 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AleatoriaSimples\AleatoriaSimplesEntity.cs" />
-    <Compile Include="Models\EstratificadaProporcional\EstratificadaProporcionalEntity.cs" />
+    <Compile Include="Models\Estratificada\EstratificadaProporcionalContainerEntity.cs" />
+    <Compile Include="Models\Estratificada\EstratificadaProporcionalEntity.cs" />
     <Compile Include="Models\VariavelContinua\VariavelContinuaContainerEntity.cs" />
     <Compile Include="Models\VariavelContinua\VariavelContinuaIcEntity.cs" />
     <Compile Include="Models\VariavelContinua\VariavelContinuaEntity.cs" />
@@ -204,6 +206,7 @@
     <Content Include="Scripts\jquery-2.2.0.min.map" />
     <Content Include="Views\VariavelContinua\Index.cshtml" />
     <Content Include="Views\AleatoriaSimples\Index.cshtml" />
+    <Content Include="Views\EstratificadaProporcional\Index.cshtml" />
     <None Include="Views\VariavelQuantitativa\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

@@ -3,21 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using EstatisticaFatec.Models.EstratificadaProporcional;
+using EstatisticaFatec.Models.Estratificada;
 
 namespace EstatisticaFatec.Core
 {
     public class EstratificadaProporcionalApp
     {
-        public List<EstratificadaProporcionalEntity> Build(int amostra, List<int> estratos, int populacao)
+        public EstratificadaProporcionalContainerEntity Build(int amostra, List<int> estratos, int populacao)
         {
-            var porTotal = (decimal)amostra / populacao;
+            var porTotal = (decimal)populacao / amostra;
             var countEstratos = estratos.Count();
 
             var lista = new List<EstratificadaProporcionalEntity>();
 
             for (int i = 0; i < countEstratos; i++)
             {
-                var qtdFinal = (int)Math.Round(porTotal * estratos[i]);
+                var qtdFinal = (int)Math.Round((decimal)porTotal * (decimal)estratos[i]);
 
                 lista.Add(new EstratificadaProporcionalEntity
                 {
@@ -25,8 +26,14 @@ namespace EstatisticaFatec.Core
                     QtdEstrato = qtdFinal
                 });
             }
-            return lista;
+            return new EstratificadaProporcionalContainerEntity()
+            {
+                Amostra = amostra,
+                Populacao = populacao,
+                ListaEstratos = estratos,
+                EstratificadaProporcional = lista
+            };
         }
     }
-    
+
 }
