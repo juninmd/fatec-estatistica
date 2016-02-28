@@ -29,10 +29,14 @@
     </div>
 </div>
 
-<div class="alert alert-warning alert-dismissable">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-    <strong>Você ainda não preencheu os paramêtros!</strong> Por favor, <a href="#modalParametros" data-toggle="modal" class="alert-link">preencha os paramêtros</a>.
-</div>
+@if (Model.InputValue.Any() == false)
+{
+    <div class="alert alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <strong>Você ainda não preencheu os paramêtros! Por favor, preencha os paramêtros.</strong>
+    </div>
+}
+
 
 <form method="POST" action="@Url.Action("Index")">
     <div class="panel panel-info">
@@ -76,7 +80,7 @@
 <div class="panel panel-info">
     <div class="panel-heading">
         <span class="badge">2ª Etapa</span>
-        <span class="info">Toda informação é ordenada.</span>
+        <span class="info">Toda informação é ordenada (Vulgo ROL).</span>
     </div>
 
     <div class="panel-body">
@@ -139,17 +143,34 @@
                     </table>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <span class="badge">5ª Etapa</span>
+        <span class="info">Administramos assim os gráficos.</span>
+    </div>
+
+    <div class="panel-body">
+        <div class="row-content">
+
+            <div class="list-group">
+                <div class="list-group-item" style="text-align:center">
+                    <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+                </div>
+            </div>
 
         </div>
     </div>
 </div>
 
 
-
  
 
 
-<div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+
 
 @section scripts{
     <script src="https://code.highcharts.com/highcharts.js"></script>
@@ -209,12 +230,6 @@
                 series: [{
                     name: 'Year 1800',
                     data: [107, 31, 635, 203, 2]
-                }, {
-                    name: 'Year 1900',
-                    data: [133, 156, 947, 408, 6]
-                }, {
-                    name: 'Year 2012',
-                    data: [1052, 954, 4250, 740, 38]
                 }]
             });
         });
