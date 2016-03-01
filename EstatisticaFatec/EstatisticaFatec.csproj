@@ -129,7 +129,7 @@
     <Compile Include="Controllers\EstratificadaProporcionalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VariavelContinuaController.cs" />
-    <Compile Include="Controllers\VariavelQuantitativaController.cs" />
+    <Compile Include="Controllers\VariavelDiscretaController.cs" />
     <Compile Include="Core\AleatoriaSimplesApp.cs" />
     <Compile Include="Core\DistribuicaoMenorApp.cs" />
     <Compile Include="Core\DistribuicaoMaiorApp.cs" />
@@ -138,7 +138,7 @@
     <Compile Include="Core\EstratificadaUniformeApp.cs" />
     <Compile Include="Core\EstratificadaProporcionalApp.cs" />
     <Compile Include="Core\VariavelContinuaApp.cs" />
-    <Compile Include="Core\VariavelQuantitativaApp.cs" />
+    <Compile Include="Core\VariavelDiscretaApp.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -153,7 +153,7 @@
     <Compile Include="Models\VariavelContinua\VariavelContinuaContainerEntity.cs" />
     <Compile Include="Models\VariavelContinua\VariavelContinuaIcEntity.cs" />
     <Compile Include="Models\VariavelContinua\VariavelContinuaEntity.cs" />
-    <Compile Include="Models\VariavelQuantitativa\VariavelQuantitativaContainerEntity.cs" />
+    <Compile Include="Models\VariavelQuantitativa\VariavelDiscretaContainerEntity.cs" />
     <Compile Include="Models\VariavelQuantitativa\VariavelQuantitativaEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -224,7 +224,7 @@
     <Content Include="Views\DistribuicaoEntre\Index.cshtml" />
     <Content Include="Views\DistribuicaoMaior\Index.cshtml" />
     <Content Include="Views\DistribuicaoMenor\Index.cshtml" />
-    <None Include="Views\VariavelQuantitativa\Index.cshtml" />
+    <None Include="Views\VariavelDiscreta\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

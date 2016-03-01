@@ -34,7 +34,7 @@ namespace EstatisticaFatec.Tests
                3000
             };
 
-            var lista = new VariavelQuantitativaApp().Build(numeros);
+            var lista = new VariavelDiscretaApp().Build(numeros);
         }
     }
 }

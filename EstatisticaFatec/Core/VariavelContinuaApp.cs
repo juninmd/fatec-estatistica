@@ -76,9 +76,9 @@ namespace EstatisticaFatec.Core
                     Classe = i,
                     Range = new[] { minimo, maximo },
                     Count = count,
-                    FEPorcent = fePorcent,
+                    FEPorcent = Math.Round(fePorcent, 2),
                     F = f.Sum(),
-                    FPorcent = fePorcentList.Sum()
+                    FPorcent = Math.Round(fePorcentList.Sum(), 2)
                 });
 
                 minimo = maximo;

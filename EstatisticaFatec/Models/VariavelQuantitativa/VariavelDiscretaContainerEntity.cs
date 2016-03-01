@@ -2,9 +2,9 @@
 
 namespace EstatisticaFatec.Models.VariavelQuantitativa
 {
-    public class VariavelQuantitativaContainerEntity
+    public class VariavelDiscretaContainerEntity
     {
-        public VariavelQuantitativaContainerEntity()
+        public VariavelDiscretaContainerEntity()
         {
             Rol = new List<int>();
             InputValue = new List<int>();

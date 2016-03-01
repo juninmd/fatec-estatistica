@@ -1,13 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using EstatisticaFatec.Models;
 using EstatisticaFatec.Models.VariavelQuantitativa;
 
 namespace EstatisticaFatec.Core
 {
-    public class VariavelQuantitativaApp
+    public class VariavelDiscretaApp
     {
-        public VariavelQuantitativaContainerEntity Build(List<int> inputData)
+        public VariavelDiscretaContainerEntity Build(List<int> inputData)
         {
             var rol = inputData.OrderBy(x => x).ToList();
 
@@ -20,7 +21,7 @@ namespace EstatisticaFatec.Core
 
             foreach (var item in listaGrupos)
             {
-                var fePorcent = (item.Count()/(decimal) listaGrupos.Select(q => q.Count()).Sum())*100;
+                var fePorcent = (item.Count() / (decimal)listaGrupos.Select(q => q.Count()).Sum()) * 100;
 
                 f.Add(item.Count());
                 fePorcentList.Add(fePorcent);
@@ -29,14 +30,14 @@ namespace EstatisticaFatec.Core
                 {
                     XI = item.Key,
                     FI = item.Count(),
-                    FEPorcent = fePorcent,
+                    FEPorcent = Math.Round(fePorcent, 2),
                     F = f.Sum(),
-                    FPorcent = fePorcentList.Sum()
+                    FPorcent = Math.Round(fePorcentList.Sum(), 2)
 
                 });
             }
 
-           return new VariavelQuantitativaContainerEntity
+            return new VariavelDiscretaContainerEntity
             {
                 InputValue = inputData,
                 Rol = rol,

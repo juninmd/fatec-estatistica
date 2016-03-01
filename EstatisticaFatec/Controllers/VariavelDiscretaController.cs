@@ -5,12 +5,12 @@ using EstatisticaFatec.Models.VariavelQuantitativa;
 
 namespace EstatisticaFatec.Controllers
 {
-    public class VariavelQuantitativaController : Controller
+    public class VariavelDiscretaController : Controller
     {
         [HttpGet]
         public ActionResult Index()
         {
-            return View(new VariavelQuantitativaContainerEntity());
+            return View(new VariavelDiscretaContainerEntity());
         }
 
         [HttpPost]
@@ -19,7 +19,7 @@ namespace EstatisticaFatec.Controllers
 
             var lista = massaDados.Split(',').Select(int.Parse).ToList();
 
-            return View(new VariavelQuantitativaApp().Build(lista));
+            return View(new VariavelDiscretaApp().Build(lista));
         }
     }
 }
