@@ -5,21 +5,22 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using EstatisticaFatec.Models.EstratificadaProporcional;
+using EstatisticaFatec.Models.EstratificadaUniforme;
 
 namespace EstatisticaFatec.Controllers
 {
-    public class EstratificadaProporcionalController : Controller
+    public class EstratificadaUniformeController : Controller
     {
         [HttpGet]
         public ActionResult Index()
         {
-            return View(new EstratificadaProporcionalContainerEntity());
+            return View(new EstratificadaUniformeEntity());
         }
 
         [HttpPost]
-        public ActionResult Index(int amostra, List<int> estrato, int populacao)
+        public ActionResult Index(int amostra, int estrato)
         {
-            return View(new EstratificadaProporcionalApp().Build(amostra, estrato, populacao));
+            return View(new EstratificadaUniformeApp().Build(amostra, estrato));
         }
     }
 }

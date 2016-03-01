@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using EstatisticaFatec.Models.EstratificadaProporcional;
-using EstatisticaFatec.Models.Estratificada;
 
 namespace EstatisticaFatec.Core
 {

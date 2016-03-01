@@ -1,6 +1,6 @@
 ﻿namespace EstatisticaFatec.Core
 {
-    public class DistribuicaoNormalApp
+    public class DistribuicaoEntreApp
     {
         public void Build()
         {

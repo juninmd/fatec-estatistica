@@ -1,10 +1,10 @@
-﻿@model EstatisticaFatec.Models.EstratificadaProporcional.EstratificadaProporcionalContainerEntity
+﻿@model EstatisticaFatec.Models.EstratificadaUniforme.EstratificadaUniformeEntity
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Estratificada Proporcional</h2>
+<h2>Estratificada Uniforme</h2>
 
 <div class="panel panel-info">
     <div class="panel-heading">
@@ -35,7 +35,7 @@
     </div>
 </div>
 
-@if (Model.EstratificadaProporcional.Any() == false)
+@if (Model.Resultado == new decimal())
 {
     <div class="alert alert-warning alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -49,47 +49,25 @@
             <legend>Parametrização</legend>
 
             <div class="form-group">
-                <label for="inputEmail" class="col-md-2 control-label">Quantidade da Amostra</label>
+                <label class="col-md-2 control-label">Quantidade da Amostra</label>
 
                 <div class="col-md-4">
                     <input class="form-control" required placeholder="@Model.Amostra" name="amostra" type="number">
                 </div>
 
-                <label for="inputEmail" class="col-md-2 control-label">População</label>
+                <label class="col-md-2 control-label">População</label>
 
                 <div class="col-md-4">
-                    <input class="form-control" required placeholder="@Model.Populacao" name="populacao" type="number">
+                    <input class="form-control" required placeholder="@Model.QtdEstrato" name="estrato" type="number">
                 </div>
-
-                <div id="divEstratoPai">
-                    <label class="col-md-2 control-label">Estratos</label>
-
-                    <div id="divEstrato" class="col-md-4">
-                        <input class="form-control" required name="estrato" type="number">
-                    </div>
-                    <div class="col-md-3">
-                        <input value="Adicionar Estrato" class="btn btn-info" type="button" onclick="funcaoAdicionarEstrato()">
-                    </div>
-                    <div class="col-md-3">
-                        <input value="Remover Todos Estratos" class="btn btn-warning" type="button" onclick="funcaoRemoverTodosEstratos()">
-                    </div>
-
-                </div>
-
+             
                 <hr />
 
-
                 <label class="col-md-2 control-label">Resultados</label>
+                <div class="col-md-4">
+                    <input class="form-control" required placeholder="@Model.Resultado" type="number">
+                </div>
 
-                @foreach (var item in Model.EstratificadaProporcional)
-                {
-                    <text>
-                        <div class="col-md-10">
-                            <p> O @(item.IdEstrato + 1) Estrato deverá ter @(item.QtdEstrato) elemento(s) entrevistado(s).</p>
-                        </div>
-
-                    </text>
-                }
             </div>
 
             <div class="col-md-10 col-md-offset-2">
@@ -99,18 +77,3 @@
         </fieldset>
     </form>
 </div>
-
-@section Scripts{
-
-    <script>
-        function funcaoAdicionarEstrato() {
-            $("#divEstratoPai").append('<div id="divEstratoClone" class="col-md-10 col-md-offset-2"><input class="form-control" required name="estrato" type="number"><input value="Remover Estrato" class="btn btn-danger"  type="button" onclick="funcaoRemoverEstrato(this)"></div>');
-        }
-        function funcaoRemoverEstrato(elemento) {
-            $(elemento).parent().remove();
-        }
-        function funcaoRemoverTodosEstratos() {
-            $("#divEstratoClone").remove();
-        }
-    </script>
-}

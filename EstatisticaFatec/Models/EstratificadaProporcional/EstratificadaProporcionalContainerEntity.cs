@@ -1,7 +1,6 @@
-﻿using EstatisticaFatec.Models.EstratificadaProporcional;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace EstatisticaFatec.Models.Estratificada
+namespace EstatisticaFatec.Models.EstratificadaProporcional
 {
     public class EstratificadaProporcionalContainerEntity
     {

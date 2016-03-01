@@ -1,8 +1,9 @@
-﻿@model EstatisticaFatec.Models.EstratificadaProporcional.EstratificadaProporcionalContainerEntity
+﻿@model dynamic
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 
 <h2>Estratificada Proporcional</h2>
 
@@ -49,13 +50,13 @@
             <legend>Parametrização</legend>
 
             <div class="form-group">
-                <label for="inputEmail" class="col-md-2 control-label">Quantidade da Amostra</label>
+                <label class="col-md-2 control-label">Quantidade da Amostra</label>
 
                 <div class="col-md-4">
                     <input class="form-control" required placeholder="@Model.Amostra" name="amostra" type="number">
                 </div>
 
-                <label for="inputEmail" class="col-md-2 control-label">População</label>
+                <label class="col-md-2 control-label">População</label>
 
                 <div class="col-md-4">
                     <input class="form-control" required placeholder="@Model.Populacao" name="populacao" type="number">
@@ -99,18 +100,3 @@
         </fieldset>
     </form>
 </div>
-
-@section Scripts{
-
-    <script>
-        function funcaoAdicionarEstrato() {
-            $("#divEstratoPai").append('<div id="divEstratoClone" class="col-md-10 col-md-offset-2"><input class="form-control" required name="estrato" type="number"><input value="Remover Estrato" class="btn btn-danger"  type="button" onclick="funcaoRemoverEstrato(this)"></div>');
-        }
-        function funcaoRemoverEstrato(elemento) {
-            $(elemento).parent().remove();
-        }
-        function funcaoRemoverTodosEstratos() {
-            $("#divEstratoClone").remove();
-        }
-    </script>
-}

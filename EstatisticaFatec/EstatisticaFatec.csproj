@@ -121,12 +121,19 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AleatoriaSimplesController.cs" />
+    <Compile Include="Controllers\DistribuicaoMaiorController.cs" />
+    <Compile Include="Controllers\DistribuicaoEntreController.cs" />
+    <Compile Include="Controllers\DistribuicaoMenorController.cs" />
+    <Compile Include="Controllers\SistematicaController.cs" />
+    <Compile Include="Controllers\EstratificadaUniformeController.cs" />
     <Compile Include="Controllers\EstratificadaProporcionalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VariavelContinuaController.cs" />
     <Compile Include="Controllers\VariavelQuantitativaController.cs" />
     <Compile Include="Core\AleatoriaSimplesApp.cs" />
-    <Compile Include="Core\DistribuicaoNormalApp.cs" />
+    <Compile Include="Core\DistribuicaoMenorApp.cs" />
+    <Compile Include="Core\DistribuicaoMaiorApp.cs" />
+    <Compile Include="Core\DistribuicaoEntreApp.cs" />
     <Compile Include="Core\SistematicaApp.cs" />
     <Compile Include="Core\EstratificadaUniformeApp.cs" />
     <Compile Include="Core\EstratificadaProporcionalApp.cs" />
@@ -136,8 +143,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AleatoriaSimples\AleatoriaSimplesEntity.cs" />
-    <Compile Include="Models\Estratificada\EstratificadaProporcionalContainerEntity.cs" />
-    <Compile Include="Models\Estratificada\EstratificadaProporcionalEntity.cs" />
+    <Compile Include="Models\DistribuicaoEntre\DistribuicaoEntreEntity.cs" />
+    <Compile Include="Models\DistribuicaoMaior\DistribuicaoMaiorEntity.cs" />
+    <Compile Include="Models\DistribuicaoMenor\DistribuicaoMenorEntity.cs" />
+    <Compile Include="Models\EstratificadaProporcional\EstratificadaProporcionalContainerEntity.cs" />
+    <Compile Include="Models\EstratificadaProporcional\EstratificadaProporcionalEntity.cs" />
+    <Compile Include="Models\EstratificadaUniforme\EstratificadaUniformeEntity.cs" />
+    <Compile Include="Models\Sistematica\SistematicaEntity.cs" />
     <Compile Include="Models\VariavelContinua\VariavelContinuaContainerEntity.cs" />
     <Compile Include="Models\VariavelContinua\VariavelContinuaIcEntity.cs" />
     <Compile Include="Models\VariavelContinua\VariavelContinuaEntity.cs" />
@@ -207,6 +219,11 @@
     <Content Include="Views\VariavelContinua\Index.cshtml" />
     <Content Include="Views\AleatoriaSimples\Index.cshtml" />
     <Content Include="Views\EstratificadaProporcional\Index.cshtml" />
+    <Content Include="Views\EstratificadaUniforme\Index.cshtml" />
+    <Content Include="Views\Sistematica\Index.cshtml" />
+    <Content Include="Views\DistribuicaoEntre\Index.cshtml" />
+    <Content Include="Views\DistribuicaoMaior\Index.cshtml" />
+    <Content Include="Views\DistribuicaoMenor\Index.cshtml" />
     <None Include="Views\VariavelQuantitativa\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

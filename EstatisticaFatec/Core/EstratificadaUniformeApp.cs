@@ -1,12 +1,18 @@
 ﻿using System;
+using EstatisticaFatec.Models.EstratificadaUniforme;
 
 namespace EstatisticaFatec.Core
 {
     public class EstratificadaUniformeApp
     {
-        public decimal Build(int amostra, int estratos)
+        public EstratificadaUniformeEntity Build(int amostra, int estratos)
         {
-            return Math.Round((decimal) (amostra / estratos));
+            return new EstratificadaUniformeEntity
+            {
+                QtdEstrato = estratos,
+                Amostra = amostra,
+                Resultado = Math.Round((decimal)(amostra / estratos))
+            };
         }
     }
 }
