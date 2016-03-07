@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using EstatisticaFatec.Core;
-using EstatisticaFatec.Models.VariavelQuantitativa;
+using EstatisticaFatec.Core.Models.VariavelQuantitativa;
 
 namespace EstatisticaFatec.Controllers
 {

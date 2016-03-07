@@ -61,9 +61,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EstatisticaFatec\EstatisticaFatec.csproj">
-      <Project>{CAE2A2D5-833F-4DA2-9D26-0801309FA962}</Project>
-      <Name>EstatisticaFatec</Name>
+    <ProjectReference Include="..\EstatisticaFatec.Core\EstatisticaFatec.Core.csproj">
+      <Project>{6c2b155b-b9aa-43db-9481-445afc99f937}</Project>
+      <Name>EstatisticaFatec.Core</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using EstatisticaFatec.Core;
+﻿using EstatisticaFatec.Core;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace EstatisticaFatec.Tests

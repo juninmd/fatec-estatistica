@@ -1,6 +1,6 @@
 ﻿using EstatisticaFatec.Core;
-using EstatisticaFatec.Models.AleatoriaSimples;
 using System.Web.Mvc;
+using EstatisticaFatec.Core.Models.AleatoriaSimples;
 
 namespace EstatisticaFatec.Controllers
 {

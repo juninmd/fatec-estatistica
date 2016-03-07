@@ -1,5 +1,5 @@
 ﻿using System.Web.Mvc;
-using EstatisticaFatec.Models.DistribuicaoEntre;
+using EstatisticaFatec.Core.Models.DistribuicaoEntre;
 
 namespace EstatisticaFatec.Controllers
 {

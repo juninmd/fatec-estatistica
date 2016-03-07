@@ -130,32 +130,9 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VariavelContinuaController.cs" />
     <Compile Include="Controllers\VariavelDiscretaController.cs" />
-    <Compile Include="Core\AleatoriaSimplesApp.cs" />
-    <Compile Include="Core\DistribuicaoMenorApp.cs" />
-    <Compile Include="Core\DistribuicaoMaiorApp.cs" />
-    <Compile Include="Core\DistribuicaoEntreApp.cs" />
-    <Compile Include="Core\MathCoreApp.cs" />
-    <Compile Include="Core\SistematicaApp.cs" />
-    <Compile Include="Core\EstratificadaUniformeApp.cs" />
-    <Compile Include="Core\EstratificadaProporcionalApp.cs" />
-    <Compile Include="Core\VariavelContinuaApp.cs" />
-    <Compile Include="Core\VariavelDiscretaApp.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AleatoriaSimples\AleatoriaSimplesEntity.cs" />
-    <Compile Include="Models\DistribuicaoEntre\DistribuicaoEntreEntity.cs" />
-    <Compile Include="Models\DistribuicaoMaior\DistribuicaoMaiorEntity.cs" />
-    <Compile Include="Models\DistribuicaoMenor\DistribuicaoMenorEntity.cs" />
-    <Compile Include="Models\EstratificadaProporcional\EstratificadaProporcionalContainerEntity.cs" />
-    <Compile Include="Models\EstratificadaProporcional\EstratificadaProporcionalEntity.cs" />
-    <Compile Include="Models\EstratificadaUniforme\EstratificadaUniformeEntity.cs" />
-    <Compile Include="Models\Sistematica\SistematicaEntity.cs" />
-    <Compile Include="Models\VariavelContinua\VariavelContinuaContainerEntity.cs" />
-    <Compile Include="Models\VariavelContinua\VariavelContinuaIcEntity.cs" />
-    <Compile Include="Models\VariavelContinua\VariavelContinuaEntity.cs" />
-    <Compile Include="Models\VariavelQuantitativa\VariavelDiscretaContainerEntity.cs" />
-    <Compile Include="Models\VariavelQuantitativa\VariavelQuantitativaEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -189,6 +166,7 @@
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\fatec.js" />
     <Content Include="Scripts\highcharts.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
@@ -234,6 +212,12 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EstatisticaFatec.Core\EstatisticaFatec.Core.csproj">
+      <Project>{6C2B155B-B9AA-43DB-9481-445AFC99F937}</Project>
+      <Name>EstatisticaFatec.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

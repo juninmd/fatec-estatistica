@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstatisticaFatec", "Estatis
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstatisticaFatec.Tests", "EstatisticaFatec.Tests\EstatisticaFatec.Tests.csproj", "{7A1B826C-B342-4D42-8FDA-3D476146D2E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EstatisticaFatec.Core", "EstatisticaFatec.Core\EstatisticaFatec.Core.csproj", "{6C2B155B-B9AA-43DB-9481-445AFC99F937}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7A1B826C-B342-4D42-8FDA-3D476146D2E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A1B826C-B342-4D42-8FDA-3D476146D2E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A1B826C-B342-4D42-8FDA-3D476146D2E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C2B155B-B9AA-43DB-9481-445AFC99F937}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C2B155B-B9AA-43DB-9481-445AFC99F937}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C2B155B-B9AA-43DB-9481-445AFC99F937}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C2B155B-B9AA-43DB-9481-445AFC99F937}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

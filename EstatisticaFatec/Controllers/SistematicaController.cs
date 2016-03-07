@@ -1,7 +1,6 @@
 ﻿using EstatisticaFatec.Core;
 using System.Web.Mvc;
-using EstatisticaFatec.Models.EstratificadaUniforme;
-using EstatisticaFatec.Models.Sistematica;
+using EstatisticaFatec.Core.Models.Sistematica;
 
 namespace EstatisticaFatec.Controllers
 {
