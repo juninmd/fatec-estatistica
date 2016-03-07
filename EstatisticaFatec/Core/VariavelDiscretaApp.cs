@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using EstatisticaFatec.Models;
 using EstatisticaFatec.Models.VariavelQuantitativa;
 
 namespace EstatisticaFatec.Core
@@ -41,7 +40,13 @@ namespace EstatisticaFatec.Core
             {
                 InputValue = inputData,
                 Rol = rol,
-                VariavelQuantitativaEntity = listaTabelaQuantitativa
+                VariavelQuantitativaEntity = listaTabelaQuantitativa,
+                Moda = (from item in inputData
+                        group item by item into g
+                        orderby g.Count() descending
+                        select g.Key).First(),
+                Media = Math.Round((decimal)inputData.Sum() / (decimal)inputData.Count, 2),
+                Mediana = MathCoreApp.Mediana(rol)
 
             };
         }

@@ -49,6 +49,21 @@ namespace EstatisticaFatec.Models.VariavelContinua
         /// </summary>
         public decimal IC { get; set; }
 
+        /// <summary>
+        /// Número que mais se repete
+        /// </summary>
+        public int Moda { get; set; }
+
+        /// <summary>
+        /// Média de todos os números
+        /// </summary>
+        public decimal Media { get; set; }
+
+        /// <summary>
+        /// Calculo da mediana
+        /// </summary>
+        public int Mediana { get; set; }
+
 
         public List<VariavelContinuaEntity> VariavelContinuaEntity { get; set; }
     }

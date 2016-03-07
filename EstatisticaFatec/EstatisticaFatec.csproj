@@ -134,6 +134,7 @@
     <Compile Include="Core\DistribuicaoMenorApp.cs" />
     <Compile Include="Core\DistribuicaoMaiorApp.cs" />
     <Compile Include="Core\DistribuicaoEntreApp.cs" />
+    <Compile Include="Core\MathCoreApp.cs" />
     <Compile Include="Core\SistematicaApp.cs" />
     <Compile Include="Core\EstratificadaUniformeApp.cs" />
     <Compile Include="Core\EstratificadaProporcionalApp.cs" />
@@ -188,6 +189,7 @@
     <None Include="Scripts\jquery-2.2.0.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\highcharts.js" />
     <Content Include="Scripts\jquery-2.2.0.js" />
     <Content Include="Scripts\jquery-2.2.0.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

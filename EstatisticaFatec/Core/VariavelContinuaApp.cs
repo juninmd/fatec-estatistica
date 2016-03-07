@@ -13,7 +13,7 @@ namespace EstatisticaFatec.Core
             while (true)
             {
                 /* K  - 1 */
-                if (al / K[0] % 2 == 0)
+                if (K[0] != 0 && al / K[0] % 2 == 0)
                 {
                     return new VariavelContinuaIcEntity
                     {
@@ -22,7 +22,7 @@ namespace EstatisticaFatec.Core
                     };
                 }
                 /* K */
-                if (al / K[1] % 2 == 0)
+                if (K[1] != 0 && al / K[1] % 2 == 0)
                 {
                     return new VariavelContinuaIcEntity
                     {
@@ -31,7 +31,7 @@ namespace EstatisticaFatec.Core
                     };
                 }
                 /* K + 1*/
-                if (al / K[2] % 2 == 0)
+                if (K[2] != 0 && al / K[2] % 2 == 0)
                 {
                     return new VariavelContinuaIcEntity
                     {
@@ -42,6 +42,9 @@ namespace EstatisticaFatec.Core
                 al++;
             }
         }
+
+      
+
         public VariavelContinuaContainerEntity Build(List<int> inputData)
         {
             var rol = inputData.OrderBy(x => x).ToList();
@@ -83,8 +86,9 @@ namespace EstatisticaFatec.Core
 
                 minimo = maximo;
                 maximo = maximo + (int)Ic.IC;
-
             }
+
+            var mediana = 0;
 
             return new VariavelContinuaContainerEntity
             {
@@ -95,7 +99,13 @@ namespace EstatisticaFatec.Core
                 MaxLinha = xMAx,
                 AL = al,
                 K = K,
-                IC = Ic.Classes
+                IC = Ic.Classes,
+                Moda = (from item in inputData
+                        group item by item into g
+                        orderby g.Count() descending
+                        select g.Key).First(),
+                Media = Math.Round((decimal)inputData.Sum() / (decimal)inputData.Count,2),
+                Mediana = MathCoreApp.Mediana(rol)
             };
         }
     }

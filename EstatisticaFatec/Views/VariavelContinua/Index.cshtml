@@ -86,8 +86,17 @@
         <div class="row-content">
 
             <div class="list-group">
+                <div class="list-group-item" style="text-align: center">
+                    <p>Resultados: <span>@string.Join(", ", @Model.Rol)</span></p>
+                </div>
+                <div class="list-group-item" style="text-align: center">
+                    <p>Média: <span>@Model.Media</span></p>
+                </div>
+                <div class="list-group-item" style="text-align: center">
+                    <p>Moda: <span>@Model.Moda</span></p>
+                </div>
                 <div class="list-group-item" style="text-align:center">
-                    <span>@string.Join(", ", @Model.Rol)</span>
+                    <p>Mediana: <span>@Model.Mediana</span></p>
                 </div>
             </div>
 
@@ -174,8 +183,7 @@
 
 
 @section scripts{
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="~/Scripts/highcharts.js"></script>
     <script>
         $(function () {
             $('#container').highcharts({

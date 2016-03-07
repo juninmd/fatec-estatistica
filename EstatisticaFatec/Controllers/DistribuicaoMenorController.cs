@@ -1,4 +1,6 @@
 ﻿using System.Web.Mvc;
+using EstatisticaFatec.Core;
+using EstatisticaFatec.Models.DistribuicaoMenor;
 
 namespace EstatisticaFatec.Controllers
 {
@@ -7,13 +9,13 @@ namespace EstatisticaFatec.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            return View(new DistribuicaoMenorEntity());
         }
 
         [HttpPost]
-        public ActionResult Index(int aaa, int bbb, int cc)
+        public ActionResult Index(int mediaPonderada, int desvioPadrao, int cc)
         {
-            return View();
+            return View(new DistribuicaoMenorApp().Build(mediaPonderada, desvioPadrao, cc));
         }
     }
 }

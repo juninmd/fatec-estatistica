@@ -75,7 +75,6 @@
     </div>
 </form>
 
-
 <div class="panel panel-info">
     <div class="panel-heading">
         <span class="badge">2ª Etapa</span>
@@ -86,8 +85,17 @@
         <div class="row-content">
 
             <div class="list-group">
+                <div class="list-group-item" style="text-align: center">
+                    <p>Resultados: <span>@string.Join(", ", @Model.Rol)</span></p>
+                </div>
+                <div class="list-group-item" style="text-align: center">
+                    <p>Média: <span>@Model.Media</span></p>
+                </div>
+                <div class="list-group-item" style="text-align: center">
+                    <p>Moda: <span>@Model.Moda</span></p>
+                </div>
                 <div class="list-group-item" style="text-align:center">
-                    <span>@string.Join(", ", @Model.Rol)</span>
+                    <p>Mediana: <span>@Model.Mediana</span></p>
                 </div>
             </div>
 
@@ -100,13 +108,13 @@
         <div class="row">
 
             <div class="col-md-5">
-                    <span class="badge">3ª Etapa</span>
-                    <span class="info">Organizamos a coleta de dados</span>
+                <span class="badge">3ª Etapa</span>
+                <span class="info">Organizamos a coleta de dados</span>
             </div>
 
             <div class="col-md-7">
-                    <span class="badge">4ª Etapa</span>
-                    <span class="info">Distribuição de Frequência</span>
+                <span class="badge">4ª Etapa</span>
+                <span class="info">Distribuição de Frequência</span>
             </div>
         </div>
     </div>
@@ -166,14 +174,14 @@
 </div>
 
 
- 
+
 
 
 
 
 @section scripts{
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+ @*   <script src="https://code.highcharts.com/highcharts.js"></script>*@
+    <script src="~/Scripts/highcharts.js"></script>
     <script>
         $(function () {
             $('#container').highcharts({

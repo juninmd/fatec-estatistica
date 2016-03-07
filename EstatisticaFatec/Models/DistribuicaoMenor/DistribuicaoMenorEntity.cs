@@ -2,7 +2,11 @@
 {
     public class DistribuicaoMenorEntity
     {
-        public int ValorInicial { get; set; }
+        public int MediaPonderada { get; set; }
+        public int DesvioPadrao { get; set; }
+        public int CC { get; set; }
+        public decimal Propabilidade { get; set; }
+        public decimal Soma { get; set; }
 
     }
 }
