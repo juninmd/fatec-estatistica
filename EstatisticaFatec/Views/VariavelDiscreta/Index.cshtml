@@ -181,9 +181,7 @@
 
 
 
-
 @section scripts{
- @*   <script src="https://code.highcharts.com/highcharts.js"></script>*@
     <script src="~/Scripts/highcharts.js"></script>
     <script>
         $(function () {
@@ -192,21 +190,21 @@
                     type: 'bar'
                 },
                 title: {
-                    text: 'Historic World Population by Region'
+                    text: 'Varíavel contínua'
                 },
                 subtitle: {
-                    text: 'Source: <a href="https://en.wikipedia.org/wiki/World_population">Wikipedia.org</a>'
+                    text: 'Descrição dos dados'
                 },
                 xAxis: {
-                    categories: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+                    categories: [@string.Join(", ", @Model.VariavelQuantitativaEntity.Select(q=> q.F))],
                     title: {
-                        text: null
+                        text: "Classes"
                     }
                 },
                 yAxis: {
                     min: 0,
                     title: {
-                        text: 'Population (millions)',
+                        text: 'Porcentagem',
                         align: 'high'
                     },
                     labels: {
@@ -214,7 +212,7 @@
                     }
                 },
                 tooltip: {
-                    valueSuffix: ' millions'
+                    valueSuffix: ' de frequência'
                 },
                 plotOptions: {
                     bar: {
@@ -237,10 +235,16 @@
                 credits: {
                     enabled: false
                 },
-                series: [{
-                    name: 'Year 1800',
-                    data: [107, 31, 635, 203, 2]
-                }]
+                series: [
+                    {
+                        name: 'F%',
+                        data: [@string.Join(", ", @Model.VariavelQuantitativaEntity.Select(q => Math.Round(q.FPorcent)))]
+                    },
+                     {
+                         name: 'FE%',
+                         data: [@string.Join(", ", @Model.VariavelQuantitativaEntity.Select(q => Math.Round(q.FEPorcent)))]
+                     }
+                ]
             });
         });
     </script>

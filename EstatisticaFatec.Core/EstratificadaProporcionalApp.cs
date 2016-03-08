@@ -1,7 +1,7 @@
-﻿using System;
+﻿using EstatisticaFatec.Core.Models.EstratificadaProporcional;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using EstatisticaFatec.Core.Models.EstratificadaProporcional;
 
 namespace EstatisticaFatec.Core
 {
@@ -9,7 +9,7 @@ namespace EstatisticaFatec.Core
     {
         public EstratificadaProporcionalContainerEntity Build(int amostra, List<int> estratos, int populacao)
         {
-            var porTotal = (decimal)populacao / amostra;
+            var porTotal = (decimal)amostra / (decimal)populacao;
             var countEstratos = estratos.Count();
 
             var lista = new List<EstratificadaProporcionalEntity>();

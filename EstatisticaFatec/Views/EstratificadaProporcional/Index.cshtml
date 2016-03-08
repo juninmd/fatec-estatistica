@@ -110,7 +110,9 @@
             $(elemento).parent().remove();
         }
         function funcaoRemoverTodosEstratos() {
-            $("#divEstratoClone").remove();
+            while (document.getElementById("divEstratoClone") != null) {
+                $("#divEstratoClone").remove();
+            }
         }
     </script>
 }

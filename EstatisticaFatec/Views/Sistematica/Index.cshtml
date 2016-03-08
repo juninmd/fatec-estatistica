@@ -49,30 +49,39 @@
             <legend>Parametrização</legend>
 
             <div class="form-group">
-                <label class="col-md-2 control-label">Quantidade da Amostra</label>
+                <div class="row">
+                    <label class="col-md-2 control-label">Quantidade da Amostra</label>
 
-                <div class="col-md-4">
-                    <input class="form-control" required placeholder="@Model.Amostra" name="amostra" type="number">
+                    <div class="col-md-4">
+                        <input class="form-control" required placeholder="@Model.Amostra" name="amostra" type="number">
+                    </div>
+
+                    <label class="col-md-2 control-label">População</label>
+
+                    <div class="col-md-4">
+                        <input class="form-control" required placeholder="@Model.Inicial" name="inicial" type="number">
+                    </div>
+
+
+                    <label class="col-md-2 control-label">População</label>
+                    <div class="col-md-4">
+                        <input class="form-control" required placeholder="@Model.Populacao" name="populacao" type="number">
+                    </div>
+
+                    <hr />
+
+                    <label class="col-md-2 control-label">Resultados</label>
                 </div>
 
-                <label class="col-md-2 control-label">População</label>
-
-                <div class="col-md-4">
-                    <input class="form-control" required placeholder="@Model.Inicial" name="inicial" type="number">
+                <div class="row">
+                    @foreach (var item in @Model.Resultado)
+                    {
+                        <div class="col-md-10 col-md-offset-2">
+                            <input class="form-control" placeholder="@item" name="resultado" type="number">
+                        </div>
+                    }
                 </div>
 
-
-                <label class="col-md-2 control-label">Resultados</label>
-                <div class="col-md-4">
-                    <input class="form-control" required placeholder="@Model.Populacao" name="populacao" type="number">
-                </div>
-
-                <hr />
-
-                <label class="col-md-2 control-label">Resultados</label>
-                <div class="col-md-4">
-                    <input class="form-control" required placeholder="@Model.Resultado" name="resultado" type="number">
-                </div>
 
             </div>
 

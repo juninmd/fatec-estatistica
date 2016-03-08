@@ -1,5 +1,5 @@
-﻿using System;
-using EstatisticaFatec.Core.Models.EstratificadaUniforme;
+﻿using EstatisticaFatec.Core.Models.EstratificadaUniforme;
+using System;
 
 namespace EstatisticaFatec.Core
 {
@@ -11,7 +11,7 @@ namespace EstatisticaFatec.Core
             {
                 QtdEstrato = estratos,
                 Amostra = amostra,
-                Resultado = Math.Round((decimal)(amostra / estratos))
+                Resultado = Math.Round((decimal)((decimal)amostra / (decimal)estratos))
             };
         }
     }
