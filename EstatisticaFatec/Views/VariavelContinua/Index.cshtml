@@ -1,4 +1,4 @@
-﻿@model EstatisticaFatec.Core.Models.VariavelContinua.VariavelContinuaContainerEntity  
+﻿@model EstatisticaFatec.Core.Models.VariavelContinua.VariavelContinuaContainerEntity
 
 @{
     ViewBag.Title = "Varíavel Continua";
@@ -57,17 +57,20 @@
                                 <input type="file" value="" />
                             </div>
                             <div class="col-md-8">
-                                <span class="badge">Ou se preferir manualmente, insira os paramêtros, separados por vírgula ","</span>
+                                <span class="badge">Ou se preferir manualmente, insira os paramêtros, separados por ponto e vírgula ";"</span>
                             </div>
 
                         </div>
 
-                        <textarea name="massaDados" placeholder="@string.Join(", ", @Model.InputValue)" class="form-control" rows="6" style="min-width: 100%" id="txtParametros"></textarea>
-                        <div class="btn-group pull-right">
-                            <input type="reset" class="btn btn-danger" value="Limpar" />
-                            <input type="submit" class="btn btn-success" value="Enviar" />
-                        </div>
+                        <textarea name="massaDados" placeholder="@string.Join("; ", @Model.InputValue)" class="form-control" rows="6" style="min-width: 100%" id="txtParametros"></textarea>
+
                     </div>
+                </div>
+
+                <div class="btn-group pull-right">
+                    <input class="btn btn-danger" value="Limpar" type="reset">
+                    <input class="btn btn-warning" onclick="formatarInput()" value="Formatar Inputs" type="button">
+                    <input class="btn btn-success" value="Enviar" type="submit">
                 </div>
 
             </div>
@@ -87,7 +90,7 @@
 
             <div class="list-group">
                 <div class="list-group-item" style="text-align: center">
-                    <p>Resultados: <span>@string.Join(", ", @Model.Rol)</span></p>
+                    <p>Resultados: <span>@string.Join("; ", @Model.Rol)</span></p>
                 </div>
                 <div class="list-group-item" style="text-align: center">
                     <p>Média: <span>@Model.Media</span></p>
@@ -183,7 +186,7 @@
 
 
 @section scripts{
-<script src="~/Scripts/highcharts.js"></script>
+    <script src="~/Scripts/highcharts.js"></script>
     <script>
         $(function () {
             $('#container').highcharts({
