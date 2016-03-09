@@ -20,6 +20,10 @@
                     <p class="list-group-item-text">
                         Características mensuráveis que assumem valores em uma escala contínua (na reta real), para as quais valores fracionais fazem sentido. Usualmente devem ser medidas através de algum instrumento. Exemplos: peso (balança), altura (régua), tempo (relógio), pressão arterial, idade.
                     </p>
+                    <p>
+                        Exemplos: número de filhos, número de bactérias por litro de leite, número de cigarros fumados por dia.
+                        <button class="btn btn-success" data-toggle="modal" data-target="#myModal"> + Informações</button>
+                    </p>
                 </div>
             </div>
             <div class="list-group-separator"></div>
@@ -33,7 +37,7 @@
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
         <strong>Você ainda não preencheu os paramêtros! Por favor, preencha os paramêtros.</strong>
     </div>
-}
+
 
 
 <form method="POST" action="@Url.Action("Index")">
@@ -91,15 +95,6 @@
                 <div class="list-group-item" style="text-align: center">
                     <p>Resultados: <span>@string.Join("; ", @Model.Rol)</span></p>
                 </div>
-                <div class="list-group-item" style="text-align: center">
-                    <p>Média: <span>@Model.Media</span></p>
-                </div>
-                <div class="list-group-item" style="text-align: center">
-                    <p>Moda: <span>@Model.Moda</span></p>
-                </div>
-                <div class="list-group-item" style="text-align:center">
-                    <p>Mediana: <span>@Model.Mediana</span></p>
-                </div>
             </div>
 
         </div>
@@ -130,29 +125,37 @@
 
                     <table class="table">
                         <thead>
-                            <tr>
-                                <th title="Classes">Classes</th>
-                                <th title="De x até y">Range</th>
-                                <th title="Frequência simples">[FI]</th>
-                                <th title="Frequência relativa percentual ">[FE%]</th>
-                                <th title="Frequência Acumulada">[F]</th>
-                                <th title="Frequência Acumulada porcentual">[F%]</th>
-                            </tr>
+                        <tr>
+                            <th title="Classes">Classes</th>
+                            <th title="De x até y">Range</th>
+                            <th title="Frequência simples">[FI]</th>
+                            <th title="Frequência relativa percentual ">[FE%]</th>
+                            <th title="Frequência Acumulada">[F]</th>
+                            <th title="Frequência Acumulada porcentual">[F%]</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            @foreach (var item in Model.VariavelContinuaEntity)
-                            {
-                                <tr>
-                                    <td>@item.Classe</td>
-                                    <td>@item.Range[0]|-------@item.Range[1]</td>
-                                    <td>@item.Count</td>
-                                    <td>@item.FEPorcent%</td>
-                                    <td>@item.F</td>
-                                    <td>@item.FPorcent%</td>
-                                </tr>
-                            }
+                        @foreach (var item in Model.VariavelContinuaEntity)
+                        {
+                            <tr>
+                                <td>@item.Classe</td>
+                                <td>@item.Range[0]|-------@item.Range[1]</td>
+                                <td>@item.Count</td>
+                                <td>@item.FEPorcent%</td>
+                                <td>@item.F</td>
+                                <td>@item.FPorcent%</td>
+                            </tr>
+                        }
                         </tbody>
                     </table>
+
+                    <div class="list-group-separator"></div>
+                    <div class="list-group-item" style="text-align: center">
+                        <p>Média: <span>@Model.Media</span></p>
+                        <p>Moda: <span>@Model.Moda</span></p>
+                        <p>Mediana: <span>@Model.Mediana</span></p>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -252,3 +255,26 @@
         });
     </script>
 }
+
+}
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <p>Some text in the modal.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>

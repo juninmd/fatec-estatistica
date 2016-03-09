@@ -127,6 +127,7 @@ body {
 }
 
 .card__text {
+    word-break: break-all;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
