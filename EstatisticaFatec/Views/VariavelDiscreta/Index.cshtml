@@ -13,8 +13,8 @@
     <div class="panel-body">
         <div class="list-group">
             <div class="list-group-item">
-                <div class="row-action-primary">
-                    <i class="material-icons" style="font-size:50px">info</i>
+                <div class="row-action-primary" data-toggle="tooltip" title="Hooray!" >
+                    <i class="material-icons informacao"   data-toggle="modal" data-target="#myModal"  style="font-size: 50px">info</i>
                 </div>
                 <div class="row-content">
                     <p class="list-group-item-text">
@@ -24,13 +24,12 @@
                     </p>
                     <p>
                         Exemplos: número de filhos, número de bactérias por litro de leite, número de cigarros fumados por dia.
-                        <button class="btn btn-success" data-toggle="modal" data-target="#myModal"> + Informações</button>
                     </p>
 
                 </div>
 
             </div>
-            <div class="list-group-separator"></div>
+         
         </div>
     </div>
 </div>
@@ -189,73 +188,75 @@
 
 
 
-    @section scripts{
+@section scripts{
+
         <script src="~/Scripts/highcharts.js"></script>
-        <script>
-            $(function () {
-                $('#container').highcharts({
-                    chart: {
-                        type: 'bar'
-                    },
+    <script>
+ 
+        $(function () {
+            $('#container').highcharts({
+                chart: {
+                    type: 'bar'
+                },
+                title: {
+                    text: 'Varíavel contínua'
+                },
+                subtitle: {
+                    text: 'Descrição dos dados'
+                },
+                xAxis: {
+                    categories: [@string.Join(", ", @Model.VariavelQuantitativaEntity.Select(q => q.F))],
                     title: {
-                        text: 'Varíavel contínua'
+                        text: "Classes"
+                    }
+                },
+                yAxis: {
+                    min: 0,
+                    title: {
+                        text: 'Porcentagem',
+                        align: 'high'
                     },
-                    subtitle: {
-                        text: 'Descrição dos dados'
-                    },
-                    xAxis: {
-                        categories: [@string.Join(", ", @Model.VariavelQuantitativaEntity.Select(q => q.F))],
-                        title: {
-                            text: "Classes"
+                    labels: {
+                        overflow: 'justify'
+                    }
+                },
+                tooltip: {
+                    valueSuffix: ' de frequência'
+                },
+                plotOptions: {
+                    bar: {
+                        dataLabels: {
+                            enabled: true
                         }
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'top',
+                    x: -40,
+                    y: 80,
+                    floating: true,
+                    borderWidth: 1,
+                    backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+                    shadow: true
+                },
+                credits: {
+                    enabled: false
+                },
+                series: [
+                    {
+                        name: 'F%',
+                        data: [@string.Join(", ", @Model.VariavelQuantitativaEntity.Select(q => Math.Round(q.FPorcent)))]
                     },
-                    yAxis: {
-                        min: 0,
-                        title: {
-                            text: 'Porcentagem',
-                            align: 'high'
-                        },
-                        labels: {
-                            overflow: 'justify'
-                        }
-                    },
-                    tooltip: {
-                        valueSuffix: ' de frequência'
-                    },
-                    plotOptions: {
-                        bar: {
-                            dataLabels: {
-                                enabled: true
-                            }
-                        }
-                    },
-                    legend: {
-                        layout: 'vertical',
-                        align: 'right',
-                        verticalAlign: 'top',
-                        x: -40,
-                        y: 80,
-                        floating: true,
-                        borderWidth: 1,
-                        backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
-                        shadow: true
-                    },
-                    credits: {
-                        enabled: false
-                    },
-                    series: [
-                        {
-                            name: 'F%',
-                            data: [@string.Join(", ", @Model.VariavelQuantitativaEntity.Select(q => Math.Round(q.FPorcent)))]
-                        },
-                        {
-                            name: 'FE%',
-                            data: [@string.Join(", ", @Model.VariavelQuantitativaEntity.Select(q => Math.Round(q.FEPorcent)))]
-                        }
-                    ]
-                });
+                    {
+                        name: 'FE%',
+                        data: [@string.Join(", ", @Model.VariavelQuantitativaEntity.Select(q => Math.Round(q.FEPorcent)))]
+                    }
+                ]
             });
-        </script>
+        });
+    </script>
     }
 }
 

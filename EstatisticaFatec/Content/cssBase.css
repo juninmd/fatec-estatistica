@@ -56,7 +56,7 @@ body {
         cursor: pointer;
     }
 
- 
+
 .card__image {
     position: absolute;
     background-size: cover;
@@ -202,4 +202,12 @@ body {
     .card--big .card__action-bar {
         left: 0;
     }
- 
+
+.informacao {
+    font-size: 64px;
+    background: red none repeat scroll 0% 0%;
+}
+
+    .informacao:hover {
+        cursor: pointer;
+    }

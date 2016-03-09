@@ -2094,8 +2094,7 @@ select.form-control[multiple],
 .list-group .list-group-item .row-picture label,
 .list-group .list-group-item .row-action-primary label {
   display: block;
-  width: 56px;
-  height: 56px;
+ 
 }
 .list-group .list-group-item .row-picture img,
 .list-group .list-group-item .row-action-primary img {
@@ -2108,10 +2107,10 @@ select.form-control[multiple],
 }
 .list-group .list-group-item .row-picture i,
 .list-group .list-group-item .row-action-primary i {
-  background: rgba(0, 0, 0, 0.25);
+ 
   border-radius: 100%;
   text-align: center;
-  line-height: 56px;
+   
   font-size: 20px;
   color: white;
 }

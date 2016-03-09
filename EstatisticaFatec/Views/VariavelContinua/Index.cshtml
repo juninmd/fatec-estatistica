@@ -190,6 +190,7 @@
 @section scripts{
     <script src="~/Scripts/highcharts.js"></script>
     <script>
+ 
         $(function () {
             $('#container').highcharts({
                 chart: {
@@ -246,10 +247,10 @@
                         name: 'F%',
                         data: [@string.Join(", ", @Model.VariavelContinuaEntity.Select(q => Math.Round(q.FPorcent)))]
                     },
-                     {
-                         name: 'FE%',
-                         data: [@string.Join(", ", @Model.VariavelContinuaEntity.Select(q => Math.Round(q.FEPorcent)))]
-                     }
+                    {
+                        name: 'FE%',
+                        data: [@string.Join(", ", @Model.VariavelContinuaEntity.Select(q => Math.Round(q.FEPorcent)))]
+                    }
                 ]
             });
         });

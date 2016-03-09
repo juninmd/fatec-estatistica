@@ -56,3 +56,5 @@ String.prototype.removeDuplicates = String.prototype.removeDuplicates ||
                     .replace(/^\s+|\s+$/, '');
 
      };
+
+ 
