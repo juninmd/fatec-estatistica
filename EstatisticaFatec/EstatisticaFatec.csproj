@@ -136,6 +136,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\aguarde.css" />
     <Content Include="Content\bootstrap-material-design.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -204,6 +205,7 @@
     <Content Include="Views\DistribuicaoEntre\Index.cshtml" />
     <Content Include="Views\DistribuicaoMaior\Index.cshtml" />
     <Content Include="Views\DistribuicaoMenor\Index.cshtml" />
+    <Content Include="Views\Shared\_aguarde.cshtml" />
     <None Include="Views\VariavelDiscreta\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

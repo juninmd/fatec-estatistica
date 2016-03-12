@@ -4,29 +4,33 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estatística Aplicada - Fatec</title>
-    @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/css")
         @Scripts.Render("~/bundles/modernizr")
         <script src="~/Scripts/fatec.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
 </head>
 
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                @Html.ActionLink("Sistema de Estatísticas", "Index", "Home", null, new { @class = "navbar-brand" })
-            </div>
-
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            @Html.ActionLink("Sistema de Estatísticas", "Index", "Home", null, new {@class = "navbar-brand"})
         </div>
-    </div>
-    <div class="container body-content"  style="margin-top:40px">
-        @RenderBody()
-        <hr />
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    </div>
+</div>
+<div class="container body-content" style="margin-top: 40px">
+    @RenderBody()
+    @Html.Partial("_aguarde")
+    <hr/>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@RenderSection("scripts", required: false)
 </body>
+
+
+
 </html>
 @* http://fezvrasta.github.io/bootstrap-material-design/#navbar *@
