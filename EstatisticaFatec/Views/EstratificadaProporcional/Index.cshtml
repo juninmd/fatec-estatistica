@@ -47,14 +47,24 @@
         <fieldset>
             <legend>Parametrização</legend>
 
+            @if (@Html.ViewData.ModelState.IsValid == false)
+            {
+                <div class="alert alert-warning alert-dismissable" style="background-color: #610883;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <div class="row-action-primary">
+                        <i class="material-icons" style="color: white;float: left;">error</i>
+                    </div>
+                    <strong>@Html.ValidationMessage("error")</strong>
+                </div>
+            }
             <div class="form-group">
-                <label for="inputEmail" class="col-md-2 control-label">Quantidade da Amostra</label>
+                <label  class="col-md-2 control-label">Quantidade da Amostra</label>
 
                 <div class="col-md-4">
                     <input class="form-control" required placeholder="@Model.Amostra" value="@Model.Amostra" name="amostra" type="number" min="1">
                 </div>
 
-                <label for="inputEmail" class="col-md-2 control-label">População</label>
+                <label class="col-md-2 control-label">População</label>
 
                 <div class="col-md-4">
                     <input class="form-control" required placeholder="@Model.Populacao" value="@Model.Populacao" name="populacao" type="number" min="1">
