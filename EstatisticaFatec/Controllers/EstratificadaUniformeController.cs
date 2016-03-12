@@ -15,6 +15,7 @@ namespace EstatisticaFatec.Controllers
         [HttpPost]
         public ActionResult Index(int amostra, int estrato)
         {
+        
             return View(new EstratificadaUniformeApp().Build(amostra, estrato));
         }
     }

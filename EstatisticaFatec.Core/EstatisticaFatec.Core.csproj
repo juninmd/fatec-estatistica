@@ -55,6 +55,7 @@
     <Compile Include="Models\EstratificadaProporcional\EstratificadaProporcionalContainerEntity.cs" />
     <Compile Include="Models\EstratificadaProporcional\EstratificadaProporcionalEntity.cs" />
     <Compile Include="Models\EstratificadaUniforme\EstratificadaUniformeEntity.cs" />
+    <Compile Include="Models\RequestMessage.cs" />
     <Compile Include="Models\Sistematica\SistematicaEntity.cs" />
     <Compile Include="Models\VariavelContinua\VariavelContinuaContainerEntity.cs" />
     <Compile Include="Models\VariavelContinua\VariavelContinuaEntity.cs" />

@@ -13,6 +13,7 @@ namespace EstatisticaFatec.Core.Models.EstratificadaProporcional
       
         public int Amostra { get; set; }
         public int Populacao { get; set; }
+        public decimal Porcentagem { get; set; }
         public List<int> ListaEstratos { get; set; }
     }
 }

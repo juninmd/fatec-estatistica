@@ -13,8 +13,8 @@
     <div class="panel-body">
         <div class="list-group">
             <div class="list-group-item">
-                <div class="row-action-primary">
-                    <i class="material-icons" style="font-size:50px">info</i>
+                <div class="row-action-primary" data-toggle="tooltip" title="Clique aqui para mais informações">
+                    <i class="material-icons informacao info" data-toggle="modal" data-target="#myModal">info</i>
                 </div>
                 <div class="row-content">
                     <p class="list-group-item-text">
@@ -30,7 +30,6 @@
                     </p>
                 </div>
             </div>
-            <div class="list-group-separator"></div>
         </div>
     </div>
 </div>
@@ -78,7 +77,8 @@
             </div>
 
             <div class="col-md-10 col-md-offset-2">
-                <button type="reset" class="btn btn-default">Limpar</button>
+                <a href="@Url.Action("Index","Home")" class="btn btn-default">Voltar</a>
+                <button type="reset" class="btn btn-danger">Limpar</button>
                 <button type="submit" class="btn btn-primary">Enviar<div class="ripple-container"></div></button>
             </div>
         </fieldset>

@@ -1,12 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using EstatisticaFatec.Core.Models;
 using EstatisticaFatec.Core.Models.AleatoriaSimples;
 
 namespace EstatisticaFatec.Core
 {
     public class AleatoriaSimplesApp
     {
+        public RequestMessage ValidateInput(int amostra, int populacao)
+        {
+            return new RequestMessage
+            {
+                IsError = amostra > populacao,
+                Message = "A amostra não pode ser maior que a população."
+            };
+        }
         public AleatoriaSimplesEntity Build(int populacao, int amostra)
         {
             return GetRandomNmbers(populacao, amostra);

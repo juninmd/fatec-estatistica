@@ -1,11 +1,21 @@
-﻿@import url(http://fonts.googleapis.com/css?family=Roboto:400,700,300);
+﻿/*
+@@import url(http://fonts.googleapis.com/css?family=Roboto:400,700,300);
+*/
 
+
+/*
 
 body {
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
 }
+*/
 
+
+.list-group-item .tooltip {
+    top: 0px !important;
+    left: 0px !important;
+}
 
 .btnMaterial {
     border: none;
@@ -13,7 +23,7 @@ body {
     text-transform: uppercase;
 }
 
-.controller-container {
+.controller-container{ 
     margin-bottom: 5%;
     text-align: center;
 }
@@ -61,7 +71,7 @@ body {
     position: absolute;
     background-size: cover;
     background-position: center bottom;
-    background-repeat: no-repat;
+    background-repeat: no-repeat;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -203,11 +213,4 @@ body {
         left: 0;
     }
 
-.informacao {
-    font-size: 64px;
-    background: red none repeat scroll 0% 0%;
-}
 
-    .informacao:hover {
-        cursor: pointer;
-    }

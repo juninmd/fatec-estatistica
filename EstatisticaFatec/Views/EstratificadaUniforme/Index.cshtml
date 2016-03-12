@@ -13,8 +13,8 @@
     <div class="panel-body">
         <div class="list-group">
             <div class="list-group-item">
-                <div class="row-action-primary">
-                    <i class="material-icons" style="font-size:50px">info</i>
+                <div class="row-action-primary" data-toggle="tooltip" title="Clique aqui para mais informações">
+                    <i class="material-icons informacao info" data-toggle="modal" data-target="#myModal">info</i>
                 </div>
                 <div class="row-content">
                     <p class="list-group-item-text">
@@ -30,7 +30,6 @@
                     </p>
                 </div>
             </div>
-            <div class="list-group-separator"></div>
         </div>
     </div>
 </div>
@@ -71,9 +70,61 @@
             </div>
 
             <div class="col-md-10 col-md-offset-2">
-                <button type="reset" class="btn btn-default">Limpar</button>
+                <a href="@Url.Action("Index","Home")" class="btn btn-default">Voltar</a>
+                <button type="reset" class="btn btn-danger">Limpar</button>
                 <button type="submit" class="btn btn-primary">Enviar<div class="ripple-container"></div></button>
             </div>
         </fieldset>
     </form>
+</div>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Entendendo as etapas</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    A seguir temos um exemplo de como obtemos números aleatórios conforme a quantidade de amostra/população.
+                </p>
+                <fieldset>
+                    <legend> Coletando paramêtros <span class="lesssmall pull-right">A população deve ser maior que a amostra.</span></legend>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Amostra</th>
+                                <th>População</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>1</td>
+                            <td>3</td>
+                        </tr>
+                    </table>
+                    <legend> Possíveis resultados <span class="lesssmall pull-right">Nesse exemplo um desses números será nossa resposta.</span></legend>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+                        </thead>
+
+                    </table>
+
+                </fieldset>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+
+    </div>
 </div>
