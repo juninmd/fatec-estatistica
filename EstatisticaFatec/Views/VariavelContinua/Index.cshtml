@@ -37,7 +37,7 @@
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
         <strong>Você ainda não preencheu os paramêtros! Por favor, preencha os paramêtros.</strong>
     </div>
-
+}
 
 
 <form method="POST" action="@Url.Action("Index")">
@@ -50,7 +50,7 @@
         <div class="panel-body">
             <div class="row-content">
 
-                <div class="list-group">
+                <div class="">
                     <div class="list-group-item">
 
                         <div class="row">
@@ -81,7 +81,8 @@
     </div>
 </form>
 
-
+@if (Model.InputValue.Any())
+{
 <div class="panel panel-info">
     <div class="panel-heading">
         <span class="badge">2ª Etapa</span>
