@@ -13,8 +13,8 @@
     <div class="panel-body">
         <div class="list-group">
             <div class="list-group-item">
-                <div class="row-action-primary">
-                    <i class="material-icons" style="font-size:50px">info</i>
+                <div class="row-action-primary" data-toggle="tooltip" title="Clique aqui para mais informações">
+                    <i class="material-icons informacao info" data-toggle="modal" data-target="#myModal">info</i>
                 </div>
                 <div class="row-content">
                     <p class="list-group-item-text">
@@ -26,7 +26,6 @@
                     </p>
                 </div>
             </div>
-            <div class="list-group-separator"></div>
         </div>
     </div>
 </div>
@@ -48,6 +47,18 @@
         </div>
 
         <div class="panel-body">
+
+            @if (@Html.ViewData.ModelState.IsValid == false)
+            {
+                <div class="alert alert-warning alert-dismissable" style="background-color: #610883;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <div class="row-action-primary">
+                        <i class="material-icons" style="color: white;float: left;">error</i>
+                    </div>
+                    <strong>@Html.ValidationMessage("error")</strong>
+                </div>
+            }
+
             <div class="row-content">
 
                 <div class="">
@@ -57,7 +68,7 @@
 
                             <div class="col-md-4">
                                 <span class="badge">Você pode efetuar o upload de arquivo</span>
-                                <input type="file" value="" />
+                                <input type="file" value=""/>
                             </div>
                             <div class="col-md-8">
                                 <span class="badge">Ou se preferir manualmente, insira os paramêtros, separados por ponto e vírgula ";"</span>

@@ -17,7 +17,7 @@
   /*  margin: 10px 20px;*/
     text-align: center;
   /*  display: inline-block;*/
-    z-index: 101;
+    z-index: 999999;
     left: 50%;
     top: 50%;
     position: fixed;
@@ -218,5 +218,5 @@
     top: 0px;
     bottom: 0px;
     background-color: rgba(255, 255, 255, 0.32);
-    z-index: 99; /* Higher than anything else in the document */
+    z-index: 99999; /* Higher than anything else in the document */
 }

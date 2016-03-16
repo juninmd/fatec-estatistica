@@ -13,8 +13,8 @@
     <div class="panel-body">
         <div class="list-group">
             <div class="list-group-item">
-                <div class="row-action-primary">
-                    <i class="material-icons" style="font-size:50px">info</i>
+                <div class="row-action-primary" data-toggle="tooltip" title="Clique aqui para mais informações">
+                    <i class="material-icons informacao info" data-toggle="modal" data-target="#myModal">info</i>
                 </div>
                 <div class="row-content">
                     <p class="list-group-item-text">
@@ -30,12 +30,11 @@
                     </p>
                 </div>
             </div>
-            <div class="list-group-separator"></div>
         </div>
     </div>
 </div>
 
-@if (Model.Inicial != 0)
+@if (Model.Inicial == 0)
 {
     <div class="alert alert-warning alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -47,48 +46,138 @@
     <form class="form-horizontal" method="post" action="@Url.Action("Index")">
         <fieldset>
             <legend>Parametrização</legend>
-
+            @if (@Html.ViewData.ModelState.IsValid == false)
+            {
+                <div class="alert alert-warning alert-dismissable" style="background-color: #610883;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <div class="row-action-primary">
+                        <i class="material-icons" style="color: white;float: left;">error</i>
+                    </div>
+                    <strong>@Html.ValidationMessage("error")</strong>
+                </div>
+            }
             <div class="form-group">
                 <div class="row">
                     <label class="col-md-2 control-label">Quantidade da Amostra</label>
 
-                    <div class="col-md-4">
-                        <input class="form-control" required placeholder="@Model.Amostra" name="amostra" type="number">
-                    </div>
-
-                    <label class="col-md-2 control-label">Valor Inicial</label>
-
-                    <div class="col-md-4">
-                        <input class="form-control" required placeholder="@Model.Inicial" name="inicial" type="number">
+                    <div class="col-md-2">
+                        <input class="form-control" required placeholder="@Model.Amostra" value="@Model.Amostra" name="amostra" type="number" min="1">
                     </div>
 
 
-                    <label class="col-md-2 control-label">População</label>
-                    <div class="col-md-4">
-                        <input class="form-control" required placeholder="@Model.Populacao" name="populacao" type="number">
+                    <label class="col-md-1 control-label">População</label>
+                    <div class="col-md-2">
+                        <input class="form-control" id="populacao" required placeholder="@Model.Populacao" value="@Model.Populacao" name="populacao" type="number" min="1">
                     </div>
 
+                    <label class="col-md-1 control-label">Valor Inicial</label>
+                    <div class="col-md-4">
+                        <div class="col-md-6">
+                            <input class="form-control" required placeholder="@Model.Inicial" value="@Model.Inicial" name="inicial" id="inicial" type="number" min="1">
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" onclick="randomNumberSistematica()" class="btn btn-primary">Sortear</button>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+                @if (Model.Inicial != 0)
+                {
                     <hr />
 
                     <label class="col-md-2 control-label">Resultados</label>
-                </div>
-
-                <div class="row">
-                    @foreach (var item in @Model.Resultado)
-                    {
-                        <div class="col-md-10 col-md-offset-2">
-                            <input class="form-control" placeholder="@item" name="resultado" type="number">
-                        </div>
-                    }
-                </div>
-
-
+                    <div class="col-md-10">
+                        <table class="table">
+                            <thead>
+                                @foreach (var item in @Model.Resultado)
+                                {
+                                    <tr>
+                                        <td>@item</td>
+                                    </tr>
+                                }
+                            </thead>
+                        </table>
+                    </div>
+                }
             </div>
 
             <div class="col-md-10 col-md-offset-2">
-                <button type="reset" class="btn btn-default">Limpar</button>
+                <a href="@Url.Action("Index","Home")" class="btn btn-default">Voltar</a>
+                <button type="reset" class="btn btn-danger">Limpar</button>
                 <button type="submit" class="btn btn-primary">Enviar<div class="ripple-container"></div></button>
             </div>
         </fieldset>
     </form>
+</div>
+
+@section scripts
+{
+    <script>
+        function randomNumberSistematica() {
+
+            var populacao = parseInt(document.getElementById("populacao").value);
+
+            if (populacao < 1) {
+                alert("Por favor, preencha algum valor maior que 1 na população");
+                return;
+            }
+
+            document.getElementById("inicial").value = Math.floor((Math.random() * parseInt(document.getElementById("populacao").value)) + 1);
+        }
+    </script>
+
+}
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Entendendo as etapas</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    A seguir temos um exemplo de como obtemos números aleatórios conforme a quantidade de amostra/população.
+                </p>
+                <fieldset>
+                    <legend> Coletando paramêtros <span class="lesssmall pull-right">A população deve ser maior que a amostra.</span></legend>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Amostra</th>
+                                <th>População</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>1</td>
+                            <td>3</td>
+                        </tr>
+                    </table>
+                    <legend> Possíveis resultados <span class="lesssmall pull-right">Nesse exemplo um desses números será nossa resposta.</span></legend>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+                        </thead>
+
+                    </table>
+
+                </fieldset>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+
+    </div>
 </div>
