@@ -35,5 +35,15 @@
         /// [6] - Porcentagem acumulativa sobre [FE%]
         /// </summary>
         public decimal FPorcent { get; set; }
+
+        /// <summary>
+        /// [7] - Média do intervalo de classe
+        /// </summary>
+        public decimal XI { get; set; }
+
+        /// <summary>
+        /// [8] - Média - XI * FI
+        /// </summary>
+        public decimal Media { get; set; }
     }
 }

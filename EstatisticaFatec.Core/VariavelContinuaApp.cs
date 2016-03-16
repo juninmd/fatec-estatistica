@@ -42,7 +42,7 @@ namespace EstatisticaFatec.Core
             }
         }
 
-      
+
 
         public VariavelContinuaContainerEntity Build(List<int> inputData)
         {
@@ -73,6 +73,8 @@ namespace EstatisticaFatec.Core
                 f.Add(count);
                 fePorcentList.Add(fePorcent);
 
+                var xi = MathCoreApp.Mediana(new List<decimal>() {minimo, maximo});
+
                 listaTabelaQuantitativa.Add(new VariavelContinuaEntity
                 {
                     Classe = i,
@@ -80,7 +82,9 @@ namespace EstatisticaFatec.Core
                     Count = count,
                     FEPorcent = Math.Round(fePorcent, 2),
                     F = f.Sum(),
-                    FPorcent = Math.Round(fePorcentList.Sum(), 2)
+                    FPorcent = Math.Round(fePorcentList.Sum(), 2),
+                    XI = xi,
+                    Media = xi * count
                 });
 
                 minimo = maximo;
@@ -103,7 +107,7 @@ namespace EstatisticaFatec.Core
                         group item by item into g
                         orderby g.Count() descending
                         select g.Key).First(),
-                Media = Math.Round((decimal)inputData.Sum() / (decimal)inputData.Count,2),
+                Media = Math.Round((decimal)inputData.Sum() / (decimal)inputData.Count, 2),
                 Mediana = MathCoreApp.Mediana(rol)
             };
         }

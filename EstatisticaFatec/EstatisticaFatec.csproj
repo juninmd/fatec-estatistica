@@ -124,6 +124,7 @@
     <Compile Include="Controllers\DistribuicaoMaiorController.cs" />
     <Compile Include="Controllers\DistribuicaoEntreController.cs" />
     <Compile Include="Controllers\DistribuicaoMenorController.cs" />
+    <Compile Include="Controllers\MedidasTendenciaController.cs" />
     <Compile Include="Controllers\SistematicaController.cs" />
     <Compile Include="Controllers\EstratificadaUniformeController.cs" />
     <Compile Include="Controllers\EstratificadaProporcionalController.cs" />
@@ -206,6 +207,7 @@
     <Content Include="Views\DistribuicaoMaior\Index.cshtml" />
     <Content Include="Views\DistribuicaoMenor\Index.cshtml" />
     <Content Include="Views\Shared\_aguarde.cshtml" />
+    <Content Include="Views\MedidasTendencia\Index.cshtml" />
     <None Include="Views\VariavelDiscreta\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

@@ -31,7 +31,8 @@ namespace EstatisticaFatec.Core
                     FI = item.Count(),
                     FEPorcent = Math.Round(fePorcent, 2),
                     F = f.Sum(),
-                    FPorcent = Math.Round(fePorcentList.Sum(), 2)
+                    FPorcent = Math.Round(fePorcentList.Sum(), 2),
+                    Media = item.Key * item.Count()
 
                 });
             }

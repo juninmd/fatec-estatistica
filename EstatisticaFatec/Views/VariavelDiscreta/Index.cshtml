@@ -115,10 +115,17 @@
                     <span class="info">Organizamos a coleta de dados</span>
                 </div>
 
-                <div class="col-md-7">
+                <div class="col-md-4">
                     <span class="badge">4ª Etapa</span>
                     <span class="info">Distribuição de Frequência</span>
                 </div>
+
+                <div class="col-md-3">
+                    <span class="badge">
+                        Média: @Model.Media | Moda: @Model.Moda  | Mediana: @Model.Mediana
+                    </span>
+                </div>
+ 
             </div>
         </div>
 
@@ -130,33 +137,30 @@
 
                         <table class="table">
                             <thead>
-                                <tr>
-                                    <th title="Valor a ser calculado">[XI]</th>
-                                    <th title="Frequência simples">[FI]</th>
-                                    <th title="Frequência relativa percentual ">[FE%]</th>
-                                    <th title="Frequência Acumulada">[F]</th>
-                                    <th title="Frequência Acumulada porcentual">[F%]</th>
-                                </tr>
+                            <tr>
+                                <th title="Valor a ser calculado">[XI]</th>
+                                <th title="Frequência simples">[FI]</th>
+                                <th title="Frequência relativa percentual ">[FE%]</th>
+                                <th title="Frequência Acumulada">[F]</th>
+                                <th title="Frequência Acumulada porcentual">[F%]</th>
+                                <th title="Média">[XI * FI]</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in Model.VariavelQuantitativaEntity)
-                                {
-                                    <tr>
-                                        <td>@item.XI</td>
-                                        <td>@item.FI</td>
-                                        <td>@item.FEPorcent%</td>
-                                        <td>@item.F</td>
-                                        <td>@item.FPorcent%</td>
-                                    </tr>
-                                }
+                            @foreach (var item in Model.VariavelQuantitativaEntity)
+                            {
+                                <tr>
+                                    <td>@item.XI</td>
+                                    <td>@item.FI</td>
+                                    <td>@item.FEPorcent%</td>
+                                    <td>@item.F</td>
+                                    <td>@item.FPorcent%</td>
+                                    <td>@item.Media%</td>
+                                </tr>
+                            }
                             </tbody>
                         </table>
-                        <div class="list-group-separator"></div>
-                        <div class="list-group-item" style="text-align: center">
-                            <p>Média: <span>@Model.Media</span></p>
-                            <p>Moda: <span>@Model.Moda</span></p>
-                            <p>Mediana: <span>@Model.Mediana</span></p>
-                        </div>
+                       
 
                     </div>
                 </div>
@@ -164,6 +168,10 @@
         </div>
     </div>
 
+
+ 
+
+ 
     <div class="panel panel-info">
         <div class="panel-heading">
             <span class="badge">5ª Etapa</span>

@@ -1,46 +1,10 @@
-﻿function formatarInput(contador) {
-    if (contador == null)
-        contador = 0;
-
+﻿function formatarInput() {
     var texto = document.getElementById('txtParametros').value;
 
     texto = texto.allTrim();
 
-    var pattern = /,,/g;
-    var myArray = texto.match(pattern);
-
-    while (myArray != null) {
-        texto = texto.replace(/,,/g, ",");
-        myArray = texto.match(pattern);
-    }
-
-    pattern = /,/g;
-    myArray = texto.match(pattern);
-
-    while (myArray != null) {
-        texto = texto.replace(/,/g, ";");
-        myArray = texto.match(pattern);
-    }
-
-    pattern = /;;/g;
-    myArray = texto.match(pattern);
-
-    while (myArray != null) {
-        texto = texto.replace(/;;/g, ";");
-        myArray = texto.match(pattern);
-    }
-
-    pattern = / /g;
-    myArray = texto.match(pattern);
-
-    while (myArray != null) {
-        texto = texto.replace(/ /g, "");
-        myArray = texto.match(pattern);
-    }
-
-    if (contador == 0)
-        formatarInput(1);
-
+    texto = texto.replace(/ /g, ";");
+ 
     document.getElementById('txtParametros').value = texto.replace(/ /g, ";");
 }
 String.prototype.allTrim = String.prototype.allTrim ||
@@ -57,4 +21,4 @@ String.prototype.removeDuplicates = String.prototype.removeDuplicates ||
 
      };
 
- 
+

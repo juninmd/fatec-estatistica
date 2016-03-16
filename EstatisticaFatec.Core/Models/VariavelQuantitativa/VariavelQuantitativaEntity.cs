@@ -30,5 +30,10 @@
         /// [5] - Porcentagem acumulativa sobre [FE%]
         /// </summary>
         public decimal FPorcent { get; set; }
+
+        /// <summary>
+        /// [6] - XI * FI
+        /// </summary>
+        public decimal Media { get; set; }
     }
 }
