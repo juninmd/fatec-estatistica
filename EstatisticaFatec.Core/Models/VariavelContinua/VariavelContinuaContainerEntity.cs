@@ -6,35 +6,35 @@ namespace EstatisticaFatec.Core.Models.VariavelContinua
     {
         public VariavelContinuaContainerEntity()
         {
-            Rol = new List<int>();
-            InputValue = new List<int>();
+            Rol = new List<decimal>();
+            InputValue = new List<decimal>();
             VariavelContinuaEntity = new List<VariavelContinuaEntity>();
         }
 
         /// <summary>
         /// São os registros que foram obtidos pelo input [textarea]
         /// </summary>
-        public List<int> InputValue { get; set; }
+        public List<decimal> InputValue { get; set; }
 
         /// <summary>
         /// Rol é a massa de dados ordenada de forma crescente
         /// </summary>
-        public List<int> Rol { get; set; }
+        public List<decimal> Rol { get; set; }
 
         /// <summary>
         /// É o valor mínimo dos inputs [xmin]
         /// </summary>
-        public int MinLinha { get; set; }
+        public decimal MinLinha { get; set; }
 
         /// <summary>
         /// É o valor máximo dos inputs [xmax]
         /// </summary>
-        public int MaxLinha { get; set; }
+        public decimal MaxLinha { get; set; }
 
         /// <summary>
         /// É o valor máximo dos inputs [xmax] menos o valor minimo [xmin] - 1
         /// </summary>
-        public int AL { get; set; }
+        public decimal AL { get; set; }
 
         /// <summary>
         /// Indica a raiz quadrada da quantidade (count) do InputValue.
@@ -51,7 +51,7 @@ namespace EstatisticaFatec.Core.Models.VariavelContinua
         /// <summary>
         /// Número que mais se repete
         /// </summary>
-        public int Moda { get; set; }
+        public decimal[] Moda { get; set; }
 
         /// <summary>
         /// Média de todos os números
@@ -61,7 +61,7 @@ namespace EstatisticaFatec.Core.Models.VariavelContinua
         /// <summary>
         /// Calculo da mediana
         /// </summary>
-        public int Mediana { get; set; }
+        public decimal Mediana { get; set; }
 
 
         public List<VariavelContinuaEntity> VariavelContinuaEntity { get; set; }

@@ -124,7 +124,7 @@
 
             <div class="col-md-3">
                 <span class="badge">
-                    Média: @Model.Media | Moda: @Model.Moda  | Mediana: @Model.Mediana
+                    Média: @Model.Media | Moda: @string.Join(";", Model.Moda) | Mediana: @Model.Mediana
                 </span>
             </div>
 

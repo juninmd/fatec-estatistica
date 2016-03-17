@@ -14,7 +14,7 @@
         /// <summary>
         /// [2] - Range de [x] para [y]
         /// </summary>
-        public int[] Range { get; set; }
+        public decimal[] Range { get; set; }
 
         /// <summary>
         /// [3] Contagens

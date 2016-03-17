@@ -6,25 +6,25 @@ namespace EstatisticaFatec.Core.Models.VariavelQuantitativa
     {
         public VariavelDiscretaContainerEntity()
         {
-            Rol = new List<int>();
-            InputValue = new List<int>();
+            Rol = new List<decimal>();
+            InputValue = new List<decimal>();
             VariavelQuantitativaEntity = new List<VariavelQuantitativaEntity>();
         }
 
         /// <summary>
         /// São os registros que foram obtidos pelo input [textarea]
         /// </summary>
-        public List<int> InputValue { get; set; }
+        public List<decimal> InputValue { get; set; }
 
         /// <summary>
         /// Rol é a massa de dados ordenada de forma crescente
         /// </summary>
-        public List<int> Rol { get; set; }
+        public List<decimal> Rol { get; set; }
 
         /// <summary>
         /// Número que mais se repete
         /// </summary>
-        public int Moda { get; set; }
+        public decimal[] Moda { get; set; }
 
         /// <summary>
         /// Média de todos os números
@@ -34,7 +34,7 @@ namespace EstatisticaFatec.Core.Models.VariavelQuantitativa
         /// <summary>
         /// Calculo da mediana
         /// </summary>
-        public int Mediana { get; set; }
+        public decimal Mediana { get; set; }
 
         public List<VariavelQuantitativaEntity> VariavelQuantitativaEntity { get; set; }
     }

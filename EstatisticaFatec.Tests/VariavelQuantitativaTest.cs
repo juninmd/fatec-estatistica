@@ -10,7 +10,7 @@ namespace EstatisticaFatec.Tests
         [TestMethod]
         public void Input()
         {
-            var numeros = new List<int>
+            var numeros = new List<decimal>
             {
                1000,
                2000,

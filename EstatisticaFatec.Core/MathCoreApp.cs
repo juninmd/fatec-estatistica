@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace EstatisticaFatec.Core
 {
@@ -29,6 +31,7 @@ namespace EstatisticaFatec.Core
         }
         public static decimal Mediana(List<decimal> rol)
         {
+            rol = Rol(rol);
             var meuArray = rol.ToArray();
 
             if ((rol.Count + 1) % 2 == 0)
@@ -50,5 +53,21 @@ namespace EstatisticaFatec.Core
                 return (max + min) / 2;
             }
         }
+        public static decimal[] Moda(List<decimal> inputData)
+        {
+            var maximo = (inputData.GroupBy(item => item).Select(g => g.Count())).Max();
+            return (inputData.GroupBy(item => item).Where(g => g.Count() == maximo)).Select(q => q.Key).ToArray();
+        }
+
+        public static decimal MediaComum(List<decimal> inputData)
+        {
+            return Math.Round((decimal) inputData.Sum()/(decimal) inputData.Count, 2);
+        }
+
+        public static List<decimal> Rol(List<decimal> inputData)
+        {
+            return inputData.OrderBy(q => q).ToList();
+        }
+
     }
 }

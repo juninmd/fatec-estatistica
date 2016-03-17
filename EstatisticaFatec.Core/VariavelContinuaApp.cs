@@ -7,7 +7,7 @@ namespace EstatisticaFatec.Core
 {
     public class VariavelContinuaApp
     {
-        private VariavelContinuaIcEntity GetIC(int al, List<decimal> K)
+        private VariavelContinuaIcEntity GetIC(decimal al, List<decimal> K)
         {
             while (true)
             {
@@ -44,7 +44,7 @@ namespace EstatisticaFatec.Core
 
 
 
-        public VariavelContinuaContainerEntity Build(List<int> inputData)
+        public VariavelContinuaContainerEntity Build(List<decimal> inputData)
         {
             var rol = inputData.OrderBy(x => x).ToList();
 
@@ -91,8 +91,6 @@ namespace EstatisticaFatec.Core
                 maximo = maximo + (int)Ic.IC;
             }
 
-            var mediana = 0;
-
             return new VariavelContinuaContainerEntity
             {
                 InputValue = inputData,
@@ -103,11 +101,8 @@ namespace EstatisticaFatec.Core
                 AL = al,
                 K = K,
                 IC = Ic.Classes,
-                Moda = (from item in inputData
-                        group item by item into g
-                        orderby g.Count() descending
-                        select g.Key).First(),
-                Media = Math.Round((decimal)inputData.Sum() / (decimal)inputData.Count, 2),
+                Moda = MathCoreApp.Moda(inputData),
+                Media = MathCoreApp.MediaComum(inputData),
                 Mediana = MathCoreApp.Mediana(rol)
             };
         }

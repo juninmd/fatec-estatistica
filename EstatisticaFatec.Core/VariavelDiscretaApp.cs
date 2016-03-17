@@ -7,15 +7,15 @@ namespace EstatisticaFatec.Core
 {
     public class VariavelDiscretaApp
     {
-        public VariavelDiscretaContainerEntity Build(List<int> inputData)
+        public VariavelDiscretaContainerEntity Build(List<decimal> inputData)
         {
-            var rol = inputData.OrderBy(x => x).ToList();
+            var rol = MathCoreApp.Rol(inputData);
 
             var listaTabelaQuantitativa = new List<VariavelQuantitativaEntity>();
 
             var listaGrupos = rol.GroupBy(x => x);
 
-            var f = new List<int>();
+            var f = new List<decimal>();
             var fePorcentList = new List<decimal>();
 
             foreach (var item in listaGrupos)
@@ -42,11 +42,8 @@ namespace EstatisticaFatec.Core
                 InputValue = inputData,
                 Rol = rol,
                 VariavelQuantitativaEntity = listaTabelaQuantitativa,
-                Moda = (from item in inputData
-                        group item by item into g
-                        orderby g.Count() descending
-                        select g.Key).First(),
-                Media = Math.Round((decimal)inputData.Sum() / (decimal)inputData.Count, 2),
+                Moda = MathCoreApp.Moda(inputData),
+                Media = MathCoreApp.MediaComum(inputData),
                 Mediana = MathCoreApp.Mediana(rol)
 
             };

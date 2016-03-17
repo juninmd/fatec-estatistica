@@ -16,7 +16,7 @@ namespace EstatisticaFatec.Controllers
         public ActionResult Index(string massaDados)
         {
 
-            var lista = massaDados.Split(';').Select(int.Parse).ToList();
+            var lista = massaDados.Split(';').Select(decimal.Parse).ToList();
 
             return View(new VariavelContinuaApp().Build(lista));
         }

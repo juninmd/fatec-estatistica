@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using EstatisticaFatec.Core.Models.MedidasTendencia;
 
 namespace EstatisticaFatec.Core
@@ -12,13 +10,10 @@ namespace EstatisticaFatec.Core
             return new MedidasTendenciaEntity
             {
                 InputValue = inputData,
-                Rol = inputData.OrderBy(q=> q).ToList(),
-                Media = Math.Round((decimal)inputData.Sum() / (decimal)inputData.Count, 2),
-                Mediana = MathCoreApp.Mediana(inputData.OrderBy(q => q).ToList()),
-                Moda = (from item in inputData
-                               group item by item into g
-                               orderby g.Count() descending
-                               select g.Key).First(),
+                Rol = MathCoreApp.Rol(inputData),
+                Media = MathCoreApp.MediaComum(inputData),
+                Mediana = MathCoreApp.Mediana(inputData),
+                Moda = MathCoreApp.Moda(inputData)
             };
         }
     }

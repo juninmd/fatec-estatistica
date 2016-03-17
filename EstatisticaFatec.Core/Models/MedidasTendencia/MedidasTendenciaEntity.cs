@@ -11,7 +11,7 @@ namespace EstatisticaFatec.Core.Models.MedidasTendencia
         }
         public List<decimal> InputValue { get; set; }
         public List<decimal> Rol { get; set; }
-        public decimal Moda { get; set; }
+        public decimal[] Moda { get; set; }
         public decimal Mediana { get; set; }
         public decimal Media { get; set; }
     }
