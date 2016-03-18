@@ -51,6 +51,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="DistribuicaoMenorTest.cs" />
+    <Compile Include="GruposTest.cs" />
     <Compile Include="MedidasTendenciaTest.cs" />
     <Compile Include="SistematicaTest.cs" />
     <Compile Include="AleatoriaSimplesTest.cs" />
