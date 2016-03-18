@@ -1,4 +1,5 @@
-﻿@model EstatisticaFatec.Core.Models.VariavelContinua.VariavelContinuaContainerEntity
+﻿@using EstatisticaFatec.Helper
+@model EstatisticaFatec.Core.Models.VariavelContinua.VariavelContinuaContainerEntity
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -105,7 +106,7 @@
 
             <div class="list-group">
                 <div class="list-group-item" style="text-align: center">
-                    <p>Resultados: <span>@string.Join("; ", @Model.Rol)</span></p>
+                    <p>Resultados: <span>@Html.Rol(Model.Rol)</span></p>
                 </div>
             </div>
 
@@ -211,7 +212,7 @@
                     text: 'Descrição dos dados'
                 },
                 xAxis: {
-                    categories: [@string.Join(", ", @Model.VariavelContinuaEntity.Select(q=> q.Classe))],
+                    categories: ['@string.Join(", ", @Model.VariavelContinuaEntity.Select(q=> q.Classe))'],
                     title: {
                         text: "Classes"
                     }
@@ -253,11 +254,11 @@
                 series: [
                     {
                         name: 'F%',
-                        data: [@string.Join(", ", @Model.VariavelContinuaEntity.Select(q => Math.Round(q.FPorcent)))]
+                        data: ['@string.Join(", ", @Model.VariavelContinuaEntity.Select(q => Math.Round(q.FPorcent)))']
                     },
                     {
                         name: 'FE%',
-                        data: [@string.Join(", ", @Model.VariavelContinuaEntity.Select(q => Math.Round(q.FEPorcent)))]
+                        data: ['@string.Join(", ", @Model.VariavelContinuaEntity.Select(q => Math.Round(q.FEPorcent)))']
                     }
                 ]
             });

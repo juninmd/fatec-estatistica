@@ -16,10 +16,14 @@ namespace EstatisticaFatec.Controllers
         [HttpPost]
         public ActionResult Index(string massaDados)
         {
+            var inputRequest = InputCore.Tratar(massaDados);
+            if (inputRequest.IsError)
+            {
+                ModelState.AddModelError("error", inputRequest.Message);
+                return View(new VariavelDiscretaContainerEntity());
+            }
 
-            var lista = massaDados.Split(';').Select(decimal.Parse).ToList();
-
-            return View(new VariavelDiscretaApp().Build(lista));
+            return View(new VariavelDiscretaApp().Build(inputRequest.Content));
         }
     }
 }

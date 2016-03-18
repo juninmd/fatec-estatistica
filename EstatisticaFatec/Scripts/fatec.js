@@ -4,6 +4,12 @@
     texto = texto.allTrim();
 
     texto = texto.replace(/ /g, ";");
+
+    var tamanho = texto.length -1 ;
+
+    if (texto[tamanho] == ';') {
+        texto = texto.substring(0, tamanho);
+    }
  
     document.getElementById('txtParametros').value = texto.replace(/ /g, ";");
 }
