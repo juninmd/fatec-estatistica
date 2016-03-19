@@ -1,4 +1,5 @@
-﻿@model EstatisticaFatec.Core.Models.VariavelQuantitativa.VariavelDiscretaContainerEntity
+﻿@using EstatisticaFatec.Helper
+@model EstatisticaFatec.Core.Models.VariavelQuantitativa.VariavelDiscretaContainerEntity
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -97,7 +98,7 @@
 
                 <div class="list-group">
                     <div class="list-group-item" style="text-align: center">
-                        <p>Resultados: <span>@string.Join("; ", @Model.Rol)</span></p>
+                        <p>Resultados: <span>@Html.Rol(Model.Rol)</span></p>
                     </div>
 
                 </div>
@@ -213,7 +214,7 @@
                     text: 'Descrição dos dados'
                 },
                 xAxis: {
-                    categories: [@string.Join(", ", @Model.VariavelQuantitativaEntity.Select(q => q.XI))],
+                    categories: ['@string.Join(", ", @Model.VariavelQuantitativaEntity.Select(q => q.XI))'],
                     title: {
                         text: "Classes"
                     }
@@ -255,11 +256,11 @@
                 series: [
                     {
                         name: 'F%',
-                        data: [@string.Join(", ", @Model.VariavelQuantitativaEntity.Select(q => Math.Round(q.FPorcent)))]
+                        data: ['@string.Join(", ", @Model.VariavelQuantitativaEntity.Select(q => Math.Round(q.FPorcent)))']
                     },
                     {
                         name: 'FE%',
-                        data: [@string.Join(", ", @Model.VariavelQuantitativaEntity.Select(q => Math.Round(q.FEPorcent)))]
+                        data: ['@string.Join(", ", @Model.VariavelQuantitativaEntity.Select(q => Math.Round(q.FEPorcent)))']
                     }
                 ]
             });
