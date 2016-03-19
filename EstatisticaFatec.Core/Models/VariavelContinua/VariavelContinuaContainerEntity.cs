@@ -51,7 +51,7 @@ namespace EstatisticaFatec.Core.Models.VariavelContinua
         /// <summary>
         /// Número que mais se repete
         /// </summary>
-        public decimal[] Moda { get; set; }
+        public decimal Moda { get; set; }
 
         /// <summary>
         /// Média de todos os números
@@ -63,6 +63,20 @@ namespace EstatisticaFatec.Core.Models.VariavelContinua
         /// </summary>
         public decimal Mediana { get; set; }
 
+        /// <summary>
+        /// Soma total de XI * FI
+        /// </summary>
+        public decimal EXIFI { get; set; }
+
+        /// <summary>
+        /// Soma total dos FI
+        /// </summary>
+        public decimal EFI { get; set; }
+
+        /// <summary>
+        /// Classe na qual possui a maior frequência
+        /// </summary>
+        public decimal[] ClasseModal { get; set; }
 
         public List<VariavelContinuaEntity> VariavelContinuaEntity { get; set; }
     }

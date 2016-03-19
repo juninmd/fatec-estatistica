@@ -101,10 +101,30 @@ namespace EstatisticaFatec.Core
                 AL = al,
                 K = K,
                 IC = Ic.Classes,
-                Moda = MathCoreApp.Moda(inputData),
+                Moda = ModaQuantitativa(listaTabelaQuantitativa),
                 Media = MathCoreApp.MediaComum(inputData),
-                Mediana = MathCoreApp.Mediana(rol)
+                Mediana = MathCoreApp.Mediana(rol),
+                EXIFI = listaTabelaQuantitativa.Sum(entity => entity.Media),
+                EFI = listaTabelaQuantitativa.Sum(entity => entity.Count),
+
             };
+        }
+        public static decimal ModaQuantitativa(List<VariavelContinuaEntity> listaTabelaQuantitativa)
+        {
+            var maximo = (listaTabelaQuantitativa.Max(q => q.Count));
+            var counts = listaTabelaQuantitativa.Where(g => g.Count == maximo).Select(q => q.Range);
+
+            var decimalMEdia = new decimal(0) + counts.Sum(item => (item[0] + item[1])/2);
+            return decimalMEdia/counts.Count();
+        }
+
+        public static decimal MedianaQuantitativa(List<VariavelContinuaEntity> listaTabelaQuantitativa)
+        {
+            var maximo = (listaTabelaQuantitativa.Max(q => q.Count));
+            var counts = listaTabelaQuantitativa.Where(g => g.Count == maximo).Select(q => q.Range);
+
+            var decimalMEdia = new decimal(0) + counts.Sum(item => (item[0] + item[1]) / 2);
+            return decimalMEdia / counts.Count();
         }
     }
 }

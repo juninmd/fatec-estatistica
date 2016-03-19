@@ -58,6 +58,7 @@ namespace EstatisticaFatec.Core
             var maximo = (inputData.GroupBy(item => item).Select(g => g.Count())).Max();
             return (inputData.GroupBy(item => item).Where(g => g.Count() == maximo)).Select(q => q.Key).ToArray();
         }
+     
 
         public static decimal MediaComum(List<decimal> inputData)
         {
