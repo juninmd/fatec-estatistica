@@ -1,30 +1,23 @@
-﻿function formatarInput() {
-    var texto = document.getElementById('txtParametros').value;
+﻿//function formatarInput() {
+//    var texto = document.getElementById('txtParametros').value;
 
-    texto = texto.allTrim();
+//    texto = texto.allTrim();
 
-    texto = texto.replace(/ /g, ";");
+//    texto = texto.replace(/ /g, ";");
 
-    var tamanho = texto.length -1 ;
+function formatarInput() {
+    var textelemento = document.getElementById('txtParametros');
 
-    if (texto[tamanho] == ';') {
-        texto = texto.substring(0, tamanho);
+    var texto = textelemento.value.replace(/[^0-9.]/g, ';'),
+        formated = [],
+        splitText = texto.split(';');
+
+    for (var i in splitText) {
+        if (splitText[i].trim() !== '') {
+            formated.push(splitText[i]);
+        }
     }
- 
-    document.getElementById('txtParametros').value = texto.replace(/ /g, ";");
+    textelemento.value = formated.join(';').replace('.',',');
 }
-String.prototype.allTrim = String.prototype.allTrim ||
-     function () {
-         return this.replace(/\s+/g, ' ')
-                    .replace(/^\s+|\s+$/, '');
-
-     };
-
-String.prototype.removeDuplicates = String.prototype.removeDuplicates ||
-     function () {
-         return this.replace(/;+/g, ' ')
-                    .replace(/^\s+|\s+$/, '');
-
-     };
 
 
