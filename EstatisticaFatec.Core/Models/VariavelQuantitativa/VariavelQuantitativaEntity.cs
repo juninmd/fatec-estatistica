@@ -34,6 +34,11 @@
         /// <summary>
         /// [6] - XI * FI
         /// </summary>
-        public decimal Media { get; set; }
+        public decimal XIFI { get; set; }
+
+        /// <summary>
+        /// [7] - (XI - MÉDIA)². FI
+        /// </summary>
+        public decimal XIFIQuadFI { get; set; }
     }
 }

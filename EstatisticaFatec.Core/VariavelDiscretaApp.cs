@@ -18,6 +18,8 @@ namespace EstatisticaFatec.Core
             var f = new List<decimal>();
             var fePorcentList = new List<decimal>();
 
+            var media = MathCoreApp.MediaComum(inputData);
+
             foreach (var item in listaGrupos)
             {
                 var fePorcent = (item.Count() / (decimal)listaGrupos.Select(q => q.Count()).Sum()) * 100;
@@ -32,7 +34,8 @@ namespace EstatisticaFatec.Core
                     FEPorcent = Math.Round(fePorcent, 2),
                     F = f.Sum(),
                     FPorcent = Math.Round(fePorcentList.Sum(), 2),
-                    Media = item.Key * item.Count()
+                    XIFI = item.Key * item.Count(),
+                    XIFIQuadFI = (item.Key - media) * item.Count(),
 
                 });
             }
@@ -43,7 +46,7 @@ namespace EstatisticaFatec.Core
                 Rol = rol,
                 VariavelQuantitativaEntity = listaTabelaQuantitativa,
                 Moda = MathCoreApp.Moda(inputData),
-                Media = MathCoreApp.MediaComum(inputData),
+                Media = media,
                 Mediana = MathCoreApp.Mediana(rol)
 
             };
