@@ -46,7 +46,7 @@ namespace EstatisticaFatec.Core
 
         public VariavelContinuaContainerEntity Build(List<decimal> inputData)
         {
-            var rol = inputData.OrderBy(x => x).ToList();
+            var rol = MathCoreApp.Rol(inputData);
 
             var xMAx = inputData.Max();
             var xMin = inputData.Min();

@@ -50,6 +50,7 @@
     <Compile Include="GruposApp.cs" />
     <Compile Include="InputCore.cs" />
     <Compile Include="MathCoreApp.cs" />
+    <Compile Include="MedidasDispersaoApp.cs" />
     <Compile Include="MedidasTendenciaApp.cs" />
     <Compile Include="Models\AleatoriaSimples\AleatoriaSimplesEntity.cs" />
     <Compile Include="Models\DistribuicaoEntre\DistribuicaoEntreEntity.cs" />
@@ -59,6 +60,7 @@
     <Compile Include="Models\EstratificadaProporcional\EstratificadaProporcionalEntity.cs" />
     <Compile Include="Models\EstratificadaUniforme\EstratificadaUniformeEntity.cs" />
     <Compile Include="Models\Grupos\GruposEntity.cs" />
+    <Compile Include="Models\MedidasDispersao\MedidasDispersaoEntity.cs" />
     <Compile Include="Models\MedidasTendencia\MedidasTendenciaEntity.cs" />
     <Compile Include="Models\RequestMessage.cs" />
     <Compile Include="Models\Sistematica\SistematicaEntity.cs" />
