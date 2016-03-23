@@ -26,19 +26,22 @@ namespace EstatisticaFatec.Core
             return decimalMEdia / counts.Count();
         }
 
-        private static decimal MedianaQuantitativa(List<VariavelContinuaEntity> listaTabelaQuantitativa)
+        private static decimal MedianaQuantitativa(List<VariavelContinuaEntity> listaTabelaQuantitativa, decimal IC)
         {
-            var soma = listaTabelaQuantitativa.Sum(q => q.FI) ;
+            var soma = listaTabelaQuantitativa.Sum(q => q.FI);
 
-            var posicao = soma/2;
+            var posicao = soma / 2;
 
-            var classe = listaTabelaQuantitativa.Where(q => q.F > posicao).OrderBy(q => q).First();
+            var classe = listaTabelaQuantitativa.Where(q => q.F > posicao).OrderBy(p => p.F).ToList().First();
+            var classeAnterior = listaTabelaQuantitativa.Where(q => q.F < posicao).OrderByDescending(q => q.F).First();
 
-            var limiteInferior = classe.Range[0];
+            var I = classe.Range[0];
+            var EFI = soma;
+            var Fant = classeAnterior.F;
+            var FIND = classe.FI;
+            var H = IC;
 
-            //TODO
-            return 0;
-
+            return I + Math.Round((decimal)((EFI / 2) - Fant) / FIND * H, 2);
         }
         private VariavelContinuaIcEntity GetIC(decimal al, List<decimal> K)
         {
@@ -77,12 +80,12 @@ namespace EstatisticaFatec.Core
 
         public VariavelContinuaContainerEntity Build(List<decimal> inputData)
         {
-            var rol = MathCoreApp.Rol(inputData);
-            var media = MathCoreApp.MediaComum(inputData);
+            var rol = Rol(inputData);
+            var media = MediaComum(inputData);
             var xMAx = inputData.Max();
             var xMin = inputData.Min();
 
-            var al = xMAx - xMin + 1;
+            var al = (xMAx - xMin) + 1;
 
             var numeroPreK = (int)Math.Sqrt(inputData.Count());
             var K = new List<decimal> { numeroPreK - 1, numeroPreK, numeroPreK + 1 };
@@ -106,7 +109,7 @@ namespace EstatisticaFatec.Core
                 f.Add(count);
                 fePorcentList.Add(fePorcent);
 
-                var xi = MathCoreApp.Mediana(new List<decimal>() { minimo, maximo });
+                var xi = Mediana(new List<decimal>() { minimo, maximo });
 
                 listaTabelaQuantitativa.Add(new VariavelContinuaEntity
                 {
@@ -138,10 +141,10 @@ namespace EstatisticaFatec.Core
                 MaxLinha = xMAx,
                 AL = al,
                 K = K,
-                IC = Ic.Classes,
-                Moda = ModaQuantitativa(listaTabelaQuantitativa),
+                IC = Ic,
+                Moda = Moda(inputData),
                 Media = media,
-                Mediana = MathCoreApp.Mediana(rol),
+                Mediana = MedianaQuantitativa(listaTabelaQuantitativa,Ic.IC),
                 EXIFI = listaTabelaQuantitativa.Sum(entity => entity.XIFI),
                 EFI = listaTabelaQuantitativa.Sum(entity => entity.FI),
                 Variancia = variancia,

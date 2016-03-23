@@ -1784,19 +1784,19 @@ output {
 
     .form-control::-moz-placeholder,
     .form-group .form-control::-moz-placeholder {
-        color: #4D4D4D;
+        color: RGBA(255, 0, 252, 0.42);
         font-weight: 400;
     }
 
     .form-control:-ms-input-placeholder,
     .form-group .form-control:-ms-input-placeholder {
-        color: #4D4D4D;
+        color: RGBA(255, 0, 252, 0.42);
         font-weight: 400;
     }
 
     .form-control::-webkit-input-placeholder,
     .form-group .form-control::-webkit-input-placeholder {
-        color: #4D4D4D;
+        color:RGBA(255, 0, 252, 0.42);
         font-weight: 400;
     }
 
@@ -1970,21 +1970,21 @@ output {
     .form-control::-moz-placeholder {
         font-size: 16px;
         line-height: 1.42857143;
-        color: #4D4D4D;
+        color: RGBA(255, 0, 252, 0.42);
         font-weight: 400;
     }
 
     .form-control:-ms-input-placeholder {
         font-size: 16px;
         line-height: 1.42857143;
-        color: #4D4D4D;
+        color: RGBA(255, 0, 252, 0.42);
         font-weight: 400;
     }
 
     .form-control::-webkit-input-placeholder {
         font-size: 16px;
         line-height: 1.42857143;
-        color: #4D4D4D;
+        color:RGBA(255, 0, 252, 0.42);
         font-weight: 400;
     }
 

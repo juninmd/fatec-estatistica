@@ -46,12 +46,12 @@ namespace EstatisticaFatec.Core.Models.VariavelContinua
         /// AL (1ª Passo) / K (2ª Passo)
         /// Sendo o AL um numero divisível por algum K, caso não seja o AL é incrementado +1
         /// </summary>
-        public decimal IC { get; set; }
+        public VariavelContinuaIcEntity IC { get; set; }
 
         /// <summary>
         /// Número que mais se repete
         /// </summary>
-        public decimal Moda { get; set; }
+        public decimal[] Moda { get; set; }
 
         /// <summary>
         /// Média de todos os números

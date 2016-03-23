@@ -69,7 +69,7 @@
 
                             <div class="col-md-4">
                                 <span class="badge">Você pode efetuar o upload de arquivo</span>
-                                <input type="file" value=""/>
+                                <input type="file" value="" />
                             </div>
                             <div class="col-md-8">
                                 <span class="badge">Ou se preferir manualmente, insira os paramêtros, separados por ponto e vírgula ";"</span>
@@ -95,176 +95,255 @@
 
 @if (Model.InputValue.Any())
 {
-<div class="panel panel-info">
-    <div class="panel-heading">
-        <span class="badge">2ª Etapa</span>
-        <span class="info">Toda informação é ordenada (Vulgo ROL).</span>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <span class="badge">2ª Etapa</span>
+            <span class="info">Toda informação é ordenada (Vulgo ROL).</span>
+        </div>
+
+        <div class="panel-body">
+            <div class="row-content">
+
+                <div class="list-group">
+                    <div class="list-group-item" style="text-align: center">
+                        <p>Resultados: <span>@Html.Rol(Model.Rol)</span></p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
 
-    <div class="panel-body">
-        <div class="row-content">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="row">
 
-            <div class="list-group">
-                <div class="list-group-item" style="text-align: center">
-                    <p>Resultados: <span>@Html.Rol(Model.Rol)</span></p>
+                <div class="col-md-4">
+                    <span class="badge">4ª Etapa</span>
+                    <span class="info">Distribuição de Frequência</span>
+                </div>
+
+                <div class="col-md-3">
+                    <span class="badge">
+                        Média: @Model.Media | Moda: @string.Join(";", Model.Moda) | Mediana: @Model.Mediana
+                    </span>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <div class="row-content">
+
+                <div class="list-group">
+                    <div class="list-group-item">
+
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th title="Classes">Classes</th>
+                                    <th title="De x até y">Range</th>
+                                    <th title="Frequência simples">[FI]</th>
+                                    <th title="Frequência relativa percentual ">[FE%]</th>
+                                    <th title="Frequência Acumulada">[F]</th>
+                                    <th title="Frequência Acumulada porcentual">[F%]</th>
+                                    <th title="XI">[XI]</th>
+                                    <th title="Média">[XI * FI]</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.VariavelContinuaEntity)
+                                {
+                                    <tr>
+                                        <td>@item.Classe</td>
+                                        <td>@item.Range[0]|-------@item.Range[1]</td>
+                                        <td>@item.FI</td>
+                                        <td>@item.FEPorcent%</td>
+                                        <td>@item.F</td>
+                                        <td>@item.FPorcent%</td>
+                                        <td>@item.XI</td>
+                                        <td>@item.XIFI</td>
+                                    </tr>
+                                }
+                                <tr style="font-weight: bold">
+                                    <td>@Model.VariavelContinuaEntity.Select(x => x.Classe).Count()</td>
+                                    <td>@Model.IC.IC</td>
+                                    <td>@Model.VariavelContinuaEntity.Select(x => x.FI).Sum()</td>
+                                    <td>@Model.VariavelContinuaEntity.Select(x => x.FEPorcent).Sum()</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td>@Model.VariavelContinuaEntity.Select(x => x.XIFI).Sum()</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
-
-        </div>
-    </div>
-</div>
-
-<div class="panel panel-info">
-    <div class="panel-heading">
-        <div class="row">
-
-            <div class="col-md-4">
-                <span class="badge">4ª Etapa</span>
-                <span class="info">Distribuição de Frequência</span>
-            </div>
-
-            <div class="col-md-3">
-                <span class="badge">
-                    Média: @Model.Media | Moda: @string.Join(";", Model.Moda) | Mediana: @Model.Mediana
-                </span>
-            </div>
-
         </div>
     </div>
 
-    <div class="panel-body">
-        <div class="row-content">
 
-            <div class="list-group">
-                <div class="list-group-item">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <span class="badge">4ª Etapa</span>
+            <span class="info">Medidas de tendência central / Medidas de Dispersao.</span>
+        </div>
 
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th title="Classes">Classes</th>
-                            <th title="De x até y">Range</th>
-                            <th title="Frequência simples">[FI]</th>
-                            <th title="Frequência relativa percentual ">[FE%]</th>
-                            <th title="Frequência Acumulada">[F]</th>
-                            <th title="Frequência Acumulada porcentual">[F%]</th>
-                            <th title="Média">[XI * FI]</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach (var item in Model.VariavelContinuaEntity)
+        <div class="panel-body">
+            <div class="row-content">
+
+                <div class="form-group">
+
+                    <label class="col-md-1 control-label">Moda</label>
+                    <div class="col-md-2">
+                        <input class="form-control" readonly="" value="@Html.Moda(Model.Moda)">
+                    </div>
+
+                    <label class="col-md-1 control-label">Média</label>
+                    <div class="col-md-2">
+                        <input class="form-control" readonly="" value="@Model.Media">
+                    </div>
+
+
+                    <label class="col-md-1 control-label">Mediana</label>
+                    <div class="col-md-2">
+                        <input class="form-control" readonly="" value="@Model.Mediana">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <span class="badge">4ª Etapa</span>
+            <span class="info">Medidas de Dispersão.</span>
+        </div>
+
+        <div class="panel-body">
+            <div class="row-content">
+
+                <div class="form-group">
+
+                    <label class="col-md-1 control-label">Variância</label>
+                    <div class="col-md-1">
+                        <input class="form-control" readonly="" value="@Model.Variancia">
+                    </div>
+
+                    <label class="col-md-2 control-label">Desvio Padrão</label>
+                    <div class="col-md-1">
+                        <input class="form-control" readonly="" value="@Model.DP">
+                    </div>
+
+                    <label class="col-md-2 control-label">Coeficiente da variação</label>
+                    <div class="col-md-1">
+                        <input class="form-control" readonly="" value="@Model.CV%">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <span class="badge">5ª Etapa</span>
+            <span class="info">Administramos assim os gráficos.</span>
+        </div>
+
+        <div class="panel-body">
+            <div class="row-content">
+
+                <div class="list-group">
+                    <div class="list-group-item" style="text-align:center">
+                        <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    @section scripts{
+        <script src="~/Scripts/highcharts.js"></script>
+        <script>
+
+            $(function () {
+                $('#container').highcharts({
+                    chart: {
+                        type: 'bar'
+                    },
+                    title: {
+                        text: 'Varíavel contínua'
+                    },
+                    subtitle: {
+                        text: 'Descrição dos dados'
+                    },
+                    xAxis: {
+                        categories: ['@string.Join(", ", @Model.VariavelContinuaEntity.Select(q=> q.Classe))'],
+                        title: {
+                            text: "Classes"
+                        }
+                    },
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'Porcentagem',
+                            align: 'high'
+                        },
+                        labels: {
+                            overflow: 'justify'
+                        }
+                    },
+                    tooltip: {
+                        valueSuffix: ' de frequência'
+                    },
+                    plotOptions: {
+                        bar: {
+                            dataLabels: {
+                                enabled: true
+                            }
+                        }
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'top',
+                        x: -40,
+                        y: 80,
+                        floating: true,
+                        borderWidth: 1,
+                        backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+                        shadow: true
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    series: [
                         {
-                            <tr>
-                                <td>@item.Classe</td>
-                                <td>@item.Range[0]|-------@item.Range[1]</td>
-                                <td>@item.FI</td>
-                                <td>@item.FEPorcent%</td>
-                                <td>@item.F</td>
-                                <td>@item.FPorcent%</td>
-                                <td>@item.XIFI</td>
-                            </tr>
+                            name: 'F%',
+                            data: ['@string.Join(", ", @Model.VariavelContinuaEntity.Select(q => Math.Round(q.FPorcent)))']
+                        },
+                        {
+                            name: 'FE%',
+                            data: ['@string.Join(", ", @Model.VariavelContinuaEntity.Select(q => Math.Round(q.FEPorcent)))']
                         }
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="panel panel-info">
-    <div class="panel-heading">
-        <span class="badge">5ª Etapa</span>
-        <span class="info">Administramos assim os gráficos.</span>
-    </div>
-
-    <div class="panel-body">
-        <div class="row-content">
-
-            <div class="list-group">
-                <div class="list-group-item" style="text-align:center">
-                    <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-
-
-
-
-
-
-@section scripts{
-    <script src="~/Scripts/highcharts.js"></script>
-    <script>
- 
-        $(function () {
-            $('#container').highcharts({
-                chart: {
-                    type: 'bar'
-                },
-                title: {
-                    text: 'Varíavel contínua'
-                },
-                subtitle: {
-                    text: 'Descrição dos dados'
-                },
-                xAxis: {
-                    categories: ['@string.Join(", ", @Model.VariavelContinuaEntity.Select(q=> q.Classe))'],
-                    title: {
-                        text: "Classes"
-                    }
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: 'Porcentagem',
-                        align: 'high'
-                    },
-                    labels: {
-                        overflow: 'justify'
-                    }
-                },
-                tooltip: {
-                    valueSuffix: ' de frequência'
-                },
-                plotOptions: {
-                    bar: {
-                        dataLabels: {
-                            enabled: true
-                        }
-                    }
-                },
-                legend: {
-                    layout: 'vertical',
-                    align: 'right',
-                    verticalAlign: 'top',
-                    x: -40,
-                    y: 80,
-                    floating: true,
-                    borderWidth: 1,
-                    backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
-                    shadow: true
-                },
-                credits: {
-                    enabled: false
-                },
-                series: [
-                    {
-                        name: 'F%',
-                        data: ['@string.Join(", ", @Model.VariavelContinuaEntity.Select(q => Math.Round(q.FPorcent)))']
-                    },
-                    {
-                        name: 'FE%',
-                        data: ['@string.Join(", ", @Model.VariavelContinuaEntity.Select(q => Math.Round(q.FEPorcent)))']
-                    }
-                ]
+                    ]
+                });
             });
-        });
-    </script>
-}
+        </script>
+    }
 
 }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using EstatisticaFatec.Core;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -28,6 +29,18 @@ namespace EstatisticaFatec.Tests
             Assert.IsTrue(resultado.Media == new decimal(4.25));
             Assert.IsTrue(resultado.Mediana == 4);
             Assert.IsTrue(resultado.Moda[0] == 4 && resultado.Moda[1] == 5);
+        }
+
+        [TestMethod]
+        public void MedianaQuantitativa()
+        {
+            var I = 36;
+            var EFI = 20;
+            var Fant = 8;
+            var FIND = 9;
+            var H = 8;
+
+            var calculo = I + Math.Round((decimal)((EFI / 2) - Fant) / FIND * H, 2);
         }
     }
 }
