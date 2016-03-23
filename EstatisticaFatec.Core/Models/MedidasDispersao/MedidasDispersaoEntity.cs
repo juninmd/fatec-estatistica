@@ -41,16 +41,15 @@ namespace EstatisticaFatec.Core.Models.MedidasDispersao
         /// <para>V(X)²</para>
         /// <para>[SomaInputValueQuadrado/SomaInputValueQuadrado.length - 1] = X(V)</para>
         /// </summary>
-        public decimal EXIQuadrado { get; set; }
+        public decimal Variancia { get; set; }
 
         /// <summary>
-        /// <para>V(X)</para>
-        /// <para>V(X) = raiz[EXIQuadrado] = DP</para>
+        /// raiz[Variancia]
         /// </summary>
-        public decimal RaizEXIQuadrado { get; set; }
+        public decimal DP { get; set; }
 
         /// <summary>
-        /// CV = (DP/Media) * 100 = Porcentagem
+        /// (DP/Media) * 100 = Porcentagem
         /// </summary>
         public decimal CV { get; set; }
     }

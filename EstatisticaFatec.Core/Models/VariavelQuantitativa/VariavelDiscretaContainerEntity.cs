@@ -36,6 +36,18 @@ namespace EstatisticaFatec.Core.Models.VariavelQuantitativa
         /// </summary>
         public decimal Mediana { get; set; }
 
+        public decimal Variancia { get; set; }
+
+        /// <summary>
+        /// Desvio Padrão
+        /// </summary>
+        public decimal DP { get; set; }
+
+        /// <summary>
+        /// Coeficiente da variação
+        /// </summary>
+        public decimal CV { get; set; }
+
         public List<VariavelQuantitativaEntity> VariavelQuantitativaEntity { get; set; }
     }
 }

@@ -8,7 +8,13 @@ namespace EstatisticaFatec.Helper
     {
         public static MvcHtmlString Rol(this HtmlHelper h, List<decimal> inputRol)
         {
-            var formatada = string.Join(" - ", inputRol.Select(q=> $"[{q}]"));
+            var formatada = string.Join(" - ", inputRol.Select(q => $"[{q}]"));
+            return new MvcHtmlString(formatada);
+        }
+
+        public static MvcHtmlString Moda(this HtmlHelper h, decimal[] moda)
+        {
+            var formatada = string.Join(" - ", moda.Select(q => $"{q}"));
             return new MvcHtmlString(formatada);
         }
     }

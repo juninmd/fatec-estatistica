@@ -72,7 +72,7 @@ namespace EstatisticaFatec.Core
 
         public static decimal Quadrado(decimal input)
         {
-            return input * input;
+            return Math.Round(input * input,2);
         }
 
         /// <summary>
@@ -85,18 +85,6 @@ namespace EstatisticaFatec.Core
         {
             return inputData.Select(item => Quadrado(item - media)).ToList();
         }
-
-        /// <summary>
-        /// Retorna o valor E(xi-`x) / E(xi).length - 1
-        /// </summary>
-        /// <param name="inutData"></param>
-        /// <param name="quantidade"></param>
-        /// <returns></returns>
-        public static decimal DivideV2PorQuantidade(decimal inutData, int quantidade)
-        {
-            return inutData / (quantidade - 1);
-        }
-
 
         /// <summary>
         /// (input / valorbase) * 100
@@ -116,7 +104,7 @@ namespace EstatisticaFatec.Core
         /// <returns></returns>
         public static decimal RaizQuadrada(decimal input)
         {
-            return (decimal)Math.Sqrt((double)input);
+            return (decimal) Math.Round(Math.Sqrt((double)input),2);
         }
 
 

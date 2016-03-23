@@ -42,8 +42,6 @@ namespace EstatisticaFatec.Core
             }
         }
 
-
-
         public VariavelContinuaContainerEntity Build(List<decimal> inputData)
         {
             var rol = MathCoreApp.Rol(inputData);
@@ -58,13 +56,15 @@ namespace EstatisticaFatec.Core
 
             var Ic = GetIC(al, K);
 
-            var listaTabelaQuantitativa = new List<VariavelContinuaEntity>();
 
             var minimo = xMin;
             var maximo = minimo + (int)Ic.IC;
 
             var f = new List<int>();
             var fePorcentList = new List<decimal>();
+
+            var listaTabelaQuantitativa = new List<VariavelContinuaEntity>();
+
             for (int i = 1; i <= Ic.Classes; i++)
             {
                 var fePorcent = (decimal)(rol.Count(x => x >= minimo && x < maximo) / (decimal)rol.Count()) * 100;

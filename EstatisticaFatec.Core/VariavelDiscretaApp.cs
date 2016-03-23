@@ -2,32 +2,50 @@
 using System.Collections.Generic;
 using System.Linq;
 using EstatisticaFatec.Core.Models.VariavelQuantitativa;
+using static EstatisticaFatec.Core.MathCoreApp;
 
 namespace EstatisticaFatec.Core
 {
     public class VariavelDiscretaApp
     {
+        private decimal DP(decimal variancia)
+        {
+            return RaizQuadrada(variancia);
+        }
+        private decimal Variancia(decimal xifi, decimal FISUM)
+        {
+            return xifi / FISUM;
+        }
+        private XIFIQuadFI PreencherXIFIQUADFI(decimal XI, decimal media, int FI)
+        {
+            return new XIFIQuadFI
+            {
+                Formula = $"({XI} - `{media})². {FI}",
+                Valor = Quadrado((XI - media)) * FI,
+            };
+        }
         public VariavelDiscretaContainerEntity Build(List<decimal> inputData)
         {
-            var rol = MathCoreApp.Rol(inputData);
+            var rol = Rol(inputData);
 
-            var listaTabelaQuantitativa = new List<VariavelQuantitativaEntity>();
+            var media = MediaComum(inputData);
 
             var listaGrupos = rol.GroupBy(x => x);
 
             var f = new List<decimal>();
+
             var fePorcentList = new List<decimal>();
 
-            var media = MathCoreApp.MediaComum(inputData);
+            var listaVariavelDiscreta = new List<VariavelQuantitativaEntity>();
 
             foreach (var item in listaGrupos)
             {
-                var fePorcent = (item.Count() / (decimal)listaGrupos.Select(q => q.Count()).Sum()) * 100;
+                var fePorcent = Porcentagem(item.Count(), listaGrupos.Select(q => q.Count()).Sum());
 
                 f.Add(item.Count());
                 fePorcentList.Add(fePorcent);
 
-                listaTabelaQuantitativa.Add(new VariavelQuantitativaEntity
+                listaVariavelDiscreta.Add(new VariavelQuantitativaEntity
                 {
                     XI = item.Key,
                     FI = item.Count(),
@@ -35,20 +53,25 @@ namespace EstatisticaFatec.Core
                     F = f.Sum(),
                     FPorcent = Math.Round(fePorcentList.Sum(), 2),
                     XIFI = item.Key * item.Count(),
-                    XIFIQuadFI = (item.Key - media) * item.Count(),
-
+                    XIFIQuadFI = PreencherXIFIQUADFI(item.Key, media, item.Count())
                 });
             }
+
+            var variancia = Variancia(listaVariavelDiscreta.Select(q => q.XIFIQuadFI.Valor).Sum(), listaVariavelDiscreta.Select(e => e.FI).Sum());
+            var dp = DP(variancia);
+            var cv = Porcentagem(dp, media);
 
             return new VariavelDiscretaContainerEntity
             {
                 InputValue = inputData,
                 Rol = rol,
-                VariavelQuantitativaEntity = listaTabelaQuantitativa,
-                Moda = MathCoreApp.Moda(inputData),
+                VariavelQuantitativaEntity = listaVariavelDiscreta,
+                Moda = Moda(inputData),
                 Media = media,
-                Mediana = MathCoreApp.Mediana(rol)
-
+                Mediana = Mediana(rol),
+                Variancia = variancia,
+                DP = dp,
+                CV = cv
             };
         }
     }

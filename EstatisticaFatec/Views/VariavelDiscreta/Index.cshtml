@@ -30,7 +30,7 @@
                 </div>
 
             </div>
-         
+
         </div>
     </div>
 </div>
@@ -126,7 +126,7 @@
                         Média: @Model.Media | Moda: @string.Join(";", Model.Moda) | Mediana: @Model.Mediana
                     </span>
                 </div>
- 
+
             </div>
         </div>
 
@@ -138,43 +138,115 @@
 
                         <table class="table">
                             <thead>
-                            <tr>
-                                <th title="Valor a ser calculado">[XI]</th>
-                                <th title="Frequência simples">[FI]</th>
-                                <th title="Frequência relativa percentual ">[FE%]</th>
-                                <th title="Frequência Acumulada">[F]</th>
-                                <th title="Frequência Acumulada porcentual">[F%]</th>
-                                <th title="Média">[XI * FI]</th>
-                                <th title="(XI - `X)². FI">(XI - `X)². FI</th>
-                            </tr>
+                                <tr>
+                                    <th title="Valor a ser calculado">[XI]</th>
+                                    <th title="Frequência simples">[FI]</th>
+                                    <th title="Frequência relativa percentual ">[FE%]</th>
+                                    <th title="Frequência Acumulada">[F]</th>
+                                    <th title="Frequência Acumulada porcentual">[F%]</th>
+                                    <th title="Média">[XI * FI]</th>
+                                    <th title="(XI - `X)². FI">(XI - `X)². FI</th>
+                                </tr>
                             </thead>
                             <tbody>
-                            @foreach (var item in Model.VariavelQuantitativaEntity)
-                            {
-                                <tr>
-                                    <td>@item.XI</td>
-                                    <td>@item.FI</td>
-                                    <td>@item.FEPorcent%</td>
-                                    <td>@item.F</td>
-                                    <td>@item.FPorcent%</td>
-                                    <td>@item.XIFI</td>
-                                    <td>@item.XIFIQuadFI%</td>
+                                @foreach (var item in Model.VariavelQuantitativaEntity)
+                                {
+                                    <tr>
+                                        <td>@item.XI</td>
+                                        <td>@item.FI</td>
+                                        <td>@item.FEPorcent%</td>
+                                        <td>@item.F</td>
+                                        <td>@item.FPorcent%</td>
+                                        <td>@item.XIFI</td>
+                                        <td title="@item.XIFIQuadFI.Formula">@item.XIFIQuadFI.Valor%</td>
+                                    </tr>
+                                }
+                                <tr style="font-weight: bold">
+                                    <td>-</td>
+                                    <td>@Model.VariavelQuantitativaEntity.Select(x => x.FI).Sum()</td>
+                                    <td>-</td>
+                                    <td>-</td>
+                                    <td></td>
+                                    <td>@Model.VariavelQuantitativaEntity.Select(x => x.XIFI).Sum()</td>
+                                    <td>@Model.VariavelQuantitativaEntity.Select(x => x.XIFIQuadFI.Valor).Sum()</td>
                                 </tr>
-                            }
                             </tbody>
                         </table>
-                       
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <span class="badge">4ª Etapa</span>
+            <span class="info">Medidas de tendência central / Medidas de Dispersao.</span>
+        </div>
 
- 
+        <div class="panel-body">
+            <div class="row-content">
 
- 
+                <div class="form-group">
+
+                    <label class="col-md-1 control-label">Moda</label>
+                    <div class="col-md-2">
+                        <input class="form-control" readonly="" value="@Html.Moda(Model.Moda)">
+                    </div>
+
+                    <label class="col-md-1 control-label">Média</label>
+                    <div class="col-md-2">
+                        <input class="form-control" readonly="" value="@Model.Media">
+                    </div>
+
+
+                    <label class="col-md-1 control-label">Mediana</label>
+                    <div class="col-md-2">
+                        <input class="form-control" readonly="" value="@Model.Mediana">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <span class="badge">4ª Etapa</span>
+            <span class="info">Medidas de Dispersão.</span>
+        </div>
+
+        <div class="panel-body">
+            <div class="row-content">
+
+                <div class="form-group">
+
+                    <label class="col-md-1 control-label">Variância</label>
+                    <div class="col-md-1">
+                        <input class="form-control" readonly="" value="@Model.Variancia">
+                    </div>
+
+                    <label class="col-md-2 control-label">Desvio Padrão</label>
+                    <div class="col-md-1">
+                        <input class="form-control" readonly="" value="@Model.DP">
+                    </div>
+
+                    <label class="col-md-2 control-label">Coeficiente da variação</label>
+                    <div class="col-md-1">
+                        <input class="form-control" readonly="" value="@Model.CV%">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
     <div class="panel panel-info">
         <div class="panel-heading">
             <span class="badge">5ª Etapa</span>
@@ -199,75 +271,75 @@
 
 
 
-@section scripts{
+    @section scripts{
 
         <script src="~/Scripts/highcharts.js"></script>
-    <script>
- 
-        $(function () {
-            $('#container').highcharts({
-                chart: {
-                    type: 'bar'
-                },
-                title: {
-                    text: 'Varíavel contínua'
-                },
-                subtitle: {
-                    text: 'Descrição dos dados'
-                },
-                xAxis: {
-                    categories: ['@string.Join(", ", @Model.VariavelQuantitativaEntity.Select(q => q.XI))'],
-                    title: {
-                        text: "Classes"
-                    }
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: 'Porcentagem',
-                        align: 'high'
+        <script>
+
+            $(function () {
+                $('#container').highcharts({
+                    chart: {
+                        type: 'bar'
                     },
-                    labels: {
-                        overflow: 'justify'
-                    }
-                },
-                tooltip: {
-                    valueSuffix: ' de frequência'
-                },
-                plotOptions: {
-                    bar: {
-                        dataLabels: {
-                            enabled: true
+                    title: {
+                        text: 'Varíavel contínua'
+                    },
+                    subtitle: {
+                        text: 'Descrição dos dados'
+                    },
+                    xAxis: {
+                        categories: ['@string.Join(", ", @Model.VariavelQuantitativaEntity.Select(q => q.XI))'],
+                        title: {
+                            text: "Classes"
                         }
-                    }
-                },
-                legend: {
-                    layout: 'vertical',
-                    align: 'right',
-                    verticalAlign: 'top',
-                    x: -40,
-                    y: 80,
-                    floating: true,
-                    borderWidth: 1,
-                    backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
-                    shadow: true
-                },
-                credits: {
-                    enabled: false
-                },
-                series: [
-                    {
-                        name: 'F%',
-                        data: ['@string.Join(", ", @Model.VariavelQuantitativaEntity.Select(q => Math.Round(q.FPorcent)))']
                     },
-                    {
-                        name: 'FE%',
-                        data: ['@string.Join(", ", @Model.VariavelQuantitativaEntity.Select(q => Math.Round(q.FEPorcent)))']
-                    }
-                ]
+                    yAxis: {
+                        min: 0,
+                        title: {
+                            text: 'Porcentagem',
+                            align: 'high'
+                        },
+                        labels: {
+                            overflow: 'justify'
+                        }
+                    },
+                    tooltip: {
+                        valueSuffix: ' de frequência'
+                    },
+                    plotOptions: {
+                        bar: {
+                            dataLabels: {
+                                enabled: true
+                            }
+                        }
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'right',
+                        verticalAlign: 'top',
+                        x: -40,
+                        y: 80,
+                        floating: true,
+                        borderWidth: 1,
+                        backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'),
+                        shadow: true
+                    },
+                    credits: {
+                        enabled: false
+                    },
+                    series: [
+                        {
+                            name: 'F%',
+                            data: ['@string.Join(", ", @Model.VariavelQuantitativaEntity.Select(q => Math.Round(q.FPorcent)))']
+                        },
+                        {
+                            name: 'FE%',
+                            data: ['@string.Join(", ", @Model.VariavelQuantitativaEntity.Select(q => Math.Round(q.FEPorcent)))']
+                        }
+                    ]
+                });
             });
-        });
-    </script>
+        </script>
     }
 }
 
@@ -286,7 +358,7 @@
                     Exemplo: A seguir temos os salários de 20 funcionários de uma determinada empresa.
                 </p>
                 <fieldset>
-                    <legend> 1ª Etapa <span  class="lesssmall pull-right">Coleta de dados, a massa vem de forma aleatória.</span></legend>
+                    <legend> 1ª Etapa <span class="lesssmall pull-right">Coleta de dados, a massa vem de forma aleatória.</span></legend>
                     <table class="table">
                         <tr>
                             <td>1000</td>
@@ -350,7 +422,7 @@
                         </tr>
                     </table>
                 </fieldset>
- 
+
                 <fieldset>
                     <legend> 3ª Etapa / 4ª Etapa <span class="lesssmall pull-right"> Organizando dados. (Por ser quantitativo [Salários] deve ser ordenado).</span></legend>
 
@@ -383,10 +455,10 @@
                                 <td>3000</td>
                             </tr>
                         </tbody>
-                        
+
                     </table>
                 </fieldset>
-           
+
 
             </div>
             <div class="modal-footer">

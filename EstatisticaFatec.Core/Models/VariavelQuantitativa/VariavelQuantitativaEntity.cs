@@ -39,6 +39,12 @@
         /// <summary>
         /// [7] - (XI - MÉDIA)². FI
         /// </summary>
-        public decimal XIFIQuadFI { get; set; }
+        public XIFIQuadFI XIFIQuadFI { get; set; }
+    }
+
+    public class XIFIQuadFI
+    {
+        public string Formula { get; set; }
+        public decimal Valor { get; set; }
     }
 }

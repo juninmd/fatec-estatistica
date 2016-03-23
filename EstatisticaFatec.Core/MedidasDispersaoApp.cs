@@ -7,30 +7,41 @@ namespace EstatisticaFatec.Core
 {
     public class MedidasDispersaoApp
     {
+        /// <summary>
+        /// Retorna o valor E(xi-`x) / E(xi).length - 1
+        /// </summary>
+        /// <param name="inutData"></param>
+        /// <param name="quantidade"></param>
+        /// <returns></returns>
+        private decimal DivideV2PorQuantidade(decimal inutData, int quantidade)
+        {
+            return inutData / (quantidade - 1);
+        }
+
         public MedidasDispersaoEntity Build(List<decimal> inputData)
         {
             var media = MathCoreApp.MediaComum(inputData);
 
-            var xiSomaQuadrado = MathCoreApp.SomaTodosAoQuadrado(inputData, media);
+            var InputValueQuadrado = MathCoreApp.SomaTodosAoQuadrado(inputData, media);
 
-            var ExiSomaQuadrado = xiSomaQuadrado.Sum();
+            var SomaInputValueQuadrado = InputValueQuadrado.Sum();
 
-            var divisaox1Quadrado = MathCoreApp.DivideV2PorQuantidade(ExiSomaQuadrado, inputData.Count);
+            var Variancia = DivideV2PorQuantidade(SomaInputValueQuadrado, inputData.Count);
 
-            var raizV = MathCoreApp.RaizQuadrada(divisaox1Quadrado);
+            var DP = MathCoreApp.RaizQuadrada(Variancia);
 
-            var cv = MathCoreApp.Porcentagem(raizV, media);
+            var CV = MathCoreApp.Porcentagem(DP, media);
 
             return new MedidasDispersaoEntity
             {
-                CV = cv,
+                CV = CV,
                 Media = media,
                 Rol = MathCoreApp.Rol(inputData),
                 InputValue = inputData,
-                EXIQuadrado = divisaox1Quadrado,
-                InputValueQuadrado = xiSomaQuadrado,
-                RaizEXIQuadrado = raizV,
-                SomaInputValueQuadrado = ExiSomaQuadrado
+                Variancia = Variancia,
+                InputValueQuadrado = InputValueQuadrado,
+                DP = DP,
+                SomaInputValueQuadrado = SomaInputValueQuadrado
             };
         }
     }
