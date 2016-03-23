@@ -19,7 +19,7 @@
         /// <summary>
         /// [3] Contagens
         /// </summary>
-        public int Count { get; set; }
+        public int FI { get; set; }
 
         /// <summary>
         /// [4] - Porcentagem baseando na [quantidade total de FI] sobre o [FI]
@@ -44,6 +44,9 @@
         /// <summary>
         /// [8] - Média - XI * FI
         /// </summary>
-        public decimal Media { get; set; }
+        public decimal XIFI { get; set; }
+
+        
     }
+   
 }

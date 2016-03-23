@@ -73,11 +73,21 @@ namespace EstatisticaFatec.Core.Models.VariavelContinua
         /// </summary>
         public decimal EFI { get; set; }
 
+
+        public decimal Variancia { get; set; }
+
         /// <summary>
-        /// Classe na qual possui a maior frequência
+        /// Desvio Padrão
         /// </summary>
-        public decimal[] ClasseModal { get; set; }
+        public decimal DP { get; set; }
+
+        /// <summary>
+        /// Coeficiente da variação
+        /// </summary>
+        public decimal CV { get; set; }
 
         public List<VariavelContinuaEntity> VariavelContinuaEntity { get; set; }
     }
+
+   
 }

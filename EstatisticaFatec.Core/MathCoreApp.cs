@@ -29,6 +29,12 @@ namespace EstatisticaFatec.Core
                 return (max + min) / 2;
             }
         }
+
+        /// <summary>
+        /// TODO : TA ERRADO
+        /// </summary>
+        /// <param name="rol"></param>
+        /// <returns></returns>
         public static decimal Mediana(List<decimal> rol)
         {
             rol = Rol(rol);
