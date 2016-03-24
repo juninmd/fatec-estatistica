@@ -3,34 +3,6 @@
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Medidas de Tendência</h2>
-
-<div class="panel panel-info">
-    <div class="panel-heading">
-        <h3 class="panel-title">O que é?</h3>
-    </div>
-    <div class="panel-body">
-        <div class="list-group">
-            <div class="list-group-item">
-                <div class="row-action-primary">
-                    <i class="material-icons" style="font-size:50px">info</i>
-                </div>
-                <div class="row-content">
-                    <p class="list-group-item-text">
-                        Características mensuráveis que assumem valores em uma escala contínua (na reta real), para as quais valores fracionais fazem sentido. Usualmente devem ser medidas através de algum instrumento. Exemplos: peso (balança), altura (régua), tempo (relógio), pressão arterial, idade.
-                    </p>
-                    <p>
-                        Exemplos: número de filhos, número de bactérias por litro de leite, número de cigarros fumados por dia.
-                        <button class="btn btn-success" data-toggle="modal" data-target="#myModal"> + Informações</button>
-                    </p>
-                </div>
-            </div>
-            <div class="list-group-separator"></div>
-        </div>
-    </div>
-</div>
-
 @if (Model.InputValue.Any() == false)
 {
     <div class="alert alert-warning alert-dismissable">
@@ -39,6 +11,36 @@
     </div>
 }
 
+<div class="fixed-action-btn" data-toggle="modal" data-target="#myModal" title="Entendendo a metodologia">
+    <a href="javascript:void(0)" class="btn btn-warning btn-fab">
+        <i class="material-icons">reorder</i>
+        <div class="ripple-container"></div>
+    </a>
+</div>
+
+<div class="well bs-component">
+    <fieldset>
+        <legend>Aleatória Simples</legend>
+        <div class="form-group">
+
+
+            <div class="col-xs-12">
+                <blockquote class="small">
+                    Uma amostra aleatória simples é usar um subconjunto de indivíduos (amostra) apartir de um conjunto maior (população) por um processo que garanta que
+                    <ul>
+                        <li>
+                            Todos os indivíduos da população têm a mesma probabilidade de ser escolhidos para a amostra;
+                        </li>
+                    </ul>
+                    <small class="pull-right">
+                        Sorteamos uma quantidade de números X [AMOSTRA] entre um total de população de Y [POPULAÇÃO]
+                    </small>
+
+                </blockquote>
+            </div>
+        </div>
+    </fieldset>
+</div>
 
 <form method="POST" action="@Url.Action("Index")">
     <div class="panel panel-info">
@@ -70,6 +72,7 @@
                 </div>
 
                 <div class="btn-group pull-right">
+                    <a href="@Url.Action("Index","Home")" class="btn btn-default">Voltar</a>
                     <input class="btn btn-danger" value="Limpar" type="reset">
                     <input class="btn btn-warning" onclick="formatarInput()" value="Formatar Inputs" type="button">
                     <input class="btn btn-success" value="Enviar" type="submit">

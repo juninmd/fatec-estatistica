@@ -6,35 +6,6 @@
 }
 
 
-
-<div class="panel panel-info">
-    <div class="panel-heading">
-        Varíavel Discreta
-    </div>
-    <div class="panel-body">
-        <div class="list-group">
-            <div class="list-group-item">
-                <div class="row-action-primary" data-toggle="tooltip" title="Clique aqui para mais informações">
-                    <i class="material-icons informacao info" data-toggle="modal" data-target="#myModal">info</i>
-                </div>
-                <div class="row-content">
-                    <p class="list-group-item-text">
-                        São as características que podem ser medidas em uma escala quantitativa, ou seja, apresentam valores numéricos que fazem sentido.
-                        Que com suas informações mensuráveis que podem assumir apenas um número finito ou infinito contável de valores e, assim, somente fazem sentido valores inteiros. Geralmente são o resultado de contagens.
-
-                    </p>
-                    <p>
-                        Exemplos: número de filhos, número de bactérias por litro de leite, número de cigarros fumados por dia.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-</div>
-
 @if (Model.InputValue.Any() == false)
 {
     <div class="alert alert-warning alert-dismissable">
@@ -42,6 +13,36 @@
         <strong>Você ainda não preencheu os paramêtros! Por favor, preencha os paramêtros.</strong>
     </div>
 }
+
+<div class="fixed-action-btn" data-toggle="modal" data-target="#myModal" title="Entendendo a metodologia">
+    <a href="javascript:void(0)" class="btn btn-warning btn-fab">
+        <i class="material-icons">reorder</i>
+        <div class="ripple-container"></div>
+    </a>
+</div>
+
+<div class="well bs-component">
+    <fieldset>
+        <legend>Aleatória Simples</legend>
+        <div class="form-group">
+            <div class="col-xs-12">
+                <blockquote class="small">
+                    Uma amostra aleatória simples é usar um subconjunto de indivíduos (amostra) apartir de um conjunto maior (população) por um processo que garanta que
+                    <ul>
+                        <li>
+                            Todos os indivíduos da população têm a mesma probabilidade de ser escolhidos para a amostra;
+                        </li>
+                    </ul>
+                    <small class="pull-right">
+                        Sorteamos uma quantidade de números X [AMOSTRA] entre um total de população de Y [POPULAÇÃO]
+                    </small>
+
+                </blockquote>
+            </div>
+        </div>
+    </fieldset>
+</div>
+
 
 
 <form method="POST" action="@Url.Action("Index")">

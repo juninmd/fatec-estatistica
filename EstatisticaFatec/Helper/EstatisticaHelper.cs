@@ -11,6 +11,11 @@ namespace EstatisticaFatec.Helper
             var formatada = string.Join(" - ", inputRol.Select(q => $"[{q}]"));
             return new MvcHtmlString(formatada);
         }
+        public static object Rol(this HtmlHelper h, List<int> inputRol)
+        {
+            var formatada = string.Join(" - ", inputRol.Select(q => $"[{q}]"));
+            return new MvcHtmlString(formatada);
+        }
 
         public static MvcHtmlString Moda(this HtmlHelper h, decimal[] moda)
         {
@@ -26,5 +31,7 @@ namespace EstatisticaFatec.Helper
         {
             return new MvcHtmlString(string.Join("<br>", input.GroupBy(e=> e).Select(q => "[Número:"+q.Key + " - Quantidade: " + q.Count() + "]")));
         }
+
+       
     }
 }

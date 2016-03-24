@@ -39,7 +39,7 @@ Then, run this script to get the list.
 /* SHADOWS */
 /* Shadows (from mdl http://www.getmdl.io/) */
 body {
-    background-color: #EEEEEE;
+    background-color: #3C3C3C;
 }
 
     body.inverse {
@@ -2659,7 +2659,7 @@ select.form-control {
             }
 
     .navbar.navbar-inverse {
-        background-color: #3f51b5;
+        background-color: #282b39;
         color: #ffffff;
     }
 
@@ -3182,8 +3182,8 @@ select.form-control {
     border-radius: 2px;
     color: rgba(0,0,0, 0.87);
     background: #fff;
-    -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.3), 0 6px 5px 0 rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.3), 0 6px 5px 0 rgba(0, 0, 0, 0.15);
 }
 
     .card .card-height-indicator {

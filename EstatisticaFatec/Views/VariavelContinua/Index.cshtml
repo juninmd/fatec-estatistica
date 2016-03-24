@@ -5,39 +5,44 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Varíavel Continua</h2>
-
-<div class="panel panel-info">
-    <div class="panel-heading">
-        <h3 class="panel-title">O que é?</h3>
-    </div>
-    <div class="panel-body">
-        <div class="list-group">
-            <div class="list-group-item">
-                <div class="row-action-primary" data-toggle="tooltip" title="Clique aqui para mais informações">
-                    <i class="material-icons informacao info" data-toggle="modal" data-target="#myModal">info</i>
-                </div>
-                <div class="row-content">
-                    <p class="list-group-item-text">
-                        Características mensuráveis que assumem valores em uma escala contínua (na reta real), para as quais valores fracionais fazem sentido. Usualmente devem ser medidas através de algum instrumento. Exemplos: peso (balança), altura (régua), tempo (relógio), pressão arterial, idade.
-                    </p>
-                    <p>
-                        Exemplos: número de filhos, número de bactérias por litro de leite, número de cigarros fumados por dia.
-                        <button class="btn btn-success" data-toggle="modal" data-target="#myModal"> + Informações</button>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-@if (Model.InputValue.Any() == false)
-{
+ @if (Model.InputValue.Any() == false)
+ {
     <div class="alert alert-warning alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
         <strong>Você ainda não preencheu os paramêtros! Por favor, preencha os paramêtros.</strong>
     </div>
-}
+ }
+
+<div class="fixed-action-btn" data-toggle="modal" data-target="#myModal" title="Entendendo a metodologia">
+    <a href="javascript:void(0)" class="btn btn-warning btn-fab">
+        <i class="material-icons">reorder</i>
+        <div class="ripple-container"></div>
+    </a>
+</div>
+
+<div class="well bs-component">
+    <fieldset>
+        <legend>Aleatória Simples</legend>
+        <div class="form-group">
+            <div class="col-xs-12">
+                <blockquote class="small">
+                    Uma amostra aleatória simples é usar um subconjunto de indivíduos (amostra) apartir de um conjunto maior (população) por um processo que garanta que
+                    <ul>
+                        <li>
+                            Todos os indivíduos da população têm a mesma probabilidade de ser escolhidos para a amostra;
+                        </li>
+                    </ul>
+                    <small class="pull-right">
+                        Sorteamos uma quantidade de números X [AMOSTRA] entre um total de população de Y [POPULAÇÃO]
+                    </small>
+
+                </blockquote>
+            </div>
+        </div>
+    </fieldset>
+</div>
+
+
 
 
 <form method="POST" action="@Url.Action("Index")" class="form-horizontal">
