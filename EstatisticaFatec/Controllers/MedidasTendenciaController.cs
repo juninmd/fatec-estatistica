@@ -1,16 +1,16 @@
 ﻿using System.Linq;
 using System.Web.Mvc;
 using EstatisticaFatec.Core;
-using EstatisticaFatec.Core.Models.MedidasDispersao;
+using EstatisticaFatec.Core.Models.MedidasTendencia;
 
 namespace EstatisticaFatec.Controllers
 {
-    public class MedidasDispersaoController : Controller
+    public class MedidasTendenciaController : Controller
     {
         [HttpGet]
         public ActionResult Index()
         {
-            return View(new MedidasDispersaoEntity());
+            return View(new MedidasTendenciaEntity());
         }
 
         [HttpPost]
@@ -18,7 +18,7 @@ namespace EstatisticaFatec.Controllers
         {
             var lista = massaDados.Split(';').Select(decimal.Parse).ToList();
 
-            return View(new MedidasDispersaoApp().Build(lista));
+            return View(new MedidasTendenciaApp().Build(lista));
         }
     }
 }

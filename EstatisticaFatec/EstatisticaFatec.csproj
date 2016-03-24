@@ -121,8 +121,8 @@
     <Compile Include="Controllers\DistribuicaoMaiorController.cs" />
     <Compile Include="Controllers\DistribuicaoEntreController.cs" />
     <Compile Include="Controllers\DistribuicaoMenorController.cs" />
-    <Compile Include="Controllers\MedidasDispersao.cs" />
     <Compile Include="Controllers\MedidasTendenciaController.cs" />
+    <Compile Include="Controllers\MedidasDispersaoController.cs" />
     <Compile Include="Controllers\SistematicaController.cs" />
     <Compile Include="Controllers\EstratificadaUniformeController.cs" />
     <Compile Include="Controllers\EstratificadaProporcionalController.cs" />

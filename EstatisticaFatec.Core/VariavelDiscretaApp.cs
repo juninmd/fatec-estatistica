@@ -14,7 +14,7 @@ namespace EstatisticaFatec.Core
         }
         private decimal Variancia(decimal xifi, decimal FISUM)
         {
-            return xifi / FISUM;
+            return Math.Round(xifi / FISUM,2);
         }
         private XIFIQuadFI PreencherXIFIQUADFI(decimal XI, decimal media, int FI)
         {
@@ -31,6 +31,7 @@ namespace EstatisticaFatec.Core
             var media = MediaComum(inputData);
 
             var listaGrupos = rol.GroupBy(x => x);
+ 
 
             var f = new List<decimal>();
 

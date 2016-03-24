@@ -15,7 +15,7 @@ namespace EstatisticaFatec.Core
         /// <returns></returns>
         private decimal DivideV2PorQuantidade(decimal inutData, int quantidade)
         {
-            return inutData / (quantidade - 1);
+            return Math.Round(inutData / (quantidade - 1),2);
         }
 
         public MedidasDispersaoEntity Build(List<decimal> inputData)

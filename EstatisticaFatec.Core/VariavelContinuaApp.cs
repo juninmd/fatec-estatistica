@@ -14,7 +14,7 @@ namespace EstatisticaFatec.Core
         }
         private decimal Variancia(decimal xifi, decimal FISUM)
         {
-            return xifi / FISUM;
+            return Math.Round(xifi / FISUM,2);
         }
 
         private static decimal ModaQuantitativa(List<VariavelContinuaEntity> listaTabelaQuantitativa)

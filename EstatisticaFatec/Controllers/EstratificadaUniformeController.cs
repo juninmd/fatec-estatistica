@@ -15,7 +15,12 @@ namespace EstatisticaFatec.Controllers
         [HttpPost]
         public ActionResult Index(int amostra, int estrato)
         {
-        
+            var request = new EstratificadaUniformeApp().ValidateInput(amostra, estrato);
+            if (request.IsError)
+            {
+                ModelState.AddModelError("error", request.Message);
+                return View(new EstratificadaUniformeEntity());
+            }
             return View(new EstratificadaUniformeApp().Build(amostra, estrato));
         }
     }

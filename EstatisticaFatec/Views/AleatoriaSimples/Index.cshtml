@@ -19,14 +19,14 @@
                 </div>
                 <div class="row-content">
                     <p class="list-group-item-text">
-                        Uma amostra aleatória simples é um subconjunto de indivíduos (a amostra) seleccionado totalmente ao acaso a partir de um conjunto maior (a população) por um processo que garanta que:
+                        Uma amostra aleatória simples é usar um subconjunto de indivíduos (amostra) apartir de um conjunto maior (população) por um processo que garanta que:
                         <ul>
                             <li>
                                 Todos os indivíduos da população têm a mesma probabilidade de ser escolhidos para a amostra;
                             </li>
                         </ul>
                     </p>
-                    <p>De forma resumida podemos dizer, sorteamos uma quantidade de números X [AMOSTRA] entre um total de população de Y [POPULAÇÃO]</p>
+                    <p>De forma resumida podemos dizer: Ssorteamos uma quantidade de números X [AMOSTRA] entre um total de população de Y [POPULAÇÃO]</p>
                 </div>
             </div>
         </div>
@@ -56,29 +56,28 @@
                     <strong>@Html.ValidationMessage("error")</strong>
                 </div>
             }
-
-
             <div class="form-group">
-                <label class="col-md-2 control-label">Amostra</label>
-
-                <div class="col-md-4">
-                    <input class="form-control" required placeholder="@Model.Amostra" value="@Model.Amostra" name="amostra" type="number" min="1">
-                </div>
-
                 <label class="col-md-2 control-label">População</label>
-
                 <div class="col-md-4">
                     <input class="form-control" required placeholder="@Model.Populacao" value="@Model.Populacao" name="populacao" type="number" min="1">
                 </div>
+            </div>
 
-                <hr />
-
-                <label class="col-md-2 control-label">Números sorteados</label>
-
-                <div class="col-md-10">
-                    <input readonly placeholder="@string.Join(", ", @Model.Resultados.OrderBy(q=> q))" class="form-control" value="@string.Join(", ", @Model.Resultados.OrderBy(q => q))">
+            <div class="form-group">
+                <label class="col-md-2 control-label">Amostra</label>
+                <div class="col-md-4">
+                    <input class="form-control" required placeholder="@Model.Amostra" value="@Model.Amostra" name="amostra" type="number" min="1">
                 </div>
             </div>
+
+            <hr />
+
+            <label class="col-md-2 control-label">Números sorteados</label>
+
+            <div class="col-md-10">
+                <input readonly placeholder="@string.Join(", ", @Model.Resultados.OrderBy(q=> q))" class="form-control" value="@string.Join(", ", @Model.Resultados.OrderBy(q => q))">
+            </div>
+
 
             <div class="col-md-10 col-md-offset-2">
                 <a href="@Url.Action("Index","Home")" class="btn btn-default">Voltar</a>

@@ -1,10 +1,11 @@
-﻿@model EstatisticaFatec.Core.Models.MedidasTendencia.MedidasTendenciaEntity
+﻿@using EstatisticaFatec.Helper
+@model EstatisticaFatec.Core.Models.MedidasDispersao.MedidasDispersaoEntity
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Medidas de Tendência</h2>
+<h2>Medidas de Dispersão</h2>
 
 <div class="panel panel-info">
     <div class="panel-heading">
@@ -90,15 +91,44 @@
         <div class="panel-body">
             <div class="row-content">
 
+                <p>@Html.Rol(Model.Rol)</p>
 
 
- 
 
             </div>
         </div>
     </div>
 
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <span class="info">Medidas de Dispersão.</span>
+        </div>
 
+        <div class="panel-body">
+            <div class="row-content">
+
+                <div class="form-group">
+
+                    <label class="col-md-1 control-label">Variância</label>
+                    <div class="col-md-1">
+                        <input class="form-control" readonly="" value="@Model.Variancia">
+                    </div>
+
+                    <label class="col-md-2 control-label">Desvio Padrão</label>
+                    <div class="col-md-1">
+                        <input class="form-control" readonly="" value="@Model.DP">
+                    </div>
+
+                    <label class="col-md-2 control-label">Coeficiente da variação</label>
+                    <div class="col-md-1">
+                        <input class="form-control" readonly="" value="@Model.CV%">
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">

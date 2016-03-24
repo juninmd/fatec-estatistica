@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Estratificada Uniforme</h2>
+<h2>Uniforme</h2>
 
 <div class="panel panel-info">
     <div class="panel-heading">
@@ -57,7 +57,7 @@
                 </div>
             }
             <div class="form-group">
-                <label class="col-md-2 control-label">Quantidade da Amostra</label>
+                <label class="col-md-2 control-label">Amostra</label>
 
                 <div class="col-md-4">
                     <input class="form-control" required placeholder="@Model.Amostra" name="amostra" type="number">
@@ -73,7 +73,7 @@
 
                 <label class="col-md-2 control-label">Resultados</label>
                 <div class="col-md-4">
-                    <input class="form-control" placeholder="@Model.Resultado" type="number">
+                    <input class="form-control" readonly="" placeholder="@Model.Resultado" type="number">
                 </div>
 
             </div>
