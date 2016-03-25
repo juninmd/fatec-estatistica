@@ -21,14 +21,22 @@
 
             <div class="col-xs-12">
                 <blockquote class="small">
-                    Uma amostra aleatória simples é usar um subconjunto de indivíduos (amostra) apartir de um conjunto maior (população) por um processo que garanta que
+                    É uma amostra seletiva, divide pela quantidade de grupos de forma equivalente,
+                    caso eu tenho uma amostra de 100 por 3 estratos, então tenho como resultado 3 grupos,
+                    com os valores
                     <ul>
                         <li>
-                            Todos os indivíduos da população têm a mesma probabilidade de ser escolhidos para a amostra;
+                            33 Pessoas
+                        </li>
+                        <li>
+                            33 Pessoas
+                        </li>
+                        <li>
+                            34 Pessoas
                         </li>
                     </ul>
                     <small class="pull-right">
-                        Sorteamos uma quantidade de números X [AMOSTRA] entre um total de população de Y [POPULAÇÃO]
+                        Lembrando que o resultado deve manter suas proporções
                     </small>
 
                 </blockquote>
@@ -64,7 +72,7 @@
                 <div class="col-md-4">
                     <input class="form-control" required placeholder="@Html.Null(Model.QtdEstrato)" name="estrato" type="number">
                 </div>
-             
+
                 <hr />
 
                 <label class="col-md-2 control-label">Resultados</label>
@@ -93,37 +101,37 @@
                 <h4 class="modal-title">Entendendo as etapas</h4>
             </div>
             <div class="modal-body">
-                <p>
-                    A seguir temos um exemplo de como obtemos números aleatórios conforme a quantidade de amostra/população.
-                </p>
                 <fieldset>
-                    <legend> Coletando paramêtros <span class="lesssmall pull-right">A população deve ser maior que a amostra.</span></legend>
+                    <legend> Coletando paramêtros <span class="lesssmall pull-right">A quantidade de amostra deve ser maior que a de estratos.</span></legend>
+                    <img style="width: 100%;" class="img-rounded img-responsive" src="~/Content/img/estratificadaUniforme/exemplo.jpg" />
+
                     <table class="table">
                         <thead>
                             <tr>
                                 <th>Amostra</th>
-                                <th>População</th>
+                                <th>Estratos</th>
                             </tr>
                         </thead>
                         <tr>
-                            <td>1</td>
+                            <td>100</td>
                             <td>3</td>
                         </tr>
                     </table>
-                    <legend> Possíveis resultados <span class="lesssmall pull-right">Nesse exemplo um desses números será nossa resposta.</span></legend>
+                    <legend> Possíveis resultados <span class="lesssmall pull-right">Não importa a quantidade de população, por isso só temos a amostra.</span></legend>
 
                     <table class="table">
                         <thead>
                             <tr>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
+                                <td>33</td>
+                                <td>33</td>
+                                <td>34</td>
                             </tr>
                         </thead>
-
                     </table>
 
-                   
+                    <p>
+                        O sistema deve efetuar o cálculo de [Amostra] / [Estratos]
+                    </p>
 
                 </fieldset>
             </div>

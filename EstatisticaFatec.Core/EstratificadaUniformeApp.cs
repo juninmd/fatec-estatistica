@@ -10,8 +10,8 @@ namespace EstatisticaFatec.Core
         {
             return new RequestMessage
             {
-                IsError = amostra > estratos,
-                Message = "A amostra não pode ser maior que os estratos."
+                IsError = estratos > amostra,
+                Message = "A quantidade estratos não deve superar as de amostras."
             };
         }
         public EstratificadaUniformeEntity Build(int amostra, int estratos)

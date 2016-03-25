@@ -4,7 +4,7 @@
 @{
     Layout = "~/Views/Shared/_LayoutForm.cshtml";
 }
- 
+
 @if (Model.Inicial == 0)
 {
     <div class="alert alert-warning alert-dismissable">
@@ -15,19 +15,17 @@
 
 <div class="well bs-component">
     <fieldset>
-        <legend>Aleatória Simples</legend>
+        <legend>Sistemática</legend>
         <div class="form-group">
             <div class="col-xs-12">
                 <blockquote class="small">
-                    Uma amostra aleatória simples é usar um subconjunto de indivíduos (amostra) apartir de um conjunto maior (população) por um processo que garanta que
+                    Conveniente quando a população está ordenada segundo algum critério como fichas, lista telefônica, seguindo o exemplo.
                     <ul>
                         <li>
-                            Todos os indivíduos da população têm a mesma probabilidade de ser escolhidos para a amostra;
+                            Em uma produção diária de peças automotivas, podemos, a cada 20 peças produzidas, retirar uma para pertencer a uma amostra da produção de um dia.
                         </li>
+
                     </ul>
-                    <small class="pull-right">
-                        Sorteamos uma quantidade de números X [AMOSTRA] entre um total de população de Y [POPULAÇÃO]
-                    </small>
 
                 </blockquote>
             </div>
@@ -98,7 +96,7 @@
             </div>
 
             <div class="col-md-10 col-md-offset-2">
-                
+
                 <button type="reset" class="btn btn-danger">Limpar</button>
                 <button type="submit" class="btn btn-primary">Enviar<div class="ripple-container"></div></button>
             </div>
@@ -135,35 +133,80 @@
                 <h4 class="modal-title">Entendendo as etapas</h4>
             </div>
             <div class="modal-body">
-                <p>
-                    A seguir temos um exemplo de como obtemos números aleatórios conforme a quantidade de amostra/população.
-                </p>
                 <fieldset>
                     <legend> Coletando paramêtros <span class="lesssmall pull-right">A população deve ser maior que a amostra.</span></legend>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Amostra</th>
-                                <th>População</th>
-                            </tr>
-                        </thead>
+                    <img style="width: 100%;" class="img-rounded img-responsive" src="~/Content/img/estratificadaProporcional/estratificadaProporcional.jpg" />
+                    <p>Primeiro necessitamos descobrir o range, sendo a formula:</p>
+                    <code>População/Amostra</code>
+                    <p>Por exemplo, podemos então ter: </p>
+                    <table class="table table-responsive table-bordered">
                         <tr>
-                            <td>1</td>
-                            <td>3</td>
+                            <td>População</td>
+                            <td>Amostra</td>
+                            <td>Range</td>
                         </tr>
-                    </table>
-                    <legend> Possíveis resultados <span class="lesssmall pull-right">Nesse exemplo um desses números será nossa resposta.</span></legend>
-
-                    <table class="table">
-                        <thead>
+                        <tbody>
                             <tr>
-                                <td>1</td>
-                                <td>2</td>
+                                <td>12</td>
                                 <td>3</td>
+                                <td>4</td>
                             </tr>
-                        </thead>
-
+                        </tbody>
                     </table>
+
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <ul>
+                                <li>
+                                    1
+                                </li>
+                                <li>
+                                    2
+                                </li>
+                                <li>
+                                    3
+                                </li>
+                                <li>
+                                    4 <span class="badge">Escolhido</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <ul>
+                                <li>
+                                    5
+                                </li>
+                                <li>
+                                    6
+                                </li>
+                                <li>
+                                    7
+                                </li>
+                                <li>
+                                    8 <span class="badge">Escolhido</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-4">
+                            <ul>
+                                <li>
+                                    9
+                                </li>
+                                <li>
+                                    10
+                                </li>
+                                <li>
+                                    11
+                                </li>
+                                <li>
+                                    12 <span class="badge">Escolhido</span>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                    </div>
 
                 </fieldset>
             </div>

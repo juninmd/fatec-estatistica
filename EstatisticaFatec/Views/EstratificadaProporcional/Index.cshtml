@@ -21,23 +21,15 @@
 
             <div class="col-xs-12">
                 <blockquote class="small">
-                    Uma amaaaostra aleatória simples é usar um subconjunto de indivíduos (amostra) apartir de um conjunto maior (população) por um processo que garanta que
-                    <ul>
-                        <li>
-                            Todos os indivíduos da população têm a mesma probabilidade de ser escolhidos para a amostra;
-                        </li>
-                    </ul>
-                    <small class="pull-right">
-                        Sorteamos uma quantidade de números X [AMOSTRA] entre um total de população de Y [POPULAÇÃO]
-                    </small>
-
+                    <p>A proporcionalidade do tamanho de cada estrato da população é mantida na amostra.</p>
+                    <p>Exemplo: Se um estrato abrange 20% da população, ele também deve abranger 20% da amostra.</p>
                 </blockquote>
             </div>
         </div>
     </fieldset>
 
 </div>
- 
+
 <div class="well bs-component">
     <form class="form-horizontal" method="post" action="@Url.Action("Index")">
         <fieldset>
@@ -54,17 +46,17 @@
                 </div>
             }
             <div class="form-group">
-                
-                  <label class="col-md-2 control-label">População</label>
+
+                <label class="col-md-2 control-label">População</label>
                 <div class="col-md-4">
                     <input class="form-control" required placeholder="@Html.Null(Model.Populacao)" value="@Html.Null(Model.Populacao)" name="populacao" type="number" min="1">
                 </div>
-                
-                <label  class="col-md-2 control-label">Amostra</label>
+
+                <label class="col-md-2 control-label">Amostra</label>
                 <div class="col-md-4">
                     <input class="form-control" required placeholder="@Html.Null(Model.Amostra)" value="@Html.Null(Model.Amostra)" name="amostra" type="number" min="1">
                 </div>
-              
+
 
                 <div id="divEstratoPai">
                     <label class="col-md-2 control-label">Estratos</label>
@@ -81,41 +73,42 @@
 
                 </div>
 
-                <hr />
 
-                @if (Model.EstratificadaProporcional.Any()){
-                
-                <label class="col-md-2 control-label">Resultados</label>
-                <div class="col-md-10">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Número estrato</th>
-                                <th>Quantidade de elementos entrevistados</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach (var item in Model.EstratificadaProporcional)
-                            {
-                                <text>
+                @if (Model.EstratificadaProporcional.Any())
+                {
+                    <hr />
 
-                                    <tr>
-                                        <td>@(item.IdEstrato + 1)</td>
-                                        <td>@(item.QtdEstrato) </td>
-                                    </tr>
-                                </text>
-                            }
-                            <tr>
-                                <td>Total : @Model.EstratificadaProporcional.Count</td>
-                                <td>Soma : @(Model.EstratificadaProporcional.Select(q => q.QtdEstrato).Sum())</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                    <label class="col-md-2 control-label">Resultados</label>
+                    <div class="col-md-5">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Número estrato</th>
+                                    <th>Quantidade de elementos entrevistados</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.EstratificadaProporcional)
+                                {
+                                    <text>
+
+                                        <tr>
+                                            <td>@(item.IdEstrato + 1)</td>
+                                            <td>@(item.QtdEstrato) </td>
+                                        </tr>
+                                    </text>
+                                }
+                                <tr>
+                                    <td>Total : @Model.EstratificadaProporcional.Count</td>
+                                    <td>Soma : @(Model.EstratificadaProporcional.Select(q => q.QtdEstrato).Sum())</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 }
             </div>
             <div class="col-md-10 col-md-offset-2">
-                
+
                 <button type="reset" class="btn btn-danger">Limpar</button>
                 <button type="submit" class="btn btn-primary">Enviar<div class="ripple-container"></div></button>
             </div>
@@ -151,35 +144,22 @@
                 <h4 class="modal-title">Entendendo as etapas</h4>
             </div>
             <div class="modal-body">
-                <p>
-                    A seguir temos um exemplo de como obtemos números aleatórios conforme a quantidade de amostra/população.
-                </p>
                 <fieldset>
                     <legend> Coletando paramêtros <span class="lesssmall pull-right">A população deve ser maior que a amostra.</span></legend>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Amostra</th>
-                                <th>População</th>
-                            </tr>
-                        </thead>
-                        <tr>
-                            <td>1</td>
-                            <td>3</td>
-                        </tr>
-                    </table>
-                    <legend> Possíveis resultados <span class="lesssmall pull-right">Nesse exemplo um desses números será nossa resposta.</span></legend>
+                    <img style="width: 100%;" class="img-rounded img-responsive" src="~/Content/img/estratificadaProporcional/estratificadaProporcional.jpg" />
+                    • Amostra / População = (100/100) * 100 = 10%
+                    <ul>
+                        <li>
+                            ADS = 600 – 10% -> 60 pessoas
+                        </li>
+                        <li>
+                            GPI = 300 – 10% 30 Pessoas
+                        </li>
+                        <li>
+                            GE = 100 – 10% 10 pessoas
+                        </li>
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                            </tr>
-                        </thead>
-
-                    </table>
+                    </ul>
 
                 </fieldset>
             </div>
