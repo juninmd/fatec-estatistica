@@ -1,7 +1,8 @@
-﻿@model EstatisticaFatec.Core.Models.EstratificadaUniforme.EstratificadaUniformeEntity
+﻿@using EstatisticaFatec.Helper
+@model EstatisticaFatec.Core.Models.EstratificadaUniforme.EstratificadaUniformeEntity
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutForm.cshtml";
 }
 
 @if (Model.Resultado == new decimal())
@@ -12,17 +13,9 @@
     </div>
 }
 
-
-<div class="fixed-action-btn" data-toggle="modal" data-target="#myModal" title="Entendendo a metodologia">
-    <a href="javascript:void(0)" class="btn btn-warning btn-fab">
-        <i class="material-icons">reorder</i>
-        <div class="ripple-container"></div>
-    </a>
-</div>
-
 <div class="well bs-component">
     <fieldset>
-        <legend>Aleatória Simples</legend>
+        <legend>Estratificada Uniforme</legend>
         <div class="form-group">
 
 
@@ -63,26 +56,25 @@
                 <label class="col-md-2 control-label">Amostra</label>
 
                 <div class="col-md-4">
-                    <input class="form-control" required placeholder="@Model.Amostra" name="amostra" type="number">
+                    <input class="form-control" required placeholder="@Html.Null(Model.Amostra)" name="amostra" type="number">
                 </div>
 
                 <label class="col-md-2 control-label">Estrato</label>
 
                 <div class="col-md-4">
-                    <input class="form-control" required placeholder="@Model.QtdEstrato" name="estrato" type="number">
+                    <input class="form-control" required placeholder="@Html.Null(Model.QtdEstrato)" name="estrato" type="number">
                 </div>
              
                 <hr />
 
                 <label class="col-md-2 control-label">Resultados</label>
                 <div class="col-md-4">
-                    <input class="form-control" readonly="" placeholder="@Model.Resultado" type="number">
+                    <input class="form-control" readonly="" placeholder="@Html.Null(Model.Resultado)" type="number">
                 </div>
 
             </div>
 
             <div class="col-md-10 col-md-offset-2">
-                <a href="@Url.Action("Index","Home")" class="btn btn-default">Voltar</a>
                 <button type="reset" class="btn btn-danger">Limpar</button>
                 <button type="submit" class="btn btn-primary">Enviar<div class="ripple-container"></div></button>
             </div>
@@ -130,6 +122,8 @@
                         </thead>
 
                     </table>
+
+                   
 
                 </fieldset>
             </div>

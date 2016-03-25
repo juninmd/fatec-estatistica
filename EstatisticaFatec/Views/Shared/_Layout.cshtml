@@ -9,8 +9,9 @@
 </head>
 
 <body>
- 
+
     <div class="container body-content">
+ 
         @RenderBody()
         @Html.Partial("_aguarde")
     </div>
@@ -26,7 +27,7 @@
             $.material.init();
         });
     </script>
-    @RenderSection("scripts", required: false)
+    @RenderSection("scriptsPai", required: false)
 </body>
 
 

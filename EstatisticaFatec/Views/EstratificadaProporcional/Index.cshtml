@@ -1,7 +1,8 @@
-﻿@model EstatisticaFatec.Core.Models.EstratificadaProporcional.EstratificadaProporcionalContainerEntity
+﻿@using EstatisticaFatec.Helper
+@model EstatisticaFatec.Core.Models.EstratificadaProporcional.EstratificadaProporcionalContainerEntity
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutForm.cshtml";
 }
 
 @if (Model.EstratificadaProporcional.Any() == false)
@@ -12,23 +13,15 @@
     </div>
 }
 
-
-<div class="fixed-action-btn" data-toggle="modal" data-target="#myModal" title="Entendendo a metodologia">
-    <a href="javascript:void(0)" class="btn btn-warning btn-fab">
-        <i class="material-icons">reorder</i>
-        <div class="ripple-container"></div>
-    </a>
-</div>
-
 <div class="well bs-component">
     <fieldset>
-        <legend>Aleatória Simples</legend>
+        <legend>Estratificada Proporcional</legend>
         <div class="form-group">
 
 
             <div class="col-xs-12">
                 <blockquote class="small">
-                    Uma amostra aleatória simples é usar um subconjunto de indivíduos (amostra) apartir de um conjunto maior (população) por um processo que garanta que
+                    Uma amaaaostra aleatória simples é usar um subconjunto de indivíduos (amostra) apartir de um conjunto maior (população) por um processo que garanta que
                     <ul>
                         <li>
                             Todos os indivíduos da população têm a mesma probabilidade de ser escolhidos para a amostra;
@@ -61,17 +54,17 @@
                 </div>
             }
             <div class="form-group">
-                <label  class="col-md-2 control-label">Quantidade da Amostra</label>
-
+                
+                  <label class="col-md-2 control-label">População</label>
                 <div class="col-md-4">
-                    <input class="form-control" required placeholder="@Model.Amostra" value="@Model.Amostra" name="amostra" type="number" min="1">
+                    <input class="form-control" required placeholder="@Html.Null(Model.Populacao)" value="@Html.Null(Model.Populacao)" name="populacao" type="number" min="1">
                 </div>
-
-                <label class="col-md-2 control-label">População</label>
-
+                
+                <label  class="col-md-2 control-label">Amostra</label>
                 <div class="col-md-4">
-                    <input class="form-control" required placeholder="@Model.Populacao" value="@Model.Populacao" name="populacao" type="number" min="1">
+                    <input class="form-control" required placeholder="@Html.Null(Model.Amostra)" value="@Html.Null(Model.Amostra)" name="amostra" type="number" min="1">
                 </div>
+              
 
                 <div id="divEstratoPai">
                     <label class="col-md-2 control-label">Estratos</label>
@@ -122,7 +115,7 @@
                 }
             </div>
             <div class="col-md-10 col-md-offset-2">
-                <a href="@Url.Action("Index","Home")" class="btn btn-default">Voltar</a>
+                
                 <button type="reset" class="btn btn-danger">Limpar</button>
                 <button type="submit" class="btn btn-primary">Enviar<div class="ripple-container"></div></button>
             </div>

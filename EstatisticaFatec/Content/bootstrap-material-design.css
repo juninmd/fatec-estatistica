@@ -2054,7 +2054,7 @@ label {
             line-height: 1.07142857;
             color: #4D4D4D;
             font-weight: 400;
-            margin: 16px 0 0 0;
+            margin: 9px 0 0 0;
         }
 
     .form-group .help-block {
@@ -3174,7 +3174,6 @@ select.form-control {
 
 .card {
     width: 100%;
-    margin: 5px;
     /***** Make height equal to width (http://stackoverflow.com/a/6615994) ****/
     display: inline-block;
     position: relative;

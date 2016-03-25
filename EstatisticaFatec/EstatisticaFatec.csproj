@@ -211,6 +211,7 @@
     <Content Include="Views\Shared\_aguarde.cshtml" />
     <Content Include="Views\MedidasTendencia\Index.cshtml" />
     <Content Include="Views\MedidasDispersao\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutForm.cshtml" />
     <None Include="Views\VariavelDiscreta\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

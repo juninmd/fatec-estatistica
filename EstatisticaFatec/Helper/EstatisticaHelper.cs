@@ -6,6 +6,11 @@ namespace EstatisticaFatec.Helper
 {
     public static class EstatisticaHelper
     {
+        public static MvcHtmlString Null(this HtmlHelper h, object item)
+        {
+            return (item == null || item.ToString() == "0") ? new MvcHtmlString("") : new MvcHtmlString(item.ToString());
+        }
+
         public static MvcHtmlString Rol(this HtmlHelper h, List<decimal> inputRol)
         {
             var formatada = string.Join(" - ", inputRol.Select(q => $"[{q}]"));
@@ -29,9 +34,9 @@ namespace EstatisticaFatec.Helper
 
         public static MvcHtmlString Grupos(this HtmlHelper h, List<decimal> input)
         {
-            return new MvcHtmlString(string.Join("<br>", input.GroupBy(e=> e).Select(q => "[Número:"+q.Key + " - Quantidade: " + q.Count() + "]")));
+            return new MvcHtmlString(string.Join("<br>", input.GroupBy(e => e).Select(q => "[Número:" + q.Key + " - Quantidade: " + q.Count() + "]")));
         }
 
-       
+
     }
 }

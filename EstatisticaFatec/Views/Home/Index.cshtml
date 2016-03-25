@@ -1,17 +1,17 @@
-﻿
+﻿@{
+     Layout = "~/Views/Shared/_Layout.cshtml";
+ }
 <div class="container">
 
     <fieldset>
         <div class="row">
             <div class="col-sm-6">
+
                 <div class="card card--big">
                     <div class="card__image" style="text-align: center; background-color: rgba(0, 0, 0, 0.8);">
                         <i class="material-icons" style="font-size: 225px; color: whitesmoke">swap_vertical_circle</i>
                     </div>
-
-
-                    <h2 class="card__title">Estratificada</h2>
-                    <p class="card__text">Características mensuráveis que assumem valores em uma escala contínua (na reta real), Que sofreu estratificação, foi dividido </p>
+                    <h2 class="card__title">Técnicas de amostragem</h2>
                     <div class="card__action-bar">
                         <a href="@Url.Action("Index", "AleatoriaSimples")" class="card__button btnMaterial">Aleatória</a>
                         <a href="@Url.Action("Index", "EstratificadaUniforme")" class="card__button btnMaterial">Uniforme</a>
@@ -19,6 +19,7 @@
                         <a href="@Url.Action("Index", "Sistematica")" class="card__button btnMaterial">Sistemática</a>
                     </div>
                 </div>
+
             </div>
 
             <div class="col-sm-3">
@@ -27,7 +28,6 @@
                         <i class="material-icons" style="font-size: 225px; color: whitesmoke">timeline</i>
                     </div>
                     <h2 class="card__title">Variavel Quantitativa</h2>
-                    <p class="card__text">Geralmente são o resultado de contagens. Exemplos: número de filhos...</p>
                     <div class="card__action-bar">
                         <a href="@Url.Action("Index", "VariavelDiscreta")" class="card__button btnMaterial">Discreta</a>
                         <a href="@Url.Action("Index", "VariavelContinua")" class="card__button btnMaterial">Continua</a>
@@ -41,8 +41,7 @@
                     <div class="card__image" style="text-align: center; background-color: rgba(186, 0, 255, 0.9);">
                         <i class="material-icons" style="font-size: 225px; color: whitesmoke">format_list_numbered</i>
                     </div>
-                    <h2 class="card__title" style="top: 113px; white-space: normal;">Medidas de Tendência Central</h2>
-                    <p class="card__text">Geralmente são o resultado de contagens. Exemplos: número de filhos...</p>
+                    <h2 class="card__title" >Medidas de Tendência Central</h2>
                     <div class="card__action-bar">
                         <a href="@Url.Action("Index", "MedidasTendencia")" class="card__button btnMaterial">Medidas de tendência</a>
                     </div>
@@ -54,8 +53,7 @@
                     <div class="card__image" style="text-align: center; background-color: rgba(255, 153, 0, 0.94);">
                         <i class="material-icons" style="font-size: 225px; color: whitesmoke">format_list_numbered</i>
                     </div>
-                    <h2 class="card__title" style="top: 113px; white-space: normal;">Medidas de Dispersão</h2>
-                    <p class="card__text">Geralmente são o resultado de contagens. Exemplos: número de filhos...</p>
+                    <h2 class="card__title" >Medidas de Dispersão</h2>
                     <div class="card__action-bar">
                         <a href="@Url.Action("Index", "MedidasDispersao")" class="card__button btnMaterial">Dispersão</a>
                     </div>
@@ -68,7 +66,6 @@
                         <i class="material-icons" style="font-size: 225px; color: whitesmoke">format_list_numbered</i>
                     </div>
                     <h2 class="card__title">Distribuição Normal</h2>
-                    <p class="card__text">Geralmente são o resultado de contagens. Exemplos: número de filhos...</p>
                     <div class="card__action-bar">
                         <a href="@Url.Action("Index", "DistribuicaoMenor")" class="card__button btnMaterial">Menor</a>
                         <a href="@Url.Action("Index", "DistribuicaoEntre")" class="card__button btnMaterial">Entre</a>

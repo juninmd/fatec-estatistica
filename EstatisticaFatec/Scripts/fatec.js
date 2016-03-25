@@ -35,3 +35,28 @@ $(document).ready(function () {
 
 });
 
+$(document).on('click', '[data-toggle=float]', function () {
+
+    function togglearFloat(elemento, boolean) {
+        if (boolean) {
+            $(elemento).addClass("active");
+        } else {
+            $(elemento).removeClass("active");
+
+        }
+    }
+
+    if ($(this).attr("expandFloat") == null) {
+        $(this).attr("expandFloat", "false");
+    }
+
+    var expand = $(this).attr("expandFloat") == "true";
+
+    if (expand) {
+        $(this).attr("expandFloat", "false");
+        togglearFloat($(this).children().next(), false);
+    } else {
+        $(this).attr("expandFloat", "true");
+        togglearFloat($(this).children().next(), true);
+    }
+});
