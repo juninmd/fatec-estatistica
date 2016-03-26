@@ -1,4 +1,5 @@
-﻿@model EstatisticaFatec.Core.Models.VariavelContinua.VariavelContinuaContainerEntity
+﻿@using EstatisticaFatec.Helper
+@model EstatisticaFatec.Core.Models.VariavelContinua.VariavelContinuaContainerEntity
 
 @{
     Layout = "~/Views/Shared/_LayoutForm.cshtml";
@@ -127,7 +128,7 @@
                         text: 'Descrição dos dados'
                     },
                     xAxis: {
-                        categories: ['@string.Join(", ", @Model.VariavelContinuaEntity.Select(q=> q.Classe))'],
+                       categories: [@Html.FormatacaoObjeto(Model.VariavelContinuaEntity.Select(p=> p.Classe).ToList())],
                         title: {
                             text: "Classes"
                         }
@@ -167,14 +168,26 @@
                         enabled: false
                     },
                     series: [
-                        {
-                            name: 'F%',
-                            data: ['@string.Join(", ", @Model.VariavelContinuaEntity.Select(q => Math.Round(q.FPorcent)))']
+                          {
+                            name: 'FI',
+                            data: [@Html.FormatacaoObjeto(Model.VariavelContinuaEntity.Select(q=> q.FI).ToList())]
                         },
-                        {
-                            name: 'FE%',
-                            data: ['@string.Join(", ", @Model.VariavelContinuaEntity.Select(q => Math.Round(q.FEPorcent)))']
-                        }
+                         {
+                             name: 'FE%',
+                             data: [@Html.FormatacaoObjeto(Model.VariavelContinuaEntity.Select(q=> q.FEPorcent).ToList())]
+                         },
+                          {
+                              name: 'F',
+                              data: [@Html.FormatacaoObjeto(Model.VariavelContinuaEntity.Select(q=> q.F).ToList())]
+                          },
+                           {
+                               name: 'F%',
+                               data: [@Html.FormatacaoObjeto(Model.VariavelContinuaEntity.Select(q=> q.FPorcent).ToList())]
+                           },
+                            {
+                                name: 'XI*FI%',
+                                data: [@Html.FormatacaoObjeto(Model.VariavelContinuaEntity.Select(q=> q.XIFI).ToList())]
+                            },
                     ]
                 });
             });

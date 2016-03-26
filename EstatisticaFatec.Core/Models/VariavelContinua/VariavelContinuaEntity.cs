@@ -9,7 +9,7 @@
         /// <summary>
         /// [1] - Indice da classe [1][2][3][4]
         /// </summary>
-        public int Classe { get; set; }
+        public decimal Classe { get; set; }
 
         /// <summary>
         /// [2] - Range de [x] para [y]
@@ -19,7 +19,7 @@
         /// <summary>
         /// [3] Contagens
         /// </summary>
-        public int FI { get; set; }
+        public decimal FI { get; set; }
 
         /// <summary>
         /// [4] - Porcentagem baseando na [quantidade total de FI] sobre o [FI]
@@ -29,7 +29,7 @@
         /// <summary>
         /// [5] - Números acumulativos sobre [FI]
         /// </summary>
-        public int F { get; set; }
+        public decimal F { get; set; }
 
         /// <summary>
         /// [6] - Porcentagem acumulativa sobre [FE%]
@@ -37,7 +37,7 @@
         public decimal FPorcent { get; set; }
 
         /// <summary>
-        /// [7] - Média do intervalo de classe
+        /// [7] - Média do decimalervalo de classe
         /// </summary>
         public decimal XI { get; set; }
 

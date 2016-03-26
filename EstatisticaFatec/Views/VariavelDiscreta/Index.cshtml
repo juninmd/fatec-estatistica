@@ -59,29 +59,19 @@
                 <table class="table table-striped table-hover">
                     <thead>
                         <tr>
-                            <th title="">
-                                <div class="row-action-primary checkbox">
-                                    <label><input type="checkbox" id="chkAll"></label>
-                                </div>
-                            </th>
                             <th title="Valor a ser calculado">[XI]</th>
-                            <th title="Frequência simples">[FI]</th>
+                            <th title="Frequência simples | Total: @Model.VariavelDiscretaEntity.Select(x => x.FI).Sum()">[FI]</th>
                             <th title="Frequência relativa percentual ">[FE%]</th>
                             <th title="Frequência Acumulada">[F]</th>
                             <th title="Frequência Acumulada porcentual">[F%]</th>
-                            <th title="Média">[XI * FI]</th>
-                            <th title="(XI - `X)². FI"> (XI - <span style="text-decoration-line: overline; ">X</span>)². FI</th>
+                            <th title="Média | Total: @Model.VariavelDiscretaEntity.Select(x => x.XIFI).Sum()">[XI * FI]</th>
+                            <th title="(XI - `X)². FI | Total: @Model.VariavelDiscretaEntity.Select(x => x.XIFIQuadFI.Valor).Sum()"> (XI - <span style="text-decoration-line: overline; ">X</span>)². FI</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach (var item in Model.VariavelDiscretaEntity)
                         {
                             <tr>
-                                <td>
-                                    <div class="row-action-primary checkbox">
-                                        <label><input checkGrid type="checkbox"></label>
-                                    </div>
-                                </td>
                                 <td>@item.XI</td>
                                 <td>@item.FI</td>
                                 <td>@item.FEPorcent%</td>
@@ -91,16 +81,6 @@
                                 <td title="@item.XIFIQuadFI.Formula">@item.XIFIQuadFI.Valor%</td>
                             </tr>
                         }
-                        <tr style="font-weight: bold">
-                            <td>-</td>
-                            <td>-</td>
-                            <td>@Model.VariavelDiscretaEntity.Select(x => x.FI).Sum()</td>
-                            <td>-</td>
-                            <td>-</td>
-                            <td></td>
-                            <td>@Model.VariavelDiscretaEntity.Select(x => x.XIFI).Sum()</td>
-                            <td>@Model.VariavelDiscretaEntity.Select(x => x.XIFIQuadFI.Valor).Sum()</td>
-                        </tr>
                     </tbody>
                 </table>
         </fieldset>
