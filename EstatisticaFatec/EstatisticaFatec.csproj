@@ -147,6 +147,8 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\img\estratificadaProporcional\estratificadaProporcional.jpg" />
     <Content Include="Content\img\estratificadaUniforme\exemplo.jpg" />
+    <Content Include="Content\img\variavelQuantitativa\continuaExemplo.jpg" />
+    <Content Include="Content\img\variavelQuantitativa\discretaExemplo.jpg" />
     <Content Include="Content\ripples.css" />
     <Content Include="Documentação\homologacao.txt" />
     <Content Include="favicon.ico" />

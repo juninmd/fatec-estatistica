@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using EstatisticaFatec.Core.Models.MedidasDispersao;
-using EstatisticaFatec.Core.Models.MedidasTendencia;
 using EstatisticaFatec.Core.Models.VariavelDiscreta;
 using static EstatisticaFatec.Core.MathCoreApp;
 

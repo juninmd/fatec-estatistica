@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace EstatisticaFatec.Core.Models.MedidasTendencia
+﻿namespace EstatisticaFatec.Core.Models.MedidasTendencia
 {
     public class MedidasTendenciaEntity  
     {

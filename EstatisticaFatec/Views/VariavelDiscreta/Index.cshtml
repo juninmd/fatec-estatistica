@@ -14,19 +14,25 @@
 
 <div class="well bs-component">
     <fieldset>
-        <legend>Aleatória Simples</legend>
+        <legend>Variável Quantitativa Discreta</legend>
         <div class="form-group">
             <div class="col-xs-12">
                 <blockquote class="small">
-                    Uma amostra aleatória simples é usar um subconjunto de indivíduos (amostra) apartir de um conjunto maior (população) por um processo que garanta que
+                    <p>
+                        Características mensuráveis que podem assumir apenas um número finito ou infinito contável de valores e, assim, somente fazem sentido valores inteiros, exemplos:.
+                    </p>
                     <ul>
                         <li>
-                            Todos os indivíduos da população têm a mesma probabilidade de ser escolhidos para a amostra;
+                            Número de filhos
+                        </li>
+                        <li>
+                            Número de bactérias por litro de leite
+                        </li>
+                        <li>
+                            Número de cigarros fumados por dia
                         </li>
                     </ul>
-                    <small class="pull-right">
-                        Sorteamos uma quantidade de números X [AMOSTRA] entre um total de população de Y [POPULAÇÃO]
-                    </small>
+
 
                 </blockquote>
             </div>
@@ -65,7 +71,7 @@
                             <th title="Frequência Acumulada">[F]</th>
                             <th title="Frequência Acumulada porcentual">[F%]</th>
                             <th title="Média">[XI * FI]</th>
-                            <th title="(XI - `X)². FI">(XI - `X)². FI</th>
+                            <th title="(XI - `X)². FI"> (XI - <span style="text-decoration-line: overline; ">X</span>)². FI</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -209,7 +215,7 @@
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
 
         <!-- Modal content-->
         <div class="modal-content">
@@ -250,14 +256,9 @@
                         </tr>
                     </table>
 
-                </fieldset>
-                <h3></h3>
 
-                <fieldset>
                     <legend> 2ª Etapa <span class="lesssmall pull-right"> Organizando dados. (Por ser quantitativo [Salários] deve ser ordenado).</span></legend>
-
-                    <blockquote class="blockquote-reverse small">Na segunda etapa necessitamos fazer o "ROL" que é a ordenação dos elementos de forma crescente.</blockquote>
-
+                    <small class="small">Na segunda etapa necessitamos fazer o "ROL" que é a ordenação dos elementos de forma crescente.</small>
 
                     <table class="table">
                         <tr>
@@ -285,42 +286,208 @@
                             <td>5000</td>
                         </tr>
                     </table>
-                </fieldset>
 
-                <fieldset>
-                    <legend> 3ª Etapa / 4ª Etapa <span class="lesssmall pull-right"> Organizando dados. (Por ser quantitativo [Salários] deve ser ordenado).</span></legend>
-
-                    <blockquote class="blockquote-reverse small">Na segunda etapa necessitamos fazer o "ROL" que é a ordenação dos elementos de forma crescente.</blockquote>
+                    <legend> 3ª Etapa / 4ª Etapa</legend>
+                    <small class="small">Na segunda etapa necessitamos fazer o "ROL" que é a ordenação dos elementos de forma crescente.</small>
 
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th title="Valor a ser calculado">[XI]</th>
-                                <th title="Frequência simples">[FI]</th>
-                                <th title="Frequência relativa percentual ">[FE%]</th>
-                                <th title="Frequência Acumulada">[F]</th>
-                                <th title="Frequência Acumulada porcentual">[F%]</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>1000</td>
-                                <td>1000</td>
-                                <td>2000</td>
-                                <td>2000</td>
-                                <td>3000</td>
-                            </tr>
-                            <tr>
-                                <td>1000</td>
-                                <td>1000</td>
-                                <td>2000</td>
-                                <td>2000</td>
-                                <td>3000</td>
-                            </tr>
-                        </tbody>
+                    <p>Aqui então temos as formulas</p>
 
-                    </table>
+                    <div class="panel-group" id="collapse">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#collapse" href="#collapse-one">
+                                        FI
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse-one" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <code>Fazemos a contagem de quantas vezes aquele XI (salário) aparece</code>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#collapse" href="#collapse-two">
+                                        FE%
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse-two" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p><code> (FI / ∑FI) * 100</code></p>
+                                    <p><code><strong>∑FI:</strong> A soma de todos os elementos FI</code></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#collapse" href="#collapse-three">
+                                        F
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse-three" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <code>FI + (∑FI Anteriores a posição atual)</code>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#collapse" href="#collapse-four">
+                                        F%
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse-four" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <code>F + (∑F Anteriores a posição atual)</code>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#collapse" href="#collapse-five">
+                                        XI * FI
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse-five" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <code>XI * FI</code>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#collapse" href="#collapse-six">
+                                        (XI - <span style="text-decoration-line: overline; ">X</span>)². FI
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse-six" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        <code> (XI-MEDIA)² - FI</code>
+                                    </p>
+                                    <p><span class="badge">1º</span><code>Descobrimos MEDIA, que é a soma de todos os elementos XI dividos pela quantidade de itens</code></p>
+                                    <p><span class="badge">2º</span><code>Calculamos XI subtraído por Media</code></p>
+                                    <p><span class="badge">3º</span><code>Com esse resultados obtemos o valor ao quadrado</code></p>
+                                    <p><span class="badge">4º</span><code>Assim por fim subtraímos pelo FI</code></p>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="table-responsive">
+                        <table class="table table-condensed">
+                            <thead>
+                                <tr>
+
+                                    <th title="Valor a ser calculado">[XI]</th>
+                                    <th title="Frequência simples">[FI]</th>
+                                    <th title="Frequência relativa percentual ">[FE%]</th>
+                                    <th title="Frequência Acumulada">[F]</th>
+                                    <th title="Frequência Acumulada porcentual">[F%]</th>
+                                    <th title="Média">[XI * FI]</th>
+                                    <th title="(XI - `X)². FI">(XI - `X)². FI</th>
+                                </tr>
+                                <tr>
+                                    <th title="Salários">Salários</th>
+                                    <th title="Número de funcionários">Nº Func</th>
+                                    <th title="Porcentagem">Porcentagem</th>
+                                    <th title="Número de funcionários acumulativo">Nº Func. Ac.</th>
+                                    <th title="Porcentagem acumulativa">Porcentagem Ac.</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+
+                                    <td>1000</td>
+                                    <td>2</td>
+                                    <td>10,0%</td>
+                                    <td>2</td>
+                                    <td>10,0%</td>
+                                    <td>2000</td>
+                                    <td title="(1000 - `2700)². 2">5780000%</td>
+                                </tr>
+                                <tr>
+
+                                    <td>2000</td>
+                                    <td>6</td>
+                                    <td>30,0%</td>
+                                    <td>8</td>
+                                    <td>40,0%</td>
+                                    <td>12000</td>
+                                    <td title="(2000 - `2700)². 6">2940000%</td>
+                                </tr>
+                                <tr>
+
+                                    <td>3000</td>
+                                    <td>9</td>
+                                    <td>45,00%</td>
+                                    <td>17</td>
+                                    <td>85,00%</td>
+                                    <td>27000</td>
+                                    <td title="(3000 - `2700)². 9">810000%</td>
+                                </tr>
+                                <tr>
+
+                                    <td>4000</td>
+                                    <td>2</td>
+                                    <td>10,0%</td>
+                                    <td>19</td>
+                                    <td>95,00%</td>
+                                    <td>8000</td>
+                                    <td title="(4000 - `2700)². 2">3380000%</td>
+                                </tr>
+                                <tr>
+
+                                    <td>5000</td>
+                                    <td>1</td>
+                                    <td>5,00%</td>
+                                    <td>20</td>
+                                    <td>100,00%</td>
+                                    <td>5000</td>
+                                    <td title="(5000 - `2700)². 1">5290000%</td>
+                                </tr>
+                                <tr style="font-weight: bold">
+                                    <td>-</td>
+                                    <td>20</td>
+                                    <td>100%</td>
+                                    <td>-</td>
+                                    <td></td>
+                                    <td>54000</td>
+                                    <td>18200000</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <legend>5ª Etapa </legend>
+                    <small class="small">é a sua interpretação para os dados</small>
+
+                    <legend>6ª Etapa </legend>
+                    <small class="small">São os gráficos</small>
                 </fieldset>
 
 

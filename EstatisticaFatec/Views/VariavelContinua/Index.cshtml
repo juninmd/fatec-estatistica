@@ -1,5 +1,4 @@
-﻿@using EstatisticaFatec.Helper
-@model EstatisticaFatec.Core.Models.VariavelContinua.VariavelContinuaContainerEntity
+﻿@model EstatisticaFatec.Core.Models.VariavelContinua.VariavelContinuaContainerEntity
 
 @{
     Layout = "~/Views/Shared/_LayoutForm.cshtml";
@@ -12,7 +11,7 @@
 
 <div class="well bs-component">
     <fieldset>
-        <legend>Aleatória Simples</legend>
+        <legend>Varíavel Contínua</legend>
         <div class="form-group">
             <div class="col-xs-12">
                 <blockquote class="small">
@@ -35,7 +34,7 @@
 
 
 
-<form method="POST" action="@Url.Action("Index")" class="form-horizontal">
+<form method="POST" action="@Url.Action("Index")">
     @Html.Partial("_Input")
 </form>
 

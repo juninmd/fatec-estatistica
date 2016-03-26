@@ -1,6 +1,6 @@
 ﻿@{
-     Layout = "~/Views/Shared/_Layout.cshtml";
- }
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 <div class="container">
 
     <fieldset>
@@ -31,6 +31,7 @@
                     <div class="card__action-bar">
                         <a href="@Url.Action("Index", "VariavelDiscreta")" class="card__button btnMaterial">Discreta</a>
                         <a href="@Url.Action("Index", "VariavelContinua")" class="card__button btnMaterial">Continua</a>
+                        <a href="javascript:void()" data-toggle="modal" data-target="#modalQuantitativa" title="Qual devo utilizar?" class="card__button btnMaterial">?</a>
 
                     </div>
                 </div>
@@ -41,7 +42,7 @@
                     <div class="card__image" style="text-align: center; background-color: rgba(186, 0, 255, 0.9);">
                         <i class="material-icons" style="font-size: 225px; color: whitesmoke">format_list_numbered</i>
                     </div>
-                    <h2 class="card__title" >Medidas de Tendência Central</h2>
+                    <h2 class="card__title">Medidas de Tendência Central</h2>
                     <div class="card__action-bar">
                         <a href="@Url.Action("Index", "MedidasTendencia")" class="card__button btnMaterial">Medidas de tendência</a>
                     </div>
@@ -53,7 +54,7 @@
                     <div class="card__image" style="text-align: center; background-color: rgba(255, 153, 0, 0.94);">
                         <i class="material-icons" style="font-size: 225px; color: whitesmoke">format_list_numbered</i>
                     </div>
-                    <h2 class="card__title" >Medidas de Dispersão</h2>
+                    <h2 class="card__title">Medidas de Dispersão</h2>
                     <div class="card__action-bar">
                         <a href="@Url.Action("Index", "MedidasDispersao")" class="card__button btnMaterial">Dispersão</a>
                     </div>
@@ -74,13 +75,41 @@
                 </div>
             </div>
 
-           
-              
+
+
 
         </div>
     </fieldset>
- 
-
 </div>
 
- 
+<!-- Modal Sobre dúvidas de Variavél quantitativa -->
+<div id="modalQuantitativa" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Qual devo utilizar?</h4>
+            </div>
+
+            <div class="modal-body">
+                <fieldset>
+                    <legend>Como sei que é do tipo Discreta? </legend>
+                    <img style="width: 100%;" class="img-rounded img-responsive" src="~/Content/img/variavelQuantitativa/discretaExemplo.jpg" />
+                    <blockquote class="small">Quando a quantidade de repetições for grande e a variedade de varíavel pesquisada for pequena.</blockquote>
+                    <legend>Como sei que é do tipo Contínua? </legend>
+                    <img style="width: 100%;" class="img-rounded img-responsive" src="~/Content/img/variavelQuantitativa/continuaExemplo.jpg" />
+                    <blockquote class="small">Quando a quantidade de repetições for pequena e a variedade de varíavel pesquisada for grande.</blockquote>
+                </fieldset>
+            </div>
+
+
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+
+    </div>
+</div>
