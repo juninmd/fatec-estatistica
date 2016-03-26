@@ -11,19 +11,30 @@
 
 <div class="well bs-component">
     <fieldset>
-        <legend>Varíavel Contínua</legend>
+        <legend>Varíavel Quantitativa Contínua</legend>
         <div class="form-group">
             <div class="col-xs-12">
                 <blockquote class="small">
-                    Uma amostra aleatória simples é usar um subconjunto de indivíduos (amostra) apartir de um conjunto maior (população) por um processo que garanta que
+                    características mensuráveis que assumem valores em uma escala contínua (na reta real), para as quais valores fracionais fazem sentido.
+                    Usualmente devem ser medidas através de algum instrumento
                     <ul>
                         <li>
-                            Todos os indivíduos da população têm a mesma probabilidade de ser escolhidos para a amostra;
+                            peso (balança)
+                        </li>
+                        <li>
+                            altura (régua)
+                        </li>
+                        <li>
+                            tempo (relógio)
+                        </li>
+                        <li>
+                            pressão arterial
+                        </li>
+                        <li>
+                            idade.
                         </li>
                     </ul>
-                    <small class="pull-right">
-                        Sorteamos uma quantidade de números X [AMOSTRA] entre um total de população de Y [POPULAÇÃO]
-                    </small>
+
 
                 </blockquote>
             </div>
@@ -42,95 +53,57 @@
 {
     @Html.Partial("_Rol")
 
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <div class="row">
 
-                <div class="col-md-4">
-                    <span class="badge">4ª Etapa</span>
-                    <span class="info">Distribuição de Frequência</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="panel-body">
-            <div class="row-content">
-
-                <div class="list-group">
-                    <div class="list-group-item">
-
-                        <table class="table table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th title="Classes">Classes</th>
-                                    <th title="De x até y">Range</th>
-                                    <th title="Frequência simples">[FI]</th>
-                                    <th title="Frequência relativa percentual ">[FE%]</th>
-                                    <th title="Frequência Acumulada">[F]</th>
-                                    <th title="Frequência Acumulada porcentual">[F%]</th>
-                                    <th title="XI">[XI]</th>
-                                    <th title="Média">[XI * FI]</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model.VariavelContinuaEntity)
-                                {
-                                    <tr>
-                                        <td>@item.Classe</td>
-                                        <td>@item.Range[0]|-------@item.Range[1]</td>
-                                        <td>@item.FI</td>
-                                        <td>@item.FEPorcent%</td>
-                                        <td>@item.F</td>
-                                        <td>@item.FPorcent%</td>
-                                        <td>@item.XI</td>
-                                        <td>@item.XIFI</td>
-                                    </tr>
-                                }
-                                <tr style="font-weight: bold">
-                                    <td>@Model.VariavelContinuaEntity.Select(x => x.Classe).Count()</td>
-                                    <td>@Model.IC.IC</td>
-                                    <td>@Model.VariavelContinuaEntity.Select(x => x.FI).Sum()</td>
-                                    <td>@Model.VariavelContinuaEntity.Select(x => x.FEPorcent).Sum()</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>-</td>
-                                    <td>@Model.VariavelContinuaEntity.Select(x => x.XIFI).Sum()</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="well bs-component">
+        <fieldset>
+            <legend>Tabela</legend>
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th title="Classes">@Model.VariavelContinuaEntity.Select(x => x.Classe).Count() Classe(s)</th>
+                            <th title="De x até y">Range de @Model.IC.IC</th>
+                            <th title="Frequência simples | Total: @Model.VariavelContinuaEntity.Select(x => x.FI).Sum()">[FI] </th>
+                            <th title="Frequência relativa percentual | Total: @Model.VariavelContinuaEntity.Select(x => x.FEPorcent).Sum() ">[FE%] </th>
+                            <th title="Frequência Acumulada">[F]</th>
+                            <th title="Frequência Acumulada porcentual">[F%]</th>
+                            <th title="XI">[XI]</th>
+                            <th title="Média | Total: @Model.VariavelContinuaEntity.Select(x => x.XIFI).Sum()">[XI * FI] </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.VariavelContinuaEntity)
+                        {
+                            <tr>
+                                <td>@item.Classe</td>
+                                <td>@item.Range[0]|-------@item.Range[1]</td>
+                                <td>@item.FI</td>
+                                <td>@item.FEPorcent%</td>
+                                <td>@item.F</td>
+                                <td>@item.FPorcent%</td>
+                                <td>@item.XI</td>
+                                <td>@item.XIFI</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+        </fieldset>
     </div>
-
-
-
-
-
 
     @Html.Partial("_MedidasTendencia", Model.MedidasTendenciaEntity)
 
     @Html.Partial("_MedidasDispersao", Model.MedidasDispersaoEntity)
 
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <span class="badge">5ª Etapa</span>
-            <span class="info">Administramos assim os gráficos.</span>
-        </div>
+    <div class="well bs-component">
+        <fieldset>
+            <legend>Administramos assim os gráficos</legend>
+            <div class="form-group">
 
-        <div class="panel-body">
-            <div class="row-content">
-
-                <div class="list-group">
-                    <div class="list-group-item" style="text-align:center">
-                        <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
-                    </div>
-                </div>
-
+                <div id="container" style="min-width: 310px; max-width: 800px; height: 400px; margin: 0 auto"></div>
             </div>
-        </div>
+        </fieldset>
     </div>
+
+
 
 
 
