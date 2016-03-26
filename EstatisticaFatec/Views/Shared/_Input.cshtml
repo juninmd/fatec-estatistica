@@ -1,0 +1,40 @@
+﻿@model  EstatisticaFatec.Core.Models.BaseInputsEntity
+
+<div class="well bs-component">
+    <fieldset>
+        <legend>Efetuamos a coleta de todos os dados</legend>
+        <div class="form-group">
+
+            <div class="row-content">
+                @if (@Html.ViewData.ModelState.IsValid == false)
+                   {
+                    <div class="alert alert-warning alert-dismissable" style="background-color: #610883;">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                        <div class="row-action-primary">
+                            <i class="material-icons" style="color: white;float: left;">error</i>
+                        </div>
+                        <strong>@Html.ValidationMessage("error")</strong>
+                    </div>
+                 }
+                <div class="form-group">
+                    <div class="form-group label-floating">
+                        <label class="control-label">Insira os valores</label>
+                        <textarea name="massaDados" required="" placeholder="@string.Join("; ", @Model.InputValue)" class="form-control" rows="3" style="min-width: 100%" id="txtParametros"></textarea>
+                        <span class="help-block"><span class="badge">Preencha todos os paramêtros, separados por ponto e vírgula ";" e caso algum seja decimal, utilize ","</span></span>
+                    </div>
+                </div>
+
+
+                <div class="btn-group pull-right">
+
+                    <input class="btn btn-danger" value="Limpar" type="reset">
+                    <input class="btn btn-warning" onclick="formatarInput()" value="Formatar Inputs" type="button">
+                    <input class="btn btn-success" value="Enviar" type="submit">
+                </div>
+
+            </div>
+
+        </div>
+    </fieldset>
+
+</div>

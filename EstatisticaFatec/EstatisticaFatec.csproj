@@ -214,6 +214,11 @@
     <Content Include="Views\MedidasTendencia\Index.cshtml" />
     <Content Include="Views\MedidasDispersao\Index.cshtml" />
     <Content Include="Views\Shared\_LayoutForm.cshtml" />
+    <Content Include="Views\Shared\_MedidasDispersao.cshtml" />
+    <Content Include="Views\Shared\_MedidasTendencia.cshtml" />
+    <Content Include="Views\Shared\_Rol.cshtml" />
+    <Content Include="Views\Shared\_Input.cshtml" />
+    <Content Include="Views\Shared\_AlertaParametros.cshtml" />
     <None Include="Views\VariavelDiscreta\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

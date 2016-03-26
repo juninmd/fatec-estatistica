@@ -31,12 +31,5 @@ namespace EstatisticaFatec.Helper
         {
             return new MvcHtmlString(string.Join(",", input.Select(q => q.ToString().Replace(",", "."))));
         }
-
-        public static MvcHtmlString Grupos(this HtmlHelper h, List<decimal> input)
-        {
-            return new MvcHtmlString(string.Join("<br>", input.GroupBy(e => e).Select(q => "[Número:" + q.Key + " - Quantidade: " + q.Count() + "]")));
-        }
-
-
     }
 }

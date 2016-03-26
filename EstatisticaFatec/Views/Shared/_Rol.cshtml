@@ -1,0 +1,23 @@
+﻿@model  EstatisticaFatec.Core.Models.BaseInputsEntity
+
+<div class="well bs-component">
+    <fieldset>
+        <legend>ROL</legend>
+        <div class="form-group">
+
+            <div class="form-group">
+                <div class="form-group label-floating">
+                    <label class="control-label">Ordem crescente</label>
+                    <textarea readonly="" class="form-control" rows="3" style="min-width: 100%" id="txtParametros">@string.Join("; ", @Model.Rol)</textarea>
+
+                    <span class="help-block"><span class="badge">Rol significa a ordenação dos paramêtros de entrada</span></span>
+                </div>
+            </div>
+
+            <div class="list-group">
+
+                @* Não esquecer agrupameto *@
+            </div>
+        </div>
+    </fieldset>
+</div>

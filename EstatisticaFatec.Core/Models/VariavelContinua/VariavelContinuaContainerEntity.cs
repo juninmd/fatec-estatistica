@@ -2,24 +2,12 @@
 
 namespace EstatisticaFatec.Core.Models.VariavelContinua
 {
-    public class VariavelContinuaContainerEntity
+    public class VariavelContinuaContainerEntity : BaseVariavelQuantitativa
     {
         public VariavelContinuaContainerEntity()
         {
-            Rol = new List<decimal>();
-            InputValue = new List<decimal>();
             VariavelContinuaEntity = new List<VariavelContinuaEntity>();
         }
-
-        /// <summary>
-        /// São os registros que foram obtidos pelo input [textarea]
-        /// </summary>
-        public List<decimal> InputValue { get; set; }
-
-        /// <summary>
-        /// Rol é a massa de dados ordenada de forma crescente
-        /// </summary>
-        public List<decimal> Rol { get; set; }
 
         /// <summary>
         /// É o valor mínimo dos inputs [xmin]
@@ -49,21 +37,6 @@ namespace EstatisticaFatec.Core.Models.VariavelContinua
         public VariavelContinuaIcEntity IC { get; set; }
 
         /// <summary>
-        /// Número que mais se repete
-        /// </summary>
-        public decimal[] Moda { get; set; }
-
-        /// <summary>
-        /// Média de todos os números
-        /// </summary>
-        public decimal Media { get; set; }
-
-        /// <summary>
-        /// Calculo da mediana
-        /// </summary>
-        public decimal Mediana { get; set; }
-
-        /// <summary>
         /// Soma total de XI * FI
         /// </summary>
         public decimal EXIFI { get; set; }
@@ -73,21 +46,9 @@ namespace EstatisticaFatec.Core.Models.VariavelContinua
         /// </summary>
         public decimal EFI { get; set; }
 
-
-        public decimal Variancia { get; set; }
-
         /// <summary>
-        /// Desvio Padrão
+        /// Lista com informações da tabela
         /// </summary>
-        public decimal DP { get; set; }
-
-        /// <summary>
-        /// Coeficiente da variação
-        /// </summary>
-        public decimal CV { get; set; }
-
         public List<VariavelContinuaEntity> VariavelContinuaEntity { get; set; }
     }
-
-   
 }

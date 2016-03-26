@@ -48,51 +48,29 @@
                 </div>
             }
             <div class="form-group">
-                <div class="row">
 
-                    <label class="col-md-1 control-label">População</label>
-                    <div class="col-md-2">
-                        <input class="form-control" id="populacao" required placeholder="@Html.Null(Model.Populacao)" value="@Html.Null(Model.Populacao)" name="populacao" type="number" min="1">
-                    </div>
-
-                    <label class="col-md-2 control-label">Amostra</label>
-                    <div class="col-md-2">
-                        <input class="form-control" required placeholder="@Html.Null(Model.Amostra)" value="@Html.Null(Model.Amostra)" name="amostra" type="number" min="1">
-                    </div>
-
-
-                    <label class="col-md-1 control-label">Valor Inicial</label>
-                    <div class="col-md-4">
-                        <div class="col-md-6">
-                            <input class="form-control" required placeholder="@Html.Null(Model.Inicial)" value="@Html.Null(Model.Inicial)" name="inicial" id="inicial" type="number" min="1">
-                        </div>
-                        <div class="col-md-6">
-                            <button type="button" onclick="randomNumberSistematica()" class="btn btn-primary">Sortear</button>
-                        </div>
-                    </div>
-
-
-
-
+                <label class="col-md-2 control-label">População</label>
+                <div class="col-md-3">
+                    <input class="form-control" id="populacao" required placeholder="@Html.Null(Model.Populacao)" value="@Html.Null(Model.Populacao)" name="populacao" type="number" min="1">
                 </div>
-                @if (Model.Inicial != 0)
-                {
-                    <hr />
 
-                    <label class="col-md-2 control-label">Resultados</label>
-                    <div class="col-md-10">
-                        <table class="table">
-                            <thead>
-                                @foreach (var item in @Model.Resultado)
-                                {
-                                    <tr>
-                                        <td>@item</td>
-                                    </tr>
-                                }
-                            </thead>
-                        </table>
-                    </div>
-                }
+                <label class="col-md-2 control-label">Amostra</label>
+                <div class="col-md-3">
+                    <input class="form-control" required placeholder="@Html.Null(Model.Amostra)" value="@Html.Null(Model.Amostra)" name="amostra" type="number" min="1">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="col-md-2 control-label">Valor Inicial</label>
+                <div class="col-md-3">
+                    <input class="form-control" required placeholder="@Html.Null(Model.Inicial)" value="@Html.Null(Model.Inicial)" name="inicial" id="inicial" type="number" min="1">
+                </div>
+
+
+                <div class="col-md-offset-3 col-md-6">
+                    <button type="button" onclick="randomNumberSistematica()" class="btn btn-primary">Sortear</button>
+                </div>
             </div>
 
             <div class="col-md-10 col-md-offset-2">
@@ -100,10 +78,69 @@
                 <button type="reset" class="btn btn-danger">Limpar</button>
                 <button type="submit" class="btn btn-primary">Enviar<div class="ripple-container"></div></button>
             </div>
+
+            @if (Model.Inicial != 0)
+            {
+                <hr />
+
+                <ul class="bs-sistematica">
+                    @{
+                        var contador = 1;
+                    }
+                    @foreach (var item in @Model.Resultado)
+                    {
+                        <li>
+                            <div class="row">
+                                <span class="badge" title="Posição">@contador</span>
+                            </div>
+                            <div class="row">
+                                <span title="Pessoa escolhida" class="spanSistematica">@item</span>
+                            </div>
+
+                        </li>
+
+                        contador++;
+
+                    }
+                </ul>
+
+                        }
+
+            
         </fieldset>
     </form>
 </div>
+<style>
+    .bs-sistematica {
+        padding-left: 0;
+        list-style: none;
+    }
 
+        .bs-sistematica li {
+            float: left;
+            width: 16%;
+            padding: 10px;
+            font-size: 10px;
+            line-height: 1.4;
+            text-align: center;
+            background-color: #151515;
+            border: 1px solid #a1a1a1;
+            color: white;
+            line-height: 50px;
+        }
+
+            .bs-sistematica li:hover {
+            background-color: RGBA(0, 0, 0, 0.77);
+                border: 1px solid #a1a1a1;
+               color: #ecc044;
+            }
+
+            .bs-sistematica li .spanSistematica {
+                text-align: center;
+                word-wrap: break-word;
+                font-size: 22px;
+            }
+</style>
 @section scripts
 {
     <script>

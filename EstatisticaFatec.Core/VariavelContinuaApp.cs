@@ -8,24 +8,6 @@ namespace EstatisticaFatec.Core
 {
     public class VariavelContinuaApp
     {
-        private decimal DP(decimal variancia)
-        {
-            return RaizQuadrada(variancia);
-        }
-        private decimal Variancia(decimal xifi, decimal FISUM)
-        {
-            return Math.Round(xifi / FISUM,2);
-        }
-
-        private static decimal ModaQuantitativa(List<VariavelContinuaEntity> listaTabelaQuantitativa)
-        {
-            var maximo = (listaTabelaQuantitativa.Max(q => q.FI));
-            var counts = listaTabelaQuantitativa.Where(g => g.FI == maximo).Select(q => q.Range);
-
-            var decimalMEdia = new decimal(0) + counts.Sum(item => (item[0] + item[1]) / 2);
-            return decimalMEdia / counts.Count();
-        }
-
         private static decimal MedianaQuantitativa(List<VariavelContinuaEntity> listaTabelaQuantitativa, decimal IC)
         {
             var soma = listaTabelaQuantitativa.Sum(q => q.FI);
@@ -127,10 +109,8 @@ namespace EstatisticaFatec.Core
                 maximo = maximo + (int)Ic.IC;
             }
 
-
-            var variancia = Variancia(listaTabelaQuantitativa.Select(q => q.XIFI).Sum(), listaTabelaQuantitativa.Select(e => e.FI).Sum());
-            var dp = DP(variancia);
-            var cv = Porcentagem(dp, media);
+            var medidasDispersao = new MedidasDispersaoApp().Calcular(listaTabelaQuantitativa.Select(q => q.XIFI).Sum(), media, listaTabelaQuantitativa.Select(e => e.FI).Sum());
+            var medidasTendencia = new MedidasTendenciaApp().Calcular(inputData);
 
             return new VariavelContinuaContainerEntity
             {
@@ -142,15 +122,10 @@ namespace EstatisticaFatec.Core
                 AL = al,
                 K = K,
                 IC = Ic,
-                Moda = Moda(inputData),
-                Media = media,
-                Mediana = MedianaQuantitativa(listaTabelaQuantitativa,Ic.IC),
+                MedidasDispersaoEntity = medidasDispersao,
+                MedidasTendenciaEntity = medidasTendencia,
                 EXIFI = listaTabelaQuantitativa.Sum(entity => entity.XIFI),
                 EFI = listaTabelaQuantitativa.Sum(entity => entity.FI),
-                Variancia = variancia,
-                CV = cv,
-                DP = dp,
-
             };
         }
 

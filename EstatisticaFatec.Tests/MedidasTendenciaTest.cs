@@ -26,9 +26,9 @@ namespace EstatisticaFatec.Tests
             };
             var resultado = new MedidasTendenciaApp().Build(inputs);
 
-            Assert.IsTrue(resultado.Media == new decimal(4.25));
-            Assert.IsTrue(resultado.Mediana == 4);
-            Assert.IsTrue(resultado.Moda[0] == 4 && resultado.Moda[1] == 5);
+            Assert.IsTrue(resultado.MedidasTendenciaEntity.Media == new decimal(4.25));
+            Assert.IsTrue(resultado.MedidasTendenciaEntity.Mediana == 4);
+            Assert.IsTrue(resultado.MedidasTendenciaEntity.Moda[0] == 4 && resultado.MedidasTendenciaEntity.Moda[1] == 5);
         }
 
         [TestMethod]

@@ -1,10 +1,10 @@
-﻿namespace EstatisticaFatec.Core.Models.VariavelQuantitativa
+﻿namespace EstatisticaFatec.Core.Models.VariavelDiscreta
 {
     /// <summary>
     /// Classe responsável por listar os Itens da tabela
-    /// -> Quantitativa
+    /// -> Discreta
     /// </summary>
-    public class VariavelQuantitativaEntity
+    public class VariavelDiscretaEntity
     {
         /// <summary>
         /// [1] - Dado bruto do input

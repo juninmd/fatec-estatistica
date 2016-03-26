@@ -113,6 +113,10 @@ namespace EstatisticaFatec.Core
             return (decimal) Math.Round(Math.Sqrt((double)input),2);
         }
 
+        public static decimal Variancia(decimal xifi, decimal FISUM)
+        {
+            return Math.Round(xifi / FISUM, 2);
+        }
 
     }
 }

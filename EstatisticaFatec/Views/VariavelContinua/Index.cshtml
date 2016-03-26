@@ -5,13 +5,10 @@
     Layout = "~/Views/Shared/_LayoutForm.cshtml";
 }
 
- @if (Model.InputValue.Any() == false)
- {
-    <div class="alert alert-warning alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        <strong>Você ainda não preencheu os paramêtros! Por favor, preencha os paramêtros.</strong>
-    </div>
- }
+@if (Model.InputValue.Any() == false)
+{
+    @Html.Partial("_AlertaParametros")
+}
 
 <div class="well bs-component">
     <fieldset>
@@ -39,79 +36,12 @@
 
 
 <form method="POST" action="@Url.Action("Index")" class="form-horizontal">
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <span class="badge">1ª Etapa</span>
-            <span class="info">Efetuamos a coleta de todos os dados.</span>
-        </div>
-
-        <div class="panel-body">
-
-            @if (@Html.ViewData.ModelState.IsValid == false)
-            {
-                <div class="alert alert-warning alert-dismissable" style="background-color: #610883;">
-                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                    <div class="row-action-primary">
-                        <i class="material-icons" style="color: white;float: left;">error</i>
-                    </div>
-                    <strong>@Html.ValidationMessage("error")</strong>
-                </div>
-            }
-
-            <div class="row-content">
-
-                <div class="">
-                    <div class="list-group-item">
-
-                        <div class="row">
-
-                            <div class="col-md-4">
-                                <span class="badge">Você pode efetuar o upload de arquivo</span>
-                                <input type="file" value="" />
-                            </div>
-                            <div class="col-md-8">
-                                <span class="badge">Ou se preferir manualmente, insira os paramêtros, separados por ponto e vírgula ";"</span>
-                            </div>
-
-                        </div>
-
-                        <textarea name="massaDados" placeholder="@string.Join("; ", @Model.InputValue)" class="form-control" rows="6" style="min-width: 100%" id="txtParametros"></textarea>
-
-                    </div>
-                </div>
-
-                <div class="btn-group pull-right">
-                    
-                    <input class="btn btn-danger" value="Limpar" type="reset">
-                    <input class="btn btn-warning" onclick="formatarInput()" value="Formatar Inputs" type="button">
-                    <input class="btn btn-success" value="Enviar" type="submit">
-                </div>
-
-            </div>
-        </div>
-    </div>
+    @Html.Partial("_Input")
 </form>
 
 @if (Model.InputValue.Any())
 {
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <span class="badge">2ª Etapa</span>
-            <span class="info">Toda informação é ordenada (Vulgo ROL).</span>
-        </div>
-
-        <div class="panel-body">
-            <div class="row-content">
-
-                <div class="list-group">
-                    <div class="list-group-item" style="text-align: center">
-                        <p>Resultados: <span>@Html.Rol(Model.Rol)</span></p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
+    @Html.Partial("_Rol")
 
     <div class="panel panel-info">
         <div class="panel-heading">
@@ -121,13 +51,6 @@
                     <span class="badge">4ª Etapa</span>
                     <span class="info">Distribuição de Frequência</span>
                 </div>
-
-                <div class="col-md-3">
-                    <span class="badge">
-                        Média: @Model.Media | Moda: @string.Join(";", Model.Moda) | Mediana: @Model.Mediana
-                    </span>
-                </div>
-
             </div>
         </div>
 
@@ -137,7 +60,7 @@
                 <div class="list-group">
                     <div class="list-group-item">
 
-                        <table class="table table-striped table-hover" >
+                        <table class="table table-striped table-hover">
                             <thead>
                                 <tr>
                                     <th title="Classes">Classes</th>
@@ -183,71 +106,13 @@
     </div>
 
 
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <span class="badge">4ª Etapa</span>
-            <span class="info">Medidas de tendência central / Medidas de Dispersao.</span>
-        </div>
-
-        <div class="panel-body">
-            <div class="row-content">
-
-                <div class="form-group">
-
-                    <label class="col-md-1 control-label">Moda</label>
-                    <div class="col-md-2">
-                        <input class="form-control" readonly="" value="@Html.Moda(Model.Moda)">
-                    </div>
-
-                    <label class="col-md-1 control-label">Média</label>
-                    <div class="col-md-2">
-                        <input class="form-control" readonly="" value="@Model.Media">
-                    </div>
 
 
-                    <label class="col-md-1 control-label">Mediana</label>
-                    <div class="col-md-2">
-                        <input class="form-control" readonly="" value="@Model.Mediana">
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
 
 
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <span class="badge">4ª Etapa</span>
-            <span class="info">Medidas de Dispersão.</span>
-        </div>
+    @Html.Partial("_MedidasTendencia", Model.MedidasTendenciaEntity)
 
-        <div class="panel-body">
-            <div class="row-content">
-
-                <div class="form-group">
-
-                    <label class="col-md-1 control-label">Variância</label>
-                    <div class="col-md-1">
-                        <input class="form-control" readonly="" value="@Model.Variancia">
-                    </div>
-
-                    <label class="col-md-2 control-label">Desvio Padrão</label>
-                    <div class="col-md-1">
-                        <input class="form-control" readonly="" value="@Model.DP">
-                    </div>
-
-                    <label class="col-md-2 control-label">Coeficiente da variação</label>
-                    <div class="col-md-1">
-                        <input class="form-control" readonly="" value="@Model.CV%">
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
+    @Html.Partial("_MedidasDispersao", Model.MedidasDispersaoEntity)
 
     <div class="panel panel-info">
         <div class="panel-heading">

@@ -45,8 +45,5 @@
         /// [8] - Média - XI * FI
         /// </summary>
         public decimal XIFI { get; set; }
-
-        
     }
-   
 }

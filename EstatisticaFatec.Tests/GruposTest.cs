@@ -14,7 +14,7 @@ namespace EstatisticaFatec.Tests
             {
               1,1,1,1,1,1,1,1,1,2,
             };
-            var app = new GruposApp().Build(inputs);
+            var app = new AgrupamentoApp().Build(inputs);
         }
     }
 }

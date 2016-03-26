@@ -5,28 +5,16 @@ using EstatisticaFatec.Core.Models.MedidasDispersao;
 
 namespace EstatisticaFatec.Core
 {
+    /// <summary>
+    /// <para>Classe responsável por calcular</para>
+    /// <para>Variancia | DP | CV</para>
+    /// </summary>
     public class MedidasDispersaoApp
     {
-        /// <summary>
-        /// Retorna o valor E(xi-`x) / E(xi).length - 1
-        /// </summary>
-        /// <param name="inutData"></param>
-        /// <param name="quantidade"></param>
-        /// <returns></returns>
-        private decimal DivideV2PorQuantidade(decimal inutData, int quantidade)
+
+        public MedidasDispersaoEntity Calcular(decimal xifi, decimal fiSum, decimal media)
         {
-            return Math.Round(inutData / (quantidade - 1),2);
-        }
-
-        public MedidasDispersaoEntity Build(List<decimal> inputData)
-        {
-            var media = MathCoreApp.MediaComum(inputData);
-
-            var InputValueQuadrado = MathCoreApp.SomaTodosAoQuadrado(inputData, media);
-
-            var SomaInputValueQuadrado = InputValueQuadrado.Sum();
-
-            var Variancia = DivideV2PorQuantidade(SomaInputValueQuadrado, inputData.Count);
+            var Variancia = MathCoreApp.Variancia(xifi, fiSum);
 
             var DP = MathCoreApp.RaizQuadrada(Variancia);
 
@@ -35,13 +23,28 @@ namespace EstatisticaFatec.Core
             return new MedidasDispersaoEntity
             {
                 CV = CV,
+                Variancia = Variancia,
+                DP = DP,
+            };
+        }
+        public MedidasDispersaoContainerEntity Build(List<decimal> inputData)
+        {
+            var media = MathCoreApp.MediaComum(inputData);
+
+            var InputValueQuadrado = MathCoreApp.SomaTodosAoQuadrado(inputData, media);
+
+            var SomaInputValueQuadrado = InputValueQuadrado.Sum();
+
+            var medidasDispersao = Calcular(SomaInputValueQuadrado, inputData.Count, media);
+
+            return new MedidasDispersaoContainerEntity()
+            {
                 Media = media,
                 Rol = MathCoreApp.Rol(inputData),
                 InputValue = inputData,
-                Variancia = Variancia,
                 InputValueQuadrado = InputValueQuadrado,
-                DP = DP,
-                SomaInputValueQuadrado = SomaInputValueQuadrado
+                SomaInputValueQuadrado = SomaInputValueQuadrado,
+                MedidasDispersaoEntity = medidasDispersao
             };
         }
     }
