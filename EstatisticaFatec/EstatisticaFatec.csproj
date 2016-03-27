@@ -147,6 +147,7 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\img\estratificadaProporcional\estratificadaProporcional.jpg" />
     <Content Include="Content\img\estratificadaUniforme\exemplo.jpg" />
+    <Content Include="Content\img\medidasTendencia\media.jpg" />
     <Content Include="Content\img\variavelQuantitativa\continuaExemplo.jpg" />
     <Content Include="Content\img\variavelQuantitativa\discretaExemplo.jpg" />
     <Content Include="Content\ripples.css" />
@@ -221,6 +222,7 @@
     <Content Include="Views\Shared\_Rol.cshtml" />
     <Content Include="Views\Shared\_Input.cshtml" />
     <Content Include="Views\Shared\_AlertaParametros.cshtml" />
+    <Content Include="Views\Shared\_ModalTendenciaCentral.cshtml" />
     <None Include="Views\VariavelDiscreta\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>

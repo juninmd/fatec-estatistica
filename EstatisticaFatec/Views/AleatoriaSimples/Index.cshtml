@@ -13,6 +13,15 @@
     </div>
 }
 
+@section opcoes
+{
+    <li>
+        <a class="btn-floating" title="Informações" data-toggle="modal" data-target="#myModal">
+            <i class="glyphicon glyphicon-book" aria-hidden="true"></i>
+        </a>
+    </li>
+}
+
 <div class="well bs-component">
     <fieldset>
         <legend>Aleatória Simples</legend>
@@ -64,7 +73,7 @@
                 <div class="form-group">
                     <label class="col-md-2 control-label" title="Subcojunto do cojunto de pessoas">Amostra</label>
                     <div class="col-md-4">
-                        <input class="form-control" required placeholder="@Html.Null(Model.Amostra)"  name="amostra" type="number" min="1">
+                        <input class="form-control" required placeholder="@Html.Null(Model.Amostra)" name="amostra" type="number" min="1">
                     </div>
                 </div>
 
@@ -130,11 +139,11 @@
                             </tr>
                         </thead>
                     </table>
-                    
+
                     <p>
                         O sistema irá sempre retornar x números (quantidade da amostra) aleatórios que nunca vão se repetir.
                     </p>
-                
+
                 </fieldset>
             </div>
             <div class="modal-footer">

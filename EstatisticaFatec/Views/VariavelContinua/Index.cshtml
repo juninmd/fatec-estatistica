@@ -10,6 +10,20 @@
     @Html.Partial("_AlertaParametros")
 }
 
+@section opcoes
+{
+    <li>
+        <a class="btn-floating" title="Informações" data-toggle="modal" data-target="#modalTendenciaCentral">
+            <i class="glyphicon glyphicon-book" aria-hidden="true"></i>
+        </a>
+    </li>
+    <li>
+        <a class="btn-floating" title="Informações" data-toggle="modal" data-target="#myModal">
+            <i class="glyphicon glyphicon-book" aria-hidden="true"></i>
+        </a>
+    </li>
+}
+
 <div class="well bs-component">
     <fieldset>
         <legend>Varíavel Quantitativa Contínua</legend>
@@ -285,10 +299,18 @@
                             </div>
                             <div id="collapse-one" class="panel-collapse collapse in">
                                 <div class="panel-body">
-                                    <p><code>(Xmax – Xmin) + 1</code></p>
-                                    <p><small>Sempre adicionamos +1 ao fim do cálculo</small></p>
-                                    <p><code>Xmax: É o valor máximo do input</code></p>
-                                    <p><code>Xmin: É o valor mínimo do input</code></p>
+                                    <p>
+                                        <code>(Xmax – Xmin) + 1</code>
+                                    </p>
+                                    <p>
+                                        <small>Sempre adicionamos +1 ao fim do cálculo</small>
+                                    </p>
+                                    <p>
+                                        <code>Xmax: É o valor máximo do input</code>
+                                    </p>
+                                    <p>
+                                        <code>Xmin: É o valor mínimo do input</code>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -302,8 +324,12 @@
                             </div>
                             <div id="collapse-two" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    <p><code> (FI / ∑FI) * 100</code></p>
-                                    <p><code><strong>∑FI:</strong> A soma de todos os elementos FI</code></p>
+                                    <p>
+                                        <code> (FI / ∑FI) * 100</code>
+                                    </p>
+                                    <p>
+                                        <code><strong>∑FI:</strong> A soma de todos os elementos FI</code>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -357,7 +383,7 @@
                             <div class="panel-heading">
                                 <h4 class="panel-title">
                                     <a data-toggle="collapse" data-parent="#collapse" href="#collapse-six">
-                                        (XI - <span style="text-decoration-line: overline; ">X</span>)². FI
+                                        (XI - <span style="text-decoration-line: overline;">X</span>)². FI
                                     </a>
                                 </h4>
                             </div>
@@ -366,10 +392,18 @@
                                     <p>
                                         <code> (XI-MEDIA)² - FI</code>
                                     </p>
-                                    <p><span class="badge">1º</span><code>Descobrimos MEDIA, que é a soma de todos os elementos XI dividos pela quantidade de itens</code></p>
-                                    <p><span class="badge">2º</span><code>Calculamos XI subtraído por Media</code></p>
-                                    <p><span class="badge">3º</span><code>Com esse resultados obtemos o valor ao quadrado</code></p>
-                                    <p><span class="badge">4º</span><code>Assim por fim subtraímos pelo FI</code></p>
+                                    <p>
+                                        <span class="badge">1º</span><code>Descobrimos MEDIA, que é a soma de todos os elementos XI dividos pela quantidade de itens</code>
+                                    </p>
+                                    <p>
+                                        <span class="badge">2º</span><code>Calculamos XI subtraído por Media</code>
+                                    </p>
+                                    <p>
+                                        <span class="badge">3º</span><code>Com esse resultados obtemos o valor ao quadrado</code>
+                                    </p>
+                                    <p>
+                                        <span class="badge">4º</span><code>Assim por fim subtraímos pelo FI</code>
+                                    </p>
 
 
                                 </div>
@@ -455,3 +489,5 @@
 
     </div>
 </div>
+
+@Html.Partial("_ModalTendenciaCentral")
