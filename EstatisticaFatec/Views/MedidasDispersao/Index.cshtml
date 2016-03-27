@@ -11,24 +11,25 @@
         <strong>Você ainda não preencheu os paramêtros! Por favor, preencha os paramêtros.</strong>
     </div>
 }
+@section opcoes
+{
+    <li>
+        <a class="btn-floating" title="Informações" data-toggle="modal" data-target="#modalMedidasDispersao">
+            <i class="glyphicon glyphicon-book" aria-hidden="true"></i>
+        </a>
+    </li>
+}
+
 
 <div class="well bs-component">
     <fieldset>
-        <legend>Aleatória Simples</legend>
+        <legend>Medidas de dispersão</legend>
         <div class="form-group">
 
 
             <div class="col-xs-12">
                 <blockquote class="small">
-                    Uma amostra aleatória simples é usar um subconjunto de indivíduos (amostra) apartir de um conjunto maior (população) por um processo que garanta que
-                    <ul>
-                        <li>
-                            Todos os indivíduos da população têm a mesma probabilidade de ser escolhidos para a amostra;
-                        </li>
-                    </ul>
-                    <small class="pull-right">
-                        Sorteamos uma quantidade de números X [AMOSTRA] entre um total de população de Y [POPULAÇÃO]
-                    </small>
+                    Dispersão é sinônimo de variação ou variabilidade. Para medir a dispersão, duas medidas são usadas mais frequentemente: a amplitude e o desvio padrão.
 
                 </blockquote>
             </div>
@@ -43,25 +44,5 @@
 @if (Model.InputValue.Any())
 {
     @Html.Partial("_MedidasDispersao", Model.MedidasDispersaoEntity)
-
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Modal Header</h4>
-                </div>
-                <div class="modal-body">
-                    <p>Some text in the modal.</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
 }
+@Html.Partial("_ModalMedidasDispersao")

@@ -223,6 +223,7 @@
     <Content Include="Views\Shared\_Input.cshtml" />
     <Content Include="Views\Shared\_AlertaParametros.cshtml" />
     <Content Include="Views\Shared\_ModalTendenciaCentral.cshtml" />
+    <Content Include="Views\Shared\_ModalMedidasDispersao.cshtml" />
     <None Include="Views\VariavelDiscreta\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
