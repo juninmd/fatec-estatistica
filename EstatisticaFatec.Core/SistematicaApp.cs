@@ -7,26 +7,56 @@ namespace EstatisticaFatec.Core
 {
     public class SistematicaApp
     {
-        public RequestMessage ValidateInput(int amostra, int populacao)
+        public RequestMessage ValidateInput(int amostra, int inicial, int populacao)
         {
-            return new RequestMessage
+            if (amostra > populacao)
             {
-                IsError = amostra > populacao,
-                Message = "A amostra não pode ser maior que a população."
-            };
+                return new RequestMessage
+                {
+                    IsError = true,
+                    Message = "A amostra não pode ser maior que a população."
+                };
+            }
+            else if (amostra > 1 && inicial == populacao)
+            {
+                return new RequestMessage
+                {
+                    IsError = true,
+                    Message = "A amostra possui uma quantidade superior aos parâmetros de população."
+                };
+            }
+            else if (inicial > populacao)
+            {
+                return new RequestMessage
+                {
+                    IsError = true,
+                    Message = "O valor inicial é maior que a população."
+                };
+            }
+
+            return new RequestMessage();
+
         }
 
         public SistematicaEntity Build(int amostra, int inicial, int populacao)
         {
             var inicicalOriginal = inicial;
             var repeticao = (decimal)Math.Round(populacao / (decimal)amostra);
-            var rolSistematica = new List<int> {};
+            var rolSistematica = new List<int> { };
 
-            while (inicial < populacao)
+            if (inicial == populacao && amostra == 1)
             {
                 rolSistematica.Add(inicial);
-                inicial = (int) (inicial + repeticao);
             }
+            else
+            {
+                while (inicial < populacao)
+                {
+                    rolSistematica.Add(inicial);
+                    inicial = (int)(inicial + repeticao);
+                }
+            }
+
 
             return new SistematicaEntity
             {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using EstatisticaFatec.Core.Models.MedidasDispersao;
 using EstatisticaFatec.Core.Models.VariavelDiscreta;
 using static EstatisticaFatec.Core.MathCoreApp;
 
@@ -46,8 +47,18 @@ namespace EstatisticaFatec.Core
                 });
             }
 
-            var medidasDispersaoApp = new MedidasDispersaoApp().Calcular(listaVariavelDiscreta.Select(q => q.XIFIQuadFI.Valor).Sum(), media, listaVariavelDiscreta.Select(e => e.FI).Sum());
             var medidasTendenciaApp = new MedidasTendenciaApp().Calcular(inputData);
+
+            var vari = listaVariavelDiscreta.Sum(q => q.XIFIQuadFI.Valor) / listaVariavelDiscreta.Sum(x => x.FI);
+            var dp = RaizQuadrada(vari);
+            var cv = Math.Round((decimal)((dp / media)) * 100, 2);
+            var medidasDispersaoApp = new MedidasDispersaoEntity
+            {
+                Variancia = vari,
+                DP = RaizQuadrada(vari),
+                CV = cv
+
+            };
 
 
             return new VariavelDiscretaContainerEntity

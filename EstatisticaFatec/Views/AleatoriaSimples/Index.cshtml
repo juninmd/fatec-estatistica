@@ -62,30 +62,26 @@
                     <strong>@Html.ValidationMessage("error")</strong>
                 </div>
             }
-            <div class="row">
-                <div class="form-group">
-                    <label class="col-md-2 control-label" title="Conjunto de pessoas">População</label>
-                    <div class="col-md-4">
-                        <input class="form-control" required placeholder="@Html.Null(Model.Populacao)" name="populacao" type="number" min="1">
-                    </div>
+            <div class="form-group">
+                <label class="col-md-2 control-label" title="Conjunto de pessoas">População</label>
+                <div class="col-md-4">
+                    <input class="form-control" required placeholder="@Html.Null(Model.Populacao)" name="populacao" type="number" min="1">
                 </div>
-
-                <div class="form-group">
-                    <label class="col-md-2 control-label" title="Subcojunto do cojunto de pessoas">Amostra</label>
-                    <div class="col-md-4">
-                        <input class="form-control" required placeholder="@Html.Null(Model.Amostra)" name="amostra" type="number" min="1">
-                    </div>
-                </div>
-
-                <hr />
             </div>
 
-            <div class="row">
+            <div class="form-group">
+                <label class="col-md-2 control-label" title="Subcojunto do cojunto de pessoas">Amostra</label>
+                <div class="col-md-4">
+                    <input class="form-control" required placeholder="@Html.Null(Model.Amostra)" name="amostra" type="number" min="1">
+                </div>
+            </div>
 
+            <hr />
+
+            <div class="form-group">
                 <label class="col-md-2 control-label">Números sorteados</label>
-
                 <div class="col-md-9">
-                    <input readonly placeholder="@Html.Rol(Model.Resultados.OrderBy(q=> q).ToList())" class="form-control" value="@string.Join(", ", @Model.Resultados.OrderBy(q => q))">
+                    <input readonly placeholder="@Html.Rol(Model.Resultados.OrderBy(q=> q).ToList())" class="form-control" value="@Html.Rol(Model.Resultados.OrderBy(q=> q).ToList())">
                 </div>
             </div>
 

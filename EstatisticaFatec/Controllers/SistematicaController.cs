@@ -15,7 +15,7 @@ namespace EstatisticaFatec.Controllers
         [HttpPost]
         public ActionResult Index(int amostra, int inicial, int populacao)
         {
-            var request = new AleatoriaSimplesApp().ValidateInput(amostra, populacao);
+            var request = new SistematicaApp().ValidateInput(amostra, inicial, populacao);
             if (request.IsError)
             {
                 ModelState.AddModelError("error", request.Message);

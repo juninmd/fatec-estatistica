@@ -6,57 +6,26 @@ namespace EstatisticaFatec.Core
 {
     public static class MathCoreApp
     {
-        public static int Mediana(List<int> rol)
-        {
-            var meuArray = rol.ToArray();
-
-            if ((rol.Count + 1) % 2 == 0)
-            {
-                return meuArray[((rol.Count + 1) / 2) - 1];
-            }
-            else if (rol.Count == 2)
-            {
-                return (meuArray[0] + meuArray[1]) / 2;
-            }
-            else if (rol.Count == 1)
-            {
-                return (meuArray[0]);
-            }
-            else
-            {
-                var max = meuArray[(rol.Count / 2)];
-                var min = meuArray[(rol.Count / 2) - 2];
-                return (max + min) / 2;
-            }
-        }
-
         /// <summary>
-        /// TODO : TA ERRADO
+        /// Funciona na Discreta
         /// </summary>
         /// <param name="rol"></param>
         /// <returns></returns>
         public static decimal Mediana(List<decimal> rol)
         {
-            rol = Rol(rol);
-            var meuArray = rol.ToArray();
+            var meuArray = Rol(rol).ToArray();
+            if (meuArray.Length % 2 == 0)
+            {
+                int posicaoA = (int)(meuArray.Length / 2) - 1;
+                int posicaoB = (int)((meuArray.Length / 2));
 
-            if ((rol.Count + 1) % 2 == 0)
-            {
-                return meuArray[((rol.Count + 1) / 2) - 1];
-            }
-            else if (rol.Count == 2)
-            {
-                return (meuArray[0] + meuArray[1]) / 2;
-            }
-            else if (rol.Count == 1)
-            {
-                return (meuArray[0]);
+                return (meuArray[posicaoA] + meuArray[posicaoB]) / 2;
+
             }
             else
             {
-                var max = meuArray[(rol.Count / 2)];
-                var min = meuArray[(rol.Count / 2) - 2];
-                return (max + min) / 2;
+                return (meuArray.Length + 1) / 2;
+
             }
         }
         public static decimal[] Moda(List<decimal> inputData)
@@ -78,7 +47,7 @@ namespace EstatisticaFatec.Core
 
         public static decimal Quadrado(decimal input)
         {
-            return Math.Round(input * input,2);
+            return Math.Round(input * input, 2);
         }
 
         /// <summary>
@@ -110,13 +79,10 @@ namespace EstatisticaFatec.Core
         /// <returns></returns>
         public static decimal RaizQuadrada(decimal input)
         {
-            return (decimal) Math.Round(Math.Sqrt((double)input),2);
+            return (decimal)Math.Round(Math.Sqrt((double)input), 2);
         }
 
-        public static decimal Variancia(decimal xifi, decimal FISUM)
-        {
-            return Math.Round(xifi / FISUM, 2);
-        }
+
 
     }
 }

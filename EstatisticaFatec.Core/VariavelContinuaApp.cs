@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using EstatisticaFatec.Core.Models.MedidasTendencia;
 using EstatisticaFatec.Core.Models.VariavelContinua;
 using static EstatisticaFatec.Core.MathCoreApp;
 
@@ -14,17 +15,29 @@ namespace EstatisticaFatec.Core
 
             var posicao = soma / 2;
 
-            var classe = listaTabelaQuantitativa.Where(q => q.F > posicao).OrderBy(p => p.F).ToList().First();
-            var classeAnterior = listaTabelaQuantitativa.Where(q => q.F < posicao).OrderByDescending(q => q.F).First();
+            var classe = listaTabelaQuantitativa.Where(q => posicao < q.F).OrderByDescending(p => p.F).ToList().First();
+            var indexClasseAnterior = classe.Classe - 1;
+            var fant = listaTabelaQuantitativa.FirstOrDefault(q => q.Classe == indexClasseAnterior)?.F ?? 0;
 
             var I = classe.Range[0];
             var EFI = soma;
-            var Fant = classeAnterior.F;
+            var Fant = fant;
             var FIND = classe.FI;
             var H = IC;
 
-            return I + Math.Round((decimal)((EFI / 2) - Fant) / FIND * H, 2);
+            return I + ((((decimal)((decimal)EFI / 2) - Fant) / FIND) * H);
+
         }
+
+        private static decimal[] ModaQuantitativa(List<VariavelContinuaEntity> listaTabelaQuantitativa)
+        {
+            var maxFi = listaTabelaQuantitativa.Max(q => q.FI);
+            var listaPossivelModa = listaTabelaQuantitativa.Where(q => q.FI == maxFi);
+
+            return listaPossivelModa.Select(q => q.XI).ToArray();
+        }
+
+
         private VariavelContinuaIcEntity GetIC(decimal al, List<decimal> K)
         {
             while (true)
@@ -67,7 +80,7 @@ namespace EstatisticaFatec.Core
             var xMAx = inputData.Max();
             var xMin = inputData.Min();
 
-            var al = (xMAx - xMin) + 1;
+            var al = (xMAx - xMin);
 
             var numeroPreK = (int)Math.Sqrt(inputData.Count());
             var K = new List<decimal> { numeroPreK - 1, numeroPreK, numeroPreK + 1 };
@@ -109,8 +122,14 @@ namespace EstatisticaFatec.Core
                 maximo = maximo + (int)Ic.IC;
             }
 
-            var medidasDispersao = new MedidasDispersaoApp().Calcular(listaTabelaQuantitativa.Select(q => q.XIFI).Sum(), media, listaTabelaQuantitativa.Select(e => e.FI).Sum());
-            var medidasTendencia = new MedidasTendenciaApp().Calcular(inputData);
+            var medidasDispersao = new MedidasDispersaoApp().Calcular(listaTabelaQuantitativa.Select(q => q.XI).ToList(), media, listaTabelaQuantitativa.Select(e => e.FI).Sum());
+
+            var medidasTendencia = new MedidasTendenciaEntity
+            {
+                Media = MediaComum(inputData),
+                Mediana = MedianaQuantitativa(listaTabelaQuantitativa, Ic.IC),
+                Moda = ModaQuantitativa(listaTabelaQuantitativa)
+            };
 
             return new VariavelContinuaContainerEntity
             {
