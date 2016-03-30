@@ -58,7 +58,14 @@ namespace EstatisticaFatec.Core
         /// <returns></returns>
         public static List<decimal> SomaTodosAoQuadrado(List<decimal> inputData, decimal media)
         {
-            return inputData.Select(item => Quadrado(item - media)).ToList();
+            var listaInput = new List<decimal>();
+
+            foreach (var item in inputData)
+            {
+                listaInput.Add(Quadrado(item - media));
+            }
+
+            return listaInput;
         }
 
         /// <summary>
@@ -67,9 +74,9 @@ namespace EstatisticaFatec.Core
         /// <param name="input"></param>
         /// <param name="valorBase"></param>
         /// <returns></returns>
-        public static decimal Porcentagem(decimal input, decimal valorBase)
+        public static decimal Porcentagem(decimal input, decimal media)
         {
-            return Math.Round((input / valorBase) * 100, 2);
+            return Math.Round((input / media) * 100, 2);
         }
 
         /// <summary>

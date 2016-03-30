@@ -12,7 +12,7 @@ namespace EstatisticaFatec.Core
     public class MedidasDispersaoApp
     {
 
-     
+
 
         /// <summary>
         /// Comum
@@ -26,16 +26,15 @@ namespace EstatisticaFatec.Core
             var listaNova = new List<decimal>();
             foreach (var item in listaXifi)
             {
-                listaNova.Add(MathCoreApp.Quadrado((decimal)item / media));
+                listaNova.Add(MathCoreApp.Quadrado(Math.Round(item - media, 2)));
             }
-            return listaNova.Sum() / (N - 1);
-
+            return Math.Round((decimal)(listaNova.Sum() / (N - 1)), 2);
         }
 
 
         public MedidasDispersaoEntity Calcular(List<decimal> listaXifi, decimal fiSum, decimal media)
         {
-            var variancia = Variancia(listaXifi, fiSum, listaXifi.Count);
+            var variancia = Variancia(listaXifi, media, listaXifi.Count);
 
             var DP = MathCoreApp.RaizQuadrada(variancia);
 
@@ -52,19 +51,17 @@ namespace EstatisticaFatec.Core
         {
             var media = MathCoreApp.MediaComum(inputData);
 
-            var InputValueQuadrado = MathCoreApp.SomaTodosAoQuadrado(inputData, media);
+            var inputValueQuadrado = MathCoreApp.SomaTodosAoQuadrado(inputData, media);
 
-            var SomaInputValueQuadrado = InputValueQuadrado.Sum();
-
-            var medidasDispersao = Calcular(inputData, inputData.Count, media);
+            var medidasDispersao = Calcular(inputData, inputData.Count(), media);
 
             return new MedidasDispersaoContainerEntity()
             {
                 Media = media,
                 Rol = MathCoreApp.Rol(inputData),
                 InputValue = inputData,
-                InputValueQuadrado = InputValueQuadrado,
-                SomaInputValueQuadrado = SomaInputValueQuadrado,
+                InputValueQuadrado = inputValueQuadrado,
+                SomaInputValueQuadrado = inputValueQuadrado.Sum(),
                 MedidasDispersaoEntity = medidasDispersao
             };
         }
