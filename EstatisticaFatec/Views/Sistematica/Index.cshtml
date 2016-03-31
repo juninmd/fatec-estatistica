@@ -90,6 +90,7 @@
             @if (Model.Inicial != 0)
             {
                 <hr />
+                <legend>Resultados</legend>
 
                 <ul class="bs-sistematica">
                     @{
@@ -118,37 +119,7 @@
         </fieldset>
     </form>
 </div>
-<style>
-    .bs-sistematica {
-        padding-left: 0;
-        list-style: none;
-    }
-
-        .bs-sistematica li {
-            float: left;
-            width: 16%;
-            padding: 10px;
-            font-size: 10px;
-            line-height: 1.4;
-            text-align: center;
-            background-color: #151515;
-            border: 1px solid #a1a1a1;
-            color: white;
-            line-height: 50px;
-        }
-
-            .bs-sistematica li:hover {
-            background-color: RGBA(0, 0, 0, 0.77);
-                border: 1px solid #a1a1a1;
-               color: #ecc044;
-            }
-
-            .bs-sistematica li .spanSistematica {
-                text-align: center;
-                word-wrap: break-word;
-                font-size: 22px;
-            }
-</style>
+ 
 @section scripts
 {
     <script>

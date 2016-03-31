@@ -76,20 +76,32 @@
                 </div>
             </div>
 
-            <hr />
-
-            <div class="form-group">
-                <label class="col-md-2 control-label">Números sorteados</label>
-                <div class="col-md-9">
-                    <input readonly placeholder="@Html.Rol(Model.Resultados.OrderBy(q=> q).ToList())" class="form-control" value="@Html.Rol(Model.Resultados.OrderBy(q=> q).ToList())">
-                </div>
-            </div>
 
 
             <div class="col-md-10 col-md-offset-2">
                 <button type="reset" class="btn btn-danger">Limpar</button>
                 <button type="submit" class="btn btn-primary">Enviar<div class="ripple-container"></div></button>
             </div>
+
+
+            @if (Model.Resultados.Any())
+            {
+                <hr />
+                <legend>Números sorteados</legend>
+
+                <ul class="bs-sistematica">
+                    @foreach (var item in @Model.Resultados)
+                    {
+                        <li>
+                            <div class="row">
+                                <span class="spanSistematica">@item</span>
+                            </div>
+
+                        </li>
+                    }
+                </ul>
+            }
+
         </fieldset>
     </form>
 </div>
