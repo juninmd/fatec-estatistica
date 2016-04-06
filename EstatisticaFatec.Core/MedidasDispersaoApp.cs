@@ -12,8 +12,6 @@ namespace EstatisticaFatec.Core
     public class MedidasDispersaoApp
     {
 
-
-
         /// <summary>
         /// Comum
         /// </summary>
@@ -21,18 +19,25 @@ namespace EstatisticaFatec.Core
         /// <param name="media"></param>
         /// <param name="N"></param>
         /// <returns></returns>
-        public static decimal Variancia(List<decimal> listaXifi, decimal media, int N)
+        public static decimal Variancia(List<decimal> listaXI, decimal media, int N, bool amostra = true)
         {
+            if (amostra)
+            {
+                N = N - 1;
+            }
+
             var listaNova = new List<decimal>();
-            foreach (var item in listaXifi)
+            foreach (var item in listaXI)
             {
                 listaNova.Add(MathCoreApp.Quadrado(Math.Round(item - media, 2)));
             }
-            return Math.Round((decimal)(listaNova.Sum() / (N - 1)), 2);
+
+            var soma = listaNova.Sum();
+            return Math.Round((decimal)(soma / (N)), 2);
         }
 
 
-        public MedidasDispersaoEntity Calcular(List<decimal> listaXifi, decimal fiSum, decimal media)
+        public MedidasDispersaoEntity Calcular(List<decimal> listaXifi, decimal media)
         {
             var variancia = Variancia(listaXifi, media, listaXifi.Count);
 
@@ -53,7 +58,7 @@ namespace EstatisticaFatec.Core
 
             var inputValueQuadrado = MathCoreApp.SomaTodosAoQuadrado(inputData, media);
 
-            var medidasDispersao = Calcular(inputData, inputData.Count(), media);
+            var medidasDispersao = Calcular(inputData, media);
 
             return new MedidasDispersaoContainerEntity()
             {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using EstatisticaFatec.Core.Models.MedidasDispersao;
 using EstatisticaFatec.Core.Models.MedidasTendencia;
 using EstatisticaFatec.Core.Models.VariavelContinua;
 using static EstatisticaFatec.Core.MathCoreApp;
@@ -9,6 +10,27 @@ namespace EstatisticaFatec.Core
 {
     public class VariavelContinuaApp
     {
+
+        public static decimal VarianciaContinua(List<decimal> listaXi, List<decimal> listaFi, decimal media, decimal N, bool amostra = true)
+        {
+            if (amostra)
+            {
+                N = N - 1;
+            }
+            var listaNova = new List<decimal>();
+
+
+            for (int i = 0; i < listaXi.Count; i++)
+            {
+                var conta = MathCoreApp.Quadrado(Math.Round(listaXi[i] - media, 2)) * listaFi[i];
+                listaNova.Add(conta);
+
+            }
+            var soma = listaNova.Sum();
+
+            return Math.Round((decimal)(soma / (N)), 2);
+        }
+
         private static decimal MedianaQuantitativa(List<VariavelContinuaEntity> listaTabelaQuantitativa, decimal IC)
         {
             var soma = listaTabelaQuantitativa.Sum(q => q.FI);
@@ -26,6 +48,7 @@ namespace EstatisticaFatec.Core
             var H = IC;
 
             return I + ((((decimal)((decimal)EFI / 2) - Fant) / FIND) * H);
+
 
         }
 
@@ -122,7 +145,16 @@ namespace EstatisticaFatec.Core
                 maximo = maximo + (int)Ic.IC;
             }
 
-            var medidasDispersao = new MedidasDispersaoApp().Calcular(listaTabelaQuantitativa.Select(q => q.XI).ToList(), media, listaTabelaQuantitativa.Select(e => e.FI).Sum());
+            var variancia = VarianciaContinua(listaTabelaQuantitativa.Select(q => q.XI).ToList(), listaTabelaQuantitativa.Select(x => x.FI).ToList(), media, listaTabelaQuantitativa.Sum(y => y.FI));
+            var dp = MathCoreApp.RaizQuadrada(variancia);
+            var cv = MathCoreApp.Porcentagem(dp, media);
+
+            var medidasDispersao = new MedidasDispersaoEntity
+            {
+                Variancia = variancia,
+                DP = dp,
+                CV = cv
+            };
 
             var medidasTendencia = new MedidasTendenciaEntity
             {

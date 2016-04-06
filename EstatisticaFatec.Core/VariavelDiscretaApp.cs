@@ -41,7 +41,7 @@ namespace EstatisticaFatec.Core
                     FI = item.Quantidade,
                     FEPorcent = Math.Round(fePorcent, 2),
                     F = f.Sum(),
-                    FPorcent = Math.Round(fePorcentList.Sum(), 2),
+                    FPorcent = fePorcentList.Sum(),
                     XIFI = item.XI * item.Quantidade,
                     XIFIQuadFI = PreencherXIFIQUADFI(item.XI, media, item.Quantidade)
                 });
@@ -49,13 +49,14 @@ namespace EstatisticaFatec.Core
 
             var medidasTendenciaApp = new MedidasTendenciaApp().Calcular(inputData);
 
-            var vari = listaVariavelDiscreta.Sum(q => q.XIFIQuadFI.Valor) / listaVariavelDiscreta.Sum(x => x.FI);
-            var dp = RaizQuadrada(vari);
+            var variancia = MedidasDispersaoApp.Variancia(listaVariavelDiscreta.Select(q => q.XI).ToList(), media, listaVariavelDiscreta.Select(q => q.XI).Count());
+            var dp = RaizQuadrada(variancia);
             var cv = Math.Round((decimal)((dp / media)) * 100, 2);
+
             var medidasDispersaoApp = new MedidasDispersaoEntity
             {
-                Variancia = vari,
-                DP = RaizQuadrada(vari),
+                Variancia = variancia,
+                DP = dp,
                 CV = cv
 
             };

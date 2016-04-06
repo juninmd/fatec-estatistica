@@ -8,6 +8,13 @@ namespace EstatisticaFatec.Tests
     public class MedidasDispersaoTest
     {
         [TestMethod]
+        public void CV()
+        {
+            var manteiga  = MathCoreApp.Porcentagem(25, 500);
+            var arroz  = MathCoreApp.Porcentagem(100, 5000);
+
+        }
+        [TestMethod]
         public void Input()
         {
             var antonio = new List<decimal>()
@@ -48,7 +55,7 @@ namespace EstatisticaFatec.Tests
             Assert.IsTrue(pedroResult.InputValueQuadrado[2] == new decimal(14.06), "O Valor deveria ser 14.06)");
             Assert.IsTrue(pedroResult.InputValueQuadrado[3] == new decimal(0.06), "O Valor deveria ser 0.06");
             Assert.IsTrue(pedroResult.Media == new decimal(6.25));
- 
+
 
             var gasolina = new List<decimal>()
             {
@@ -62,7 +69,7 @@ namespace EstatisticaFatec.Tests
 
             var gasolinaResult = new MedidasDispersaoApp().Build(gasolina);
 
- 
+
 
         }
     }

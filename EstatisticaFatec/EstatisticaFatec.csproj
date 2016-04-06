@@ -224,7 +224,7 @@
     <Content Include="Views\Shared\_AlertaParametros.cshtml" />
     <Content Include="Views\Shared\_ModalTendenciaCentral.cshtml" />
     <Content Include="Views\Shared\_ModalMedidasDispersao.cshtml" />
-    <None Include="Views\VariavelDiscreta\Index.cshtml" />
+    <Content Include="Views\VariavelDiscreta\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

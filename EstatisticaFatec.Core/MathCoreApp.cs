@@ -16,17 +16,13 @@ namespace EstatisticaFatec.Core
             var meuArray = Rol(rol).ToArray();
             if (meuArray.Length % 2 == 0)
             {
-                int posicaoA = (int)(meuArray.Length / 2) - 1;
-                int posicaoB = (int)((meuArray.Length / 2));
-
-                return (meuArray[posicaoA] + meuArray[posicaoB]) / 2;
-
+                return (int)meuArray[(int)(meuArray.Length) / 2];
             }
             else
             {
-                return (meuArray.Length + 1) / 2;
-
+                return (int)meuArray[(meuArray.Length + 1) / 2];
             }
+
         }
         public static decimal[] Moda(List<decimal> inputData)
         {
@@ -71,12 +67,12 @@ namespace EstatisticaFatec.Core
         /// <summary>
         /// (input / valorbase) * 100
         /// </summary>
-        /// <param name="input"></param>
-        /// <param name="valorBase"></param>
+        /// <param name="desvioPadrao"></param>
+        /// <param name="media"></param>
         /// <returns></returns>
-        public static decimal Porcentagem(decimal input, decimal media)
+        public static decimal Porcentagem(decimal desvioPadrao, decimal media)
         {
-            return Math.Round((input / media) * 100, 2);
+            return Math.Round((desvioPadrao / media) * 100, 2);
         }
 
         /// <summary>
