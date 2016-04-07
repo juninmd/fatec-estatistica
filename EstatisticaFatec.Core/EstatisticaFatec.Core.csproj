@@ -53,6 +53,7 @@
     <Compile Include="MedidasDispersaoApp.cs" />
     <Compile Include="MedidasTendenciaApp.cs" />
     <Compile Include="Models\AleatoriaSimples\AleatoriaSimplesEntity.cs" />
+    <Compile Include="Models\InputEntity.cs" />
     <Compile Include="Models\BaseVariavelQuantitativa.cs" />
     <Compile Include="Models\BaseInputsEntity.cs" />
     <Compile Include="Models\DistribuicaoEntre\DistribuicaoEntreEntity.cs" />

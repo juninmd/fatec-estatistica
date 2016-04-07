@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using EstatisticaFatec.Core.Models;
 using EstatisticaFatec.Core.Models.MedidasDispersao;
 using EstatisticaFatec.Core.Models.VariavelDiscreta;
 using static EstatisticaFatec.Core.MathCoreApp;
@@ -17,16 +18,16 @@ namespace EstatisticaFatec.Core
                 Valor = Quadrado((XI - media)) * FI,
             };
         }
-        public VariavelDiscretaContainerEntity Build(List<decimal> inputData)
+        public VariavelDiscretaContainerEntity Build(BaseInputsEntity baseInputs)
         {
             var f = new List<decimal>();
             var fePorcentList = new List<decimal>();
             var listaVariavelDiscreta = new List<VariavelDiscretaEntity>();
 
 
-            var rol = Rol(inputData);
-            var media = MediaComum(inputData);
-            var agrupamento = new AgrupamentoApp().Build(rol);
+
+            var media = MediaComum(baseInputs.InputValue);
+            var agrupamento = new AgrupamentoApp().Build(baseInputs.Rol);
 
             foreach (var item in agrupamento)
             {
@@ -47,7 +48,7 @@ namespace EstatisticaFatec.Core
                 });
             }
 
-            var medidasTendenciaApp = new MedidasTendenciaApp().Calcular(inputData);
+            var medidasTendenciaApp = new MedidasTendenciaApp().Calcular(baseInputs.InputValue);
 
             var variancia = MedidasDispersaoApp.Variancia(listaVariavelDiscreta.Select(q => q.XI).ToList(), media, listaVariavelDiscreta.Select(q => q.XI).Count());
             var dp = RaizQuadrada(variancia);
@@ -64,8 +65,8 @@ namespace EstatisticaFatec.Core
 
             return new VariavelDiscretaContainerEntity
             {
-                InputValue = inputData,
-                Rol = rol,
+                InputValue = baseInputs.InputValue,
+                Rol = baseInputs.Rol,
                 VariavelDiscretaEntity = listaVariavelDiscreta,
                 MedidasDispersaoEntity = medidasDispersaoApp,
                 MedidasTendenciaEntity = medidasTendenciaApp,

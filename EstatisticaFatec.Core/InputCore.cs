@@ -7,12 +7,18 @@ namespace EstatisticaFatec.Core
 {
     public static class InputCore
     {
-        public static RequestMessage<List<decimal>> Tratar(string massaDados)
+        public static RequestMessage<BaseInputsEntity> Tratar(InputEntity inputEntity)
         {
-            var listaInput = new RequestMessage<List<decimal>>();
+            var listaInput = new RequestMessage<BaseInputsEntity>();
             try
             {
-                listaInput.Content = massaDados.Split(';').Select(decimal.Parse).ToList();
+                var lista = inputEntity.MassaDados.Split(';').Select(decimal.Parse).ToList();
+                listaInput.Content = new BaseInputsEntity
+                {
+                    InputValue = lista,
+                    Rol = lista.OrderBy(q => q).ToList(),
+                    Amostra = inputEntity.MassaDados == "amostra"
+                };
             }
             catch (Exception ex)
             {

@@ -123,6 +123,7 @@
     <Compile Include="Controllers\DistribuicaoMenorController.cs" />
     <Compile Include="Controllers\MedidasTendenciaController.cs" />
     <Compile Include="Controllers\MedidasDispersaoController.cs" />
+    <Compile Include="Controllers\ProbabilidadeController.cs" />
     <Compile Include="Controllers\SistematicaController.cs" />
     <Compile Include="Controllers\EstratificadaUniformeController.cs" />
     <Compile Include="Controllers\EstratificadaProporcionalController.cs" />
@@ -225,6 +226,7 @@
     <Content Include="Views\Shared\_ModalTendenciaCentral.cshtml" />
     <Content Include="Views\Shared\_ModalMedidasDispersao.cshtml" />
     <Content Include="Views\VariavelDiscreta\Index.cshtml" />
+    <Content Include="Views\Probabilidade\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

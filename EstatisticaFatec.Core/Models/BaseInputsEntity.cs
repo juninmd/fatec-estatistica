@@ -9,6 +9,7 @@ namespace EstatisticaFatec.Core.Models
             InputValue = new List<decimal>();
             Rol = new List<decimal>();
         }
+
         /// <summary>
         /// São os registros que foram obtidos pelo input [textarea]
         /// </summary>
@@ -18,5 +19,10 @@ namespace EstatisticaFatec.Core.Models
         /// Rol é a massa de dados ordenada de forma crescente
         /// </summary>
         public List<decimal> Rol { get; set; }
+
+        /// <summary>
+        /// Caso o item seja uma amostra
+        /// </summary>
+        public bool Amostra { get; set; }
     }
 }

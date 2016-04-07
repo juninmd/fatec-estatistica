@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using EstatisticaFatec.Core.Models;
 using EstatisticaFatec.Core.Models.MedidasDispersao;
 
 namespace EstatisticaFatec.Core
@@ -15,7 +16,6 @@ namespace EstatisticaFatec.Core
         /// <summary>
         /// Comum
         /// </summary>
-        /// <param name="listaXifi"></param>
         /// <param name="media"></param>
         /// <param name="N"></param>
         /// <returns></returns>
@@ -52,19 +52,19 @@ namespace EstatisticaFatec.Core
                 DP = DP,
             };
         }
-        public MedidasDispersaoContainerEntity Build(List<decimal> inputData)
+        public MedidasDispersaoContainerEntity Build(BaseInputsEntity baseInputs)
         {
-            var media = MathCoreApp.MediaComum(inputData);
+            var media = MathCoreApp.MediaComum(baseInputs.InputValue);
 
-            var inputValueQuadrado = MathCoreApp.SomaTodosAoQuadrado(inputData, media);
+            var inputValueQuadrado = MathCoreApp.SomaTodosAoQuadrado(baseInputs.InputValue, media);
 
-            var medidasDispersao = Calcular(inputData, media);
+            var medidasDispersao = Calcular(baseInputs.InputValue, media);
 
             return new MedidasDispersaoContainerEntity()
             {
                 Media = media,
-                Rol = MathCoreApp.Rol(inputData),
-                InputValue = inputData,
+                Rol = baseInputs.Rol,
+                InputValue = baseInputs.InputValue,
                 InputValueQuadrado = inputValueQuadrado,
                 SomaInputValueQuadrado = inputValueQuadrado.Sum(),
                 MedidasDispersaoEntity = medidasDispersao

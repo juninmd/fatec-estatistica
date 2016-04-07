@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using EstatisticaFatec.Core;
+using EstatisticaFatec.Core.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace EstatisticaFatec.Tests
@@ -11,19 +12,23 @@ namespace EstatisticaFatec.Tests
         [TestMethod]
         public void Input()
         {
-            var inputs = new List<decimal>
+            var inputs = new BaseInputsEntity
             {
-                3,
-                4,
-                new decimal(3.5),
-                5,
-                new decimal(3.5),
-                4,
-                5,
-                new decimal(5.5),
-                4,
-                5
+                InputValue = new List<decimal>
+                {
+                    3,
+                    4,
+                    new decimal(3.5),
+                    5,
+                    new decimal(3.5),
+                    4,
+                    5,
+                    new decimal(5.5),
+                    4,
+                    5
+                }
             };
+
             var resultado = new MedidasTendenciaApp().Build(inputs);
 
             Assert.IsTrue(resultado.MedidasTendenciaEntity.Media == new decimal(4.25));

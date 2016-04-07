@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using EstatisticaFatec.Core.Models;
 using EstatisticaFatec.Core.Models.MedidasDispersao;
 using EstatisticaFatec.Core.Models.MedidasTendencia;
 using EstatisticaFatec.Core.Models.VariavelContinua;
@@ -96,16 +97,15 @@ namespace EstatisticaFatec.Core
             }
         }
 
-        public VariavelContinuaContainerEntity Build(List<decimal> inputData)
+        public VariavelContinuaContainerEntity Build(BaseInputsEntity baseInputs)
         {
-            var rol = Rol(inputData);
-            var media = MediaComum(inputData);
-            var xMAx = inputData.Max();
-            var xMin = inputData.Min();
+            var media = MediaComum(baseInputs.InputValue);
+            var xMAx = baseInputs.InputValue.Max();
+            var xMin = baseInputs.InputValue.Min();
 
             var al = (xMAx - xMin);
 
-            var numeroPreK = (int)Math.Sqrt(inputData.Count());
+            var numeroPreK = (int)Math.Sqrt(baseInputs.InputValue.Count());
             var K = new List<decimal> { numeroPreK - 1, numeroPreK, numeroPreK + 1 };
 
             var Ic = GetIC(al, K);
@@ -121,8 +121,8 @@ namespace EstatisticaFatec.Core
 
             for (int i = 1; i <= Ic.Classes; i++)
             {
-                var fePorcent = (decimal)(rol.Count(x => x >= minimo && x < maximo) / (decimal)rol.Count()) * 100;
-                var count = rol.Count(x => x >= minimo && x < maximo);
+                var fePorcent = (decimal)(baseInputs.Rol.Count(x => x >= minimo && x < maximo) / (decimal)baseInputs.Rol.Count()) * 100;
+                var count = baseInputs.Rol.Count(x => x >= minimo && x < maximo);
 
                 f.Add(count);
                 fePorcentList.Add(fePorcent);
@@ -158,15 +158,15 @@ namespace EstatisticaFatec.Core
 
             var medidasTendencia = new MedidasTendenciaEntity
             {
-                Media = MediaComum(inputData),
+                Media = media,
                 Mediana = MedianaQuantitativa(listaTabelaQuantitativa, Ic.IC),
                 Moda = ModaQuantitativa(listaTabelaQuantitativa)
             };
 
             return new VariavelContinuaContainerEntity
             {
-                InputValue = inputData,
-                Rol = rol,
+                InputValue = baseInputs.InputValue,
+                Rol = baseInputs.Rol,
                 VariavelContinuaEntity = listaTabelaQuantitativa,
                 MinLinha = xMin,
                 MaxLinha = xMAx,

@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using EstatisticaFatec.Core;
+using EstatisticaFatec.Core.Models;
 using EstatisticaFatec.Core.Models.VariavelContinua;
 
 namespace EstatisticaFatec.Controllers
@@ -12,9 +13,9 @@ namespace EstatisticaFatec.Controllers
             return View(new VariavelContinuaContainerEntity());
         }
         [HttpPost]
-        public ActionResult Index(string massaDados)
+        public ActionResult Index(InputEntity inputEntity)
         {
-            var inputRequest = InputCore.Tratar(massaDados);
+            var inputRequest = InputCore.Tratar(inputEntity);
             if (inputRequest.IsError)
             {
                 ModelState.AddModelError("error", inputRequest.Message);

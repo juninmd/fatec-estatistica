@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using EstatisticaFatec.Core.Models;
 using EstatisticaFatec.Core.Models.MedidasTendencia;
 
 namespace EstatisticaFatec.Core
@@ -9,13 +10,13 @@ namespace EstatisticaFatec.Core
     /// </summary>
     public class MedidasTendenciaApp
     {
-        public MedidasTendenciaContainerEntity Build(List<decimal> inputData)
+        public MedidasTendenciaContainerEntity Build(BaseInputsEntity baseInputs)
         {
             return new MedidasTendenciaContainerEntity()
             {
-                InputValue = inputData,
-                Rol = MathCoreApp.Rol(inputData),
-                MedidasTendenciaEntity = Calcular(inputData),
+                InputValue = baseInputs.InputValue,
+                Rol = baseInputs.Rol,
+                MedidasTendenciaEntity = Calcular(baseInputs.InputValue),
             };
         }
      

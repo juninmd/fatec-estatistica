@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using EstatisticaFatec.Core;
+using EstatisticaFatec.Core.Models;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace EstatisticaFatec.Tests
@@ -10,16 +11,19 @@ namespace EstatisticaFatec.Tests
         [TestMethod]
         public void CV()
         {
-            var manteiga  = MathCoreApp.Porcentagem(25, 500);
-            var arroz  = MathCoreApp.Porcentagem(100, 5000);
+            var manteiga = MathCoreApp.Porcentagem(25, 500);
+            var arroz = MathCoreApp.Porcentagem(100, 5000);
 
         }
         [TestMethod]
         public void Input()
         {
-            var antonio = new List<decimal>()
+            var antonio = new BaseInputsEntity
             {
-                3,7,10,4
+                InputValue = new List<decimal>
+                {
+                    3,7,10,4
+                }
             };
             var antonioResult = new MedidasDispersaoApp().Build(antonio);
 
@@ -37,9 +41,13 @@ namespace EstatisticaFatec.Tests
             Assert.IsTrue(antonioResult.Media == new decimal(6));
 
 
-            var pedro = new List<decimal>()
+
+            var pedro = new BaseInputsEntity
             {
-               4,5,10,6
+                InputValue = new List<decimal>
+                {
+                    4,5,10,6
+                }
             };
 
             var pedroResult = new MedidasDispersaoApp().Build(pedro);
@@ -57,7 +65,10 @@ namespace EstatisticaFatec.Tests
             Assert.IsTrue(pedroResult.Media == new decimal(6.25));
 
 
-            var gasolina = new List<decimal>()
+
+            var gasolina = new BaseInputsEntity
+            {
+                InputValue = new List<decimal>()
             {
                 new decimal(2.61),
                  new decimal(2.64),
@@ -65,12 +76,10 @@ namespace EstatisticaFatec.Tests
                  new decimal(2.61),
                  new decimal(2.60),
                  new decimal(2.58)
+            }
             };
 
             var gasolinaResult = new MedidasDispersaoApp().Build(gasolina);
-
-
-
         }
     }
 }
