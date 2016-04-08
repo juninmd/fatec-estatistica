@@ -50,7 +50,7 @@ namespace EstatisticaFatec.Core
 
             var medidasTendenciaApp = new MedidasTendenciaApp().Calcular(baseInputs.InputValue);
 
-            var variancia = MedidasDispersaoApp.Variancia(listaVariavelDiscreta.Select(q => q.XI).ToList(), media, listaVariavelDiscreta.Select(q => q.XI).Count());
+            var variancia = MedidasDispersaoApp.Variancia(listaVariavelDiscreta.Select(q => q.XI).ToList(), media, listaVariavelDiscreta.Select(q => q.XI).Count(), baseInputs.Amostra);
             var dp = RaizQuadrada(variancia);
             var cv = Math.Round((decimal)((dp / media)) * 100, 2);
 

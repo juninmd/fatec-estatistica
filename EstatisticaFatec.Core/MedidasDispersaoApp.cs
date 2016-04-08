@@ -19,7 +19,7 @@ namespace EstatisticaFatec.Core
         /// <param name="media"></param>
         /// <param name="N"></param>
         /// <returns></returns>
-        public static decimal Variancia(List<decimal> listaXI, decimal media, int N, bool amostra = true)
+        public static decimal Variancia(List<decimal> listaXI, decimal media, int N, bool amostra)
         {
             if (amostra)
             {
@@ -37,9 +37,9 @@ namespace EstatisticaFatec.Core
         }
 
 
-        public MedidasDispersaoEntity Calcular(List<decimal> listaXifi, decimal media)
+        public MedidasDispersaoEntity Calcular(List<decimal> listaXifi, decimal media, bool amostra)
         {
-            var variancia = Variancia(listaXifi, media, listaXifi.Count);
+            var variancia = Variancia(listaXifi, media, listaXifi.Count, amostra);
 
             var DP = MathCoreApp.RaizQuadrada(variancia);
 
@@ -58,7 +58,7 @@ namespace EstatisticaFatec.Core
 
             var inputValueQuadrado = MathCoreApp.SomaTodosAoQuadrado(baseInputs.InputValue, media);
 
-            var medidasDispersao = Calcular(baseInputs.InputValue, media);
+            var medidasDispersao = Calcular(baseInputs.InputValue, media, baseInputs.Amostra);
 
             return new MedidasDispersaoContainerEntity()
             {

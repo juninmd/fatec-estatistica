@@ -12,7 +12,7 @@ namespace EstatisticaFatec.Core
     public class VariavelContinuaApp
     {
 
-        public static decimal VarianciaContinua(List<decimal> listaXi, List<decimal> listaFi, decimal media, decimal N, bool amostra = true)
+        public static decimal VarianciaContinua(List<decimal> listaXi, List<decimal> listaFi, decimal media, decimal N, bool amostra)
         {
             if (amostra)
             {
@@ -145,7 +145,7 @@ namespace EstatisticaFatec.Core
                 maximo = maximo + (int)Ic.IC;
             }
 
-            var variancia = VarianciaContinua(listaTabelaQuantitativa.Select(q => q.XI).ToList(), listaTabelaQuantitativa.Select(x => x.FI).ToList(), media, listaTabelaQuantitativa.Sum(y => y.FI));
+            var variancia = VarianciaContinua(listaTabelaQuantitativa.Select(q => q.XI).ToList(), listaTabelaQuantitativa.Select(x => x.FI).ToList(), media, listaTabelaQuantitativa.Sum(y => y.FI), baseInputs.Amostra);
             var dp = MathCoreApp.RaizQuadrada(variancia);
             var cv = MathCoreApp.Porcentagem(dp, media);
 
