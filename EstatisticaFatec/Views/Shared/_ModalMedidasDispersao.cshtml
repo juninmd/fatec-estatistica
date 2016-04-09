@@ -18,84 +18,141 @@
 
                     <div class="tab-content">
                         <div id="MedidasDispersaoPopulacao" class="tab-pane fade in active">
+                            <h4>Legendas</h4>
+                            <div class="legenda-formula">
+                                <p>
+                                    <code>∑XI.FI</code> É a soma de todos os elementos da coluna
+                                </p>
+                                <p>
+                                    <code>N</code> É a quantidade de linhas.
+                                </p>
+                                <p>
+                                    <code><span class="media">X</span></code> É média
+                                </p>
+                                <p>
+                                    <code>√</code> Raiz Quadrada
+                                </p>
+                            </div>
                             <h3>Variância</h3>
-                            <p>
-                                <pre>∑XI.FI</pre> É a soma de todos os elementos da coluna
-                            </p>
-                            <p>
-                                <pre>N É a quantidade de linhas.</pre>
-                            </p>
+
 
                             <div class="formula">
                                 <h4>Fórmula</h4>
-                                <pre>(∑XI – <span class="media">X</span>) ² / N - 1</pre>
+                                <pre>(∑XI – <span class="media">X</span>) ² / N</pre>
                             </div>
 
-                            <p>
-                                <code>(∑XI – <span class="media">X</span>) ² / N - 1</code>
-                            </p>
-                            <p>
-                                <code>30 / 4</code>
-                            </p>
-                            <p>
-                                <code>Variância: 7,5</code>
-                            </p>
-
                             <h3>Desvio Padrão</h3>
-                            <p>
-                                <code>√Variância</code>
-                            </p>
-                            <p>
-                                <code>Desvio Padrão: 2,67 </code>
-                            </p>
+                            <div class="formula">
+                                <h4>Fórmula</h4>
+                                <pre>√Variância</pre>
+                            </div>
+
+
 
                             <h3>Coeficiente da variação</h3>
-                            <p>
-                                <code>(DP /<span class="media" title="Média de X">X</span>* 100 <span></span> </code>
-                            </p>
-                            <p>
-                                <code>Coeficiente da variação: 2,67/6 * 100 = 44,5% <span></span> </code>
-                            </p>
+                            <div class="formula">
+                                <h4>Fórmula</h4>
+                                <pre>(DP/<span class="media" title="Média de X">X</span>)* 100 </pre>
+                            </div>
+
+
+
+                            <div class="panel-group" id="collapse">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#collapse" href="#collapse-populacao">
+                                                Exemplo:
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse-populacao" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <p>
+                                                <code>30 / 4</code>
+                                            </p>
+                                            <p>
+                                                <code>Variância: 7,5</code>
+                                            </p>
+                                            <p>
+                                                <code>Desvio Padrão: 2,67 </code>
+                                            </p>
+                                            <p>
+                                                <code>Coeficiente da variação: 2,67/6 * 100 = 44,5% <span></span> </code>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
 
                         </div>
 
 
                         <div id="MedidasDispersaoAmostra" class="tab-pane fade">
+                            <h4>Legendas</h4>
+                            <div class="legenda-formula">
+                                <p>
+                                    <code>∑XI.FI</code> É a soma de todos os elementos da coluna
+                                </p>
+                                <p>
+                                    <code>N</code> É a quantidade de linhas.
+                                </p>
+                                <p>
+                                    <code><span class="media">X</span></code> É média
+                                </p>
+                                <p>
+                                    <code>√</code> Raiz Quadrada
+                                </p>
+                            </div>
                             <h3>Variância</h3>
-                            <p>
-                                <code>∑XI.FI: É a soma de todos os elementos da coluna.</code>
-                            </p>
-                            <p>
-                                <code>N: É a quantidade de linhas.</code>
-                            </p>
 
-                            <p>
-                                <code>(∑XI – <span class="media">X</span>) ² / N - 1</code>
-                            </p>
-                            <p>
-                                <code>30 / 4 - 1</code>
-                            </p>
-                            <p>
-                                <code>Variância: 10</code>
-                            </p>
 
+                            <div class="formula">
+                                <h4>Fórmula</h4>
+                                <pre>(∑XI – <span class="media">X</span>) ² / N -1 </pre>
+                            </div>
 
                             <h3>Desvio Padrão</h3>
-                            <p>
-                                <code>√Variância</code>
-                            </p>
-                            <p>
-                                <code>Desvio Padrão: 3,16 </code>
-                            </p>
+                            <div class="formula">
+                                <h4>Fórmula</h4>
+                                <pre>√Variância</pre>
+                            </div>
 
                             <h3>Coeficiente da variação</h3>
-                            <p>
-                                <code>(DP /<span class="media">X</span>* 100 <span></span> </code>
-                            </p>
-                            <p>
-                                <code>Coeficiente da variação: 3,16/6 * 100 = 53% <span></span> </code>
-                            </p>
+                            <div class="formula">
+                                <h4>Fórmula</h4>
+                                <pre>(DP/<span class="media" title="Média de X">X</span>)* 100 </pre>
+                            </div>
 
+                            <div class="panel-group" id="collapseamostra">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                        <h4 class="panel-title">
+                                            <a data-toggle="collapse" data-parent="#collapse" href="#collapse-amostra">
+                                                Exemplo:
+                                            </a>
+                                        </h4>
+                                    </div>
+                                    <div id="collapse-amostra" class="panel-collapse collapse">
+                                        <div class="panel-body">
+                                            <p>
+                                                <code>30 / 4 - 1 </code>
+                                            </p>
+                                            <p>
+                                                <code>Variância: 10 </code>
+                                            </p>
+                                            <p>
+                                                <code>Desvio Padrão: 3,16 </code>
+                                            </p>
+                                            <p>
+                                                <code>Coeficiente da variação: 3,16/6 * 100 = 53% <span></span> </code>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
