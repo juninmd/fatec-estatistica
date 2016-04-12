@@ -1,16 +1,17 @@
-﻿using EstatisticaFatec.Core.Models.DistribuicaoMenor;
+﻿
+using EstatisticaFatec.Core.Models.DistribuicaoNormal;
 
 namespace EstatisticaFatec.Core
 {
-    public class DistribuicaoMenorApp
+    public class DistribuicaoNormalApp
     {
-        public DistribuicaoMenorEntity Build(int mediaPonderada, int desvioPadrao, int cc)
+        public DistribuicaoNormalEntity Build(int mediaPonderada, int desvioPadrao, int cc)
         {
             var Propabilidade = (((decimal)cc - (decimal)mediaPonderada) / (decimal)desvioPadrao);
 
             var soma = Soma(mediaPonderada, cc, desvioPadrao);
 
-            return new DistribuicaoMenorEntity
+            return new DistribuicaoNormalEntity
             {
                 CC = cc,
                 DesvioPadrao = desvioPadrao,

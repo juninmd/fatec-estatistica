@@ -118,12 +118,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AleatoriaSimplesController.cs" />
-    <Compile Include="Controllers\DistribuicaoMaiorController.cs" />
-    <Compile Include="Controllers\DistribuicaoEntreController.cs" />
-    <Compile Include="Controllers\DistribuicaoMenorController.cs" />
+    <Compile Include="Controllers\DistribuicaoNormalController.cs" />
     <Compile Include="Controllers\MedidasTendenciaController.cs" />
     <Compile Include="Controllers\MedidasDispersaoController.cs" />
-    <Compile Include="Controllers\ProbabilidadeController.cs" />
     <Compile Include="Controllers\SistematicaController.cs" />
     <Compile Include="Controllers\EstratificadaUniformeController.cs" />
     <Compile Include="Controllers\EstratificadaProporcionalController.cs" />
@@ -148,6 +145,11 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\img\estratificadaProporcional\estratificadaProporcional.jpg" />
     <Content Include="Content\img\estratificadaUniforme\exemplo.jpg" />
+    <Content Include="Content\img\fatec.jpg" />
+    <Content Include="Content\img\icones\calculator.png" />
+    <Content Include="Content\img\icones\draw.png" />
+    <Content Include="Content\img\icones\science.png" />
+    <Content Include="Content\img\icones\shapes.png" />
     <Content Include="Content\img\medidasTendencia\media.jpg" />
     <Content Include="Content\img\variavelQuantitativa\continuaExemplo.jpg" />
     <Content Include="Content\img\variavelQuantitativa\discretaExemplo.jpg" />
@@ -211,9 +213,7 @@
     <Content Include="Views\EstratificadaProporcional\Index.cshtml" />
     <Content Include="Views\EstratificadaUniforme\Index.cshtml" />
     <Content Include="Views\Sistematica\Index.cshtml" />
-    <Content Include="Views\DistribuicaoEntre\Index.cshtml" />
-    <Content Include="Views\DistribuicaoMaior\Index.cshtml" />
-    <Content Include="Views\DistribuicaoMenor\Index.cshtml" />
+    <Content Include="Views\DistribuicaoNormal\Index.cshtml" />
     <Content Include="Views\Shared\_aguarde.cshtml" />
     <Content Include="Views\MedidasTendencia\Index.cshtml" />
     <Content Include="Views\MedidasDispersao\Index.cshtml" />
@@ -226,7 +226,6 @@
     <Content Include="Views\Shared\_ModalTendenciaCentral.cshtml" />
     <Content Include="Views\Shared\_ModalMedidasDispersao.cshtml" />
     <Content Include="Views\VariavelDiscreta\Index.cshtml" />
-    <Content Include="Views\Probabilidade\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

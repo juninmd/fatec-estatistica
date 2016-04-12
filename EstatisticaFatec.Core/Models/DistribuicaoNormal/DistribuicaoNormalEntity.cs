@@ -1,6 +1,6 @@
-﻿namespace EstatisticaFatec.Core.Models.DistribuicaoMenor
+﻿namespace EstatisticaFatec.Core.Models.DistribuicaoNormal
 {
-    public class DistribuicaoMenorEntity
+    public class DistribuicaoNormalEntity
     {
         public int MediaPonderada { get; set; }
         public int DesvioPadrao { get; set; }

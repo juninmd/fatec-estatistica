@@ -51,7 +51,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="DistribuicaoMenorTest.cs" />
     <Compile Include="GruposTest.cs" />
     <Compile Include="MedidasDispersaoTest.cs" />
     <Compile Include="MedidasTendenciaTest.cs" />

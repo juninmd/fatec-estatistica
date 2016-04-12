@@ -44,7 +44,8 @@ namespace EstatisticaFatec.Core
                     F = f.Sum(),
                     FPorcent = fePorcentList.Sum(),
                     XIFI = item.XI * item.Quantidade,
-                    XIFIQuadFI = PreencherXIFIQUADFI(item.XI, media, item.Quantidade)
+                    XIFIQuadFI = PreencherXIFIQUADFI(item.XI, media, item.Quantidade),
+                    Probabilidade = item.Quantidade / agrupamento.Sum(q => q.Quantidade)
                 });
             }
 
@@ -59,9 +60,7 @@ namespace EstatisticaFatec.Core
                 Variancia = variancia,
                 DP = dp,
                 CV = cv
-
             };
-
 
             return new VariavelDiscretaContainerEntity
             {

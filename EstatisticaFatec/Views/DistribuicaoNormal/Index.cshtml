@@ -1,0 +1,131 @@
+﻿@using EstatisticaFatec.Helper
+@model EstatisticaFatec.Core.Models.DistribuicaoNormal.DistribuicaoNormalEntity
+
+@{
+    Layout = "~/Views/Shared/_LayoutForm.cshtml";
+}
+
+@*@if (Model.Resultados.Any() == false)
+{
+    <div class="alert alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <strong>Você ainda não preencheu os paramêtros! Por favor, preencha os paramêtros.</strong>
+    </div>
+}*@
+
+@section opcoes
+{
+    <li>
+        <a class="btn-floating" title="Informações" data-toggle="modal" data-target="#myModal">
+            <i class="glyphicon glyphicon-book" aria-hidden="true"></i>
+        </a>
+    </li>
+}
+
+<div class="well bs-component">
+    <fieldset>
+        <legend>Aleatória Simples</legend>
+        <div class="form-group">
+
+
+            <div class="col-xs-12">
+                <blockquote class="small">
+                    Uma amostra aleatória simples é usar um subconjunto de indivíduos (amostra) apartir de um conjunto maior (população) por um processo que garanta que
+                    <ul>
+                        <li>
+                            Todos os indivíduos da população têm a mesma probabilidade de ser escolhidos para a amostra;
+                        </li>
+                    </ul>
+                    <small class="pull-right">
+                        Sorteamos uma quantidade de números X [AMOSTRA] entre um total de população de Y [POPULAÇÃO]
+                    </small>
+
+                </blockquote>
+            </div>
+        </div>
+    </fieldset>
+
+</div>
+
+<div class="well bs-component">
+    <form class="form-horizontal" method="post" action="@Url.Action("Index")">
+        <fieldset>
+            <legend>Parametrização</legend>
+
+            @if (@Html.ViewData.ModelState.IsValid == false)
+            {
+                <div class="alert alert-warning alert-dismissable" style="background-color: #610883;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <div class="row-action-primary">
+                        <i class="material-icons" style="color: white;float: left;">error</i>
+                    </div>
+                    <strong>@Html.ValidationMessage("error")</strong>
+                </div>
+            }
+           
+
+
+            <div class="col-md-10 col-md-offset-2">
+                <button type="reset" class="btn btn-danger">Limpar</button>
+                <button type="submit" class="btn btn-primary">Enviar<div class="ripple-container"></div></button>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Entendendo as etapas</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    A seguir temos um exemplo de como obtemos números aleatórios conforme a quantidade de amostra/população.
+                </p>
+                <fieldset>
+                    <legend> Coletando paramêtros <span class="lesssmall pull-right">A população deve ser maior que a amostra.</span></legend>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Amostra</th>
+                                <th>População</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <td>1</td>
+                            <td>3</td>
+                        </tr>
+                    </table>
+                    <legend> Possíveis resultados <span class="lesssmall pull-right">Nesse exemplo um desses números será nossa resposta.</span></legend>
+
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                            </tr>
+                        </thead>
+                    </table>
+
+                    <p>
+                        O sistema irá sempre retornar x números (quantidade da amostra) aleatórios que nunca vão se repetir.
+                    </p>
+
+                </fieldset>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+
+    </div>
+</div>

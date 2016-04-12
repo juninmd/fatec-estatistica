@@ -19,7 +19,7 @@
         </a>
     </li>
     <li>
-        <a class="btn-floating" title="Tendência Central" data-toggle="modal" data-target="#modalTendenciaCentral">
+        <a class="btn btn-floating" title="Tendência Central" data-toggle="modal" data-target="#modalTendenciaCentral">
             <i class="glyphicon glyphicon-king" aria-hidden="true"></i>
         </a>
     </li>
@@ -83,7 +83,8 @@
                         <th title="Frequência Acumulada">[F]</th>
                         <th title="Frequência Acumulada porcentual">[F%]</th>
                         <th title="Média | Total: @Model.VariavelDiscretaEntity.Select(x => x.XIFI).Sum()">[XI * FI]</th>
-                        <th title="(XI - `X)². FI | Total: @Model.VariavelDiscretaEntity.Select(x => x.XIFIQuadFI.Valor).Sum()"> (XI - <span style="text-decoration-line: overline; ">X</span>)². FI</th>
+                        <th title="(XI - `X)². FI | Total: @Model.VariavelDiscretaEntity.Select(x => x.XIFIQuadFI.Valor).Sum()"> (XI - <span class="media">X</span>)². FI</th>
+                        <th>Probabilidade</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -97,6 +98,7 @@
                             <td>@item.FPorcent%</td>
                             <td>@item.XIFI</td>
                             <td title="@item.XIFIQuadFI.Formula">@item.XIFIQuadFI.Valor%</td>
+                            <td>@item.Probabilidade</td>
                         </tr>
                     }
                 </tbody>
@@ -140,7 +142,7 @@
                         text: 'Descrição dos dados'
                     },
                     xAxis: {
-                        categories: [@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(p=> p.XI).ToList())],
+                        categories: ['@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(p=> p.XI).ToList())'],
                         title: {
                             text: "Classes"
                         }
@@ -182,23 +184,23 @@
                     series: [
                         {
                             name: 'FI',
-                            data: [@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(q=> q.FI).ToList())]
+                            data: ['@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(q=> q.FI).ToList())']
                         },
                          {
                              name: 'FE%',
-                             data: [@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(q=> q.FEPorcent).ToList())]
+                             data: ['@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(q=> q.FEPorcent).ToList())']
                          },
                           {
                               name: 'F',
-                              data: [@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(q=> q.F).ToList())]
+                              data: ['@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(q=> q.F).ToList())']
                           },
                            {
                                name: 'F%',
-                               data: [@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(q=> q.FPorcent).ToList())]
+                               data: ['@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(q=> q.FPorcent).ToList())']
                            },
                             {
                                 name: 'XI*FI%',
-                                data: [@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(q=> q.XIFIQuadFI.Valor).ToList())]
+                                data: ['@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(q=> q.XIFIQuadFI.Valor).ToList())']
                             },
                     ]
                 });
