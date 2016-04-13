@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_LayoutForm.cshtml";
 }
 
-@if (Model.Propabilidade == 0)
+@if (Model.TipoEntrada == 0)
 {
     <div class="alert alert-warning alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -79,18 +79,18 @@
             <div class="col-md-10 col-md-offset-2 form-inline">
                 <div class="radio">
                     <label>
-                        <input type="radio" class="radio-inline" name="entrada" value="menor">
+                        <input type="radio" class="radio-inline"  name="TipoEntrada" required=""  value="0">
                         Menor
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" class="radio-inline" name="entrada" required="" value="entre"/>
+                        <input type="radio" class="radio-inline"  name="TipoEntrada" required="" value="1" />
                         Entre
                     </label>
                     <div class="radio">
                         <label>
-                            <input type="radio" class="radio-inline" name="entrada" required="" value="entre"/>
+                            <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="2" />
                             Maior
                         </label>
                     </div>
@@ -98,16 +98,19 @@
             </div>
 
             <div class="form-group">
-                <label class="col-md-2 control-label">Valor A:</label>
 
-                <div class="col-md-3">
-                    <input class="form-control" required placeholder="@Html.Null(Model.DesvioPadrao)" name="DesvioPadrao" type="number">
+                <div id="divValorA">
+                    <label class="col-md-2 control-label">X:</label>
+                    <div class="col-md-3">
+                        <input class="form-control" required placeholder="@Html.Null(Model.Valor[0])" name="ValorA" type="number">
+                    </div>
                 </div>
 
-                <label class="col-md-2 control-label">Valor B:</label>
-
-                <div class="col-md-3">
-                    <input class="form-control" required placeholder="@Html.Null(Model.MediaPonderada)" name="MediaPonderada" type="number">
+                <div id="divValorB" @(Model.TipoEntrada != 1 ? "style=display:none" : "")>
+                    <label class="col-md-2 control-label">Y:</label>
+                    <div class="col-md-3">
+                        <input class="form-control"  @(Model.TipoEntrada != 1 ? "required" : "") placeholder="@Html.Null(Model.Valor[1])" name="ValorB" type="number">
+                    </div>
                 </div>
             </div>
 
@@ -120,7 +123,25 @@
     </form>
 </div>
 
+@section scripts
+{
+    <script>
+        $(document).ready(function() {
+            $("input[name=TipoEntrada]").prop("checked", false);
+            $("input[name=TipoEntrada][value=@Model.TipoEntrada]").prop("checked", true);
+        });
+        $("input[name=TipoEntrada]").change(function () {
+            if ($(this).val() != 1) {
+                $("#divValorB").hide();
+                $("input[name=ValorB]").removeAttr("required");
+            } else {
+                $("#divValorB").show();
+                $("input[name=ValorB]").attr("required", "required");
+            }
+        });
 
+    </script>
+}
 
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
@@ -133,38 +154,12 @@
                 <h4 class="modal-title">Entendendo as etapas</h4>
             </div>
             <div class="modal-body">
-                <p>
-                    A seguir temos um exemplo de como obtemos números aleatórios conforme a quantidade de amostra/população.
-                </p>
+
                 <fieldset>
                     <legend> Coletando paramêtros <span class="lesssmall pull-right">A população deve ser maior que a amostra.</span></legend>
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>Amostra</th>
-                                <th>População</th>
-                            </tr>
-                        </thead>
-                        <tr>
-                            <td>1</td>
-                            <td>3</td>
-                        </tr>
-                    </table>
-                    <legend> Possíveis resultados <span class="lesssmall pull-right">Nesse exemplo um desses números será nossa resposta.</span></legend>
 
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <td>1</td>
-                                <td>2</td>
-                                <td>3</td>
-                            </tr>
-                        </thead>
-                    </table>
 
-                    <p>
-                        O sistema irá sempre retornar x números (quantidade da amostra) aleatórios que nunca vão se repetir.
-                    </p>
+
 
                 </fieldset>
             </div>

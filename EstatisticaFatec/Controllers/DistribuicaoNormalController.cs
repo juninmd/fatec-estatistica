@@ -13,9 +13,11 @@ namespace EstatisticaFatec.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(int mediaPonderada, int desvioPadrao, int cc)
+        public ActionResult Index(DistribuicaoNormalEntity distribuicao)
         {
-            return View(new DistribuicaoNormalApp().Build(mediaPonderada, desvioPadrao, cc));
+         
+
+            return View(new DistribuicaoNormalApp().Build(distribuicao));
         }
     }
 }
