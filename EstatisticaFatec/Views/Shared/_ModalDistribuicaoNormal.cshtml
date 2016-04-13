@@ -1,0 +1,139 @@
+﻿<!-- Modal -->
+<div id="modalDistribuicaoNormal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Entendendo as etapas</h4>
+            </div>
+            <div class="modal-body">
+                <fieldset>
+
+                    <h4>Legendas</h4>
+                    <div class="legenda-formula">
+                        <p>
+                            <code>∑XI.FI</code> É a soma de todos os elementos da coluna
+                        </p>
+                        <p>
+                            <code>N</code> É a quantidade de linhas.
+                        </p>
+                        <p>
+                            <code><span class="media">X</span></code> É média
+                        </p>
+                        <p>
+                            <code>√</code> Raiz Quadrada
+                        </p>
+                    </div>
+
+                    <h3>Variância</h3>
+                    <div class="formula">
+                        <h4>Fórmula</h4>
+
+                        <div class="panel-group" id="variancia">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-toggle="collapse" data-parent="#variancia" href="#variancia-populacao">
+                                            População
+                                        </a>
+                                        <a data-toggle="collapse" data-parent="#variancia" href="#variancia-amostra">
+                                            Amostra
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="variancia-populacao" class="panel-collapse collapse in">
+                                    <div class="panel-body">
+                                        <pre>(∑XI – <span class="media">X</span>) ² / N - 1</pre>
+                                    </div>
+                                </div>
+                                <div id="variancia-amostra" class="panel-collapse collapse">
+                                    <div class="panel-body">
+                                        <pre>(∑XI – <span class="media">X</span>) ² / N  </pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+                    </div>
+
+                    <h3>Desvio Padrão</h3>
+                    <div class="formula">
+                        <h4>Fórmula</h4>
+                        <pre>√Variância</pre>
+                    </div>
+
+
+                    <h3>Coeficiente da variação</h3>
+                    <div class="formula">
+                        <h4>Fórmula</h4>
+                        <pre>(DP/<span class="media" title="Média de X">X</span>)* 100 </pre>
+                    </div>
+
+                    <div class="panel-group" id="cvariacao">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#cvariacao" href="#collapse-populacao">
+                                        Exemplo População
+                                    </a>
+                                    <a data-toggle="collapse" data-parent="#cvariacao" href="#collapse-amostra">
+                                        Exemplo Amostra
+                                    </a>
+
+                                </h4>
+                            </div>
+                            <div id="collapse-amostra" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>
+                                        <code>30 / 4</code>
+                                    </p>
+                                    <p>
+                                        <code>Variância: 7,5</code>
+                                    </p>
+                                    <p>
+                                        <code>Desvio Padrão: 2,67 </code>
+                                    </p>
+                                    <p>
+                                        <code>Coeficiente da variação: 2,67/6 * 100 = 44,5% <span></span> </code>
+                                    </p>
+
+
+                                </div>
+                            </div>
+                            <div id="collapse-populacao" class="panel-collapse collapse">
+                                <div class="panel-body">
+
+                                    <p>
+                                        <code>30 / 4 - 1 </code>
+                                    </p>
+                                    <p>
+                                        <code>Variância: 10 </code>
+                                    </p>
+                                    <p>
+                                        <code>Desvio Padrão: 3,16 </code>
+                                    </p>
+                                    <p>
+                                        <code>Coeficiente da variação: 3,16/6 * 100 = 53% <span></span> </code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </fieldset>
+
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -76,6 +76,40 @@
                 </div>
             </div>
 
+            <div class="col-md-10 col-md-offset-2 form-inline">
+                <div class="radio">
+                    <label>
+                        <input type="radio" class="radio-inline" name="entrada" value="menor">
+                        Menor
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" class="radio-inline" name="entrada" required="" value="entre"/>
+                        Entre
+                    </label>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" class="radio-inline" name="entrada" required="" value="entre"/>
+                            Maior
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-md-2 control-label">Valor A:</label>
+
+                <div class="col-md-3">
+                    <input class="form-control" required placeholder="@Html.Null(Model.DesvioPadrao)" name="DesvioPadrao" type="number">
+                </div>
+
+                <label class="col-md-2 control-label">Valor B:</label>
+
+                <div class="col-md-3">
+                    <input class="form-control" required placeholder="@Html.Null(Model.MediaPonderada)" name="MediaPonderada" type="number">
+                </div>
+            </div>
 
             <div class="col-md-10 col-md-offset-2">
                 <button type="reset" class="btn btn-danger">Limpar</button>

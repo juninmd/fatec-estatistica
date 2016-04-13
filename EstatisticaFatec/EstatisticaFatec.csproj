@@ -226,6 +226,8 @@
     <Content Include="Views\Shared\_ModalTendenciaCentral.cshtml" />
     <Content Include="Views\Shared\_ModalMedidasDispersao.cshtml" />
     <Content Include="Views\VariavelDiscreta\Index.cshtml" />
+    <Content Include="Views\Shared\_ModalDistribuicaoNormal.cshtml" />
+    <Content Include="Views\Shared\_DistribuicaoNormal.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

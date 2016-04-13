@@ -1,0 +1,22 @@
+﻿@using EstatisticaFatec.Helper
+@model EstatisticaFatec.Core.Models.DistribuicaoNormal.DistribuicaoNormalEntity
+
+<div class="well bs-component">
+    <fieldset class="form-horizontal">
+        <legend>Distribuição Normal</legend>
+
+        <div class="form-group">
+            <label class="col-md-1 control-label">Valor tabela</label>
+            <div class="col-md-4">
+                <input class="form-control" readonly="" value="@Model.CC">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-1 control-label">Probabilidade</label>
+            <div class="col-md-4">
+                <input class="form-control" readonly="" value="@Model.Propabilidade">
+            </div>
+        </div>
+    </fieldset>
+</div>
