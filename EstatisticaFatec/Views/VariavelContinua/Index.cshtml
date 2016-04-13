@@ -83,11 +83,11 @@
                     <tr>
                         <th title="Classes">@Model.VariavelContinuaEntity.Select(x => x.Classe).Count() Classe(s)</th>
                         <th title="De x até y">Range de @Model.IC.IC</th>
-                        <th title="Frequência simples | Total: @Model.VariavelContinuaEntity.Select(x => x.FI).Sum()">[FI] </th>
-                        <th title="Frequência relativa percentual | Total: @Model.VariavelContinuaEntity.Select(x => x.FEPorcent).Sum() ">[FE%] </th>
-                        <th title="Frequência Acumulada">[F]</th>
-                        <th title="Frequência Acumulada porcentual">[F%]</th>
                         <th title="XI">[XI]</th>
+                        <th title="Frequência simples | Total: @Model.VariavelContinuaEntity.Select(x => x.FI).Sum()">[FI] </th>
+                        <th title="Frequência Acumulada">[F]</th>
+                        <th title="Frequência relativa percentual | Total: @Model.VariavelContinuaEntity.Select(x => x.FEPorcent).Sum() ">[FE%] </th>
+                        <th title="Frequência Acumulada porcentual">[F%]</th>
                         <th title="Média | Total: @Model.VariavelContinuaEntity.Select(x => x.XIFI).Sum()">[XI * FI] </th>
                     </tr>
                 </thead>
@@ -97,12 +97,12 @@
                         <tr>
                             <td>@item.Classe</td>
                             <td>@item.Range[0]|-------@item.Range[1]</td>
-                            <td>@item.FI</td>
-                            <td>@item.FEPorcent%</td>
-                            <td>@item.F</td>
-                            <td>@item.FPorcent%</td>
                             <td>@item.XI</td>
-                            <td>@item.XIFI</td>
+                            <td>@item.FI</td>
+                            <td>@item.F</td>
+                            <td>@item.FEPorcent%</td>
+                            <td>@item.FPorcent%</td>
+                            <td title="@item.XI * @item.FI">@item.XIFI</td>
                         </tr>
                     }
                 </tbody>
@@ -131,6 +131,7 @@
 
 
 
+@*
 
     @section scripts{
         <script src="~/Scripts/highcharts.js"></script>
@@ -213,6 +214,7 @@
             });
         </script>
     }
+*@
 
 }
 <!-- Modal -->

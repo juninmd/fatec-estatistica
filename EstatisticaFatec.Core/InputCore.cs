@@ -17,7 +17,7 @@ namespace EstatisticaFatec.Core
                 {
                     InputValue = lista,
                     Rol = lista.OrderBy(q => q).ToList(),
-                    Amostra = inputEntity.MassaDados == "amostra"
+                    Amostra = inputEntity.TipoInput == "amostra"
                 };
             }
             catch (Exception ex)

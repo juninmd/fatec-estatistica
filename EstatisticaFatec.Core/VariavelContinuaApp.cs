@@ -21,7 +21,7 @@ namespace EstatisticaFatec.Core
             var listaNova = new List<decimal>();
 
 
-            for (int i = 0; i < listaXi.Count; i++)
+            for (var i = 0; i < listaXi.Count; i++)
             {
                 var conta = MathCoreApp.Quadrado(Math.Round(listaXi[i] - media, 2)) * listaFi[i];
                 listaNova.Add(conta);
@@ -67,7 +67,7 @@ namespace EstatisticaFatec.Core
             while (true)
             {
                 /* K  - 1 */
-                if (K[0] != 0 && al / K[0] % 2 == 0)
+                if (K[0] != 0 && al % K[0] == 0)
                 {
                     return new VariavelContinuaIcEntity
                     {
@@ -76,7 +76,7 @@ namespace EstatisticaFatec.Core
                     };
                 }
                 /* K */
-                if (K[1] != 0 && al / K[1] % 2 == 0)
+                if (K[1] != 0 && al % K[1] == 0)
                 {
                     return new VariavelContinuaIcEntity
                     {
@@ -85,7 +85,7 @@ namespace EstatisticaFatec.Core
                     };
                 }
                 /* K + 1*/
-                if (K[2] != 0 && al / K[2] % 2 == 0)
+                if (K[2] != 0 && al % K[2] == 0)
                 {
                     return new VariavelContinuaIcEntity
                     {
@@ -99,11 +99,10 @@ namespace EstatisticaFatec.Core
 
         public VariavelContinuaContainerEntity Build(BaseInputsEntity baseInputs)
         {
-            var media = MediaComum(baseInputs.InputValue);
             var xMAx = baseInputs.InputValue.Max();
             var xMin = baseInputs.InputValue.Min();
 
-            var al = (xMAx - xMin);
+            var al = (xMAx - xMin) +1 ;
 
             var numeroPreK = (int)Math.Sqrt(baseInputs.InputValue.Count());
             var K = new List<decimal> { numeroPreK - 1, numeroPreK, numeroPreK + 1 };
@@ -127,23 +126,25 @@ namespace EstatisticaFatec.Core
                 f.Add(count);
                 fePorcentList.Add(fePorcent);
 
-                var xi = Mediana(new List<decimal>() { minimo, maximo });
+                var xi = MediaComum(new List<decimal>() { minimo, maximo });
 
                 listaTabelaQuantitativa.Add(new VariavelContinuaEntity
                 {
                     Classe = i,
+                    XI = xi,
                     Range = new[] { minimo, maximo },
                     FI = count,
                     FEPorcent = Math.Round(fePorcent, 2),
                     F = f.Sum(),
                     FPorcent = Math.Round(fePorcentList.Sum(), 2),
-                    XI = xi,
                     XIFI = xi * count,
                 });
 
                 minimo = maximo;
                 maximo = maximo + (int)Ic.IC;
             }
+
+            var media = listaTabelaQuantitativa.Sum(e => e.XIFI) / listaTabelaQuantitativa.Sum(e => e.FI);
 
             var variancia = VarianciaContinua(listaTabelaQuantitativa.Select(q => q.XI).ToList(), listaTabelaQuantitativa.Select(x => x.FI).ToList(), media, listaTabelaQuantitativa.Sum(y => y.FI), baseInputs.Amostra);
             var dp = MathCoreApp.RaizQuadrada(variancia);

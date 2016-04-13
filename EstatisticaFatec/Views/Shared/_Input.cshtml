@@ -29,13 +29,13 @@
         <div class="form-inline pull-right">
             <div class="radio">
                 <label>
-                    <input type="radio" class="radio-inline" name="tipoInput" required="" value="amostra">
+                    <input type="radio" class="radio-inline" name="TipoInput" required="" @(Model.Amostra ? "checked" : "") value="amostra">
                     Amostra
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" class="radio-inline" name="tipoInput" required="" value="populacao" />
+                    <input type="radio" class="radio-inline" name="TipoInput" required="" @(Model.Amostra ? "" : "checked") value="populacao" />
                     População
                 </label>
             </div>

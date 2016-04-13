@@ -5,13 +5,13 @@
     Layout = "~/Views/Shared/_LayoutForm.cshtml";
 }
 
-@*@if (Model.Resultados.Any() == false)
+@if (Model.Propabilidade == 0)
 {
     <div class="alert alert-warning alert-dismissable">
         <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
         <strong>Você ainda não preencheu os paramêtros! Por favor, preencha os paramêtros.</strong>
     </div>
-}*@
+}
 
 @section opcoes
 {
@@ -24,7 +24,7 @@
 
 <div class="well bs-component">
     <fieldset>
-        <legend>Aleatória Simples</legend>
+        <legend>Distribuição Normal</legend>
         <div class="form-group">
 
 
@@ -62,7 +62,19 @@
                     <strong>@Html.ValidationMessage("error")</strong>
                 </div>
             }
-           
+            <div class="form-group">
+                <label class="col-md-2 control-label">Desvio Padrão</label>
+
+                <div class="col-md-3">
+                    <input class="form-control" required placeholder="@Html.Null(Model.DesvioPadrao)" name="DesvioPadrao" type="number">
+                </div>
+
+                <label class="col-md-2 control-label">Média Ponderada</label>
+
+                <div class="col-md-3">
+                    <input class="form-control" required placeholder="@Html.Null(Model.MediaPonderada)" name="MediaPonderada" type="number">
+                </div>
+            </div>
 
 
             <div class="col-md-10 col-md-offset-2">
