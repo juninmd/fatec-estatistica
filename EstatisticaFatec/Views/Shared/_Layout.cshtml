@@ -4,14 +4,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Estatística Aplicada - Fatec</title>
-    @Styles.Render("~/Content/css")
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/cssBase.css" rel="stylesheet" />
+    <link href="~/Content/ripples.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-material-design.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
     @Scripts.Render("~/bundles/modernizr")
 </head>
 
 <body>
 
     <div class="container body-content">
- 
+
         @RenderBody()
         @Html.Partial("_aguarde")
     </div>
