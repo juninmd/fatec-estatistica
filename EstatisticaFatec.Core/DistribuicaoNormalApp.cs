@@ -13,37 +13,74 @@ namespace EstatisticaFatec.Core
             TabelaDistribuicao = new TabelaDistribuicao();
         }
         public TabelaDistribuicao TabelaDistribuicao { get; set; }
+
+        private decimal CalcularZ(decimal valor, decimal media, decimal desvioPadrao)
+        {
+            return (valor - media) / desvioPadrao;
+        }
+
         public DistribuicaoNormalEntity Build(DistribuicaoNormalEntity entidade)
         {
             foreach (var item in entidade.Valor)
             {
                 var Z = CalcularZ(item, entidade.MediaPonderada, entidade.DesvioPadrao);
-                var valorTabela = TabelaDistribuicao.Calcular(Z);
 
                 entidade.DistribuicaoNormalZEntity.Add(new DistribuicaoNormalZEntity()
                 {
                     ValorOriginal = item,
                     Z = Z,
                     ValorTabela = TabelaDistribuicao.Calcular(Z),
-                    Probabilidade = Probabilidade(item, valorTabela, entidade)
                 });
             }
-            entidade.Probabilidade = entidade.DistribuicaoNormalZEntity.Sum(q => q.Probabilidade);
+
+            if (entidade.TipoEntrada == 1)
+            {
+                var first = entidade.DistribuicaoNormalZEntity.First();
+                entidade.Probabilidade = ProbabilidadeMenor(first.Z, first.ValorTabela);
+            }
+            else if (entidade.TipoEntrada == 2)
+            {
+                var menor = entidade.DistribuicaoNormalZEntity.First(e => e.Z == entidade.DistribuicaoNormalZEntity.Min(q => q.Z));
+                var maior = entidade.DistribuicaoNormalZEntity.First(e => e.Z == entidade.DistribuicaoNormalZEntity.Max(q => q.Z));
+                entidade.Probabilidade = ProbabilidadeEntre(new Tuple<decimal, decimal>(menor.Z, menor.ValorTabela), new Tuple<decimal, decimal>(maior.Z, maior.ValorTabela));
+            }
+            else
+            {
+                var first = entidade.DistribuicaoNormalZEntity.First();
+                entidade.Probabilidade = ProbabilidadeMaior(first.Z, first.ValorTabela);
+            }
             return entidade;
 
         }
 
-        private decimal Probabilidade(decimal valorOriginal, decimal valorTabela, DistribuicaoNormalEntity entidade)
+        private decimal ProbabilidadeMenor(decimal Z, decimal valorTabela)
         {
-            if (entidade.TipoEntrada != 2)
-                return Math.Round((valorOriginal > entidade.MediaPonderada ? new decimal(0.5) - valorTabela : valorTabela + new decimal(0.5)) * 100, 2);
-            return Math.Round((valorOriginal > entidade.MediaPonderada ? new decimal(0.5) - valorTabela : valorTabela + new decimal(0.5)) * 100, 2);
+            return Math.Round((Z > 0 ? new decimal(0.5) - valorTabela : valorTabela + new decimal(0.5)) * 100, 2);
         }
-
-        private decimal CalcularZ(decimal valor, decimal media, decimal desvioPadrao)
+        private decimal ProbabilidadeEntre(Tuple<decimal, decimal> valorMenor, Tuple<decimal, decimal> valorMaior)
         {
-            return Math.Abs(valor - media) / desvioPadrao;
+            //<<
+            if (valorMenor.Item1 <= 0 && valorMaior.Item1 <= 0)
+            {
+                if(valorMaior.Item2 < valorMenor.Item2)
+                    return Math.Round((valorMenor.Item2 - valorMaior.Item2) * 100, 2);
+                return Math.Round((valorMaior.Item2 - valorMenor.Item2) * 100, 2);
+            }
+            // < >
+            else if (valorMenor.Item1 <= 0 && valorMaior.Item1 >= 0)
+            {
+                return Math.Round((valorMenor.Item2 + valorMaior.Item2) * 100, 2);
+            }
+            // >>
+            else // if (valorMenor >= entidade.MediaPonderada && valorMaior >= entidade.MediaPonderada)
+            {
+                return Math.Round((valorMaior.Item2 - valorMenor.Item2) * 100, 2);
+            }
         }
+        private decimal ProbabilidadeMaior(decimal Z, decimal valorTabela)
+        {
+            return Math.Round((Z > 0 ? new decimal(0.5) - valorTabela : valorTabela + new decimal(0.5)) * 100, 2);
 
+        }
     }
 }

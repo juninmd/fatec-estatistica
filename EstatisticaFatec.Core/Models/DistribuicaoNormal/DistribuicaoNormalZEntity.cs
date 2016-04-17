@@ -4,10 +4,6 @@ namespace EstatisticaFatec.Core.Models.DistribuicaoNormal
 {
     public class DistribuicaoNormalZEntity
     {
-        public DistribuicaoNormalZEntity()
-        {
-
-        }
         /// <summary>
         /// Valor Original
         /// </summary>
@@ -22,8 +18,5 @@ namespace EstatisticaFatec.Core.Models.DistribuicaoNormal
         /// Valor Z na tabela
         /// </summary>
         public decimal ValorTabela { get; set; }
- 
-        public decimal Probabilidade { get; set; }
-
     }
 }

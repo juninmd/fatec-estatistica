@@ -6,7 +6,7 @@ namespace EstatisticaFatec.Core.Const
     {
         public decimal Calcular(decimal Z)
         {
-            var att = TratarResultado(Z);
+            var att = TratarResultado(Math.Abs(Z));
             return new ColunaTabelaDistribuicao(att.Item1, att.Item2).GetLinha();
         }
         private Tuple<decimal, decimal> TratarResultado(decimal item)
