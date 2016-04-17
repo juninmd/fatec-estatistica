@@ -1,10 +1,13 @@
-﻿namespace EstatisticaFatec.Core.Models.DistribuicaoNormal
+﻿using System.Collections.Generic;
+
+namespace EstatisticaFatec.Core.Models.DistribuicaoNormal
 {
     public class DistribuicaoNormalEntity
     {
         public DistribuicaoNormalEntity()
         {
             Valor = new[] {new decimal(0), new decimal(0) };
+            DistribuicaoNormalZEntity = new List<DistribuicaoNormalZEntity>();
         }
         public int MediaPonderada { get; set; }
         public int DesvioPadrao { get; set; }
@@ -17,5 +20,7 @@
         /// 2 - Maior
         /// </summary>
         public short TipoEntrada { get; set; }
+        public List<DistribuicaoNormalZEntity> DistribuicaoNormalZEntity { get; set; }
+
     }
 }

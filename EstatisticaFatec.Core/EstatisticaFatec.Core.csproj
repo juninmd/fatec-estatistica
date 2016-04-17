@@ -53,10 +53,11 @@
     <Compile Include="MedidasDispersaoApp.cs" />
     <Compile Include="MedidasTendenciaApp.cs" />
     <Compile Include="Models\AleatoriaSimples\AleatoriaSimplesEntity.cs" />
+    <Compile Include="Models\DistribuicaoNormal\DistribuicaoNormalZEntity.cs" />
+    <Compile Include="Models\DistribuicaoNormal\DistribuicaoNormalEntity.cs" />
     <Compile Include="Models\InputEntity.cs" />
     <Compile Include="Models\BaseVariavelQuantitativa.cs" />
     <Compile Include="Models\BaseInputsEntity.cs" />
-    <Compile Include="Models\DistribuicaoNormal\DistribuicaoNormalEntity.cs" />
     <Compile Include="Models\EstratificadaProporcional\EstratificadaProporcionalContainerEntity.cs" />
     <Compile Include="Models\EstratificadaProporcional\EstratificadaProporcionalEntity.cs" />
     <Compile Include="Models\EstratificadaUniforme\EstratificadaUniformeEntity.cs" />
@@ -72,7 +73,6 @@
     <Compile Include="Models\VariavelContinua\VariavelContinuaIcEntity.cs" />
     <Compile Include="Models\VariavelDiscreta\VariavelDiscretaContainerEntity.cs" />
     <Compile Include="Models\VariavelDiscreta\VariavelDiscretaEntity.cs" />
-    <Compile Include="ProbabilidadeApp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SistematicaApp.cs" />
     <Compile Include="VariavelContinuaApp.cs" />

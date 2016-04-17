@@ -9,11 +9,11 @@ namespace EstatisticaFatec.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View(new DistribuicaoNormalEntity());
+            return View(new DistribuicaoNormalContainerEntity());
         }
 
         [HttpPost]
-        public ActionResult Index(DistribuicaoNormalEntity distribuicao)
+        public ActionResult Index(DistribuicaoNormalContainerEntity distribuicao)
         {
          
 
