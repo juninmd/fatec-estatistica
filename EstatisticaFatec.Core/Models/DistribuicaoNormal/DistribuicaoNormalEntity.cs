@@ -22,5 +22,12 @@ namespace EstatisticaFatec.Core.Models.DistribuicaoNormal
         public short TipoEntrada { get; set; }
         public List<DistribuicaoNormalZEntity> DistribuicaoNormalZEntity { get; set; }
 
+
+        /// <summary>
+        /// Final
+        /// </summary>
+        public decimal Probabilidade { get; set; }
+
+
     }
 }

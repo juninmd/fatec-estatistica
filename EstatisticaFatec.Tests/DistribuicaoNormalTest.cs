@@ -30,6 +30,16 @@ namespace EstatisticaFatec.Tests
 
             var teste2 = new DistribuicaoNormalApp().Build(entidade2);
 
+            var entidade3 = new DistribuicaoNormalEntity
+            {
+                DesvioPadrao = 2000,
+                MediaPonderada = 10000,
+                TipoEntrada = 1,
+                Valor = new[] { new decimal(9000), new decimal(12000), }
+            };
+
+            var teste3 = new DistribuicaoNormalApp().Build(entidade3);
+
 
         }
     }
