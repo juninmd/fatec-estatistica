@@ -21,24 +21,24 @@ namespace EstatisticaFatec.Core
 
         public DistribuicaoNormalEntity Build(DistribuicaoNormalEntity entidade)
         {
-            foreach (var item in entidade.Valor)
+            foreach (var item in entidade.Valor.Where(q=> q.HasValue))
             {
-                var Z = CalcularZ(item, entidade.MediaPonderada, entidade.DesvioPadrao);
+                var Z = CalcularZ(item.Value, entidade.MediaPonderada, entidade.DesvioPadrao);
 
                 entidade.DistribuicaoNormalZEntity.Add(new DistribuicaoNormalZEntity()
                 {
-                    ValorOriginal = item,
+                    ValorOriginal = item.Value,
                     Z = Z,
                     ValorTabela = TabelaDistribuicao.Calcular(Z),
                 });
             }
 
-            if (entidade.TipoEntrada == 1)
+            if (entidade.TipoEntrada == 0)
             {
                 var first = entidade.DistribuicaoNormalZEntity.First();
                 entidade.Probabilidade = ProbabilidadeMenor(first.Z, first.ValorTabela);
             }
-            else if (entidade.TipoEntrada == 2)
+            else if (entidade.TipoEntrada == 1)
             {
                 var menor = entidade.DistribuicaoNormalZEntity.First(e => e.Z == entidade.DistribuicaoNormalZEntity.Min(q => q.Z));
                 var maior = entidade.DistribuicaoNormalZEntity.First(e => e.Z == entidade.DistribuicaoNormalZEntity.Max(q => q.Z));

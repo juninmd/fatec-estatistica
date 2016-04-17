@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 using EstatisticaFatec.Core;
+using EstatisticaFatec.Core.Models.DistribuicaoNormal;
 
 namespace EstatisticaFatec.Controllers
 {
@@ -8,14 +9,12 @@ namespace EstatisticaFatec.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View(new DistribuicaoNormalContainerEntity());
+            return View(new DistribuicaoNormalEntity());
         }
 
         [HttpPost]
-        public ActionResult Index(DistribuicaoNormalContainerEntity distribuicao)
+        public ActionResult Index(DistribuicaoNormalEntity distribuicao)
         {
-         
-
             return View(new DistribuicaoNormalApp().Build(distribuicao));
         }
     }
