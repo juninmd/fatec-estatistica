@@ -1,8 +1,7 @@
 ﻿
+using System;
 using EstatisticaFatec.Core.Const;
-using EstatisticaFatec.Core.Models;
 using EstatisticaFatec.Core.Models.DistribuicaoNormal;
-using System.Collections.Generic;
 
 namespace EstatisticaFatec.Core
 {
@@ -22,7 +21,8 @@ namespace EstatisticaFatec.Core
                 {
                     ValorOriginal = item,
                     Z = Z,
-                    ValorTabela = TabelaDistribuicao.Calcular(Z)
+                    ValorTabela = TabelaDistribuicao.Calcular(Z),
+                    IsBigger = item > entidade.MediaPonderada
                 });
             }
             return entidade;
@@ -31,7 +31,7 @@ namespace EstatisticaFatec.Core
 
         private decimal CalcularZ(decimal valor, decimal media, decimal desvioPadrao)
         {
-            return (valor - media) / desvioPadrao;
+            return Math.Abs(valor - media) / desvioPadrao;
         }
        
     }

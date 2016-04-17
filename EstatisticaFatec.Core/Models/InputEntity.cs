@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace EstatisticaFatec.Core.Models
+﻿namespace EstatisticaFatec.Core.Models
 {
     public class InputEntity
     {

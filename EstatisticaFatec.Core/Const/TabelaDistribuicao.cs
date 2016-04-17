@@ -1,6 +1,4 @@
-﻿using EstatisticaFatec.Core.Models.DistribuicaoNormal;
-using System;
-using System.Collections.Generic;
+﻿using System;
 
 namespace EstatisticaFatec.Core.Const
 {

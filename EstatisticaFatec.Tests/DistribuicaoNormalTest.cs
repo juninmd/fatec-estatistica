@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using EstatisticaFatec.Core;
-using EstatisticaFatec.Core.Const;
+﻿using EstatisticaFatec.Core;
 using EstatisticaFatec.Core.Models.DistribuicaoNormal;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -20,8 +18,19 @@ namespace EstatisticaFatec.Tests
                 Valor = new[] { new decimal(11000) }
             };
 
-
             var teste = new DistribuicaoNormalApp().Build(entidade);
+
+            var entidade2 = new DistribuicaoNormalEntity
+            {
+                DesvioPadrao = 2000,
+                MediaPonderada = 10000,
+                TipoEntrada = 1,
+                Valor = new[] { new decimal(8000) }
+            };
+
+            var teste2 = new DistribuicaoNormalApp().Build(entidade2);
+
+
         }
     }
 }

@@ -1,6 +1,5 @@
 ﻿using System.Web.Mvc;
 using EstatisticaFatec.Core;
-using EstatisticaFatec.Core.Models.DistribuicaoNormal;
 
 namespace EstatisticaFatec.Controllers
 {
