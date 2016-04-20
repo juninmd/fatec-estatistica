@@ -7,6 +7,16 @@ namespace EstatisticaFatec.Tests
     [TestClass]
     public class DistribuicaoNormalTest
     {
+        private DistribuicaoNormalEntity EntidadeA(decimal?[] lista)
+        {
+            return new DistribuicaoNormalEntity
+            {
+                DesvioPadrao = 2000,
+                MediaPonderada = 10000,
+                TipoEntrada = 0,
+                Valor = lista
+            };
+        }
         [TestMethod]
         public void Input()
         {
@@ -15,28 +25,18 @@ namespace EstatisticaFatec.Tests
             Maior();
         }
 
+        private void Teste(DistribuicaoNormalEntity distribuicao, double valor)
+        {
+            var teste = new DistribuicaoNormalApp().Build(distribuicao);
+            Assert.AreEqual(teste.Probabilidade, valor, "O valor da probabilidade não está correto");
+        }
+
         [TestMethod]
         public void Menor()
         {
-            var entidade = new DistribuicaoNormalEntity
-            {
-                DesvioPadrao = 2000,
-                MediaPonderada = 10000,
-                TipoEntrada = 0,
-                Valor = new[] { new decimal?(11000) }
-            };
-            var teste = new DistribuicaoNormalApp().Build(entidade);
-            Assert.AreEqual(teste.Probabilidade, new decimal(30.85), "O valor da probabilidade não está correto");
-
-            var entidade2 = new DistribuicaoNormalEntity
-            {
-                DesvioPadrao = 2000,
-                MediaPonderada = 10000,
-                TipoEntrada = 0,
-                Valor = new[] { new decimal?(8000) }
-            };
-            var teste2 = new DistribuicaoNormalApp().Build(entidade2);
-            Assert.AreEqual(teste2.Probabilidade, new decimal(84.13), "O valor da probabilidade não está correto");
+            Teste(EntidadeA(new[] { new decimal?(11000) }), 30.85);
+            Teste(EntidadeA(new[] { new decimal?(8000) }), 84.13);
+          
         }
 
         [TestMethod]

@@ -4,50 +4,52 @@ namespace EstatisticaFatec.Core.Const
 {
     public class ColunaTabelaDistribuicao
     {
-        public ColunaTabelaDistribuicao(decimal valorColuna, decimal valorLinha)
+        public ColunaTabelaDistribuicao(decimal valorColuna, int valorLinha)
         {
             ValorLinha = valorLinha;
             ValorColuna = valorColuna;
         }
-        public decimal ValorLinha { get; set; }
+        public int ValorLinha { get; set; }
         public decimal ValorColuna { get; set; }
 
         private decimal GetValorLinha(decimal d0, decimal d1, decimal d2, decimal d3, decimal d4, decimal d5, decimal d6, decimal d7, decimal d8, decimal d9)
         {
-            if (ValorLinha == new decimal(0.0))
-                return d0;
-            else if (ValorLinha == new decimal(0.1))
-                return d1;
-            else if (ValorLinha == new decimal(0.2))
-                return d2;
-            else if (ValorLinha == new decimal(0.3))
-                return d3;
-            else if (ValorLinha == new decimal(0.4))
-                return d4;
-            else if (ValorLinha == new decimal(0.5))
-                return d5;
-            else if (ValorLinha == new decimal(0.6))
-                return d6;
-            else if (ValorLinha == new decimal(0.7))
-                return d7;
-            else if (ValorLinha == new decimal(0.8))
-                return d8;
-            else if (ValorLinha == new decimal(0.9))
-                return d9;
-
-            throw new Exception("aa");
+            switch (ValorLinha)
+            {
+                case 0:
+                    return d0;
+                case 1:
+                    return d1;
+                case 2:
+                    return d2;
+                case 3:
+                    return d3;
+                case 4:
+                    return d4;
+                case 5:
+                    return d5;
+                case 6:
+                    return d6;
+                case 7:
+                    return d7;
+                case 8:
+                    return d8;
+                case 9:
+                    return d9;
+            }
+            throw new Exception($"{ValorLinha}");
         }
 
         public decimal GetLinha()
         {
             if (ValorColuna == new decimal(0.0))
-                return GetValorLinha(F(0000), F(0040), F(0080), F(00120), F(00160), F(00190), F(0239), F(0279), F(0319), F(0359));
+                return GetValorLinha(F(0000), F(0040), F(0080), F(00120), F(00160), F(00199), F(0239), F(0279), F(0319), F(0359));
             if (ValorColuna == new decimal(0.1))
                 return GetValorLinha(F(0398), F(0438), F(0478), F(0517), F(0557), F(0596), F(0636), F(0675), F(0714), F(0753));
             if (ValorColuna == new decimal(0.2))
                 return GetValorLinha(F(0793), F(0832), F(0871), F(0910), F(0948), F(0987), F(1026), F(1064), F(1103), F(1141));
             if (ValorColuna == new decimal(0.3))
-                return GetValorLinha( F(1179), F(1217), F(1255), F(1293), F(1331), F(1368), F(1406), F(1443), F(1480), F(1517));
+                return GetValorLinha(F(1179), F(1217), F(1255), F(1293), F(1331), F(1368), F(1406), F(1443), F(1480), F(1517));
             if (ValorColuna == new decimal(0.4))
                 return GetValorLinha(F(1554), F(1591), F(1628), F(1664), F(1700), F(1736), F(1772), F(1808), F(1844), F(1879));
             if (ValorColuna == new decimal(0.5))
@@ -89,7 +91,7 @@ namespace EstatisticaFatec.Core.Const
             if (ValorColuna == new decimal(2.3))
                 return GetValorLinha(F(4893), F(4896), F(4898), F(4901), F(4904), F(4906), F(4909), F(4911), F(4913), F(4916));
             if (ValorColuna == new decimal(2.4))
-                return GetValorLinha(F(4918), F(4920), F(4922), F(4925), F(4927), F(4929), F(4931), F(4932), F(4934), F(4936 ));
+                return GetValorLinha(F(4918), F(4920), F(4922), F(4925), F(4927), F(4929), F(4931), F(4932), F(4934), F(4936));
             if (ValorColuna == new decimal(2.5))
                 return GetValorLinha(F(4938), F(4940), F(4941), F(4943), F(4945), F(4946), F(4948), F(4949), F(4951), F(4952));
             if (ValorColuna == new decimal(2.6))
@@ -109,7 +111,7 @@ namespace EstatisticaFatec.Core.Const
 
         private decimal F(decimal number)
         {
-            var query = $"0,{number}";
+            var query = $"0,{number.ToString().PadLeft(4, '0')}";
             return decimal.Parse(query);
         }
     }

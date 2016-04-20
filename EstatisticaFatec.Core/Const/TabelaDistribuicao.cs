@@ -9,11 +9,13 @@ namespace EstatisticaFatec.Core.Const
             var att = TratarResultado(Math.Abs(Z));
             return new ColunaTabelaDistribuicao(att.Item1, att.Item2).GetLinha();
         }
-        private Tuple<decimal, decimal> TratarResultado(decimal item)
+        private Tuple<decimal, int> TratarResultado(decimal item)
         {
-            var bruto = item.ToString("0.0|00").Split(',', '|'); // 1,00
-            var coluna = decimal.Parse(bruto[0] + "," + bruto[1]).ToString("0.0");
-            return new Tuple<decimal, decimal>(decimal.Parse(coluna), decimal.Parse(bruto[2]));
+            var bruto = item.ToString("0.00"); // 1,00
+
+            var coluna = decimal.Parse(bruto.Substring(0, 3)).ToString("0.0");
+            var linha = bruto.Substring(3, 1);
+            return new Tuple<decimal, int>(decimal.Parse(coluna), int.Parse(linha));
         }
     }
 
