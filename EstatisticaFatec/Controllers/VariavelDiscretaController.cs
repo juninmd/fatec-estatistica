@@ -2,6 +2,7 @@
 using EstatisticaFatec.Core;
 using EstatisticaFatec.Core.Models;
 using EstatisticaFatec.Core.Models.VariavelDiscreta;
+using EstatisticaFatec.Core.VariavelDiscreta;
 
 namespace EstatisticaFatec.Controllers
 {

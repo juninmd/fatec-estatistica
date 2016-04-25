@@ -12,6 +12,10 @@ namespace EstatisticaFatec.Helper
         {
             return (item == null || item.ToString() == "0") ? new MvcHtmlString("") : new MvcHtmlString(item.ToString());
         }
+        public static MvcHtmlString TakeOnly(this HtmlHelper h, object item, int count = 4)
+        {
+            return (item == null || item.ToString() == "0") ? new MvcHtmlString("") : new MvcHtmlString(item.ToString().Length > count ? item.ToString().Substring(0, count) : item.ToString());
+        }
 
         public static MvcHtmlString Rol(this HtmlHelper h, List<decimal> inputRol)
         {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using EstatisticaFatec.Core.Models.Grupos;
+using EstatisticaFatec.Core.Models.Agrupamento;
 
 namespace EstatisticaFatec.Core
 {

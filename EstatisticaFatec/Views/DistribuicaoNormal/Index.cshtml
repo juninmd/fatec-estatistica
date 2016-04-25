@@ -57,13 +57,13 @@
                 <label class="col-md-2 control-label">Desvio Padrão</label>
 
                 <div class="col-md-3">
-                    <input class="form-control" required placeholder="@Html.Null(Model.DesvioPadrao)" name="DesvioPadrao" type="number">
+                    <input class="form-control" required placeholder="@Html.Null(Model.DesvioPadrao)" value="@Html.Null(Model.DesvioPadrao)" name="DesvioPadrao" type="text">
                 </div>
 
                 <label class="col-md-2 control-label">Média Ponderada</label>
 
                 <div class="col-md-3">
-                    <input class="form-control" required placeholder="@Html.Null(Model.MediaPonderada)" name="MediaPonderada" type="number">
+                    <input class="form-control" required placeholder="@Html.Null(Model.MediaPonderada)"  value="@Html.Null(Model.MediaPonderada)" name="MediaPonderada" type="text">
                 </div>
             </div>
 
@@ -93,45 +93,69 @@
                 <div id="divValorA">
                     <label class="col-md-2 control-label">X:</label>
                     <div class="col-md-3">
-                        <input class="form-control" required placeholder="@Html.Null(Model.Valor.Length > 0 ? Model?.Valor[0] : null)" name="Valor" type="number">
+                        <input class="form-control" required placeholder="@Html.Null(Model.Valor.Length > 0 ? Model?.Valor[0] : null)" name="Valor" type="text">
                     </div>
                 </div>
 
                 <div id="divValorB" @(Model.TipoEntrada != 1 ? "style=display:none" : "")>
                     <label class="col-md-2 control-label">Y:</label>
                     <div class="col-md-3">
-                        <input class="form-control" @(Model.TipoEntrada == 1 ? "required" : "") placeholder="@Html.Null(Model.Valor.Length > 1 ? Model?.Valor[1] : null)" name="Valor" type="number">
+                        <input id="txtY" class="form-control" @(Model.TipoEntrada == 1 ? "required" : "") placeholder="@Html.Null(Model.Valor.Length > 1 ? Model?.Valor[1] : null)" name="Valor" type="text">
                     </div>
                 </div>
+            </div>
+
+            <div class="col-md-10 col-md-offset-2">
+                <button type="reset" class="btn btn-danger">Limpar</button>
+                <button type="submit" class="btn btn-primary">
+                    Enviar
+                    <div class="ripple-container"></div>
+                </button>
             </div>
 
             @if (Model.Probabilidade != 0)
             {
                 <hr>
                 <div class="form-group">
-                    <label class="col-md-2 control-label">Probabilidade</label>
 
-                    <div class="col-md-3">
-                        <input class="form-control" placeholder="@Html.Null(Model.Probabilidade)" readonly="">
+                    <div class="col-md-6">
+
+                        <label class="col-md-4 control-label">Probabilidade</label>
+
+                        <div class="col-md-8">
+                            <input class="form-control" placeholder="@Html.Null(Model.Probabilidade)" readonly="">
+                        </div>
                     </div>
 
-                    <label class="col-md-2 control-label">Z</label>
+
                     @foreach (var z in Model.DistribuicaoNormalZEntity)
                     {
-                        <div class="col-md-1">
-                            <input class="form-control" placeholder="@Html.Null(z.Z)" readonly="">
-                        </div>
-                    }
+                        <div class="col-md-6">
 
-                    <div id="chartdiv"></div>
+
+                            <label class="col-md-2 control-label">Z</label>
+
+                            <div class="col-md-3">
+                                <input class="form-control" placeholder="@Html.TakeOnly(z.Z)" readonly="">
+                            </div>
+
+                            <label class="col-md-2 control-label">Valor Tabela</label>
+                            <div class="col-md-3">
+                                <input class="form-control" placeholder="@Html.Null(z.ValorTabela)" readonly="">
+                            </div>
+                        </div>
+
+                    }
                 </div>
+
+                    <div class="form-group">
+                        <div id="chartdiv"></div>
+                    </div>
+
             }
 
 
-            <div class="col-md-10 col-md-offset-2">
-                <button type="reset" class="btn btn-danger">Limpar</button>
-                <button type="submit" class="btn btn-primary">Enviar<div class="ripple-container"></div></button>
-            </div>
+
 
         </fieldset>
     </form>
@@ -145,13 +169,14 @@
             $("input[name=TipoEntrada][value=@Model.TipoEntrada]").prop("checked", true);
         });
         $("input[name=TipoEntrada]").change(function () {
-            if ($(this).val() != 1) {
+
+            if ($("input[name=TipoEntrada]:checked").val() != 1) {
                 $("#divValorB").hide();
-                $("input[name=ValorB]").val("");
-                $("input[name=ValorB]").removeAttr("required");
+                $("#txtY").val("");
+                $("#txtY").removeAttr("required");
             } else {
                 $("#divValorB").show();
-                $("input[name=ValorB]").attr("required", "required").val("");
+                $("#txtY").attr("required", "required").val("");
             }
         });
 

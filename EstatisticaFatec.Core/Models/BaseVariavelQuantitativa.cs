@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using EstatisticaFatec.Core.Models.Grupos;
+using EstatisticaFatec.Core.Models.Agrupamento;
 using EstatisticaFatec.Core.Models.MedidasDispersao;
 using EstatisticaFatec.Core.Models.MedidasTendencia;
 

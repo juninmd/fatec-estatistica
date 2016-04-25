@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using EstatisticaFatec.Core;
 using EstatisticaFatec.Core.Models;
+using EstatisticaFatec.Core.VariavelDiscreta;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace EstatisticaFatec.Tests

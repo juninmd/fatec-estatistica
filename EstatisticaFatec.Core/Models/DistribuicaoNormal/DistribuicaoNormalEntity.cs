@@ -9,8 +9,8 @@ namespace EstatisticaFatec.Core.Models.DistribuicaoNormal
             Valor = new decimal?[] {};
             DistribuicaoNormalZEntity = new List<DistribuicaoNormalZEntity>();
         }
-        public int MediaPonderada { get; set; }
-        public int DesvioPadrao { get; set; }
+        public decimal MediaPonderada { get; set; }
+        public decimal DesvioPadrao { get; set; }
 
         public decimal?[] Valor { get; set; }
 

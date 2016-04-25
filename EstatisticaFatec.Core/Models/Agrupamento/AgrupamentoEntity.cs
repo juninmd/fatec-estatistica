@@ -1,4 +1,4 @@
-﻿namespace EstatisticaFatec.Core.Models.Grupos
+﻿namespace EstatisticaFatec.Core.Models.Agrupamento
 {
     public class AgrupamentoEntity
     {

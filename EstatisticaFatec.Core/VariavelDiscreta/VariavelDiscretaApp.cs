@@ -4,9 +4,8 @@ using System.Linq;
 using EstatisticaFatec.Core.Models;
 using EstatisticaFatec.Core.Models.MedidasDispersao;
 using EstatisticaFatec.Core.Models.VariavelDiscreta;
-using static EstatisticaFatec.Core.MathCoreApp;
 
-namespace EstatisticaFatec.Core
+namespace EstatisticaFatec.Core.VariavelDiscreta
 {
     public class VariavelDiscretaApp
     {
@@ -15,7 +14,7 @@ namespace EstatisticaFatec.Core
             return new XIFIQuadFI
             {
                 Formula = $"({XI} - `{media})². {FI}",
-                Valor = Quadrado((XI - media)) * FI,
+                Valor = MathCoreApp.Quadrado((XI - media)) * FI,
             };
         }
         public VariavelDiscretaContainerEntity Build(BaseInputsEntity baseInputs)
@@ -26,12 +25,12 @@ namespace EstatisticaFatec.Core
 
 
 
-            var media = MediaComum(baseInputs.InputValue);
+            var media = MathCoreApp.MediaComum(baseInputs.InputValue);
             var agrupamento = new AgrupamentoApp().Build(baseInputs.Rol);
 
             foreach (var item in agrupamento)
             {
-                var fePorcent = Porcentagem(item.Quantidade, agrupamento.Select(q => q.Quantidade).Sum());
+                var fePorcent = MathCoreApp.Porcentagem(item.Quantidade, agrupamento.Select(q => q.Quantidade).Sum());
 
                 f.Add(item.Quantidade);
                 fePorcentList.Add(fePorcent);
@@ -45,14 +44,13 @@ namespace EstatisticaFatec.Core
                     FPorcent = fePorcentList.Sum(),
                     XIFI = item.XI * item.Quantidade,
                     XIFIQuadFI = PreencherXIFIQUADFI(item.XI, media, item.Quantidade),
-                    Probabilidade = item.Quantidade / agrupamento.Sum(q => q.Quantidade)
                 });
             }
 
             var medidasTendenciaApp = new MedidasTendenciaApp().Calcular(baseInputs.InputValue);
 
             var variancia = MedidasDispersaoApp.Variancia(listaVariavelDiscreta.Select(q => q.XI).ToList(), media, listaVariavelDiscreta.Select(q => q.XI).Count(), baseInputs.Amostra);
-            var dp = RaizQuadrada(variancia);
+            var dp = MathCoreApp.RaizQuadrada(variancia);
             var cv = Math.Round((decimal)((dp / media)) * 100, 2);
 
             var medidasDispersaoApp = new MedidasDispersaoEntity
@@ -61,6 +59,8 @@ namespace EstatisticaFatec.Core
                 DP = dp,
                 CV = cv
             };
+
+            listaVariavelDiscreta = new VariavelDiscretaProbabilidade().Build(listaVariavelDiscreta, medidasDispersaoApp.DP, media);
 
             return new VariavelDiscretaContainerEntity
             {

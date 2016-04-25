@@ -55,7 +55,7 @@ namespace EstatisticaFatec.Core
 
         private decimal ProbabilidadeMenor(decimal Z, decimal valorTabela)
         {
-            return Math.Round((Z > 0 ? new decimal(0.5) - valorTabela : valorTabela + new decimal(0.5)) * 100, 2);
+            return Math.Round((new decimal(0.5) - valorTabela )* 100, 2);
         }
         private decimal ProbabilidadeEntre(Tuple<decimal, decimal> valorMenor, Tuple<decimal, decimal> valorMaior)
         {
