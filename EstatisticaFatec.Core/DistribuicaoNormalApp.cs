@@ -21,7 +21,7 @@ namespace EstatisticaFatec.Core
 
         public DistribuicaoNormalEntity Build(DistribuicaoNormalEntity entidade)
         {
-            foreach (var item in entidade.Valor.Where(q=> q.HasValue))
+            foreach (var item in entidade.Valor.Where(q => q.HasValue))
             {
                 var Z = CalcularZ(item.Value, entidade.MediaPonderada, entidade.DesvioPadrao);
 
@@ -55,14 +55,14 @@ namespace EstatisticaFatec.Core
 
         private decimal ProbabilidadeMenor(decimal Z, decimal valorTabela)
         {
-            return Math.Round((new decimal(0.5) - valorTabela )* 100, 2);
+            return Math.Round((Z < 0 ? (new decimal(0.5) - valorTabela) : (new decimal(0.5) + valorTabela)) * 100, 2);
         }
         private decimal ProbabilidadeEntre(Tuple<decimal, decimal> valorMenor, Tuple<decimal, decimal> valorMaior)
         {
             //<<
             if (valorMenor.Item1 <= 0 && valorMaior.Item1 <= 0)
             {
-                if(valorMaior.Item2 < valorMenor.Item2)
+                if (valorMaior.Item2 < valorMenor.Item2)
                     return Math.Round((valorMenor.Item2 - valorMaior.Item2) * 100, 2);
                 return Math.Round((valorMaior.Item2 - valorMenor.Item2) * 100, 2);
             }
