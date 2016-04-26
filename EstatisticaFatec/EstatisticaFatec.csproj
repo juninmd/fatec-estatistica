@@ -143,6 +143,7 @@
     <Content Include="Content\cssBase.css" />
     <Content Include="Content\font-awesome.css" />
     <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\img\distribuicaoNormal\tabela.jpg" />
     <Content Include="Content\img\estratificadaProporcional\estratificadaProporcional.jpg" />
     <Content Include="Content\img\estratificadaUniforme\exemplo.jpg" />
     <Content Include="Content\img\fatec.jpg" />

@@ -63,7 +63,7 @@
                 <label class="col-md-2 control-label">Média Ponderada</label>
 
                 <div class="col-md-3">
-                    <input class="form-control" required placeholder="@Html.Null(Model.MediaPonderada)"  value="@Html.Null(Model.MediaPonderada)" name="MediaPonderada" type="text">
+                    <input class="form-control" required placeholder="@Html.Null(Model.MediaPonderada)" value="@Html.Null(Model.MediaPonderada)" name="MediaPonderada" type="text">
                 </div>
             </div>
 
@@ -148,9 +148,9 @@
                     }
                 </div>
 
-                    <div class="form-group">
-                        <div id="chartdiv"></div>
-                    </div>
+                <div class="form-group">
+                    <div id="chartdiv"></div>
+                </div>
 
             }
 
@@ -213,10 +213,53 @@
             <div class="modal-body">
 
                 <fieldset>
-                    <legend> Coletando paramêtros <span class="lesssmall pull-right">A população deve ser maior que a amostra.</span></legend>
+                    <h4>Legenda</h4>
+                    <div class="legenda-formula">
+
+                        <p>
+                            <code>Variância</code> É o cálculo sobre a média
+                        </p>
+                        <p>
+                            <code>Desvio Padrão</code> É a raiz quadrada da variância.
+                        </p>
+                        <p>
+                            <code><span class="media">X</span></code> É média
+                        </p>
+                        <p>
+                            <code><span>Z</span></code> Cálculo entre o valor aleatório, a média e o Desvio Padrão
+                        </p>
+                        <p>
+                            <code><span>Valor Z</span></code> Z representado na tabela
+                        </p>
+                    </div>
 
 
+                    <p>O primeiro passo é obtermos o valor de Z na tabela de distrubição normal, para isso necessitamos levantar algumas informações:</p>
+                    <ul>
+                        <li>Média Aritimética</li>
+                        <li>Desvio Padrão</li>
+                        <li>
+                            Range da Entrada
+                            <ul>
+                                <li>Menor</li>
+                                <li>Entre</li>
+                                <li>Maior</li>
+                            </ul>
+                        </li>
+                    </ul>
 
+                    <p>Agora vamos obter o valor Z seguindo a fórmula:</p>
+                    <pre>
+                        Z = (X - Média) / Desvio Padrão
+                    </pre>
+
+                    <img style="width: 100%;" class="img-rounded img-responsive" src="~/Content/img/distribuicaoNormal/tabela.jpg" />
+
+                    <p>Se Z for menor que 0 temos a fórmula</p>
+
+                    <pre>
+                        R = 0,5 -                    
+ </pre>
 
                 </fieldset>
             </div>
