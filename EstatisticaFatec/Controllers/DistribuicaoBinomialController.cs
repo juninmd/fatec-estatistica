@@ -1,17 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using EstatisticaFatec.Core;
+using EstatisticaFatec.Core.Models.DistribuicaoBinomial;
 
 namespace EstatisticaFatec.Controllers
 {
     public class DistribuicaoBinomialController : Controller
     {
-        // GET: DistribuicaoBinomial
+        [HttpGet]
         public ActionResult Index()
         {
-            return null;
+            return View(new DistribuicaoBinomialEntity());
+        }
+
+        [HttpPost]
+        public ActionResult Index(DistribuicaoBinomialEntity distribuicao)
+        {
+            return View(new DistribuicaoBinomialApp().Build(distribuicao));
         }
     }
 }
