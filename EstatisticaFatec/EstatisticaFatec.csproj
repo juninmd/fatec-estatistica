@@ -118,6 +118,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AleatoriaSimplesController.cs" />
+    <Compile Include="Controllers\DistribuicaoBinomialController.cs" />
     <Compile Include="Controllers\DistribuicaoNormalController.cs" />
     <Compile Include="Controllers\MedidasTendenciaController.cs" />
     <Compile Include="Controllers\MedidasDispersaoController.cs" />
@@ -236,6 +237,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\DistribuicaoBinomial\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

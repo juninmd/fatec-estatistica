@@ -49,7 +49,7 @@ namespace EstatisticaFatec.Core.VariavelDiscreta
 
             var medidasTendenciaApp = new MedidasTendenciaApp().Calcular(baseInputs.InputValue);
 
-            var variancia = MedidasDispersaoApp.Variancia(listaVariavelDiscreta.Select(q => q.XI).ToList(), media, listaVariavelDiscreta.Select(q => q.XI).Count(), baseInputs.Amostra);
+            var variancia = Variancia(listaVariavelDiscreta.Select(q => q.XI).ToList(), listaVariavelDiscreta.Select(q => q.FI).ToList(), media, baseInputs.Amostra);
             var dp = MathCoreApp.RaizQuadrada(variancia);
             var cv = Math.Round((decimal)((dp / media)) * 100, 2);
 
@@ -72,5 +72,27 @@ namespace EstatisticaFatec.Core.VariavelDiscreta
                 AgrupamentoEntity = agrupamento
             };
         }
+
+        public static decimal Variancia(List<decimal> listaXI, List<decimal> listaFI, decimal media, bool amostra)
+        {
+            var N = listaFI.Sum();
+            if (amostra)
+            {
+                N = N - 1;
+            }
+
+            var listaNova = new List<decimal>();
+
+            for (int i = 0; i < listaXI.Count; i++)
+            {
+                var conta = MathCoreApp.Quadrado(Math.Round(listaXI[i] - media, 2));
+                listaNova.Add(conta * listaFI[i]);
+            }
+
+
+            var soma = listaNova.Sum();
+            return Math.Round((decimal)(soma / (N)), 2);
+        }
+
     }
 }

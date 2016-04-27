@@ -44,6 +44,7 @@
     <Compile Include="AleatoriaSimplesApp.cs" />
     <Compile Include="Const\ColunaTabelaDistribuicao.cs" />
     <Compile Include="Const\TabelaDistribuicao.cs" />
+    <Compile Include="DistribuicaoBinomialApp.cs" />
     <Compile Include="DistribuicaoNormalApp.cs" />
     <Compile Include="EstratificadaProporcionalApp.cs" />
     <Compile Include="EstratificadaUniformeApp.cs" />
@@ -53,6 +54,7 @@
     <Compile Include="MedidasDispersaoApp.cs" />
     <Compile Include="MedidasTendenciaApp.cs" />
     <Compile Include="Models\AleatoriaSimples\AleatoriaSimplesEntity.cs" />
+    <Compile Include="Models\DistribuicaoBinomial\DistribuicaoBinomialEntity.cs" />
     <Compile Include="Models\DistribuicaoNormal\DistribuicaoNormalZEntity.cs" />
     <Compile Include="Models\DistribuicaoNormal\DistribuicaoNormalEntity.cs" />
     <Compile Include="Models\InputEntity.cs" />
