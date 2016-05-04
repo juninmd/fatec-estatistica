@@ -6,7 +6,6 @@
 }
 
 
-
 @if (Model.N == 0)
 {
     <div class="alert alert-warning alert-dismissable">
@@ -56,20 +55,20 @@
                 </div>
             }
             <div class="form-group">
-                <label class="col-md-2 control-label">Quantidade de Itens</label>
+                <label class="col-md-2 control-label" title="Quantidade de Itens">N</label>
 
                 <div class="col-md-3">
                     <input class="form-control" required placeholder="@Html.Null(Model.N)" value="@Html.Null(Model.N)" name="N" type="text">
                 </div>
 
-                <label class="col-md-2 control-label">Quantidade do Sucesso</label>
+                <label class="col-md-2 control-label" title="Quantidade do Sucesso">P</label>
 
                 <div class="col-md-3">
-                    <input class="form-control" required placeholder="@Html.Null(Model.P)" value="@Html.Null(Model.P)" name="P" type="text">
+                    <input class="form-control" required placeholder="@Html.Null(Model.PInput)" value="@Html.Null(Model.PInput)" name="PInput" type="text">
                 </div>
             </div>
 
-            <div class="col-md-10 col-md-offset-2 form-inline">
+            <div class="col-md-4 col-md-offset-2 form-inline">
                 <div class="radio">
                     <label>
                         <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="0">
@@ -90,20 +89,30 @@
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="col-md-4 col-md-offset-2 form-inline">
+                <div class="radio">
+                    <label>
+                        <input type="radio" class="radio-inline" name="InputSemDefeito" required="" value="true">
+                        Sucesso
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" class="radio-inline" name="InputSemDefeito" required="" value="false" />
+                        Erro
+                    </label>
+                </div>
+            </div>
 
-                <div id="divValorA">
+            <div class="col-md-12">
+
+                <div class="form-group">
+
                     <label class="col-md-2 control-label">X:</label>
                     <div class="col-md-3">
-                        <input class="form-control" required placeholder="@Html.Null(Model.Valor.Length > 0 ? Model?.Valor[0] : null)" name="Valor" type="text">
+                        <input class="form-control" required placeholder="@Html.Null(Model.KInput)" name="KInput" type="text">
                     </div>
-                </div>
 
-                <div id="divValorB" @(Model.TipoEntrada != 1 ? "style=display:none" : "")>
-                    <label class="col-md-2 control-label">Y:</label>
-                    <div class="col-md-3">
-                        <input id="txtY" class="form-control" @(Model.TipoEntrada == 1 ? "required" : "") placeholder="@Html.Null(Model.Valor.Length > 1 ? Model?.Valor[1] : null)" name="Valor" type="text">
-                    </div>
                 </div>
             </div>
 
@@ -115,49 +124,34 @@
                 </button>
             </div>
 
-            @if (Model.Probabilidade != 0)
-            {
-                <hr>
+
+            <div class="col-md-12">
+
                 <div class="form-group">
 
-                    <div class="col-md-6">
-
-                        <label class="col-md-4 control-label">Probabilidade</label>
-
-                        <div class="col-md-8">
-                            <input class="form-control" placeholder="@Html.Null(Model.Probabilidade)" readonly="">
-                        </div>
-                    </div>
-
-
-                    @foreach (var z in Model.DistribuicaoNormalZEntity)
+                    @if (Model.KInput != 0)
                     {
-                        <div class="col-md-6">
+                        <hr>
+
+                        <label class="col-md-1 control-label">P:</label>
+                        <div class="col-md-3">
+                            <input class="form-control" value="@Html.Null(Model.P)" type="text">
+                        </div>
+
+                        <label class="col-md-1 control-label">Q:</label>
+                        <div class="col-md-3">
+                            <input class="form-control" value="@Html.Null(Model.Q)" type="text">
+                        </div>
 
 
-                            <label class="col-md-2 control-label">Z</label>
-
-                            <div class="col-md-3">
-                                <input class="form-control" placeholder="@Html.TakeOnly(z.Z)" readonly="">
-                            </div>
-
-                            <label class="col-md-2 control-label">Valor Tabela</label>
-                            <div class="col-md-3">
-                                <input class="form-control" placeholder="@Html.Null(z.ValorTabela)" readonly="">
-                            </div>
+                        <label class="col-md-1 control-label">K:</label>
+                        <div class="col-md-3">
+                            <input class="form-control" value="@string.Join(", ", new { @Model.K, Model.KProbabilidade })" type="text">
                         </div>
 
                     }
                 </div>
-
-                <div class="form-group">
-                    <div id="chartdiv"></div>
-                </div>
-
-            }
-
-
-
+            </div>
 
         </fieldset>
     </form>
@@ -169,39 +163,12 @@
         $(document).ready(function () {
             $("input[name=TipoEntrada]").prop("checked", false);
             $("input[name=TipoEntrada][value=@Model.TipoEntrada]").prop("checked", true);
+
+            $("input[name=InputSemDefeito]").prop("checked", false);
+            $("input[name=InputSemDefeito][value=@Model.InputSemDefeito]").prop("checked", true);
         });
-        $("input[name=TipoEntrada]").change(function () {
-
-            if ($("input[name=TipoEntrada]:checked").val() != 1) {
-                $("#divValorB").hide();
-                $("#txtY").val("");
-                $("#txtY").removeAttr("required");
-            } else {
-                $("#divValorB").show();
-                $("#txtY").attr("required", "required").val("");
-            }
-        });
-
-
     </script>
-    @if (Model.Probabilidade != 0)
-    {
-        <style>
-        </style>
-        <script src="~/Scripts/amcharts.js"></script>
-        <script src="~/Scripts/light.js"></script>
-        <script src="~/Scripts/serial.js"></script>
-        <script src="~/Scripts/propability.js"></script>
-        <script>
-
-            $(document).ready(function () {
-                createBellChart(@Html.FormatacaoObjetoDistribuicaoNormal(Model));
-            });
-
-        </script>
-    }
 }
-
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">

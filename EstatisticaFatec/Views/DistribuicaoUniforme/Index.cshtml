@@ -1,0 +1,106 @@
+﻿@using EstatisticaFatec.Helper
+@model EstatisticaFatec.Core.Models.DistribuicaoUniforme.DistribuicaoUniformeEntity
+
+@{
+    Layout = "~/Views/Shared/_LayoutForm.cshtml";
+}
+
+@section opcoes
+{
+    <li>
+        <a class="btn-floating" title="Informações" data-toggle="modal" data-target="#modalDistribuicaoBinomial">
+            <i class="glyphicon glyphicon-book" aria-hidden="true"></i>
+        </a>
+    </li>
+}
+
+<div class="well bs-component">
+    <form class="form-horizontal" method="post" action="@Url.Action("Index")">
+        <fieldset>
+            <legend>Parametrização</legend>
+
+            @if (@Html.ViewData.ModelState.IsValid == false)
+            {
+                <div class="alert alert-warning alert-dismissable" style="background-color: #610883;">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <div class="row-action-primary">
+                        <i class="material-icons" style="color: white;float: left;">error</i>
+                    </div>
+                    <strong>@Html.ValidationMessage("error")</strong>
+                </div>
+            }
+            <div class="form-group">
+                <label class="col-md-2 control-label" title="Menor valor">A</label>
+                <div class="col-md-3">
+                    <input class="form-control" required placeholder="@Html.Null(Model.A)" value="@Html.Null(Model.A)" name="A" type="text">
+                </div>
+
+                <label class="col-md-2 control-label" title="Maior Valor">B</label>
+                <div class="col-md-3">
+                    <input class="form-control" required placeholder="@Html.Null(Model.B)" value="@Html.Null(Model.B)" name="B" type="text">
+                </div>
+
+                <label class="col-md-2 control-label" title="Maior Valor">Equilibrio</label>
+                <div class="col-md-3">
+                    <input class="form-control" required placeholder="@Html.Null(Model.Equilibrio)" value="@Html.Null(Model.Equilibrio)" name="Equilibrio" type="text">
+                </div>
+            </div>
+
+            <div class="col-md-10 col-md-offset-2">
+                <button type="reset" class="btn btn-danger">Limpar</button>
+                <button type="submit" class="btn btn-primary">
+                    Enviar
+                    <div class="ripple-container"></div>
+                </button>
+            </div>
+
+
+            <div class="col-md-12">
+
+                <div class="form-group">
+
+                    @if (Model.A != 0)
+                    {
+                        <hr>
+
+                        <label class="col-md-1 control-label">Média:</label>
+                        <div class="col-md-3">
+                            <input class="form-control" value="@Html.Null(Model.Media)" type="text">
+                        </div>
+
+                        <label class="col-md-1 control-label">Desvio Padrão:</label>
+                        <div class="col-md-3">
+                            <input class="form-control" value="@Html.Null(Model.DesvioPadrao)" type="text">
+                        </div>
+
+
+                        <label class="col-md-1 control-label">Probabilidade:</label>
+                        <div class="col-md-3">
+                            <input class="form-control" value="@Html.Null(Model.Probabilidade)" type="text">
+                        </div>
+
+                    }
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+</div>
+
+<!-- Modal -->
+<div id="modalDistribuicaoBinomial" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Entendendo as etapas</h4>
+            </div>
+            <div class="modal-body">
+
+            </div>
+        </div>
+    </div>
+</div>
+

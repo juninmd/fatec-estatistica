@@ -120,6 +120,7 @@
     <Compile Include="Controllers\AleatoriaSimplesController.cs" />
     <Compile Include="Controllers\DistribuicaoBinomialController.cs" />
     <Compile Include="Controllers\DistribuicaoNormalController.cs" />
+    <Compile Include="Controllers\DistribuicaoUniformeController.cs" />
     <Compile Include="Controllers\MedidasTendenciaController.cs" />
     <Compile Include="Controllers\MedidasDispersaoController.cs" />
     <Compile Include="Controllers\SistematicaController.cs" />
@@ -235,6 +236,7 @@
     <Content Include="Views\Shared\_ModalDistribuicaoNormal.cshtml" />
     <Content Include="Views\Shared\_DistribuicaoNormal.cshtml" />
     <Content Include="Views\DistribuicaoBinomial\Index.cshtml" />
+    <Content Include="Views\DistribuicaoUniforme\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

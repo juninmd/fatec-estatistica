@@ -26,11 +26,6 @@ namespace EstatisticaFatec.Core.Models.DistribuicaoBinomial
         /// </summary>
         public decimal Q { get; set; }
 
-         
-        /// <summary>
-        /// 
-        /// </summary>
-        public decimal QInput { get; set; }
 
         /// <summary>
         /// <para>true - Resultado deve ser em torno das com sucesso</para>
@@ -54,8 +49,8 @@ namespace EstatisticaFatec.Core.Models.DistribuicaoBinomial
         /// <summary>
         /// Lista de elementos K / Probabilidade
         /// </summary>
-        public List<Tuple<decimal,decimal>> K { get; set; }
+        public List<decimal> K { get; set; }
 
-        public decimal ProbabilidadeTotal { get; set; }
+        public List<decimal> KProbabilidade { get; set; }
     }
 }

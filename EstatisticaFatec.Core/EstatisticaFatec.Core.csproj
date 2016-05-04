@@ -44,6 +44,7 @@
     <Compile Include="AleatoriaSimplesApp.cs" />
     <Compile Include="Const\ColunaTabelaDistribuicao.cs" />
     <Compile Include="Const\TabelaDistribuicao.cs" />
+    <Compile Include="DistribuicaoUniformeApp.cs" />
     <Compile Include="DistribuicaoBinomialApp.cs" />
     <Compile Include="DistribuicaoNormalApp.cs" />
     <Compile Include="EstratificadaProporcionalApp.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Models\DistribuicaoBinomial\DistribuicaoBinomialEntity.cs" />
     <Compile Include="Models\DistribuicaoNormal\DistribuicaoNormalZEntity.cs" />
     <Compile Include="Models\DistribuicaoNormal\DistribuicaoNormalEntity.cs" />
+    <Compile Include="Models\DistribuicaoUniforme\DistribuicaoUniformeEntity.cs" />
     <Compile Include="Models\InputEntity.cs" />
     <Compile Include="Models\BaseVariavelQuantitativa.cs" />
     <Compile Include="Models\BaseInputsEntity.cs" />
@@ -81,6 +83,7 @@
     <Compile Include="VariavelDiscreta\VariavelDiscretaProbabilidade.cs" />
     <Compile Include="VariavelDiscreta\VariavelDiscretaApp.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
