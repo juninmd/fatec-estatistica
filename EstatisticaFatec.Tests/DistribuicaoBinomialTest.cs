@@ -17,7 +17,7 @@ namespace EstatisticaFatec.Tests
                 KInput = 18,
                 TipoEntrada = 2
             };
-            var build = new DistribuicaoBinomialApp().Fatorial(elemento.KInput, elemento.TipoEntrada, elemento.N);
+            var build = new DistribuicaoBinomialApp().Build(elemento);
 
             var elemento2 = new DistribuicaoBinomialEntity
             {
@@ -25,9 +25,7 @@ namespace EstatisticaFatec.Tests
                 KInput = 15,
                 TipoEntrada = 0
             };
-            var build2 = new DistribuicaoBinomialApp().Fatorial(elemento2.KInput, elemento2.TipoEntrada, elemento2.N);
+            var build2 = new DistribuicaoBinomialApp().Build(elemento2);
         }
-
-
     }
 }
