@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using EstatisticaFatec.Core.Models.DistribuicaoUniforme;
 
 namespace EstatisticaFatec.Core
@@ -8,9 +9,15 @@ namespace EstatisticaFatec.Core
         public DistribuicaoUniformeEntity Build(DistribuicaoUniformeEntity entidade)
         {
             entidade.Media = (entidade.B + entidade.A) / 2;
-            entidade.DesvioPadrao = (decimal)Math.Sqrt(Math.Pow((double)(entidade.B - entidade.A), 2) / 2);
-            entidade.Probabilidade = (1 / (entidade.B - entidade.A)) * entidade.X;
-            return new DistribuicaoUniformeEntity();
+            entidade.DesvioPadrao = Math.Round((decimal)Math.Sqrt(Math.Pow((double)(entidade.B - entidade.A), 2) / 12), 2);
+            entidade.X = Intervalo(entidade.Input);
+            entidade.Probabilidade = ((decimal)1 / (entidade.B - entidade.A)) * entidade.X;
+            return entidade;
+        }
+
+        private decimal Intervalo(decimal[] input)
+        {
+            return input.Max() - input.Min();
         }
     }
 }

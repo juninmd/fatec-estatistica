@@ -2,6 +2,10 @@
 {
     public class DistribuicaoUniformeEntity
     {
+        public DistribuicaoUniformeEntity()
+        {
+            Input = new[] { (decimal)0, (decimal)0 };
+        }
         public decimal A { get; set; }
         public decimal B { get; set; }
         public decimal Equilibrio { get; set; }

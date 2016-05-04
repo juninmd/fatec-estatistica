@@ -39,10 +39,24 @@
                 <div class="col-md-3">
                     <input class="form-control" required placeholder="@Html.Null(Model.B)" value="@Html.Null(Model.B)" name="B" type="text">
                 </div>
+            </div>
+
+            <div class="form-group">
 
                 <label class="col-md-2 control-label" title="Maior Valor">Equilibrio</label>
                 <div class="col-md-3">
                     <input class="form-control" required placeholder="@Html.Null(Model.Equilibrio)" value="@Html.Null(Model.Equilibrio)" name="Equilibrio" type="text">
+                </div>
+            </div>
+
+            <div class="form-group">
+
+                <label class="col-md-2 control-label">Input</label>
+                <div class="col-md-3">
+                    <input class="form-control" required placeholder="@Html.Null(Model.Input[0])" value="@Html.Null(Model.Input[0])" name="Input" type="text">
+                </div>
+                <div class="col-md-3">
+                    <input class="form-control" required placeholder="@Html.Null(Model.Input[0])" value="@Html.Null(Model.Input[1])" name="Input" type="text">
                 </div>
             </div>
 
@@ -63,21 +77,21 @@
                     {
                         <hr>
 
-                        <label class="col-md-1 control-label">Média:</label>
-                        <div class="col-md-3">
+                        <label class="col-md-2 control-label">Média:</label>
+                        <div class="col-md-1">
                             <input class="form-control" value="@Html.Null(Model.Media)" type="text">
                         </div>
 
-                        <label class="col-md-1 control-label">Desvio Padrão:</label>
-                        <div class="col-md-3">
+                        <label class="col-md-2 control-label">Desvio Padrão:</label>
+                        <div class="col-md-1">
                             <input class="form-control" value="@Html.Null(Model.DesvioPadrao)" type="text">
                         </div>
 
 
-                        <label class="col-md-1 control-label">Probabilidade:</label>
-                        <div class="col-md-3">
-                            <input class="form-control" value="@Html.Null(Model.Probabilidade)" type="text">
-                        </div>
+                            <label class="col-md-2 control-label">Probabilidade:</label>
+                            <div class="col-md-1">
+                                <input class="form-control" value="@Html.Null(Model.Probabilidade)" type="text">
+                            </div>
 
                     }
                 </div>
