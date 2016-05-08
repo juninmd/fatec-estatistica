@@ -5,6 +5,18 @@ namespace EstatisticaFatec.Core.Models.DistribuicaoBinomial
 {
     public class DistribuicaoBinomialEntity
     {
+        public DistribuicaoBinomialEntity()
+        {
+            KProbabilidade = new List<decimal[]>();
+        }
+
+
+        /// <summary>
+        /// <para>true - Resultado deve ser em torno das com sucesso</para>
+        /// <para>false - Resultado deve ser em torno das sem sucesso</para>
+        /// </summary>
+        public bool InputSemDefeito { get; set; }
+
         /// <summary>
         /// Quantidade total de elementos
         /// </summary>
@@ -12,9 +24,9 @@ namespace EstatisticaFatec.Core.Models.DistribuicaoBinomial
 
 
         /// <summary>
-        /// 
+        /// Quantidade de itens com sucesso
         /// </summary>
-        public decimal PInput { get; set; }
+        public decimal SucessoInput { get; set; }
 
         /// <summary>
         /// Quantidade de itens com sucesso
@@ -25,13 +37,6 @@ namespace EstatisticaFatec.Core.Models.DistribuicaoBinomial
         /// Quantidade de itens sem sucesso     [ Fracasso ] 
         /// </summary>
         public decimal Q { get; set; }
-
-
-        /// <summary>
-        /// <para>true - Resultado deve ser em torno das com sucesso</para>
-        /// <para>false - Resultado deve ser em torno das sem sucesso</para>
-        /// </summary>
-        public bool InputSemDefeito { get; set; }
 
         /// <summary>
         /// <para>0 - Menor</para>
@@ -44,13 +49,16 @@ namespace EstatisticaFatec.Core.Models.DistribuicaoBinomial
         /// <summary>
         /// Item no Input
         /// </summary>
-        public decimal KInput { get; set; }
+        public int KInput { get; set; }
 
         /// <summary>
         /// Lista de elementos K / Probabilidade
         /// </summary>
-        public List<decimal> K { get; set; }
+        public List<int> K { get; set; }
 
-        public List<decimal> KProbabilidade { get; set; }
+        public List<decimal[]> KProbabilidade { get; set; }
+
+        public decimal Media { get; set; }
+        public double DesvioPadrao { get; set; }
     }
 }

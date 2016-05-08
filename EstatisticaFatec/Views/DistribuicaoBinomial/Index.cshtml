@@ -25,7 +25,7 @@
 
 <div class="well bs-component">
     <fieldset>
-        <legend>Distribuição Normal</legend>
+        <legend>Distribuição Binomial</legend>
         <div class="form-group">
 
 
@@ -61,48 +61,30 @@
                     <input class="form-control" required placeholder="@Html.Null(Model.N)" value="@Html.Null(Model.N)" name="N" type="text">
                 </div>
 
-                <label class="col-md-2 control-label" title="Quantidade do Sucesso">P</label>
-
-                <div class="col-md-3">
-                    <input class="form-control" required placeholder="@Html.Null(Model.PInput)" value="@Html.Null(Model.PInput)" name="PInput" type="text">
-                </div>
-            </div>
-
-            <div class="col-md-4 col-md-offset-2 form-inline">
-                <div class="radio">
-                    <label>
-                        <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="0">
-                        Menor
-                    </label>
-                </div>
-                <div class="radio">
-                    <label>
-                        <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="1" />
-                        Exatamente
-                    </label>
+                <div class="col-md-4 col-md-offset-2 form-inline">
                     <div class="radio">
                         <label>
-                            <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="2" />
-                            Maior
+                            <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="0">
+                            Menor
                         </label>
                     </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="1" />
+                            Exatamente
+                        </label>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="2" />
+                                Maior
+                            </label>
+                        </div>
+                    </div>
                 </div>
+
             </div>
 
-            <div class="col-md-4 col-md-offset-2 form-inline">
-                <div class="radio">
-                    <label>
-                        <input type="radio" class="radio-inline" name="InputSemDefeito" required="" value="true">
-                        Sucesso
-                    </label>
-                </div>
-                <div class="radio">
-                    <label>
-                        <input type="radio" class="radio-inline" name="InputSemDefeito" required="" value="false" />
-                        Erro
-                    </label>
-                </div>
-            </div>
+          
 
             <div class="col-md-12">
 
@@ -110,11 +92,34 @@
 
                     <label class="col-md-2 control-label">X:</label>
                     <div class="col-md-3">
-                        <input class="form-control" required placeholder="@Html.Null(Model.KInput)" name="KInput" type="text">
+                        <input class="form-control" required placeholder="@Html.Null(Model.KInput)" value="@Html.Null(Model.KInput)" name="KInput" type="text">
+                    </div>
+
+
+                    <div class="col-md-4 col-md-offset-2 form-inline">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="radio-inline" name="InputSemDefeito" required="" value="True">
+                                Sucesso
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="radio-inline" name="InputSemDefeito" required="" value="False"/>
+                                Erro
+                            </label>
+                        </div>
+                    </div>
+
+                    <label class="col-md-2 control-label">Quantidade Elementos Sucesso:</label>
+                    <div class="col-md-3">
+                        <input class="form-control" required placeholder="@Html.Null(Model.SucessoInput)" name="SucessoInput" value="@Html.Null(Model.SucessoInput)" type="text">
                     </div>
 
                 </div>
             </div>
+
+
 
             <div class="col-md-10 col-md-offset-2">
                 <button type="reset" class="btn btn-danger">Limpar</button>
@@ -125,13 +130,12 @@
             </div>
 
 
-            <div class="col-md-12">
+            @if (Model.KInput != 0)
+            {
+                <div class="col-md-12">
+                    <hr>
 
-                <div class="form-group">
-
-                    @if (Model.KInput != 0)
-                    {
-                        <hr>
+                    <div class="form-group">
 
                         <label class="col-md-1 control-label">P:</label>
                         <div class="col-md-3">
@@ -142,16 +146,45 @@
                         <div class="col-md-3">
                             <input class="form-control" value="@Html.Null(Model.Q)" type="text">
                         </div>
-
-
-                        <label class="col-md-1 control-label">K:</label>
-                        <div class="col-md-3">
-                            <input class="form-control" value="@string.Join(", ", new { @Model.K, Model.KProbabilidade })" type="text">
-                        </div>
-
-                    }
+                    </div>
                 </div>
-            </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                        @foreach (var item in Model.KProbabilidade)
+                        {
+                            <label class="col-md-1 control-label">K @item[0]:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" value="@item[1]" type="text">
+                            </div>
+                        }
+
+                        @if (Model.KProbabilidade.Count > 1)
+                        {
+                            <label class="col-md-1 control-label">Probabilidade Total:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" value="@Model.KProbabilidade.Sum(q => q[1])" type="text">
+                            </div>
+                        }
+
+                    </div>
+                </div>
+
+                <div class="col-md-12">
+                    <div class="form-group">
+                            <label class="col-md-1 control-label">Média:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" value="@Model.Media" type="text">
+                            </div>
+                            <label class="col-md-1 control-label">Desvio Padrão:</label>
+                            <div class="col-md-3">
+                                <input class="form-control" value="@Model.DesvioPadrao" type="text">
+                            </div>
+
+                    </div>
+                </div>
+
+            }
 
         </fieldset>
     </form>
@@ -162,10 +195,9 @@
     <script>
         $(document).ready(function () {
             $("input[name=TipoEntrada]").prop("checked", false);
-            $("input[name=TipoEntrada][value=@Model.TipoEntrada]").prop("checked", true);
-
+            $("input[name=TipoEntrada][value='@Model.TipoEntrada.ToString()']").prop("checked", true);
             $("input[name=InputSemDefeito]").prop("checked", false);
-            $("input[name=InputSemDefeito][value=@Model.InputSemDefeito]").prop("checked", true);
+            $("input[name=InputSemDefeito][value='@Model.InputSemDefeito.ToString()']").prop("checked", true);
         });
     </script>
 }

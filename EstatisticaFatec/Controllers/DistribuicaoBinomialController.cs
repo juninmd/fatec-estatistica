@@ -13,7 +13,7 @@ namespace EstatisticaFatec.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(DistribuicaoBinomialEntity distribuicao)
+        public ActionResult Index(DistribuicaoBinomialEntity distribuicao, FormCollection form)
         {
             return View(new DistribuicaoBinomialApp().Build(distribuicao));
         }

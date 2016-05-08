@@ -85,7 +85,11 @@ namespace EstatisticaFatec.Core
             return (decimal)Math.Round(Math.Sqrt((double)input), 2);
         }
 
-
-
+        public static long Fatorial(decimal n)
+        {
+            if (n <= 1)
+                return 1;
+            return (long) (n * Fatorial(n - 1));
+        }
     }
 }
