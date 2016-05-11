@@ -55,30 +55,29 @@
                 </div>
             }
             <div class="form-group">
-                <label class="col-md-2 control-label" title="Quantidade de Itens">N</label>
+                <label class="col-md-1 control-label" title="Quantidade de Itens">N</label>
 
-                <div class="col-md-3">
+                <div class="col-md-1">
                     <input class="form-control" required placeholder="@Html.Null(Model.N)" value="@Html.Null(Model.N)" name="N" type="text">
                 </div>
 
-                <div class="col-md-4 col-md-offset-2 form-inline">
+                <label class="col-md-3  control-label">Quantidade Elementos Sucesso:</label>
+                <div class="col-md-2">
+                    <input class="form-control" required placeholder="@Html.Null(Model.SucessoInput)" name="SucessoInput" value="@Html.Null(Model.SucessoInput)" type="text">
+                </div>
+
+                <div class="col-md-4 form-inline">
                     <div class="radio">
                         <label>
-                            <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="0">
-                            Menor
+                            <input type="radio" class="radio-inline" name="InputSemDefeito" required="" value="True">
+                            Sucesso
                         </label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="1" />
-                            Exatamente
+                            <input type="radio" class="radio-inline" name="InputSemDefeito" required="" value="False" />
+                            Erro
                         </label>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="2" />
-                                Maior
-                            </label>
-                        </div>
                     </div>
                 </div>
 
@@ -90,31 +89,35 @@
 
                 <div class="form-group">
 
-                    <label class="col-md-2 control-label">X:</label>
+                    <label class="col-md-2 control-label" title="Valor a ser procurado pelo enunciado">X:</label>
                     <div class="col-md-3">
                         <input class="form-control" required placeholder="@Html.Null(Model.KInput)" value="@Html.Null(Model.KInput)" name="KInput" type="text">
                     </div>
 
-
-                    <div class="col-md-4 col-md-offset-2 form-inline">
+                    <div class="col-md-5 form-inline">
                         <div class="radio">
                             <label>
-                                <input type="radio" class="radio-inline" name="InputSemDefeito" required="" value="True">
-                                Sucesso
+                                <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="0">
+                                Menor
                             </label>
                         </div>
                         <div class="radio">
                             <label>
-                                <input type="radio" class="radio-inline" name="InputSemDefeito" required="" value="False"/>
-                                Erro
+                                <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="1" />
+                                Exatamente
                             </label>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="2" />
+                                    Maior
+                                </label>
+                            </div>
                         </div>
                     </div>
 
-                    <label class="col-md-2 control-label">Quantidade Elementos Sucesso:</label>
-                    <div class="col-md-3">
-                        <input class="form-control" required placeholder="@Html.Null(Model.SucessoInput)" name="SucessoInput" value="@Html.Null(Model.SucessoInput)" type="text">
-                    </div>
+                   
+
+                 
 
                 </div>
             </div>

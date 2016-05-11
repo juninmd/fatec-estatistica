@@ -66,7 +66,7 @@ namespace EstatisticaFatec.Core
                 var calculoA = Math.Pow((double)entidade.P, K);
                 var calculoB = Math.Pow((double)entidade.Q, (double)(entidade.N - K));
                 var calculoFinal = (decimal)(calculobase * calculoA * calculoB) * 100;
-                listaCalculosK.Add(new[] { K, Math.Round(calculoFinal, 2) });
+                listaCalculosK.Add(new[] { K, Math.Round(calculoFinal, 11) });
             }
             return listaCalculosK;
         }
