@@ -72,6 +72,7 @@
     <Compile Include="Models\MedidasTendencia\MedidasTendenciaEntity.cs" />
     <Compile Include="Models\RequestMessage.cs" />
     <Compile Include="Models\Sistematica\SistematicaEntity.cs" />
+    <Compile Include="Models\VariavelAleatoria\VariavelAleatoriaEntity.cs" />
     <Compile Include="Models\VariavelContinua\VariavelContinuaContainerEntity.cs" />
     <Compile Include="Models\VariavelContinua\VariavelContinuaEntity.cs" />
     <Compile Include="Models\VariavelContinua\VariavelContinuaIcEntity.cs" />
