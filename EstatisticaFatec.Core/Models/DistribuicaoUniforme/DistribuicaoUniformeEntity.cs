@@ -4,7 +4,7 @@
     {
         public DistribuicaoUniformeEntity()
         {
-            Input = new[] { (decimal)0, (decimal)0 };
+            Input = new decimal?[0];
         }
         public decimal A { get; set; }
         public decimal B { get; set; }
@@ -14,7 +14,7 @@
         /// <summary>
         /// Valores inputados pelo sistema.
         /// </summary>
-        public decimal[] Input { get; set; }
+        public decimal?[] Input { get; set; }
 
         /// <summary>
         /// <para>0 - Menor</para>
@@ -25,12 +25,12 @@
 
         public decimal Media { get; set; }
         public decimal DesvioPadrao { get; set; }
-        public decimal Probabilidade { get; set; }
+        public decimal? Probabilidade { get; set; }
 
         /// <summary>
         /// Valor do Range estabelecido pelos inputs
         /// </summary>
-        public decimal X { get; set; }
+        public decimal? X { get; set; }
 
     }
 }

@@ -55,33 +55,65 @@
                 </div>
             }
             <div class="form-group">
-                <label class="col-md-2 control-label" title="Menor valor">A</label>
-                <div class="col-md-3">
+                <label class="col-md-1 control-label" title="Menor valor">A</label>
+                <div class="col-md-2">
                     <input class="form-control" required placeholder="@Html.Null(Model.A)" value="@Html.Null(Model.A)" name="A" type="text">
                 </div>
 
                 <label class="col-md-2 control-label" title="Maior Valor">B</label>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <input class="form-control" required placeholder="@Html.Null(Model.B)" value="@Html.Null(Model.B)" name="B" type="text">
                 </div>
-            </div>
-
-            <div class="form-group">
 
                 <label class="col-md-2 control-label" title="Valor de Equilibrio">Equilibrio</label>
-                <div class="col-md-3">
+                <div class="col-md-2">
                     <input class="form-control" required placeholder="@Html.Null(Model.Equilibrio)" value="@Html.Null(Model.Equilibrio)" name="Equilibrio" type="text">
                 </div>
             </div>
 
             <div class="form-group">
+                <div class="col-md-10 col-md-offset-2 form-inline">
+                    <label class="col-md-3 control-label">Deseja calcular a probabilidade?</label>
 
-                <label class="col-md-2 control-label">Input</label>
-                <div class="col-md-3">
-                    <input class="form-control" placeholder="@Html.Null(Model.Input[0])" value="@Html.Null(Model.Input[0])" name="Input" type="text">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="-1">
+                                Nenhum
+                            </label>
+                            <label>
+                                <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="0">
+                                Menor
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="1" />
+                                Entre
+                            </label>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="2" />
+                                    Maior
+                                </label>
+                            </div>
+                        </div>
                 </div>
-                <div class="col-md-3">
-                    <input class="form-control" placeholder="@Html.Null(Model.Input[1])" value="@Html.Null(Model.Input[1])" name="Input" type="text">
+
+                <div id="probabilidadeRadio" class="form-group"  @(Model.TipoEntrada == -1 ? "style=display:none" : "")>
+
+                    <div id="divValorA">
+                        <label class="col-md-2 control-label">X:</label>
+                        <div class="col-md-3">
+                            <input id="txtX" class="form-control" @(Model.TipoEntrada == -1 ? "" : "required") placeholder="@Html.Null(Model.Input.Length > 0 ? Model?.Input[0] : null)" name="Input" type="text">
+                        </div>
+                    </div>
+
+                    <div id="divValorB" @(Model.TipoEntrada != 1 ? "style=display:none" : "")>
+                        <label class="col-md-2 control-label">Y:</label>
+                        <div class="col-md-3">
+                            <input id="txtY" class="form-control" @(Model.TipoEntrada == 1 ? "required" : "") placeholder="@Html.Null(Model.Input.Length > 1 ? Model?.Input[1] : null)" name="Input" type="text">
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -112,11 +144,14 @@
                             <input class="form-control" readonly="" value="@Html.Null(Model.DesvioPadrao)" type="text">
                         </div>
 
-
+                        if (Model.TipoEntrada != -1)
+                        {
                             <label class="col-md-2 control-label">Probabilidade:</label>
                             <div class="col-md-1">
                                 <input class="form-control" readonly="" value="@Html.Null(Model.Probabilidade)" type="text">
                             </div>
+                        }
+
 
                     }
                 </div>
@@ -125,7 +160,38 @@
         </fieldset>
     </form>
 </div>
+@section scripts
+{
+    <script>
+        $(document).ready(function () {
+            $("input[name=TipoEntrada]").prop("checked", false);
+            $("input[name=TipoEntrada][value=@Model.TipoEntrada]").prop("checked", true);
+        });
+        $("input[name=TipoEntrada]").change(function () {
+            var valor = $("input[name=TipoEntrada]:checked").val();
 
+            if (valor == -1) {
+                $("#probabilidadeRadio").hide();
+                $("#txtY").val("");
+                $("#txtX").val("");
+                $("#txtX").removeAttr("required");
+                $("#txtY").removeAttr("required");
+            } else {
+                $("#probabilidadeRadio").show();
+                $("#txtX").attr("required", "required").val("");
+            }
+
+            if (valor != 1) {
+                $("#divValorB").hide();
+                $("#txtY").val("");
+                $("#txtY").removeAttr("required");
+            } else {
+                $("#divValorB").show();
+                $("#txtY").attr("required", "required").val("");
+            }
+        });
+    </script>
+}
 <!-- Modal -->
 <div id="modalDistribuicaoBinomial" class="modal fade" role="dialog">
     <div class="modal-dialog">
