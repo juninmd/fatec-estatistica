@@ -238,6 +238,7 @@
     <Content Include="Views\Shared\_DistribuicaoNormal.cshtml" />
     <Content Include="Views\DistribuicaoBinomial\Index.cshtml" />
     <Content Include="Views\DistribuicaoUniforme\Index.cshtml" />
+    <Content Include="Views\Home\Autores.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

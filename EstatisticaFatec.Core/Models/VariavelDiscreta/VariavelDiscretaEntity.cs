@@ -40,11 +40,7 @@
         /// [7] - (XI - MÉDIA)². FI
         /// </summary>
         public XIFIQuadFI XIFIQuadFI { get; set; }
-
-        /// <summary>
-        /// [8] - Probabilidade
-        /// </summary>
-        public decimal Probabilidade { get; set; }
+ 
     }
 
     public class XIFIQuadFI

@@ -60,8 +60,6 @@ namespace EstatisticaFatec.Core.VariavelDiscreta
                 CV = cv
             };
 
-            listaVariavelDiscreta = new VariavelDiscretaProbabilidade().Build(listaVariavelDiscreta, medidasDispersaoApp.DP, media);
-
             return new VariavelDiscretaContainerEntity
             {
                 InputValue = baseInputs.InputValue,

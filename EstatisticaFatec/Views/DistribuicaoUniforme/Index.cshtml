@@ -4,6 +4,13 @@
 @{
     Layout = "~/Views/Shared/_LayoutForm.cshtml";
 }
+@if (Model.Probabilidade == 0)
+{
+    <div class="alert alert-warning alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <strong>Você ainda não preencheu os paramêtros! Por favor, preencha os paramêtros.</strong>
+    </div>
+}
 
 @section opcoes
 {
@@ -13,6 +20,24 @@
         </a>
     </li>
 }
+<div class="well bs-component">
+    <fieldset>
+        <legend>Distribuição Uniforme</legend>
+        <div class="form-group">
+
+
+            <div class="col-xs-12">
+                <blockquote class="small">
+                    A distribuição uniforme é a mais simples distribuição contínua, entretanto uma das mais importantes e utilizadas dentro da teoria de probabilidade. A distribuição uniforme tem uma importante característica a qual a probabilidade de acontecer um fenômeno de mesmo comprimento é a mesma.
+                    <small class="pull-right">
+                        <a target="_newblank" href="http://www.portalaction.com.br/probabilidades/61-distribuicao-uniforme">http://www.portalaction.com.br/probabilidades/61-distribuicao-uniforme</a>
+                    </small>
+                </blockquote>
+            </div>
+        </div>
+    </fieldset>
+
+</div>
 
 <div class="well bs-component">
     <form class="form-horizontal" method="post" action="@Url.Action("Index")">

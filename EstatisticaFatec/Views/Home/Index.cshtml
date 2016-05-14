@@ -8,7 +8,7 @@
             <div class="col-sm-6">
 
                 <div class="card card--big">
-                    <div class="card__image" style="text-align: center; background-color: rgba(0, 0, 0, 0.8);">
+                    <div class="card__image" style="text-align: center; background-color: rgba(45, 83, 84, 0.8);">
                         <i class="material-icons" style="font-size: 225px; color: whitesmoke">swap_vertical_circle</i>
                     </div>
                     <h2 class="card__title">Técnicas de amostragem</h2>
@@ -42,21 +42,21 @@
                     <div class="card__image" style="text-align: center; background-color: rgba(186, 0, 255, 0.9);">
                         <i class="material-icons" style="font-size: 225px; color: whitesmoke">format_list_numbered</i>
                     </div>
-                    <h2 class="card__title">Medidas de Tendência Central</h2>
+                    <h2 class="card__title" style="font-size: 18px">Medidas de Tendência Central</h2>
                     <div class="card__action-bar">
-                        <a href="@Url.Action("Index", "MedidasTendencia")" class="card__button btnMaterial">Medidas de tendência</a>
+                        <a href="@Url.Action("Index", "MedidasTendencia")" class="card__button btnMaterial">Entrar</a>
                     </div>
                 </div>
             </div>
 
             <div class="col-sm-3">
                 <div class="card card--big ">
-                    <div class="card__image" style="text-align: center; background-color: rgba(0, 75, 255, 0.9);;">
-                        <i class="material-icons" style="font-size: 225px; color:whitesmoke ">settings_ethernet</i>
+                    <div class="card__image" style="text-align: center; background-color: rgba(0, 75, 255, 0.9); ;">
+                        <i class="material-icons" style="font-size: 225px; color: whitesmoke">settings_ethernet</i>
                     </div>
                     <h2 class="card__title">Medidas de Dispersão</h2>
                     <div class="card__action-bar">
-                        <a href="@Url.Action("Index", "MedidasDispersao")" class="card__button btnMaterial">Medidas de Dispersão</a>
+                        <a href="@Url.Action("Index", "MedidasDispersao")" class="card__button btnMaterial">Entrar</a>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                     </div>
                     <h2 class="card__title">Distribuição Normal</h2>
                     <div class="card__action-bar">
-                        <a href="@Url.Action("Index", "DistribuicaoNormal")" class="card__button btnMaterial">Distribuição Normal</a>
+                        <a href="@Url.Action("Index", "DistribuicaoNormal")" class="card__button btnMaterial">Entrar</a>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                     </div>
                     <h2 class="card__title">Distribuição Binomial</h2>
                     <div class="card__action-bar">
-                        <a href="@Url.Action("Index", "DistribuicaoBinomial")" class="card__button btnMaterial">Distribuição Binomial</a>
+                        <a href="@Url.Action("Index", "DistribuicaoBinomial")" class="card__button btnMaterial">Entrar</a>
                     </div>
                 </div>
             </div>
@@ -88,11 +88,11 @@
             <div class="col-sm-3">
                 <div class="card card--big ">
                     <div class="card__image" style="text-align: center; background-color: rgba(16, 255, 0, 0.8);">
-                        <i class="material-icons" style="font-size: 225px; color:whitesmoke ">invert_colors</i>
+                        <i class="material-icons" style="font-size: 225px; color: whitesmoke">invert_colors</i>
                     </div>
                     <h2 class="card__title">Distribuição Uniforme</h2>
                     <div class="card__action-bar">
-                        <a href="@Url.Action("Index", "DistribuicaoUniforme")" class="card__button btnMaterial">Distribuição Uniforme</a>
+                        <a href="@Url.Action("Index", "DistribuicaoUniforme")" class="card__button btnMaterial">Entrar</a>
                     </div>
                 </div>
             </div>
@@ -131,4 +131,19 @@
         </div>
 
     </div>
+</div>
+
+<div class="fixed-action-btn" data-toggle="float">
+    <a href="javascript:void(0)" class="btn btn-warning btn-fab">
+        <i class="material-icons">reorder</i>
+        <div class="ripple-container"></div>
+    </a>
+    <ul>
+        <li>
+            <a class="btn-floating" title="Autores" href="@Url.Action("Autores", "Home")">
+                <i class="material-icons">supervisor_account</i>
+            </a>
+        </li>
+
+    </ul>
 </div>

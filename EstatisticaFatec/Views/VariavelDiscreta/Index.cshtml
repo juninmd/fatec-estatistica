@@ -50,7 +50,9 @@
                             Número de cigarros fumados por dia
                         </li>
                     </ul>
-
+                    <small class="pull-right">
+                        <a target="_newblank" href="http://leg.ufpr.br/~silvia/CE055/node11.html">http://leg.ufpr.br/~silvia/CE055/node11.html</a>
+                    </small>
 
                 </blockquote>
             </div>
@@ -84,7 +86,6 @@
                         <th title="Frequência Acumulada porcentual">[F%]</th>
                         <th title="Média | Total: @Model.VariavelDiscretaEntity.Select(x => x.XIFI).Sum()">[XI * FI]</th>
                         <th title="(XI - `X)². FI | Total: @Model.VariavelDiscretaEntity.Select(x => x.XIFIQuadFI.Valor).Sum()"> (XI - <span class="media">X</span>)². FI</th>
-                        <th>Probabilidade</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -98,7 +99,6 @@
                             <td>@item.FPorcent%</td>
                             <td>@item.XIFI</td>
                             <td title="@item.XIFIQuadFI.Formula">@item.XIFIQuadFI.Valor%</td>
-                            <td>@item.Probabilidade</td>
                         </tr>
                     }
                 </tbody>

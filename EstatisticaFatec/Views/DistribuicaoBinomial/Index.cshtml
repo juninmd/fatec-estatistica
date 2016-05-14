@@ -31,7 +31,20 @@
 
             <div class="col-xs-12">
                 <blockquote class="small">
-                    A distribuição normal conhecida também como distribuição gaussiana é sem dúvida a mais importante distribuição contínua. Sua importância se deve a vários fatores, entre eles podemos citar o teorema central do limite, o qual é um resultado fundamental em aplicações práticas e teóricas, pois ele garante que mesmo que os dados não sejam distribuídos segundo uma normal a média dos dados converge para uma distribuição normal conforme o número de dados aumenta.
+                    Em teoria das probabilidades e estatística, a distribuição binomial é a distribuição de probabilidade discreta do número de sucessos numa sequência de n tentativas tais que:
+                    <ul>
+                        <li>   Cada tentativa tem exclusivamente como resultado duas possibilidades, sucesso ou fracasso (binomial, a que se chama de tentativa de Bernoulli), e;</li>
+                        <li>
+                            Cada tentativa é independente das demais, e;
+                        </li>
+                        <li>
+                            A probabilidade de sucesso a cada tentativa p permanece constante independente das demais, e;
+                        </li>
+                        <li> A variável de interesse, ou pretendida, é o número de sucessos k nas ntentativas.    </li>
+
+                    </ul>
+                    <small class="pull-right"><a target="_newblank" href="https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_binomial">https://pt.wikipedia.org/wiki/Distribui%C3%A7%C3%A3o_binomial</a></small>
+
                 </blockquote>
             </div>
         </div>
@@ -57,16 +70,16 @@
             <div class="form-group">
                 <label class="col-md-1 control-label" title="Quantidade de Itens">N</label>
 
-                <div class="col-md-1">
+                <div class="col-md-2">
                     <input class="form-control" required placeholder="@Html.Null(Model.N)" value="@Html.Null(Model.N)" name="N" type="text">
                 </div>
 
-                <label class="col-md-3  control-label">Quantidade Elementos Sucesso:</label>
+                <label class="col-md-1  control-label" title="Quantidade elementos com sucesso"> Sucesso:</label>
                 <div class="col-md-2">
                     <input class="form-control" required placeholder="@Html.Null(Model.SucessoInput)" name="SucessoInput" value="@Html.Null(Model.SucessoInput)" type="text">
                 </div>
-
-                <div class="col-md-4 form-inline">
+                <label class="col-md-offset-1 col-md-2 control-label" title="Você quer os resultados com sucesso?"> Você busca por elementos:</label>
+                <div class="col-md-3 form-inline">
                     <div class="radio">
                         <label>
                             <input type="radio" class="radio-inline" name="InputSemDefeito" required="" value="True">
@@ -80,14 +93,15 @@
                         </label>
                     </div>
                 </div>
-
             </div>
 
-          
+
 
             <div class="col-md-12">
 
                 <div class="form-group">
+
+
 
                     <label class="col-md-2 control-label" title="Valor a ser procurado pelo enunciado">X:</label>
                     <div class="col-md-3">
@@ -115,9 +129,9 @@
                         </div>
                     </div>
 
-                   
 
-                 
+
+
 
                 </div>
             </div>
@@ -175,14 +189,14 @@
 
                 <div class="col-md-12">
                     <div class="form-group">
-                            <label class="col-md-1 control-label">Média:</label>
-                            <div class="col-md-3">
-                                <input class="form-control" value="@Model.Media" type="text">
-                            </div>
-                            <label class="col-md-1 control-label">Desvio Padrão:</label>
-                            <div class="col-md-3">
-                                <input class="form-control" value="@Model.DesvioPadrao" type="text">
-                            </div>
+                        <label class="col-md-1 control-label">Média:</label>
+                        <div class="col-md-3">
+                            <input class="form-control" value="@Model.Media" type="text">
+                        </div>
+                        <label class="col-md-1 control-label">Desvio Padrão:</label>
+                        <div class="col-md-3">
+                            <input class="form-control" value="@Model.DesvioPadrao" type="text">
+                        </div>
 
                     </div>
                 </div>

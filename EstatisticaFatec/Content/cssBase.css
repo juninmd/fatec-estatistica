@@ -126,7 +126,7 @@ body {
     }
 
 .card__title {
-    text-shadow: -1px 0px black, 0px 1px black, 1px 0px black, 0px -1px black;
+   text-shadow: -1px 0px rgba(0, 0, 0, 0.2), 0px 1px rgba(255, 0, 0, 0.05), 1px 0px rgba(0, 0, 0, 0.23), 0px -1px black;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -204,6 +204,7 @@ body {
 }
 
 .card__action-bar {
+    text-align: center; 
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -399,4 +400,27 @@ pre {
     width: 100%;
     height: 500px;
     font-size: 11px;
+}
+
+.card__autor {
+    color: #FF1744;
+    text-shadow: -1px 0px black, 0px 1px black, 1px 0px black, 0px -1px black;
+    font-size: 24px;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 0 16px;
+    top: 0%; 
+}
+.card__nome {
+    color: #FF1744;
+    text-shadow: -1px 0px black, 0px 1px black, 1px 0px black, 0px -1px black;
+    font-size: 24px;
+    margin: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 0 16px;
+    top: 0%; 
 }
