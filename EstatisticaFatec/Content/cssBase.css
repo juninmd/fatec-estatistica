@@ -126,7 +126,7 @@ body {
     }
 
 .card__title {
-   text-shadow: -1px 0px rgba(0, 0, 0, 0.2), 0px 1px rgba(255, 0, 0, 0.05), 1px 0px rgba(0, 0, 0, 0.23), 0px -1px black;
+    text-shadow: -1px 0px rgba(0, 0, 0, 0.2), 0px 1px rgba(255, 0, 0, 0.05), 1px 0px rgba(0, 0, 0, 0.23), 0px -1px black;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -204,7 +204,7 @@ body {
 }
 
 .card__action-bar {
-    text-align: center; 
+    text-align: center;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -411,8 +411,9 @@ pre {
     left: 0;
     right: 0;
     padding: 0 16px;
-    top: 0%; 
+    top: 0%;
 }
+
 .card__nome {
     color: #FF1744;
     text-shadow: -1px 0px black, 0px 1px black, 1px 0px black, 0px -1px black;
@@ -422,5 +423,27 @@ pre {
     left: 0;
     right: 0;
     padding: 0 16px;
-    top: 0%; 
+    top: 0%;
+}
+
+.expoente {
+    font-size: 70%;
+    top: -5px;
+    position: relative;
+}
+
+.fraction-inline {
+      display: inline-block;
+    vertical-align: middle; 
+    margin: 0 0.2em 0.4ex;
+    text-align: center;
+}
+.fraction {
+    display: block;
+    font-size: 70%;
+    padding: 0px;
+    margin: 0px;
+}
+.divider {
+  border-top: thin solid rgb(219, 37, 145);
 }

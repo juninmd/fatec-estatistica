@@ -56,9 +56,9 @@ namespace EstatisticaFatec.Core
             return entidade;
         }
 
-        public List<decimal[]> CalculoK(DistribuicaoBinomialEntity entidade)
+        public List<Tuple<int, decimal, DistribuicaoBinomialCalculoEntity>> CalculoK(DistribuicaoBinomialEntity entidade)
         {
-            var listaCalculosK = new List<decimal[]>();
+            var listaCalculosK = new List<Tuple<int, decimal, DistribuicaoBinomialCalculoEntity>>();
             foreach (var K in entidade.K)
             {
                 /* N[fatorial] - K[fatorial] * (N - K [Fatorial]) */
@@ -66,7 +66,18 @@ namespace EstatisticaFatec.Core
                 var calculoA = Math.Pow((double)entidade.P, K);
                 var calculoB = Math.Pow((double)entidade.Q, (double)(entidade.N - K));
                 var calculoFinal = (decimal)(calculobase * calculoA * calculoB) * 100;
-                listaCalculosK.Add(new[] { K, Math.Round(calculoFinal, 11) });
+
+                var calculo = new DistribuicaoBinomialCalculoEntity()
+                {
+                    A = $"{entidade.N}",
+                    B = $"{K}",
+                    C = $"{entidade.N - K}",
+
+                    D = $"{(double)entidade.P}",
+                    E = $"{(double)entidade.Q}",
+                };
+
+                listaCalculosK.Add(new Tuple<int, decimal, DistribuicaoBinomialCalculoEntity>((int)K, Math.Round(calculoFinal, 2), calculo));
             }
             return listaCalculosK;
         }

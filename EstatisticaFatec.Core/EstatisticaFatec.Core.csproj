@@ -55,6 +55,7 @@
     <Compile Include="MedidasDispersaoApp.cs" />
     <Compile Include="MedidasTendenciaApp.cs" />
     <Compile Include="Models\AleatoriaSimples\AleatoriaSimplesEntity.cs" />
+    <Compile Include="Models\DistribuicaoBinomial\DistribuicaoBinomialCalculoEntity.cs" />
     <Compile Include="Models\DistribuicaoBinomial\DistribuicaoBinomialEntity.cs" />
     <Compile Include="Models\DistribuicaoNormal\DistribuicaoNormalZEntity.cs" />
     <Compile Include="Models\DistribuicaoNormal\DistribuicaoNormalEntity.cs" />

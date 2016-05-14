@@ -7,7 +7,7 @@ namespace EstatisticaFatec.Core.Models.DistribuicaoBinomial
     {
         public DistribuicaoBinomialEntity()
         {
-            KProbabilidade = new List<decimal[]>();
+            KProbabilidade = new List<Tuple<int, decimal, DistribuicaoBinomialCalculoEntity>>();
         }
 
 
@@ -56,7 +56,7 @@ namespace EstatisticaFatec.Core.Models.DistribuicaoBinomial
         /// </summary>
         public List<int> K { get; set; }
 
-        public List<decimal[]> KProbabilidade { get; set; }
+        public List<Tuple<int,decimal, DistribuicaoBinomialCalculoEntity>> KProbabilidade { get; set; }
 
         public decimal Media { get; set; }
         public double DesvioPadrao { get; set; }

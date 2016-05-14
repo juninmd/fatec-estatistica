@@ -156,12 +156,12 @@
 
                         <label class="col-md-1 control-label">P:</label>
                         <div class="col-md-3">
-                            <input class="form-control" value="@Html.Null(Model.P)" type="text">
+                            <input class="form-control" readonly="" value="@Html.Null(Model.P)" type="text">
                         </div>
 
                         <label class="col-md-1 control-label">Q:</label>
                         <div class="col-md-3">
-                            <input class="form-control" value="@Html.Null(Model.Q)" type="text">
+                            <input class="form-control" readonly="" value="@Html.Null(Model.Q)" type="text">
                         </div>
                     </div>
                 </div>
@@ -170,9 +170,28 @@
                     <div class="form-group">
                         @foreach (var item in Model.KProbabilidade)
                         {
-                            <label class="col-md-1 control-label">K @item[0]:</label>
+                            <label class="col-md-1 control-label">K @item.Item1:</label>
                             <div class="col-md-3">
-                                <input class="form-control" value="@item[1]" type="text">
+                                <input class="form-control" readonly="" value="@item.Item2" type="text">
+                                <code title="Fórmula">
+                                    (<span class="fraction-inline">
+                                        <span class="fraction">
+                                            @item.Item3.A!
+                                        </span>
+                                        <span class="fraction divider">
+                                            @item.Item3.B! @item.Item3.C!
+                                        </span>
+                                    </span>)
+                                    *
+
+
+                                    <span>
+                                        @item.Item3.D <small class="expoente">@item.Item3.B</small> *
+                                    </span>
+                                    <span>
+                                        @item.Item3.E <small class="expoente">@item.Item3.A - @item.Item3.B = @item.Item3.C</small>
+                                    </span>
+                                </code>
                             </div>
                         }
 
@@ -180,7 +199,7 @@
                         {
                             <label class="col-md-1 control-label">Probabilidade Total:</label>
                             <div class="col-md-3">
-                                <input class="form-control" value="@Model.KProbabilidade.Sum(q => q[1])" type="text">
+                                <input class="form-control" readonly="" value="@Model.KProbabilidade.Sum(q => q.Item2)" type="text">
                             </div>
                         }
 
@@ -191,11 +210,11 @@
                     <div class="form-group">
                         <label class="col-md-1 control-label">Média:</label>
                         <div class="col-md-3">
-                            <input class="form-control" value="@Model.Media" type="text">
+                            <input class="form-control" readonly="" value="@Model.Media" type="text">
                         </div>
                         <label class="col-md-1 control-label">Desvio Padrão:</label>
                         <div class="col-md-3">
-                            <input class="form-control" value="@Model.DesvioPadrao" type="text">
+                            <input class="form-control" readonly="" value="@Model.DesvioPadrao" type="text">
                         </div>
 
                     </div>
