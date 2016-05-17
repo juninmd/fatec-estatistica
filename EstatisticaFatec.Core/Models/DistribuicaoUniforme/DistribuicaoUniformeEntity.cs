@@ -18,13 +18,15 @@
 
         /// <summary>
         /// <para>0 - Menor</para>
-        /// <para>1 - Exatamente</para>
+        /// <para>1 - Entre</para>
         /// <para>2 - Maior</para>
+        /// <para>3 - Exatamente</para>
         /// </summary>
         public short TipoEntrada { get; set; }
 
         public decimal Media { get; set; }
         public decimal DesvioPadrao { get; set; }
+        public decimal Variancia { get; set; }
         public decimal? Probabilidade { get; set; }
 
         /// <summary>

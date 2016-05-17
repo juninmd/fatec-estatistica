@@ -75,31 +75,31 @@
                 <div class="col-md-10 col-md-offset-2 form-inline">
                     <label class="col-md-3 control-label">Deseja calcular a probabilidade?</label>
 
-                        <div class="radio">
-                            <label>
-                                <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="-1">
-                                Nenhum
-                            </label>
-                            <label>
-                                <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="0">
-                                Menor
-                            </label>
-                        </div>
-                        <div class="radio">
-                            <label>
-                                <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="1" />
-                                Entre
-                            </label>
-                            <div class="radio">
-                                <label>
-                                    <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="2" />
-                                    Maior
-                                </label>
-                            </div>
-                        </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="-1">
+                            Nenhum
+                        </label>
+                        <label>
+                            <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="0">
+                            Menor
+                        </label>
+                        <label>
+                            <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="1" />
+                            Entre
+                        </label>
+                        <label>
+                            <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="2" />
+                            Maior
+                        </label>
+                        <label>
+                            <input type="radio" class="radio-inline" name="TipoEntrada" required="" value="3" />
+                            Exatamente
+                        </label>
+                    </div>
                 </div>
 
-                <div id="probabilidadeRadio" class="form-group"  @(Model.TipoEntrada == -1 ? "style=display:none" : "")>
+                <div id="probabilidadeRadio" class="form-group" @(Model.TipoEntrada == -1 ? "style=display:none" : "")>
 
                     <div id="divValorA">
                         <label class="col-md-2 control-label">X:</label>
@@ -142,6 +142,11 @@
                         <label class="col-md-2 control-label">Desvio Padrão:</label>
                         <div class="col-md-1">
                             <input class="form-control" readonly="" value="@Html.Null(Model.DesvioPadrao)" type="text">
+                        </div>
+
+                        <label class="col-md-2 control-label">Variância:</label>
+                        <div class="col-md-1">
+                            <input class="form-control" readonly="" value="@Html.Null(Model.Variancia)" type="text">
                         </div>
 
                         if (Model.TipoEntrada != -1)
