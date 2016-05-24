@@ -8,7 +8,7 @@
         }
         public decimal A { get; set; }
         public decimal B { get; set; }
-        public decimal Equilibrio { get; set; }
+        public decimal? Equilibrio { get; set; }
 
 
         /// <summary>
