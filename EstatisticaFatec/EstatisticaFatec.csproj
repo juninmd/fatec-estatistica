@@ -239,12 +239,15 @@
     <Content Include="Views\DistribuicaoBinomial\Index.cshtml" />
     <Content Include="Views\DistribuicaoUniforme\Index.cshtml" />
     <Content Include="Views\Home\Autores.cshtml" />
+    <None Include="Properties\PublishProfiles\file.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>

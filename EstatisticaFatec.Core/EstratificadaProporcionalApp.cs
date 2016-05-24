@@ -12,8 +12,8 @@ namespace EstatisticaFatec.Core
         {
             return new RequestMessage
             {
-                IsError = estratos.Sum(q => q) > amostra,
-                Message = "A soma da quantidade de estratos não deve ultrapassar a de amostra"
+                IsError = estratos.Sum(q => q) > populacao,
+                Message = "A soma da quantidade de estratos não deve ultrapassar a de população"
             };
         }
 

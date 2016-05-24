@@ -142,7 +142,7 @@
                         text: 'Descrição dos dados'
                     },
                     xAxis: {
-                        categories: ['@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(p=> p.XI).ToList())'],
+                        categories: [@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(p=> p.XI).ToList())],
                         title: {
                             text: "Classes"
                         }
@@ -184,23 +184,23 @@
                     series: [
                         {
                             name: 'FI',
-                            data: ['@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(q=> q.FI).ToList())']
+                            data: [@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(q=> q.FI).ToList())]
                         },
                          {
                              name: 'FE%',
-                             data: ['@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(q=> q.FEPorcent).ToList())']
+                             data: [@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(q=> q.FEPorcent).ToList())]
                          },
                           {
                               name: 'F',
-                              data: ['@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(q=> q.F).ToList())']
+                              data: [@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(q=> q.F).ToList())]
                           },
                            {
                                name: 'F%',
-                               data: ['@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(q=> q.FPorcent).ToList())']
+                               data: [@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(q=> q.FPorcent).ToList())]
                            },
                             {
                                 name: 'XI*FI%',
-                                data: ['@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(q=> q.XIFIQuadFI.Valor).ToList())']
+                                data: [@Html.FormatacaoObjeto(Model.VariavelDiscretaEntity.Select(q=> q.XIFIQuadFI.Valor).ToList())]
                             },
                     ]
                 });
